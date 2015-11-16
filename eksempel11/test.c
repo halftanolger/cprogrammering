@@ -1,3 +1,12 @@
+/*
+    C -programmering, en innføring. 
+
+    Eksempel 11
+
+    Hensikten med eksempelet er å vise hvordan man kan bygge opp et dataprogram
+    ved å dele det opp i flere funksjoner.
+
+*/
 
 #include <stdio.h>
 
@@ -12,5 +21,4 @@ int main() {
     return 0;
 
 }
-
 
