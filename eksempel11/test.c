@@ -1,10 +1,10 @@
-/*
-    C -programmering, en innføring. 
+ï»¿/*
+    C -programmering, en innfÃ¸ring. 
 
     Eksempel 11
 
-    Hensikten med eksempelet er å vise hvordan man kan bygge opp et dataprogram
-    ved å dele det opp i flere funksjoner.
+    Hensikten med eksempelet er Ã¥ vise hvordan man kan bygge opp et dataprogram
+    ved Ã¥ dele det opp i flere funksjoner.
 
 */
 

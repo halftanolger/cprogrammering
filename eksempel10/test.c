@@ -1,9 +1,9 @@
-/*
-    C -programmering, en innføring. 
+ï»¿/*
+    C -programmering, en innfÃ¸ring. 
 
     Eksempel 10
 
-    Hensikten med eksempelet er å vise hvordan man kan benytte en for-løkke.
+    Hensikten med eksempelet er Ã¥ vise hvordan man kan benytte en for-lÃ¸kke.
 
 */
 
