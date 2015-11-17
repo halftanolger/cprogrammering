@@ -1,5 +1,5 @@
 ﻿/*
-    C -programmering, en innføring. 
+    C -programmering, en introduksjon. 
 
     Eksempel 24
 
