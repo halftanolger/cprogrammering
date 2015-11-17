@@ -1,10 +1,10 @@
-/*
-    C -programmering, en innføring. 
+ï»¿/*
+    C -programmering, en innfÃ¸ring. 
 
     Eksempel 18
 
-    Hensikten med eksempelet er å vise forskjellen mellom å deklarere en 
-    funksjon og definere en funksjon.
+    Hensikten med eksempelet er Ã¥ vise forskjellen mellom Ã¥ deklarere en 
+    funksjon og det Ã¥ definere en funksjon.
 
 */
 
@@ -14,7 +14,7 @@ int funk(int a, int b);
 
 int main() {
     int a = funk(2,3);
-    printf(“%a”,d);
+    printf("%d",a);
     return 0;
 }
 
