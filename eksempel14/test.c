@@ -1,9 +1,9 @@
-/*
-    C -programmering, en innføring. 
+ï»¿/*
+    C -programmering, en innfÃ¸ring. 
 
     Eksempel 14
 
-    Hensikten med eksempelet er å vise hvor en variabel er synlig.
+    Hensikten med eksempelet er Ã¥ vise hvor en variabel er synlig.
 
 */
 

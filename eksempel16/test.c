@@ -1,9 +1,9 @@
-/*
-    C -programmering, en innføring. 
+ï»¿/*
+    C -programmering, en innfÃ¸ring. 
 
     Eksempel 16
 
-    Hensikten med eksempelet er å vise hvor en variabel er synlig.
+    Hensikten med eksempelet er Ã¥ vise hvor en variabel er synlig.
 
 */
 
@@ -12,8 +12,8 @@
 int main() {
     int a = 2;
     {
-            int a = 3;
-            printf("%d",a);
+        int a = 3;
+        printf("%d",a);
     }
     printf ("%d",a);
     return 0;
