@@ -1,9 +1,9 @@
-/*
-    C -programmering, en innføring. 
+ï»¿/*
+    C -programmering, en innfÃ¸ring. 
 
     Eksempel 17
 
-    Hensikten med eksempelet er å vise hvor en global variabel er synlig.
+    Hensikten med eksempelet er Ã¥ vise hvor en global variabel er synlig.
 
 */
 
