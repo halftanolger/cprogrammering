@@ -1,9 +1,9 @@
-/*
-    C -programmering, en innføring. 
+ï»¿/*
+    C -programmering, en innfÃ¸ring. 
 
     Eksempel 3
 
-    Hensikten med eksempelet er å vise hvordan man kan returnere
+    Hensikten med eksempelet er Ã¥ vise hvordan man kan returnere
     en verdi fra et C -program.
 
 */

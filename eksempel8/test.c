@@ -1,9 +1,9 @@
-/*
-    C -programmering, en innføring. 
+ï»¿/*
+    C -programmering, en innfÃ¸ring. 
 
     Eksempel 8
 
-    Hensikten med eksempelet er å vise hvordan man kan benytte
+    Hensikten med eksempelet er Ã¥ vise hvordan man kan benytte
     input-argumenter til et C -program.
 
 */

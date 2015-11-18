@@ -1,9 +1,9 @@
-/*
-    C -programmering, en innføring. 
+ï»¿/*
+    C -programmering, en innfÃ¸ring. 
 
     Eksempel 1
 
-    Hensikten med eksempelet er å vise det obligatoriske
+    Hensikten med eksempelet er Ã¥ vise det obligatoriske
     'Hello world' -eksempelet.
 
 */

@@ -1,2 +1,2 @@
 # cprogrammering
-C programmering - en innføring
+C programmering - en innføring.

@@ -1,10 +1,10 @@
-/*
-    C -programmering, en innføring. 
+ï»¿/*
+    C -programmering, en innfÃ¸ring. 
 
     Eksempel 7
 
-    Hensikten med eksempelet er å vise hvordan man kan benytte
-    printf -funksjonen til å skrive ut tekst og variabler til skjerm.
+    Hensikten med eksempelet er Ã¥ vise hvordan man kan benytte
+    printf -funksjonen til Ã¥ skrive ut tekst og variabler til skjerm.
 
 */
 

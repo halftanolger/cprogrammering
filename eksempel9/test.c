@@ -1,9 +1,9 @@
-/*
-    C -programmering, en innføring. 
+ï»¿/*
+    C -programmering, en innfÃ¸ring. 
 
     Eksempel 9
 
-    Hensikten med eksempelet er å vise hvordan man kan benytte en while-løkke.
+    Hensikten med eksempelet er Ã¥ vise hvordan man kan benytte en while-lÃ¸kke.
 
 */
 #include <stdio.h>
