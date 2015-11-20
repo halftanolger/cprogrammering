@@ -1,0 +1,12 @@
+﻿
+#-----------------------------------------------------------------------------#
+#                                                                             #
+# C -programmering, en introduksjon.                                          #
+#                                                                             #
+# Eksempel 25                                                                 #
+#                                                                             #
+#-----------------------------------------------------------------------------#
+
+For å kompilere koden ved hjelp av gcc, kan du skrive 
+
+gcc -I. spaceinvader.c main.c
