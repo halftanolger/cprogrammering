@@ -9,17 +9,16 @@
 */
 
 #include <stdio.h>
-#include <spill.h>
+#include <spaceinvader.h>
 
 int main() {
 
-    Spill *spill = Spill_opprett();
+    Spaceinvader *spaceinvader = Spaceinvader_opprett();
 
-    Spill_start(spill);
-    Spill_pause(spill);
-    Spill_stop(spill);
-
-    Spill_slett(&spill);
+    Spaceinvader_spill(spaceinvader);
+	    
+    Spaceinvader_slett(&spaceinvader);
+	
     return 0;
 
 }

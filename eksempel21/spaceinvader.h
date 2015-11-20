@@ -5,14 +5,13 @@
 
 */
 
-typedef struct spill_st {
+typedef struct spaceinvader_st {
     int poeng;
+	int resultatliste[10];
     int status;
-} Spill;
+} Spaceinvader;
 
-Spill * Spill_opprett();
-int Spill_start( Spill * );
-int Spill_pause( Spill * );
-int Spill_stop( Spill * );
-int Spill_slett( Spill ** );
+Spaceinvader * Spaceinvader_opprett();
+int Spaceinvader_spill( Spaceinvader * );
+int Spaceinvader_slett( Spaceinvader ** );
 
