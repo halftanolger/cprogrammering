@@ -7,8 +7,7 @@
 
 #define SDL_MAIN_HANDLED
 
-#include <stdio.h>
-#include <spaceinvader.h>
+#include "spaceinvader.h"
 
 int main(int argc, char *argv[]) {
 

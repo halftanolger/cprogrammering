@@ -1,12 +1,12 @@
 ﻿/*
     C -programmering, en innføring. 
 
-    Eksempel 26
+    Eksempel 27
 
 */
 
 #include <stdio.h>
-#include <skjerm.h>
+#include "skjerm.h"
 
 Skjerm * Skjerm_opprett(void * spaceinvader) {
 
