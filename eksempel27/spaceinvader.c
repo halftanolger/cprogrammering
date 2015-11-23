@@ -24,6 +24,9 @@ Spaceinvader * Spaceinvader_opprett() {
 	
 	s->modell = Modell_opprett(s);
 			
+			
+			kontrollsentral må oprettestasdfalsdfsødlfk
+			
 	/* Initier SDL */
 	
 	if (SDL_Init(SDL_INIT_VIDEO) != 0){
@@ -50,7 +53,9 @@ int Spaceinvader_spill(Spaceinvader * spaceinvader) {
 		return 1;
 	}
 
-	while ( spaceinvader->status != STATUS_STOPP) {
+	Kontrollsentral *k = spaceinvader->kontrollsentral;
+	
+	while (Kontrollsentral_er_vi_ferdig(k) != 1) {
 	
 		SDL_Event e;
 		
@@ -59,15 +64,15 @@ int Spaceinvader_spill(Spaceinvader * spaceinvader) {
 		while (SDL_PollEvent(&e)){
 		
 			if (e.type == SDL_QUIT){
-				spaceinvader->status = STATUS_STOPP;
+				Kontrollsentral_avslutt(k);				
 			}
 					
 			if (e.type == SDL_KEYDOWN){
-				spaceinvader->status = STATUS_STOPP;
+				Kontrollsentral_avslutt(k);				
 			}	
 					
 			if (e.type == SDL_MOUSEBUTTONDOWN){
-				spaceinvader->status = STATUS_STOPP;
+				Kontrollsentral_avslutt(k);				
 			}
 			
 		}		

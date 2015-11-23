@@ -17,11 +17,13 @@ typedef struct kontrollsentral_st {
 Kontrollsentral * Kontrollsentral_opprett(void *);
 
 /*
- * Medtodenavn: ferdig
+ * Medtodenavn: er_vi_ferdig
  * Hensikt    : Skal gi svaret på spørsmålet: "Er spillet ferdig?"
  * Returnerer : 1 hvis spillet er ferdig, ellers 0.
  */
-int Kontrollsentral_ferdig (Kontrollsentral *);
+int Kontrollsentral_er_vi_ferdig (Kontrollsentral *);
+
+void Kontrollsentral_avslutt (Kontrollsentral *);
 
 int Kontrollsentral_slett (Kontrollsentral ** );
 

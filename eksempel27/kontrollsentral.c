@@ -33,7 +33,7 @@ int Kontrollsentral_slett (Kontrollsentral ** Kontrollsentral) {
 	
 }
 
-int Kontrollsentral_ferdig (Kontrollsentral * kontrollsentral) {
+int Kontrollsentral_er_vi_ferdig (Kontrollsentral * kontrollsentral) {
 
 	Spaceinvader *s = (Spaceinvader*)kontrollsentral->spaceinvader;
 
@@ -46,3 +46,18 @@ int Kontrollsentral_ferdig (Kontrollsentral * kontrollsentral) {
 	}
 	
 }
+
+void Kontrollsentral_avslutt (Kontrollsentral * kontrollsentral) {
+
+	Spaceinvader *s = (Spaceinvader*)kontrollsentral->spaceinvader;
+
+	Modell *m = s->modell;
+	
+	m->status = STATUS_STOPP;
+
+}
+
+
+
+
+
