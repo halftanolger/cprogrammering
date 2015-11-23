@@ -1,0 +1,12 @@
+﻿
+#-----------------------------------------------------------------------------#
+#                                                                             #
+# C -programmering, en introduksjon.                                          #
+#                                                                             #
+# Eksempel 26                                                                 #
+#                                                                             #
+#-----------------------------------------------------------------------------#
+
+For å kompilere koden ved hjelp av gcc, kan du skrive 
+
+gcc  -lmingw32 -mwindows -mconsole  -L../sdl/mingw/SDL2-2.0.3/x86_64-w64-mingw32/lib -lSDL2main -lSDL2  -I. -I../sdl/mingw/SDL2-2.0.3/x86_64-w64-mingw32/include  spaceinvader.c main.c 
