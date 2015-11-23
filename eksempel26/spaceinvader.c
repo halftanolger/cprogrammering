@@ -39,23 +39,13 @@ Spaceinvader * Spaceinvader_opprett() {
 		return NULL;		
 	}
 	
-	SDL_Window *win = SDL_CreateWindow("Hello World!", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+	s->skjerm = Skjerm_opprett();
 	
-	if ( win == NULL){
-		printf ("SDL_CreateWindow Error: %s", SDL_GetError());
-		return NULL;		
-	}	
-	
-	SDL_Renderer *ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-	
-	if (ren == NULL){
-		printf ("SDL_CreateRenderer Error: %s", SDL_GetError());
-		return NULL;		
-	}	
-
-	
-	
-	
+	if (s->skjerm == NULL) {
+		printf ("Skjerm_opprett Error: Systemfeil.");
+		return NULL;
+	}
+		
 	printf("Spaceinvader_opprett - slutt\n");
 	
 	return s;
