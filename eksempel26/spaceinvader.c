@@ -9,29 +9,20 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <spaceinvader.h>
-
 #include <SDL2/SDL.h>
-
 
 Spaceinvader * Spaceinvader_opprett() { 
 	
-	printf("Spaceinvader_opprett - start\n");
-
+	/* Opprett Spaceinvader-objekt. */
+	
 	Spaceinvader *s = (Spaceinvader*)malloc(sizeof(Spaceinvader));
 	
 	if (s == NULL) {
 		return NULL;
 	}
-
-	s->poeng = 0;
-	
-	s->resultatliste[0] = 0;
-	s->resultatliste[1] = 0;
-	s->resultatliste[2] = 0;
 	
 	s->status = STATUS_PAUSE;
-	
-	
+		
 	/* Initier SDL */
 	
 	if (SDL_Init(SDL_INIT_VIDEO) != 0){
@@ -39,70 +30,68 @@ Spaceinvader * Spaceinvader_opprett() {
 		return NULL;		
 	}
 	
-	s->skjerm = Skjerm_opprett();
+	/* Opprett skjerm-objekt. */
+	
+	s->skjerm = Skjerm_opprett(s);
 	
 	if (s->skjerm == NULL) {
 		printf ("Skjerm_opprett Error: Systemfeil.");
 		return NULL;
 	}
-		
-	printf("Spaceinvader_opprett - slutt\n");
-	
+			
 	return s;
 		
 }
 
-int Spaceinvader_spill( Spaceinvader * spaceinvader) { 
+int Spaceinvader_spill(Spaceinvader * spaceinvader) { 
+
+	if (spaceinvader == NULL) {
+		return 1;
+	}
 
 	while ( spaceinvader->status != STATUS_STOPP) {
 	
 		SDL_Event e;
 		
+		/* Sjekk input*/
+		
 		while (SDL_PollEvent(&e)){
-		//If user closes the window
+		
 			if (e.type == SDL_QUIT){
 				spaceinvader->status = STATUS_STOPP;
 			}
-			
-		//If user presses any key
+					
 			if (e.type == SDL_KEYDOWN){
 				spaceinvader->status = STATUS_STOPP;
 			}	
-			
-			//If user clicks the mouse
+					
 			if (e.type == SDL_MOUSEBUTTONDOWN){
 				spaceinvader->status = STATUS_STOPP;
 			}
+			
 		}		
+		
+		/* Oppdater status */
+		
+		/* Rendrer */
 		
 	}
 
-
-	/*initier();
-	
-	while ( status != STATUS_STOPP) {
-		sjekk_input();
-		oppdater_spillstatus();
-		render();
-	}
-	
-	rydd_opp();
-	*/
-	
 	return 0; 
 	
 }
 
 int Spaceinvader_slett( Spaceinvader ** spaceinvader) { 
-
-	printf("Spaceinvader_slett - start\n");
-
+	
+	if (*spaceinvader == NULL) {
+		return 1;
+	}
+	
+	Skjerm_slett(&((*spaceinvader)->skjerm));
+	
 	SDL_Quit();
 	
-	assert(*spaceinvader != 0);
 	free(*spaceinvader);
-	
-	printf("Spaceinvader_slett - slutt\n");
 
 	return 0; 
 	

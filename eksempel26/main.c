@@ -5,18 +5,14 @@
 
 */
 
-//#define SDL_MAIN_HANDLED
+#define SDL_MAIN_HANDLED
 
 #include <stdio.h>
 #include <spaceinvader.h>
 
-int main() {
+int main(int argc, char *argv[]) {
 
     Spaceinvader *spaceinvader = Spaceinvader_opprett();
-
-	if (spaceinvader == NULL) {
-		return 1;
-	}
 		
     Spaceinvader_spill(spaceinvader);
 	    
