@@ -13,6 +13,9 @@ typedef struct spaceinvader_st {
     int poeng;
 	int resultatliste[3];	
     int status;
+	Modell * modell;
+	Skjerm * skjerm;
+	Kontrollsentral * kontrollsentral;	
 } Spaceinvader;
 
 Spaceinvader * Spaceinvader_opprett();
