@@ -5,9 +5,9 @@
 
 */
 
-#define STATUS_SPILL = 1;
-#define STATUS_PAUSE = 2;
-#define STATUS_STOPP = 3;
+#define STATUS_SPILL 1
+#define STATUS_PAUSE 2
+#define STATUS_STOPP 3
 
 typedef struct spaceinvader_st {
     int poeng;

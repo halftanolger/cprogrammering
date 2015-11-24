@@ -16,13 +16,28 @@ typedef struct kontrollsentral_st {
 
 Kontrollsentral * Kontrollsentral_opprett(void *);
 
-/*
- * Medtodenavn: er_vi_ferdig
- * Hensikt    : Skal gi svaret på spørsmålet: "Er spillet ferdig?"
- * Returnerer : 1 hvis spillet er ferdig, ellers 0.
+/**
+ * Kontrollsentral_er_vi_ferdig
+ *
+ * Skal gi svaret på spørsmålet: "Er spillet ferdig?"
+ *
+ * Parameter Kontrollsentral* peker til kontrollobjekt.
+ *
+ * Returnerer 1 hvis spillet er ferdig.
+ * Returnerer 0 hvis spillet ikke er ferdig.
+ *
  */
 int Kontrollsentral_er_vi_ferdig (Kontrollsentral *);
-
+ 
+/**
+ * Kontrollsentral_avslutt
+ *
+ * Hensikten med metoden er å avslutte spillet, det vil si gå ut av 
+ * spill-løkka (the game loop).
+ *
+ * Parameter Kontrollsentral* peker til kontrollobjekt.
+ *
+ */ 
 void Kontrollsentral_avslutt (Kontrollsentral *);
 
 int Kontrollsentral_slett (Kontrollsentral ** );

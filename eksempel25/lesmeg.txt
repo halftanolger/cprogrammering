@@ -5,6 +5,10 @@
 #                                                                             #
 # Eksempel 25                                                                 #
 #                                                                             #
+# Eksempelet viser psaudokode som implementerer en game-loop i spill-metoden. #
+# (Game-loop er et designmønster, dvs en fremgangsmåte som går igjen på       #
+#  flere spill.)                                                              #
+#                                                                             #
 #-----------------------------------------------------------------------------#
 
 For å kompilere koden ved hjelp av gcc, kan du skrive 

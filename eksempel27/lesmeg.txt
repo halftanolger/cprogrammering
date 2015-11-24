@@ -7,6 +7,38 @@
 #                                                                             #
 #-----------------------------------------------------------------------------#
 
+ Eksempelet viser hvordan kontrollsentralen oppdaterer modellen, samt 
+ hvordan kontrollsentralen senere bruke data fra modellen for å 
+ "svare på et spørsmål". (Ref. MVC-design pattern.)
+ 
+ 
+ +-------------------+                                    +-------------------+
+ |                   |                                    |                   |
+ |  Kontrollsentral  |                                    |       Modell      |
+ |                   |                                    |                   |
+ +---------+---------+                                    +---------+---------+
+           |                                                        |
+           |                                                        |
+           | er_vi_ferdig?                                          |
+           +------------------------------------------------------->|
+           |                                                        |
+           |                                                        |
+           | ferdig!                                                |
+           +------------------------------------------------------->|
+           |                                                        |
+           |                                                        |
+           | er_vi_ferdig?                                          |
+           +------------------------------------------------------->|
+           |                                                        |
+           |                                                        |
+           |                                                        |
+           |                                                        |
+ 
+ 
+ 
+ 
+ 
+
 For å kompilere koden ved hjelp av gcc, kan du skrive 
 
 gcc -Wall -c -I. -I/usr/include modell.c -o modell.o
@@ -15,4 +47,22 @@ gcc -Wall -c -I. -I/usr/include kontrollsentral.c -o kontrollsentral.o
 gcc -Wall -c -I. -I/usr/include spaceinvader.c -o spaceinvader.o
 gcc -Wall -c -I. -I/usr/include main.c -o main.o
 gcc modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -o test.exe
+
+
+SDL2
+--------------------------------------------------------------------------------
+Dette fordrer at du har SDL2 installert på datamaskinen din. Om du bruker
+MinGW msys kan dette fikses ved å gå til katalogen
+
+.. /cprogrammering/sdl/mingw/SDL2-2.0.3
+
+og skriv
+
+make navtive
+
+Eller aller helst, finn en egnet tutorial på nettet som beskriver hvordan 
+du installerer utvikler-bibliotekene og header-filene til SDL2. Jeg har dog
+beskrevet en mulig fremgangsmåte for MinGW i Appendiks B.
+
+
 

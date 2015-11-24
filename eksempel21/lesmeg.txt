@@ -5,6 +5,9 @@
 #                                                                             #
 # Eksempel 21                                                                 #
 #                                                                             #
+# Her drar vi kjølen til spillet vårt, og definerer objektet med sine         #
+# viktigste metoder.                                                          #
+#                                                                             #
 #-----------------------------------------------------------------------------#
 
 For å kompilere koden ved hjelp av gcc, kan du skrive 

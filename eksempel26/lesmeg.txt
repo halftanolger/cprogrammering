@@ -7,7 +7,13 @@
 #                                                                             #
 #-----------------------------------------------------------------------------#
 
-For å kompilere koden ved hjelp av gcc, kan du skrive 
+ Nå drar det seg litt til her; vi oppretter tre nye objekter.                
+                                                                             
+ Skjerm          - skal ta seg av det å vise grafikk på skjermen.            
+ Modell          - er vår lokale database, her ligger alt av data.             
+ Kontrollsentral - her ligger det meste av logikken som styrer spillet.      
+                                                                             
+ For å kompilere koden ved hjelp av gcc, kan du skrive 
 
 gcc -Wall -c -I. -I/usr/include modell.c -o modell.o
 gcc -Wall -c -I. -I/usr/include skjerm.c -o skjerm.o

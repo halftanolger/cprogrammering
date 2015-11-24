@@ -10,13 +10,6 @@
 #include <assert.h>
 #include <spaceinvader.h>
 
-
-static int initier();
-static int sjekk_input();
-static int oppdater_spillstatus();
-static int render();
-static int rydd_opp();
-
 Spaceinvader * Spaceinvader_opprett() { 
 	
 	printf("Spaceinvader_opprett - start\n");
@@ -43,15 +36,19 @@ Spaceinvader * Spaceinvader_opprett() {
 
 int Spaceinvader_spill( Spaceinvader * spaceinvader) { 
 
-	initier();
+	/* Initier */
 	
-	while ( status != STATUS_STOPP) {
-		sjekk_input();
-		oppdater_spillstatus();
-		render();
+	while ( spaceinvader->status != STATUS_STOPP) {
+	
+		/* Sjekk input */
+		
+		/* Oppdater spillstatus */
+		
+		/* Render */
+		
 	}
 	
-	rydd_opp();
+	/* Rydd opp */
 	
 	return 0; 
 	
@@ -69,14 +66,5 @@ int Spaceinvader_slett( Spaceinvader ** spaceinvader) {
 	return 0; 
 	
 }
-
-
-
-
-static int initier() { return 0;}
-static int sjekk_input() { return 0;}
-static int oppdater_spillstatus() { return 0;}
-static int render() { return 0;}
-static int rydd_opp() { return 0;}
 
 
