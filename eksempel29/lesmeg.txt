@@ -3,24 +3,26 @@
 #                                                                             #
 # C -programmering, en introduksjon.                                          #
 #                                                                             #
-# Eksempel 28                                                                 #
+# Eksempel 29                                                                 #
 #                                                                             #
 #-----------------------------------------------------------------------------#
 
 Nye momenter:
 
-	- et nytt objekt kalt kanon, som kan flyttes til venstre og høyre ved 
-	  hjelp av piltastene.
+	- et nytt objekt kalt prosjektil, som kan skytes ut fra kanonen.
+	- en ny metode i kontrollsentralen, kalt tikk. Tikk kalles opp fra 
+	  game-loop'en og oppdaterer plasseringen til et prosjektil. 
 
 For å kompilere koden ved hjelp av gcc, kan du skrive 
 
+gcc -Wall -c -I. -I/usr/include prosjektil.c -o prosjektil.o
 gcc -Wall -c -I. -I/usr/include kanon.c -o kanon.o
 gcc -Wall -c -I. -I/usr/include modell.c -o modell.o
 gcc -Wall -c -I. -I/usr/include skjerm.c -o skjerm.o
 gcc -Wall -c -I. -I/usr/include kontrollsentral.c -o kontrollsentral.o
 gcc -Wall -c -I. -I/usr/include spaceinvader.c -o spaceinvader.o
 gcc -Wall -c -I. -I/usr/include main.c -o main.o
-gcc modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -o test.exe
+gcc prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -o spaceinvader.exe
 
 
 
