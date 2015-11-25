@@ -1,7 +1,7 @@
 ﻿/*
     C -programmering, en innføring. 
 
-    Eksempel 27
+    Eksempel 28
 
 */
 
@@ -14,6 +14,9 @@ typedef struct skjerm_st {
 
 	void * spaceinvader;
 
+	int bredde;
+	int hoeyde;
+	
 	SDL_Window * win;
 	SDL_Renderer * ren;
 	SDL_Texture * tex; 		

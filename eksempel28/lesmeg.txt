@@ -1,0 +1,26 @@
+﻿
+#-----------------------------------------------------------------------------#
+#                                                                             #
+# C -programmering, en introduksjon.                                          #
+#                                                                             #
+# Eksempel 28                                                                 #
+#                                                                             #
+#-----------------------------------------------------------------------------#
+
+Eksempelet tar i bruk modellen i større grad, samt innfører et nytt objekt,
+kanonen. Det er mulig å flytte kanonen til høyre og venstre.
+
+For å kompilere koden ved hjelp av gcc, kan du skrive 
+
+gcc -Wall -c -I. -I/usr/include kanon.c -o kanon.o
+gcc -Wall -c -I. -I/usr/include modell.c -o modell.o
+gcc -Wall -c -I. -I/usr/include skjerm.c -o skjerm.o
+gcc -Wall -c -I. -I/usr/include kontrollsentral.c -o kontrollsentral.o
+gcc -Wall -c -I. -I/usr/include spaceinvader.c -o spaceinvader.o
+gcc -Wall -c -I. -I/usr/include main.c -o main.o
+gcc modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -o test.exe
+
+
+
+
+

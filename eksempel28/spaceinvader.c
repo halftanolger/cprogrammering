@@ -1,7 +1,7 @@
 ﻿/*
     C -programmering, en innføring. 
 
-    Eksempel 27
+    Eksempel 28
 
 */
 
@@ -68,7 +68,16 @@ int Spaceinvader_spill(Spaceinvader * spaceinvader) {
 			}
 					
 			if (e.type == SDL_KEYDOWN){
-				Kontrollsentral_avslutt(k);				
+			
+				switch (e.key.keysym.sym) {
+					case SDLK_LEFT:
+						Kontrollsentral_kanon_til_venstre(k);				
+						break;
+					case SDLK_RIGHT:
+						Kontrollsentral_kanon_til_hoeyre(k);				
+						break;						
+				}
+												
 			}	
 					
 			if (e.type == SDL_MOUSEBUTTONDOWN){

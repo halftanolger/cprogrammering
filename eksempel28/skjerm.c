@@ -1,11 +1,13 @@
 ﻿/*
     C -programmering, en innføring. 
 
-    Eksempel 27
+    Eksempel 28
 
 */
 
 #include <stdio.h>
+#include "kanon.h"
+#include "spaceinvader.h"
 #include "skjerm.h"
 
 Skjerm * Skjerm_opprett(void * spaceinvader) {
@@ -18,7 +20,10 @@ Skjerm * Skjerm_opprett(void * spaceinvader) {
 	
 	s->spaceinvader = spaceinvader;
 	
-	s->win = SDL_CreateWindow("SpaceInvaders", 100, 100, 640, 480, SDL_WINDOW_SHOWN);
+	s->bredde = 640;
+	s->hoeyde = 480;
+	
+	s->win = SDL_CreateWindow("SpaceInvaders", 100, 100, s->bredde, s->hoeyde, SDL_WINDOW_SHOWN);
 	
 	if (s->win == NULL){
 		printf ("SDL_CreateWindow Error: %s", SDL_GetError());
@@ -50,9 +55,15 @@ int Skjerm_slett (Skjerm ** skjerm) {
 
 void Skjerm_render (Skjerm * skjerm) {
 
+	Spaceinvader * spaceinvader = skjerm->spaceinvader;
+	Modell * modell = spaceinvader->modell;
+	Kanon * kanon = modell->kanon;
+
 	SDL_SetRenderDrawColor (skjerm->ren, 0, 0, 0, 255);
 	SDL_RenderClear (skjerm->ren);		
 
+	Kanon_render (kanon);
+	
 	SDL_RenderPresent(skjerm->ren);
 	
 }
