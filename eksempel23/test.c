@@ -3,10 +3,6 @@
 
     Eksempel 23
 
-    Hensikten med eksempelet er å vise hvordan man kan bruke en struc for å
-    lage en kompleks variabel. Videre viser eksempelet hvordan man ved
-    hjelp av kommandoen typedef, kan opprette en ny type variabel.
-
 */
 
 #include <stdio.h>

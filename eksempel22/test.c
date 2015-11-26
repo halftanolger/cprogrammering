@@ -3,9 +3,6 @@
 
     Eksempel 22
 
-    Hensikten med eksempelet er å vise hvordan man kan bruke en struc
-    for å lage en kompleks variabel.
-
 */
 
 #include <stdio.h>

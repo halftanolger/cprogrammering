@@ -4,12 +4,9 @@
 # C -programmering, en introduksjon.                                          #
 #                                                                             #
 # Eksempel 21                                                                 #
-#                                                                             #
-# Her drar vi kjølen til spillet vårt, og definerer objektet med sine         #
-# viktigste metoder.                                                          #
-#                                                                             #
+#                                                                             #                                                                             #
 #-----------------------------------------------------------------------------#
 
-For å kompilere koden ved hjelp av gcc, kan du skrive 
+  Her drar vi kjølen til spillet vårt, og definerer SpaceInvader-objektet 
+  med sine viktigste metoder; opprett, spill og slett.
 
-gcc -I. spaceinvader.c main.c 

@@ -7,6 +7,8 @@
 #                                                                             #
 #-----------------------------------------------------------------------------#
 
-For å kompilere koden ved hjelp av gcc, kan du skrive 
+  Hensikten med eksempelet er å vise hvordan man kan bruke en struc
+  for å lage en kompleks variabel.
 
-gcc test.c
+
+
