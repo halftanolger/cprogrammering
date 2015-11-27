@@ -1,7 +1,7 @@
 ﻿/*
     C -programmering, en innføring. 
 
-    Eksempel 29
+    Eksempel 30
 
 */
 

@@ -1,0 +1,14 @@
+﻿
+#-----------------------------------------------------------------------------#
+#                                                                             #
+# C -programmering, en introduksjon.                                          #
+#                                                                             #
+# Eksempel 30                                                                 #
+#                                                                             #
+#-----------------------------------------------------------------------------#
+
+  Nye momenter:
+
+	- et nytt objekt kalt drone. Disse kan også skyte ut et prosjektil. Om en
+	  drone komme ned til jorden, er spillet over.
+
