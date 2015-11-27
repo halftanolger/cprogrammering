@@ -14,11 +14,7 @@
 Kanon * Kanon_opprett(void * spaceinvader) {
 
 	Kanon *kanon = (Kanon*)malloc(sizeof(Kanon));
-	
-	if (kanon == NULL) {
-		return NULL;
-	}
-	
+		
 	kanon->spaceinvader = spaceinvader;
 	
 	Skjerm * skjerm = ((Spaceinvader*)spaceinvader)->skjerm;	
@@ -74,7 +70,7 @@ void Kanon_render (Kanon * kanon) {
 	
 void Kanon_flytt_til_venstre (Kanon * kanon) {
 
-	int d = 3;
+	int d = 5;
 
 	if (kanon->x_pos > kanon->x_pos_min + d) {
 		kanon->x_pos -= d;
@@ -84,7 +80,7 @@ void Kanon_flytt_til_venstre (Kanon * kanon) {
 
 void Kanon_flytt_til_hoeyre (Kanon * kanon) {
 
-	int d = 3;
+	int d = 5;
 
 	if (kanon->x_pos < (kanon->x_pos_max - d)) {
 		kanon->x_pos += d;

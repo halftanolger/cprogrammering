@@ -97,14 +97,22 @@ void Kontrollsentral_tikk (Kontrollsentral * kontrollsentral) {
 
 	int teller;
 	for (teller = 0; teller < MAX_ANTALL_PROSJEKTIL; teller++) {
+	
 		if (kanon->ild[teller] != NULL) {	
+		
 			Prosjektil * prosjektil = kanon->ild[teller];			
+			
 			int r = Prosjektil_tikk (prosjektil);			
+			
+			/* Om r er lik 1 har prosjektilet gått ut av fokus. */
+			
 			if ( r == 1) {			
+							
 				Prosjektil_slett (&prosjektil);
 				kanon->ild[teller] = NULL;
 				
 			}
+			
 		}
 	}
 		

@@ -60,9 +60,11 @@ void Prosjektil_render (Prosjektil * prosjektil) {
 	
 int Prosjektil_tikk (Prosjektil * prosjektil) {
 	
+	int d = 3;
+	
 	if (prosjektil->type == 0) {
 	
-		prosjektil->y_pos--; 
+		prosjektil->y_pos -= d; 
 		
 		if ( prosjektil->y_pos < 50) {
 			return 1; /* Ute av fokus. */

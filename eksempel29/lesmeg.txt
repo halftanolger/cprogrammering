@@ -7,24 +7,55 @@
 #                                                                             #
 #-----------------------------------------------------------------------------#
 
-Nye momenter:
+  Nye momenter:
 
 	- et nytt objekt kalt prosjektil, som kan skytes ut fra kanonen.
 	- en ny metode i kontrollsentralen, kalt tikk. Tikk kalles opp fra 
 	  game-loop'en og oppdaterer plasseringen til et prosjektil. 
 
-For å kompilere koden ved hjelp av gcc, kan du skrive 
+	  
++-----------------+          +-----------------+            +-----------------+   	  
+| Kontrollsentral |          |     Kanon       |            |   Prosjektil    |          
++--------+--------+          +--------+--------+            +--------+--------+   	  
+         |                            |                              |
+         |                            |                              |
+         | flytt_til_venstre          |                              |
+         +--------------------------->|                              |
+         |                            |                              |
+         |                            |                              |
+         | flytt_til_høyre            |                              |
+         +--------------------------->|                              |
+         |                            |                              |
+         |                            |                              |
+         | fyr_av_et_prosjektil       |                              |
+         +--------------------------->| prosjektil_opprett           |
+         |                            +----------------------------->|
+         |                            |                              |
+         |                            |                              |
+         |                            |                              |
+         
+		 
+  For hver runde i game-loop'en gis det en beskjed til kontrollsentralen om å 
+  tikke spillet et tikk frem i tid. Altså, få noe til å skje. Kontroll-
+  sentralen ber andre objekter om å tikke et tikk frem, blandt annet 
+  prosjektilobjektet. Om prosjektilobjektet har kommet så langt at det har gått
+  ut av fokus, dvs gått ut av skjermen, vil tikk-metoden returnere 1 tilbake
+  til kontrollsentralen, som da tar å fjerner det aktuelle prosjektilobjektet
+  ved å sende det ei slett-melding.
+  
 
-gcc -Wall -c -I. -I/usr/include prosjektil.c -o prosjektil.o
-gcc -Wall -c -I. -I/usr/include kanon.c -o kanon.o
-gcc -Wall -c -I. -I/usr/include modell.c -o modell.o
-gcc -Wall -c -I. -I/usr/include skjerm.c -o skjerm.o
-gcc -Wall -c -I. -I/usr/include kontrollsentral.c -o kontrollsentral.o
-gcc -Wall -c -I. -I/usr/include spaceinvader.c -o spaceinvader.o
-gcc -Wall -c -I. -I/usr/include main.c -o main.o
-gcc prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -o spaceinvader.exe
-
-
-
-
-
++-----------------+          +-----------------+            +-----------------+   	  
+|   SpaceInvader  |          | Kontrollsentral |            |   Prosjektil    |          
++--------+--------+          +--------+--------+            +--------+--------+   	  
+         |                            |                              |
+         |                            |                              |
+         | tikk                       |                              |
+         +--------------------------->|                              |
+         |                            | tikk                         |
+         |                            +----------------------------->|
+         |                            |                              |
+         |                            | slett                        |
+         |                            +----------------------------->|
+         |                            |                              |
+         |                            |                              |
+         |                            |                              |
