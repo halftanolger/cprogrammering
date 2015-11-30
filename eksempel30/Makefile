@@ -1,9 +1,12 @@
 ﻿all:	SpaceInvader.exe
 
-SpaceInvader.exe:	drone.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
-	gcc drone.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -o $@
+SpaceInvader.exe:	rektangel.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
+	gcc rektangel.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -o $@
 
-drone.o:	drone.c
+rektangel.o:	rektangel.c
+	gcc -c -I/usr/include $< -o $@
+
+ufo.o:	ufo.c
 	gcc -c -I/usr/include $< -o $@
 
 prosjektil.o:	prosjektil.c

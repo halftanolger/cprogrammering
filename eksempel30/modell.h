@@ -13,6 +13,7 @@
 #define STATUS_STOPP 3
 
 #include "kanon.h"
+#include "ufo.h"
 
 typedef struct modell_st {
 
@@ -23,6 +24,7 @@ typedef struct modell_st {
 	int resultatliste[3];
 
 	Kanon * kanon;
+	Ufo * ufo[55];
 	
 } Modell;
 

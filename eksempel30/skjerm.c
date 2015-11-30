@@ -62,7 +62,16 @@ void Skjerm_render (Skjerm * skjerm) {
 	SDL_SetRenderDrawColor (skjerm->ren, 0, 0, 0, 255);
 	SDL_RenderClear (skjerm->ren);		
 
+	/* Render kanonen med eventuelle tilhørene prosjektiler. */
+	
 	Kanon_render (kanon);
+	
+	/* Render ufo'er med eventuelle tilhørene prosjektiler. */
+	
+	int teller;
+	for (teller = 0; teller < 55; teller++) {
+		Ufo_render(modell->ufo[teller]);
+	}
 	
 	SDL_RenderPresent(skjerm->ren);
 	
