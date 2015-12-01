@@ -3,15 +3,12 @@
 #                                                                             #
 # C -programmering, en introduksjon.                                          #
 #                                                                             #
-# Eksempel 30                                                                 #
+# Eksempel 31                                                                 #
 #                                                                             #
 #-----------------------------------------------------------------------------#
 
   Nye momenter:
 
-	- et nytt objekt kalt ufo. Spaceinvader har 55 slike objekt som beveger 
-	  seg ned mot jorden for hvert tikk fra kontrollsentralen.
-	  
-	- et nytt objekt kalt rektangel. Foreløbig har det kun noen atributter, 
-	  men etterhvert skal dette objektet få noen nyttige metoder.	  
+	- et nytt objekt kalt ufoer. Dette objektet blir opprettet for bedre å 
+	  kapsle inn beregninger som går på hele gruppen av ufoer.
 

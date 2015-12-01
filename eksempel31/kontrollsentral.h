@@ -1,7 +1,7 @@
 ﻿/*
     C -programmering, en innføring. 
 
-    Eksempel 30
+    Eksempel 31
 
 */
 
@@ -19,6 +19,9 @@ typedef struct kontrollsentral_st {
 	
 	int ufo_fart;
 	
+	int ufo_jord_kontakt;
+	
+    int jord_nivaa;
 
 } Kontrollsentral;
 

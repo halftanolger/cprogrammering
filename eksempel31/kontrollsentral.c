@@ -1,7 +1,7 @@
 ﻿/*
     C -programmering, en innføring. 
 
-    Eksempel 30
+    Eksempel 31
 
 */
 
@@ -23,6 +23,11 @@ Kontrollsentral * Kontrollsentral_opprett(void * spaceinvader) {
 	k->ufo_tikk_timer = 0;
 	
 	k->ufo_fart = 20;
+	
+	k->ufo_jord_kontakt = 0;
+	
+	Skjerm * skjerm = ((Spaceinvader*)spaceinvader)->skjerm;
+    k->jord_nivaa = skjerm->hoeyde - 50;
 	
 	return k;
 	
@@ -91,16 +96,15 @@ void Kontrollsentral_kanon_fyr_av_et_prosjektil(Kontrollsentral * kontrollsentra
 
 void Kontrollsentral_tikk (Kontrollsentral * kontrollsentral) {
 
-	/*
-     *	
-	 * Eksisterende ild- givning fra kanonen skal tikkes ett steg frem. 
-	 *
-	 */
-
 	Spaceinvader *spaceinvader = (Spaceinvader*)kontrollsentral->spaceinvader;
 	Modell * modell = spaceinvader->modell;
 	Skjerm * skjerm = spaceinvader->skjerm;
 	Kanon * kanon = modell->kanon;
+	Ufoer * ufoer = modell->ufoer;
+	
+	/*
+	 * Eksisterende ild- givning fra kanonen skal tikkes ett steg frem. 
+	 */
 
 	int teller;
 	for (teller = 0; teller < MAX_ANTALL_PROSJEKTIL; teller++) {
@@ -126,60 +130,11 @@ void Kontrollsentral_tikk (Kontrollsentral * kontrollsentral) {
 		
 		
 	/* 
-	 *
 	 * Eksisterende ufo'er skal tikkes ett steg frem. 
-	 *
 	 */
 
-	/* Ufo'ene har varierende fart avhengig av hvor langt vi er kommet. */
-	
-	if (kontrollsentral->ufo_tikk_timer > 0) {
-		kontrollsentral->ufo_tikk_timer--;
-		return;
-	}	
-	kontrollsentral->ufo_tikk_timer = kontrollsentral->ufo_fart;
-		
-	/* Oppdater plassering */
-	
-	for (teller = 0; teller < 55; teller++) {		
-		Ufo * ufo = modell->ufo[teller];		
-		if (kontrollsentral->ufo_retning == 1) {		
-			ufo->r->x += 5;						
-		} else if (kontrollsentral->ufo_retning == 2) {		
-			ufo->r->y += ufo->r->h;									
-		} else if (kontrollsentral->ufo_retning == 3) {		
-			ufo->r->x -= 5;			
-		} else if (kontrollsentral->ufo_retning == 4) {		
-			ufo->r->y += ufo->r->h;								
-		}			
-	}
-	
-	/* Oppdater retning */
-	
-	if (kontrollsentral->ufo_retning == 1) {	
-		for (teller = 0; teller < 55; teller++) {
-			Ufo * ufo = modell->ufo[teller];
-			if ((ufo->r->x + ufo->r->b) > (skjerm->bredde - 10) ) {
-				kontrollsentral->ufo_retning = 2;
-				kontrollsentral->ufo_fart--;
-				break;
-			}
-		}
-	} else if (kontrollsentral->ufo_retning == 2) {	
-		kontrollsentral->ufo_retning = 3;		
-	} else if (kontrollsentral->ufo_retning == 3) {
-		for (teller = 0; teller < 55; teller++) {
-			Ufo * ufo = modell->ufo[teller];
-			if ((ufo->r->x < 10) ) {
-				kontrollsentral->ufo_retning = 4;
-				kontrollsentral->ufo_fart--;
-				break;
-			}
-		}						
-	} else if (kontrollsentral->ufo_retning == 4) {	
-		kontrollsentral->ufo_retning = 1;		
-	}	
-		
+	 Ufoer_tikk (ufoer);
+	 
 		
 	//TODO: detekter treff. Detekter kontakt med jorden.
 	
