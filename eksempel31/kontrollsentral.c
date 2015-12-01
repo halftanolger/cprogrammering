@@ -26,8 +26,10 @@ Kontrollsentral * Kontrollsentral_opprett(void * spaceinvader) {
 	
 	k->ufo_jord_kontakt = 0;
 	
+	k->ufoer_ild_timer = 0;
+	
 	Skjerm * skjerm = ((Spaceinvader*)spaceinvader)->skjerm;
-    k->jord_nivaa = skjerm->hoeyde - 50;
+    k->jord_nivaa = skjerm->hoeyde - 100;
 	
 	return k;
 	
@@ -126,22 +128,42 @@ void Kontrollsentral_tikk (Kontrollsentral * kontrollsentral) {
 			
 		}
 	}
-		
-		
-		
+						
 	/* 
 	 * Eksisterende ufo'er skal tikkes ett steg frem. 
 	 */
 
-	 Ufoer_tikk (ufoer);
+	 int r = Ufoer_tikk (ufoer);
 	 
+	 /* Om r er lik 1 har en eller flere ufoer nådd jorden. */
+	 
+	 if (r == 1) {
+		modell->status = STATUS_STOPP;
+		return;
+	 }
+
+	 
+
+ 	/* 
+	 * Generer tilfeldig ild- givning fra eksisterende ufo'er. 
+	 */
+
+	 Ufoer_fyr_av_et_prosjektil (ufoer);
 		
-	//TODO: detekter treff. Detekter kontakt med jorden.
+	/*
+	 * Sjekk om noen prosjektiler fra kanonen har truffet en eller flere ufoer.
+	 */
+
+	 
+	 
+	/*
+	 * Sjekk om noen prosjektiler fra en eller flere ufoer har truffet kanonen.
+	 */
 	
 	
-	/* Generer tilfeldig ild- givning fra eksisterende ufo'er. */
 	
-	//TODO: alt
+	
+
 }
 
 

@@ -26,6 +26,8 @@ int Ufoer_slett (Ufoer **);
 
 int Ufoer_tikk (Ufoer *);
 
+void Ufoer_fyr_av_et_prosjektil (Ufoer *);
+ 
 void Ufoer_render (Ufoer *);
 
 #endif // _UFOER_H_

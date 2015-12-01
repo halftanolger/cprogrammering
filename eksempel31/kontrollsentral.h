@@ -21,6 +21,8 @@ typedef struct kontrollsentral_st {
 	
 	int ufo_jord_kontakt;
 	
+	int ufoer_ild_timer;
+	
     int jord_nivaa;
 
 } Kontrollsentral;

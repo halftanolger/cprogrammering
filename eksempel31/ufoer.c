@@ -25,7 +25,12 @@ Ufoer * Ufoer_opprett(void * spaceinvader) {
 	for (teller = 0; teller < ANTALL_UFOER; teller++) {
 		ufoer->ufo[teller] = Ufo_opprett (spaceinvader,teller);
 	}
-					
+	
+	/* Benyttes ifm generering av tilfeldig ild-givning fra ufoene. */
+	
+	time_t t;
+	srand((unsigned) time(&t));
+	
 	return ufoer;
 	
 }
@@ -83,12 +88,10 @@ int Ufoer_tikk (Ufoer * ufoer) {
 	 * er slutt. Ellers returneres 0;
 	 */
 
-
 	Spaceinvader *spaceinvader = (Spaceinvader*)ufoer->spaceinvader;
 	Kontrollsentral * kontrollsentral = spaceinvader->kontrollsentral;
 	Modell * modell = spaceinvader->modell;
 	Skjerm * skjerm = spaceinvader->skjerm;
-
 
 	/* Ufo'ene har varierende fart avhengig av hvor langt vi er kommet. */
 	
@@ -141,7 +144,6 @@ int Ufoer_tikk (Ufoer * ufoer) {
 		kontrollsentral->ufo_retning = 1;		
 	}	
 
-
 	/* Har noen ufoer nådd jorden? */
 	
 	for (teller = 0; teller < 55; teller++) {		
@@ -154,4 +156,105 @@ int Ufoer_tikk (Ufoer * ufoer) {
 
     return kontrollsentral->ufo_jord_kontakt == 0 ? 0 : 1;
 }
+
+
+void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
+
+	Spaceinvader * spaceinvader = (Spaceinvader*)ufoer->spaceinvader;
+	Kontrollsentral * kontrollsentral = spaceinvader->kontrollsentral;
+	
+	/* Aller først, sjekk at vi har èn eller flere aktive ufoer. */
+	
+	int har_ufo = 0;
+	int teller = 0;
+	for (teller = 0; teller < ANTALL_UFOER; teller++) {	
+		Ufo * ufo = ufoer->ufo[teller];
+		if (ufo->status == 0) {
+			har_ufo = 1;
+			break;
+		}	
+	}
+		
+	if (har_ufo == 0) {
+		return;
+	}
+	
+	/* Fyr av et tilfeldig skudd fra en av ufoene i den nederste raden. */
+		
+	int rader = 0; /* Rader 1,2,3,4,5 */
+	int indeks = 0; /* Indeks 1,2,3,4,5,6,7,8,9,10,11 */
+	int ild_indeks = 0;
+	
+	for (rader = 4; rader >= 0; rader--) {
+	
+	    /* Finn ut hva som er nederste rad. */
+		int f = 0;
+		int s[11] = {0};		
+		for (indeks = 11; indeks >= 1; indeks--) {					
+			Ufo * ufo = ufoer->ufo[(rader * 11) + indeks - 1];		
+			s[indeks] = ufo->status;		
+			if (f == 0 && ufo->status == 0) {
+				f = 1;
+			}
+		}
+
+		if (f == 1) {		
+			/* Velg tilfeldig ufo i nederste rad. */			
+			int ikke_ferdig = 1;
+			while (ikke_ferdig) {		
+				int i = rand()%11;				
+				if (s[i] == 1) {
+					ild_indeks = (rader * 11) + i - 1;
+					ikke_ferdig = 0;
+				}				
+			}			
+			break;		
+		}
+		
+	}
+
+	
+	if (kontrollsentral->ufoer_ild_timer = 0) {
+				
+		kontrollsentral->ufoer_ild_timer = rand()%100;
+
+		Ufo * ufo = ufoer->ufo[ild_indeks];
+		
+		int teller;
+		for (teller = 0; teller < MAX_ANTALL_PROSJEKTIL_UFO; teller++) {
+			if (ufo->ild[teller] == NULL) {
+				break;
+			}	
+		}
+		if (teller == MAX_ANTALL_PROSJEKTIL_UFO) {
+			return;
+		}
+		
+		/* Opprett et nytt prosjektilobjekt, og plasser det i ild- givningen. */
+
+		int type = 1;
+		int x = ufo->r->x + (ufo->r->b / 2);
+		int y = ufo->r->y + ufo->r->h;
+	
+		ufo->ild[teller] = Prosjektil_opprett (spaceinvader,type,x,y);
+				
+	} else {
+	
+		kontrollsentral->ufoer_ild_timer--;	
+	
+	}
+				
+}
+
+
+
+
+
+
+
+
+
+
+
+
 	

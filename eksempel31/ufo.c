@@ -18,7 +18,13 @@ Ufo * Ufo_opprett(void * spaceinvader, int id) {
 		
 	ufo->spaceinvader = spaceinvader;
 	ufo->id = id;
+	ufo->status = 0;
 
+	int teller;
+	for (teller = 0; teller < MAX_ANTALL_PROSJEKTIL_UFO; teller++) {
+		ufo->ild[teller] = NULL;
+	}
+	
 	double rad = (double) (id / 11);
 	double indeks = (double) (id % 11);
 	
@@ -63,5 +69,15 @@ void Ufo_render (Ufo * ufo) {
 	SDL_SetRenderDrawColor (skjerm->ren,  + (rad * 50), 200, 200, 255);
 	SDL_RenderFillRect (skjerm->ren, &rect);
 		
+	/* Render ild- givningen. */
+	
+	int teller;
+	for (teller = 0; teller < MAX_ANTALL_PROSJEKTIL_UFO; teller++) {
+		if (ufo->ild[teller] != NULL) {
+			Prosjektil * prosjektil = ufo->ild[teller];
+			Prosjektil_render (prosjektil);
+		}
+	}
+						
 }
 	
