@@ -141,9 +141,7 @@ void Kontrollsentral_tikk (Kontrollsentral * kontrollsentral) {
 		modell->status = STATUS_STOPP;
 		return;
 	 }
-
-	 
-
+	
  	/* 
 	 * Generer tilfeldig ild- givning fra eksisterende ufo'er. 
 	 */
@@ -154,16 +152,14 @@ void Kontrollsentral_tikk (Kontrollsentral * kontrollsentral) {
 	 * Sjekk om noen prosjektiler fra kanonen har truffet en eller flere ufoer.
 	 */
 
-	 
+	//TODO: 
 	 
 	/*
 	 * Sjekk om noen prosjektiler fra en eller flere ufoer har truffet kanonen.
 	 */
 	
-	
-	
-	
-
+	//TODO:
+		
 }
 
 

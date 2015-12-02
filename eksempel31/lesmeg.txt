@@ -11,4 +11,6 @@
 
 	- et nytt objekt kalt ufoer. Dette objektet blir opprettet for bedre å 
 	  kapsle inn beregninger som går på hele gruppen av ufoer.
+	  
+	- en ufo, som befinner seg i den nederste raden, kan nå fyre av et skudd.  
 

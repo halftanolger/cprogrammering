@@ -47,5 +47,4 @@ void Kanon_flytt_til_hoeyre (Kanon *);
 
 void Kanon_fyr_av_et_prosjektil (Kanon *);
 
-
 #endif // _KANON_H_

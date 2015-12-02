@@ -23,12 +23,18 @@ typedef struct ufo_st {
 	   
 	int id;
 	
-	/* 0 - ok, 1 - skadet */
+	/* Status forteller noe om en ufo er skutt ned eller ikke. 
+	   0 - ok, 1 - skadet */
 	
 	int status;
 	
+	/* Rektanglet definerer omkretsen til ufoen. */
+	
 	Rektangel * r;
-			
+	
+    /* En ufo kan ha en rekke skudd fyrt av. Disse lever sitt eget liv
+	   helt til de treffer noe, eller går ut av fokus. */	
+	
 	Prosjektil * ild[MAX_ANTALL_PROSJEKTIL_UFO];			
 			
 } Ufo;
