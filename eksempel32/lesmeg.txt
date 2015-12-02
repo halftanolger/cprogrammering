@@ -1,0 +1,16 @@
+﻿
+#-----------------------------------------------------------------------------#
+#                                                                             #
+# C -programmering, en introduksjon.                                          #
+#                                                                             #
+# Eksempel 32                                                                 #
+#                                                                             #
+#-----------------------------------------------------------------------------#
+
+  Nye momenter:
+
+	- kollisjonsdekteksjon mellom prosjektil og ufo, og mellom
+	  prosjektil og kanon.
+	  	  
+	- poengberegning
+
