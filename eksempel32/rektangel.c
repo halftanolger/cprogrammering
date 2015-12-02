@@ -29,3 +29,8 @@ int Rektangel_slett (Rektangel ** rektangel) {
 	
 }
 
+int Rektangel_overlapp (Rektangel * r1, Rektangel * r2) {
+
+	return 0;
+
+}
