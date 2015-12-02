@@ -92,7 +92,15 @@ int Ufoer_tikk (Ufoer * ufoer) {
 	Kontrollsentral * kontrollsentral = spaceinvader->kontrollsentral;
 	Modell * modell = spaceinvader->modell;
 	Skjerm * skjerm = spaceinvader->skjerm;
-
+	
+	/* Oppdater eventuell eksisterende ild-givning fra ufoene. */
+	
+	int teller;
+	for (teller = 0; teller < 55; teller++) {		
+		Ufo * ufo = ufoer->ufo[teller];		
+		Ufo_tikk (ufo);
+	}	
+		
 	/* Ufo'ene har varierende fart avhengig av hvor langt vi er kommet. */
 	
 	if (kontrollsentral->ufo_tikk_timer > 0) {
@@ -103,8 +111,7 @@ int Ufoer_tikk (Ufoer * ufoer) {
 	kontrollsentral->ufo_tikk_timer = kontrollsentral->ufo_fart;
 		
 	/* Oppdater plassering */
-	
-	int teller;
+		
 	for (teller = 0; teller < 55; teller++) {		
 		Ufo * ufo = ufoer->ufo[teller];		
 		if (kontrollsentral->ufo_retning == 1) {		
@@ -115,7 +122,7 @@ int Ufoer_tikk (Ufoer * ufoer) {
 			ufo->r->x -= 5;			
 		} else if (kontrollsentral->ufo_retning == 4) {		
 			ufo->r->y += ufo->r->h;			
-		}			
+		}		
 	}
 	
 	/* Oppdater retning og eventuelt fart */
@@ -179,7 +186,7 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
 		return;
 	}
 	
-	/* Fyr av et tilfeldig skudd fra en av ufoene i den nederste raden. */
+	/* Fyr av et skudd fra en tilfeldig ufo i den nederste raden. */
 		
 	int rader = 0; /* Rader 1,2,3,4,5 */
 	int indeks = 0; /* Indeks 1,2,3,4,5,6,7,8,9,10,11 */
@@ -188,6 +195,7 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
 	for (rader = 4; rader >= 0; rader--) {
 	
 	    /* Finn ut hva som er nederste rad. */
+		
 		int f = 0;
 		int s[11] = {0};		
 		for (indeks = 11; indeks >= 1; indeks--) {					
@@ -199,11 +207,13 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
 		}
 
 		if (f == 1) {		
+		
 			/* Velg tilfeldig ufo i nederste rad. */			
+			
 			int ikke_ferdig = 1;
-			while (ikke_ferdig) {		
-				int i = rand()%11;				
-				if (s[i] == 1) {
+			while (ikke_ferdig == 1) {		
+				int i = rand()%11;						
+				if (s[i] == 0) {
 					ild_indeks = (rader * 11) + i - 1;
 					ikke_ferdig = 0;
 				}				
@@ -213,10 +223,11 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
 		
 	}
 
+	/* En tilfeldig initiert timer sørger for tilfeldighet mht tid. */
 	
-	if (kontrollsentral->ufoer_ild_timer = 0) {
-				
-		kontrollsentral->ufoer_ild_timer = rand()%100;
+	if (kontrollsentral->ufoer_ild_timer == 0) {
+								
+		kontrollsentral->ufoer_ild_timer = rand()%500;
 
 		Ufo * ufo = ufoer->ufo[ild_indeks];
 		
@@ -229,7 +240,7 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
 		if (teller == MAX_ANTALL_PROSJEKTIL_UFO) {
 			return;
 		}
-		
+				
 		/* Opprett et nytt prosjektilobjekt, og plasser det i ild- givningen. */
 
 		int type = 1;
@@ -239,7 +250,7 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
 		ufo->ild[teller] = Prosjektil_opprett (spaceinvader,type,x,y);
 				
 	} else {
-	
+		
 		kontrollsentral->ufoer_ild_timer--;	
 	
 	}

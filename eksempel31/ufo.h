@@ -9,6 +9,7 @@
 #define _UFO_H_
 
 #define MAX_ANTALL_PROSJEKTIL_UFO 10
+#define ANTALL_UFOER 55 /* 5 rader à 11 stykker */
 
 #include "prosjektil.h"
 #include "rektangel.h"
@@ -37,5 +38,7 @@ Ufo * Ufo_opprett (void *, int);
 int Ufo_slett (Ufo **);
 
 void Ufo_render (Ufo *);
+
+void Ufo_tikk (Ufo *);
 
 #endif // _Ufo_H_

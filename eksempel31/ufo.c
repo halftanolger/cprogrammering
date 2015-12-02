@@ -81,3 +81,21 @@ void Ufo_render (Ufo * ufo) {
 						
 }
 	
+void Ufo_tikk (Ufo * ufo) {
+
+	int teller;
+	for (teller = 0; teller < MAX_ANTALL_PROSJEKTIL_UFO; teller++) {
+		if (ufo->ild[teller] != NULL) {			
+			Prosjektil * prosjektil = ufo->ild[teller];						
+			int r = Prosjektil_tikk (prosjektil);			
+			
+			/* Om r er lik 1 har prosjektilet gått ut av fokus. */
+			
+			if ( r == 1) {										
+				Prosjektil_slett (&prosjektil);
+				ufo->ild[teller] = NULL;				
+			}			
+		}
+	}
+
+}	
