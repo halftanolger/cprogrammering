@@ -15,6 +15,11 @@ int test_main() {
     int antall_feil = 0;
     int antall_tester = 0;
 
+    /* .. fancy c-stuff. Oppretter en tabell av funsjonspekere. Denne kan 
+    inneholde pekere til funksjoner som ikke tar noen argumenter og som 
+    returnerer en int. Samt initialiserer denne med pekere til noen 
+    eksisterende funksjoner. */
+    
     int (*test_funksjons_peker_tabell[])() = {
 
         test_rektangel_overlapp
@@ -23,6 +28,8 @@ int test_main() {
 
     antall_tester = 1;
 
+    /* Kjør alle enhetstest-funksjonene, og summer alle som feiler. */
+    
     for (i = 0; i < antall_tester; i++) {
         if (test_funksjons_peker_tabell[i]() > 0) {
             antall_feil++;
