@@ -13,4 +13,6 @@
 	  prosjektil og kanon.
 	  	  
 	- poengberegning
+	
+	- et enhetstest-system, slik at vi kan enhetsteste de ulike metodene.
 

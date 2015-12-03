@@ -1,7 +1,13 @@
 ﻿all:	SpaceInvader.exe
 
-SpaceInvader.exe:	rektangel.o ufoer.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
-	gcc rektangel.o ufo.o ufoer.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -o $@
+SpaceInvader.exe:	test/test.o test/test_rektangel.o rektangel.o ufoer.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
+	gcc test/test.o test/test_rektangel.o rektangel.o ufo.o ufoer.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -o $@
+
+test/test.o:	test/test.c
+	gcc -c -I/usr/include $< -o $@
+
+test/test_rektangel.o:	test/test_rektangel.c
+	gcc -c -I/usr/include $< -o $@
 
 rektangel.o:	rektangel.c
 	gcc -c -I/usr/include $< -o $@
@@ -35,4 +41,5 @@ kontrollsentral.o:	kontrollsentral.c
 	
 clean:
 	rm *.o 
+	rm test/*.o
 	rm SpaceInvader.exe
