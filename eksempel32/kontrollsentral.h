@@ -12,19 +12,6 @@ typedef struct kontrollsentral_st {
 
 	void * spaceinvader;
 	
-	/* 1 - høyre, 2 - ned venstre, 3 - venstre, 4 - ned høyre */
-	int ufo_retning;
-			
-	int ufo_tikk_timer;
-	
-	int ufo_fart;
-	
-	int ufo_jord_kontakt;
-	
-	int ufoer_ild_timer;
-	
-    int jord_nivaa;
-
 } Kontrollsentral;
 
 Kontrollsentral * Kontrollsentral_opprett(void *);

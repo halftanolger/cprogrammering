@@ -17,20 +17,7 @@ Kontrollsentral * Kontrollsentral_opprett(void * spaceinvader) {
 	Kontrollsentral *k = (Kontrollsentral*)malloc(sizeof(Kontrollsentral));
 		
 	k->spaceinvader = spaceinvader;
-	
-	k->ufo_retning = 1;
 		
-	k->ufo_tikk_timer = 0;
-	
-	k->ufo_fart = 20;
-	
-	k->ufo_jord_kontakt = 0;
-	
-	k->ufoer_ild_timer = 0;
-	
-	Skjerm * skjerm = ((Spaceinvader*)spaceinvader)->skjerm;
-    k->jord_nivaa = skjerm->hoeyde - 100;
-	
 	return k;
 	
 }
@@ -100,63 +87,34 @@ void Kontrollsentral_tikk (Kontrollsentral * kontrollsentral) {
 
 	Spaceinvader *spaceinvader = (Spaceinvader*)kontrollsentral->spaceinvader;
 	Modell * modell = spaceinvader->modell;
-	Skjerm * skjerm = spaceinvader->skjerm;
 	Kanon * kanon = modell->kanon;
 	Ufoer * ufoer = modell->ufoer;
-	
-	/*
-	 * Eksisterende ild- givning fra kanonen skal tikkes ett steg frem. 
-	 */
-
-	int teller;
-	for (teller = 0; teller < MAX_ANTALL_PROSJEKTIL; teller++) {
-	
-		if (kanon->ild[teller] != NULL) {	
 		
-			Prosjektil * prosjektil = kanon->ild[teller];			
-			
-			int r = Prosjektil_tikk (prosjektil);			
-			
-			/* Om r er lik 1 har prosjektilet gått ut av fokus. */
-			
-			if ( r == 1) {			
+    /* Eksisterende ild- givning fra kanonen skal tikkes ett steg frem. */
+	
+    Kanon_tikk (kanon);
 							
-				Prosjektil_slett (&prosjektil);
-				kanon->ild[teller] = NULL;
-				
-			}
-			
-		}
-	}
-						
-	/* 
-	 * Eksisterende ufo'er skal tikkes ett steg frem. 
-	 */
+	/* Eksisterende ufo'er skal tikkes ett steg frem. Om r er lik 1 har en 
+       eller flere ufoer nådd jorden. */
 
-	 int r = Ufoer_tikk (ufoer);
-	 
-	 /* Om r er lik 1 har en eller flere ufoer nådd jorden. */
-	 
-	 if (r == 1) {
-		modell->status = STATUS_STOPP;
-		return;
-	 }
+	int r = Ufoer_tikk (ufoer);
+	 		 
+	if (r == 1) {
+        modell->status = STATUS_STOPP;
+        return;
+    }
 	
- 	/* 
-	 * Generer tilfeldig ild- givning fra eksisterende ufo'er. 
-	 */
+    /* Generer tilfeldig ild- givning fra eksisterende ufo'er.  */
 
-	 Ufoer_fyr_av_et_prosjektil (ufoer);
-		
-	/*
-	 * Sjekk om noen prosjektiler fra kanonen har truffet en eller flere ufoer.
-	 */
-
-	//TODO: 
+    Ufoer_fyr_av_et_prosjektil (ufoer);
+			
+    /* Sjekk om noen prosjektiler fra kanonen har 
+       truffet en eller flere ufoer. */
 	 
-	/*
-	 * Sjekk om noen prosjektiler fra en eller flere ufoer har truffet kanonen.
-	 */
+	//TODO: 
+	 	
+    /* Sjekk om noen prosjektiler fra en eller flere ufoer har 
+       truffet kanonen. */
 	
 	//TODO:
 		

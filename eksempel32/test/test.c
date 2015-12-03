@@ -11,29 +11,29 @@
 
 int test_main() {
 
-	int i = 0;
-	int antall_feil = 0;
-	int antall_tester = 0;
+    int i = 0;
+    int antall_feil = 0;
+    int antall_tester = 0;
 
-	int (*test_funksjons_peker_tabell[])() = {
+    int (*test_funksjons_peker_tabell[])() = {
 
-			test_rektangel_overlapp
+        test_rektangel_overlapp
 
-	};
+    };
 
-	antall_tester = 1;
+    antall_tester = 1;
 
-	for (i = 0; i < antall_tester; i++) {
-		if (test_funksjons_peker_tabell[i]() > 0) {
-			antall_feil++;
-		}
-	}
+    for (i = 0; i < antall_tester; i++) {
+        if (test_funksjons_peker_tabell[i]() > 0) {
+            antall_feil++;
+        }
+    }
 
-	fprintf(stderr, "Totalt antall enhetstester : %d\n", antall_tester);
-	fprintf(stderr, "Antall enhetstester, ok    : %d\n", antall_tester - antall_feil);
-	fprintf(stderr, "antall enhetstester, feilet: %d\n", antall_feil);
+    fprintf(stderr, "Totalt antall enhetstester : %d\n", antall_tester);
+    fprintf(stderr, "Antall enhetstester, ok    : %d\n", antall_tester - antall_feil);
+    fprintf(stderr, "antall enhetstester, feilet: %d\n", antall_feil);
 
-	return antall_feil;
+    return antall_feil;
 
 }
 

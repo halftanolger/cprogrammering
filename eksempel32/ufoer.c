@@ -103,72 +103,74 @@ int Ufoer_tikk (Ufoer * ufoer) {
 		
 	/* Ufo'ene har varierende fart avhengig av hvor langt vi er kommet. */
 	
-	if (kontrollsentral->ufo_tikk_timer > 0) {
-		kontrollsentral->ufo_tikk_timer--;
+	if (modell->ufo_tikk_timer > 0) {
+		modell->ufo_tikk_timer--;
 		return 0;
 	}	
 	
-	kontrollsentral->ufo_tikk_timer = kontrollsentral->ufo_fart;
+	modell->ufo_tikk_timer = modell->ufo_fart;
 		
 	/* Oppdater plassering */
 		
 	for (teller = 0; teller < 55; teller++) {		
 		Ufo * ufo = ufoer->ufo[teller];		
-		if (kontrollsentral->ufo_retning == 1) {		
+		if (modell->ufo_retning == 1) {		
 			ufo->r->x += 5;						
-		} else if (kontrollsentral->ufo_retning == 2) {		
+		} else if (modell->ufo_retning == 2) {		
 			ufo->r->y += ufo->r->h;									
-		} else if (kontrollsentral->ufo_retning == 3) {		
+		} else if (modell->ufo_retning == 3) {		
 			ufo->r->x -= 5;			
-		} else if (kontrollsentral->ufo_retning == 4) {		
+		} else if (modell->ufo_retning == 4) {		
 			ufo->r->y += ufo->r->h;			
 		}		
 	}
 	
 	/* Oppdater retning og eventuelt fart */
 	
-	if (kontrollsentral->ufo_retning == 1) {	
+	if (modell->ufo_retning == 1) {	
 		for (teller = 0; teller < 55; teller++) {
 			Ufo * ufo = ufoer->ufo[teller];
 			if ((ufo->r->x + ufo->r->b) > (skjerm->bredde - 10) ) {
-				kontrollsentral->ufo_retning = 2;
-				kontrollsentral->ufo_fart--;
+				modell->ufo_retning = 2;
+				modell->ufo_fart--;
 				break;
 			}
 		}
-	} else if (kontrollsentral->ufo_retning == 2) {	
-		kontrollsentral->ufo_retning = 3;		
-	} else if (kontrollsentral->ufo_retning == 3) {
+	} else if (modell->ufo_retning == 2) {	
+		modell->ufo_retning = 3;		
+	} else if (modell->ufo_retning == 3) {
 		for (teller = 0; teller < 55; teller++) {
 			Ufo * ufo = ufoer->ufo[teller];
 			if ((ufo->r->x < 10) ) {
-				kontrollsentral->ufo_retning = 4;
-				kontrollsentral->ufo_fart--;
+				modell->ufo_retning = 4;
+				modell->ufo_fart--;
 				break;
 			}
 		}						
-	} else if (kontrollsentral->ufo_retning == 4) {	
-		kontrollsentral->ufo_retning = 1;		
+	} else if (modell->ufo_retning == 4) {	
+		modell->ufo_retning = 1;		
 	}	
 
 	/* Har noen ufoer nådd jorden? */
-	
+    
+	int jord_kontakt = 0;
 	for (teller = 0; teller < 55; teller++) {		
 		Ufo * ufo = ufoer->ufo[teller];				
-		if (ufo->r->y > kontrollsentral->jord_nivaa) {
-			kontrollsentral->ufo_jord_kontakt = 1;
+		if (ufo->r->y > modell->jord_nivaa) {
+			jord_kontakt = 1;
 			break;
 		}		
 	}
 
-    return kontrollsentral->ufo_jord_kontakt == 0 ? 0 : 1;
+    return jord_kontakt;
+    
 }
 
 
 void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
 
 	Spaceinvader * spaceinvader = (Spaceinvader*)ufoer->spaceinvader;
-	Kontrollsentral * kontrollsentral = spaceinvader->kontrollsentral;
+	Modell * modell = spaceinvader->modell;
 	
 	/* Aller først, sjekk at vi har èn eller flere aktive ufoer. */
 	
@@ -225,9 +227,9 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
 
 	/* En tilfeldig initiert timer sørger for tilfeldighet mht tid. */
 	
-	if (kontrollsentral->ufoer_ild_timer == 0) {
+	if (modell->ufoer_ild_timer == 0) {
 								
-		kontrollsentral->ufoer_ild_timer = rand()%500;
+		modell->ufoer_ild_timer = rand()%500;
 
 		Ufo * ufo = ufoer->ufo[ild_indeks];
 		
@@ -251,7 +253,7 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
 				
 	} else {
 		
-		kontrollsentral->ufoer_ild_timer--;	
+		modell->ufoer_ild_timer--;	
 	
 	}
 				
