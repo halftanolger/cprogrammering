@@ -42,4 +42,4 @@ kontrollsentral.o:	kontrollsentral.c
 clean:
 	rm *.o 
 	rm test/*.o
-	rm SpaceInvader.exe
+	rm SpaceInvader
