@@ -12,15 +12,18 @@
 
 typedef struct skjerm_st {
 
-	void * spaceinvader;
+    void * spaceinvader;
 
-	int bredde;
-	int hoeyde;
-	
-	SDL_Window * win;
-	SDL_Renderer * ren;
-	SDL_Texture * tex; 		
-	
+    int bredde;
+    
+    int hoeyde;
+    
+    SDL_Window * win;
+    
+    SDL_Renderer * ren;
+    
+    SDL_Texture * tex;         
+    
 } Skjerm;
 
 Skjerm * Skjerm_opprett (void *);

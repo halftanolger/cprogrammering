@@ -9,10 +9,8 @@
 
   Nye momenter:
 
-	- kollisjonsdekteksjon mellom prosjektil og ufo, og mellom
-	  prosjektil og kanon.
-	  	  
-	- poengberegning
-	
-	- et enhetstest-system, slik at vi kan enhetsteste de ulike metodene.
+    - kollisjonsdekteksjon mellom prosjektil og ufo, og mellom
+      prosjektil og kanon.
+                
+    - et enhets-test-system, slik at vi kan enhets-teste de ulike metodene.
 

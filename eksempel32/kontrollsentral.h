@@ -10,8 +10,8 @@
 
 typedef struct kontrollsentral_st {
 
-	void * spaceinvader;
-	
+    void * spaceinvader;
+    
 } Kontrollsentral;
 
 Kontrollsentral * Kontrollsentral_opprett(void *);
@@ -50,7 +50,7 @@ void Kontrollsentral_avslutt (Kontrollsentral *);
  * Parameter Kontrollsentral* peker til kontrollobjekt.
  *
  */ 
-void Kontrollsentral_kanon_til_venstre(Kontrollsentral *);	
+void Kontrollsentral_kanon_til_venstre(Kontrollsentral *);    
 
 /**
  * Kontrollsentral_kanon_til_hoeyre
@@ -60,7 +60,7 @@ void Kontrollsentral_kanon_til_venstre(Kontrollsentral *);
  * Parameter Kontrollsentral* peker til kontrollobjekt.
  *
  */ 
-void Kontrollsentral_kanon_til_hoeyre(Kontrollsentral *);	
+void Kontrollsentral_kanon_til_hoeyre(Kontrollsentral *);    
 
 /**
  * Kontrollsentral_kanon_fyr_av_et_prosjektil
@@ -70,7 +70,7 @@ void Kontrollsentral_kanon_til_hoeyre(Kontrollsentral *);
  * Parameter Kontrollsentral* peker til kontrollobjekt.
  *
  */ 
-void Kontrollsentral_kanon_fyr_av_et_prosjektil(Kontrollsentral *);	
+void Kontrollsentral_kanon_fyr_av_et_prosjektil(Kontrollsentral *);    
 
 /**
  * Kontrollsentral_tikk
@@ -80,6 +80,6 @@ void Kontrollsentral_kanon_fyr_av_et_prosjektil(Kontrollsentral *);
  * Parameter Kontrollsentral* peker til kontrollobjekt.
  *
  */ 
-void Kontrollsentral_tikk (Kontrollsentral *);	
+void Kontrollsentral_tikk (Kontrollsentral *);    
 
 #endif //_KONTROLLSENTRAL_H_

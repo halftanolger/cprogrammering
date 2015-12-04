@@ -8,25 +8,25 @@
 #ifndef _PROSJEKTIL_H_
 #define _PROSJEKTIL_H_
 
+#include "rektangel.h"
+
 typedef struct prosjektil_st {
 
-	void * spaceinvader;
-	
-	/* Opp (0 - fra kanon) eller ned (1 - fra ufo) */
-	int type;
-	
-	/* Bredden til prosjektilet. */
-	int bredde;
-
-	int x_pos;
-		
-	int y_pos;
-
-	int y_pos_max;
-
-	int y_pos_min;
-	
-
+    void * spaceinvader;
+    
+    /* Opp (0 - fra kanon) eller ned (1 - fra ufo) */
+    
+    int type;
+    
+    /* Status forteller noe om et prosjektil er 'oppbrukt' eller ikke. 
+       0 - ok, 1 - oppbrukt */
+    
+    int status;
+    
+    /* Rektanglet definerer omkretsen til prosjektilet. */
+    
+    Rektangel * r;
+    
 } Prosjektil;
 
 Prosjektil * Prosjektil_opprett (void *, int, int, int);

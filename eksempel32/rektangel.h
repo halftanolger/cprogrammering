@@ -9,12 +9,15 @@
 #define _REKTANGEL_H_
 
 typedef struct rectangel_st {
-	
-	int x;
-	int y;
-	int b;
-	int h;
-	
+    
+    int x;
+    
+    int y;
+    
+    int b;
+    
+    int h;
+    
 } Rektangel;
 
 Rektangel * Rektangel_opprett (int, int, int ,int);

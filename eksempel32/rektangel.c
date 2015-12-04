@@ -11,22 +11,22 @@
 
 Rektangel * Rektangel_opprett(int x, int y, int b, int h) {
 
-	Rektangel * rektangel = (Rektangel*)malloc(sizeof(Rektangel));
-		
-	rektangel->x = x;
-	rektangel->y = y;
-	rektangel->b = b;
-	rektangel->h = h;
-			
-	return rektangel;
-	
+    Rektangel * rektangel = (Rektangel*)malloc(sizeof(Rektangel));
+        
+    rektangel->x = x;
+    rektangel->y = y;
+    rektangel->b = b;
+    rektangel->h = h;
+            
+    return rektangel;
+    
 }
 
 int Rektangel_slett (Rektangel ** rektangel) {
 
-	free(*rektangel);
-	return 0;
-	
+    free(*rektangel);
+    return 0;
+    
 }
 
 int Rektangel_overlapp (Rektangel * r1, Rektangel * r2) {
@@ -90,6 +90,7 @@ int Rektangel_overlapp (Rektangel * r1, Rektangel * r2) {
         return 0;
     }
        
-	return 1;
+    return 1;
 
 }
+

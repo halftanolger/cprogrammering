@@ -11,28 +11,21 @@
 #define MAX_ANTALL_PROSJEKTIL 100
 
 #include "prosjektil.h"
+#include "rektangel.h"
 
 typedef struct kanon_st {
 
-	void * spaceinvader;
-	
-	/* Bredden til kanonen. */
-	int bredde;
-	
-	/* Høyden til kanonen. */
-	int hoeyde;
-	
-	/* x- posisjon for midten av kanonen */
-	int x_pos;	
-	
-	/* x- pos. max for midten av kanonen */
-	int x_pos_max;
-	
-	/* x- pos. min for midten av kanonen */
-	int x_pos_min;
+    void * spaceinvader;
+    
+    /* Rektanglet definerer omkretsen til kanonen. */
+    
+    Rektangel * r;
+    
+    /* En kanon kan ha en rekke skudd fyrt av. Disse lever sitt eget liv
+	   helt til de treffer en ufo, eller går ut av fokus. */	
 
-	Prosjektil * ild[MAX_ANTALL_PROSJEKTIL];
-	
+    Prosjektil * ild[MAX_ANTALL_PROSJEKTIL];
+    
 } Kanon;
 
 Kanon * Kanon_opprett (void *);
@@ -48,5 +41,7 @@ void Kanon_flytt_til_hoeyre (Kanon *);
 void Kanon_fyr_av_et_prosjektil (Kanon *);
 
 void Kanon_tikk (Kanon *);
+
+void Kanon_sjekk_treff (Kanon *);
 
 #endif // _KANON_H_

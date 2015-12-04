@@ -13,11 +13,13 @@
 #include "kontrollsentral.h"
 
 typedef struct spaceinvader_st {
-	
-	Modell * modell;
-	Skjerm * skjerm;
-	Kontrollsentral * kontrollsentral;	
-	
+    
+    Modell * modell;
+    
+    Skjerm * skjerm;
+    
+    Kontrollsentral * kontrollsentral;    
+    
 } Spaceinvader;
 
 Spaceinvader * Spaceinvader_opprett();
