@@ -1,7 +1,7 @@
 ﻿all:	SpaceInvader.exe
 
 SpaceInvader.exe:	test/test.o test/test_rektangel.o rektangel.o ufoer.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
-	gcc test/test.o test/test_rektangel.o rektangel.o ufo.o ufoer.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -o $@
+	gcc test/test.o test/test_rektangel.o rektangel.o ufo.o ufoer.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -lSDL2_ttf -o $@
 
 test/test.o:	test/test.c
 	gcc -c -I/usr/include $< -o $@

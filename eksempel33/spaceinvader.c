@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include "spaceinvader.h"
 
 
@@ -22,6 +23,13 @@ Spaceinvader * Spaceinvader_opprett() {
     
     if (SDL_Init(SDL_INIT_VIDEO) != 0){
         printf ("SDL_Init Error: %s", SDL_GetError());
+        return NULL;        
+    }
+    
+    /* Initier TTF */
+    
+    if (TTF_Init() != 0) {
+        printf ("TTF_Init Error: %s", TTF_GetError());
         return NULL;        
     }
     
@@ -107,6 +115,7 @@ int Spaceinvader_slett( Spaceinvader ** spaceinvader) {
     
     Skjerm_slett(&((*spaceinvader)->skjerm));
     
+    TTF_Quit();
     SDL_Quit();
     
     free(*spaceinvader);

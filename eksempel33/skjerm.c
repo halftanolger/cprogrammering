@@ -6,44 +6,57 @@
 */
 
 #include <stdio.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
 #include "kanon.h"
 #include "spaceinvader.h"
 #include "skjerm.h"
 
 Skjerm * Skjerm_opprett(void * spaceinvader) {
 
-    Skjerm *s = (Skjerm*)malloc(sizeof(Skjerm));
+    Skjerm *skjerm = (Skjerm*)malloc(sizeof(Skjerm));
         
-    s->spaceinvader = spaceinvader;
+    skjerm->spaceinvader = spaceinvader;
     
-    s->bredde = 640;
-    s->hoeyde = 480;
+    skjerm->bredde = 640;
+    skjerm->hoeyde = 480;
     
-    s->win = SDL_CreateWindow("SpaceInvaders", 100, 100, s->bredde, s->hoeyde, SDL_WINDOW_SHOWN);
+    skjerm->win = SDL_CreateWindow("SpaceInvaders", 100, 100, skjerm->bredde, skjerm->hoeyde, SDL_WINDOW_SHOWN);
     
-    if (s->win == NULL){
+    if (skjerm->win == NULL){
         printf ("SDL_CreateWindow Error: %s", SDL_GetError());
         return NULL;        
     }    
     
-    s->ren = SDL_CreateRenderer(s->win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    skjerm->ren = SDL_CreateRenderer(skjerm->win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     
-    if (s->ren == NULL){
+    if (skjerm->ren == NULL){
         printf ("SDL_CreateRenderer Error: %s", SDL_GetError());
         return NULL;        
     }    
         
-    SDL_SetRenderDrawColor (s->ren, 0, 0, 0, 255);
-    SDL_RenderClear (s->ren);        
-    SDL_RenderPresent (s->ren);        
+    SDL_SetRenderDrawColor (skjerm->ren, 0, 0, 0, 255);
+    SDL_RenderClear (skjerm->ren);        
+    SDL_RenderPresent (skjerm->ren);        
         
-    return s;
+    /* Last inn en font. */    
+        
+    skjerm->font=TTF_OpenFont("data-latin.ttf", 12);
+    if(!skjerm->font) {
+        printf("TTF_OpenFont: %s\n", TTF_GetError());
+        return NULL;
+    }    
+    
+        
+    return skjerm;
 
 }
 
 int Skjerm_slett (Skjerm ** skjerm) {
 
+    TTF_CloseFont ((*skjerm)->font);    
     free(*skjerm);
+    
     return 0;
     
 }
