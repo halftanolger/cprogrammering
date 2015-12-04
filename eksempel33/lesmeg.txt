@@ -1,0 +1,13 @@
+﻿
+#-----------------------------------------------------------------------------#
+#                                                                             #
+# C -programmering, en introduksjon.                                          #
+#                                                                             #
+# Eksempel 33                                                                 #
+#                                                                             #
+#-----------------------------------------------------------------------------#
+
+  Nye momenter:
+
+    - lagt til poengberegning og prensentasjon av denne (i.e tekst på skjermen)
+
