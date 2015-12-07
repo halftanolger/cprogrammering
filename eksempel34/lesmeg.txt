@@ -1,0 +1,16 @@
+﻿
+#-----------------------------------------------------------------------------#
+#                                                                             #
+# C -programmering, en introduksjon.                                          #
+#                                                                             #
+# Eksempel 34                                                                 #
+#                                                                             #
+#-----------------------------------------------------------------------------#
+
+  Nye momenter:
+
+    - toppresultatet lagres til fil, samt vises på skjermen.
+    
+    - bedre tastaturhandtering mht "respons" når man flytter kanonen. Dette
+      gir en bedre spillopplevelse.
+      
