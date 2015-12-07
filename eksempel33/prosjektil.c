@@ -55,8 +55,7 @@ void Prosjektil_render (Prosjektil * prosjektil) {
     
 int Prosjektil_tikk (Prosjektil * prosjektil) {
         
-    Spaceinvader * spaceinvader = (Spaceinvader*)prosjektil->spaceinvader;
-    Skjerm * skjerm = spaceinvader->skjerm;        
+    Spaceinvader * spaceinvader = (Spaceinvader*)prosjektil->spaceinvader;    
     Modell * modell = spaceinvader->modell;        
             
     int d = 3;

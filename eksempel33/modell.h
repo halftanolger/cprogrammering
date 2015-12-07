@@ -12,6 +12,7 @@
 #define STATUS_PAUSE 2
 #define STATUS_STOPP 3
 
+#include "tekst.h"
 #include "kanon.h"
 #include "ufoer.h"
 
@@ -20,7 +21,11 @@ typedef struct modell_st {
     void * spaceinvader;
 
     int status;
+    
     int poeng;
+    
+    Tekst * tekst_poeng;
+    
     int resultatliste[3];
 
     /*
@@ -119,7 +124,7 @@ typedef struct modell_st {
      * Om alle ufoene blir skutt ned, opprettes det en ny sverm av ufoer.
      */
     
-    Ufoer * ufoer;
+    Ufoer * ufoer;            
 
 } Modell;
 

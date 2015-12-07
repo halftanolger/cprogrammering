@@ -9,7 +9,7 @@
 #define _SKJERM_H_
 
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
+#include "tekst.h"
 
 typedef struct skjerm_st {
 
@@ -23,9 +23,7 @@ typedef struct skjerm_st {
     
     SDL_Renderer * ren;
     
-    SDL_Texture * tex;         
-    
-    TTF_Font * font;
+    SDL_Texture * tex;                 
     
 } Skjerm;
 

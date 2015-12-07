@@ -22,7 +22,7 @@ typedef struct ufo_st {
        med hensyn til initiell plassering samt antall poeng ved treff. */
        
     int id;
-    
+            
     /* Status forteller noe om en ufo er skutt ned eller ikke. 
        0 - ok, 1 - skadet */
     
@@ -46,5 +46,7 @@ int Ufo_slett (Ufo **);
 void Ufo_render (Ufo *);
 
 void Ufo_tikk (Ufo *);
+
+void Ufo_tilbakestill (Ufo *, int);
 
 #endif // _Ufo_H_

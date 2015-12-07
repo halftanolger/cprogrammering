@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 #include "modell.h"
 #include "kanon.h"
 #include "spaceinvader.h"
@@ -89,8 +90,7 @@ int Ufoer_tikk (Ufoer * ufoer) {
      * er slutt. Ellers returneres 0;
      */
 
-    Spaceinvader *spaceinvader = (Spaceinvader*)ufoer->spaceinvader;
-    Kontrollsentral * kontrollsentral = spaceinvader->kontrollsentral;
+    Spaceinvader *spaceinvader = (Spaceinvader*)ufoer->spaceinvader;    
     Modell * modell = spaceinvader->modell;
     Skjerm * skjerm = spaceinvader->skjerm;
     
@@ -305,9 +305,35 @@ void Ufoer_sjekk_treff (Ufoer * ufoer) {
             }   
             
         }   
-        
+                
     }
 
 }
 
+int Ufoer_sjekk_ny_sverm (Ufoer * ufoer) {
+
+    int ny_runde = 1;       
+    int teller = 0;
+    
+    for (teller = 0; teller < 55; teller++) {
+        Ufo * ufo = ufoer->ufo[teller];                                          
+        if (ufo->status == 0) { /* 0 - ok, 1 - skadet eller skutt ned */
+            ny_runde = 0;
+            break;
+        }
+    }
+        
+    return ny_runde;
+    
+}
+
+void Ufoer_ny_sverm (Ufoer * ufoer) {
+    
+    int teller = 0;    
+    for (teller = 0; teller < 55; teller ++) {
+        Ufo * ufo = ufoer->ufo[teller];                                                  
+        Ufo_tilbakestill (ufo, teller);        
+    }
+                
+}
 

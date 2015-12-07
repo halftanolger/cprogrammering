@@ -93,8 +93,7 @@ void Kanon_flytt_til_hoeyre (Kanon * kanon) {
 
 void Kanon_fyr_av_et_prosjektil (Kanon * kanon) {
 
-    Spaceinvader * spaceinvader = (Spaceinvader*)kanon->spaceinvader;
-    Skjerm * skjerm = spaceinvader->skjerm;    
+    Spaceinvader * spaceinvader = (Spaceinvader*)kanon->spaceinvader;    
 
     /* Finn neste ledige plass i ild- givningen. */
     
@@ -162,7 +161,7 @@ void Kanon_sjekk_treff (Kanon * kanon) {
                vi begynne å sjekke etter mulige kolisjoner. */    
             
             if (prosjektil->r->y <= modell->ufo_nivaa) {           
-                Ufoer * ufoer = modell->ufoer;                
+                Ufoer * ufoer = modell->ufoer;                                
                 int teller2;
                 for (teller2 = 54; teller2 >= 0; teller2 --) {
                     Ufo * ufo = ufoer->ufo[teller2];
@@ -174,11 +173,17 @@ void Kanon_sjekk_treff (Kanon * kanon) {
                         if (b == 1) {
                             ufo->status = 1;
                             prosjektil->status = 1;
+
+                            if (ufo->id < 20)
+                                modell->poeng+=2;    
+                            else 
+                                modell->poeng+=1;    
+                                
                             break;
                         }
-                    }
-                }                            
-            }                        
-        }        
-    }
+                    }                    
+                }      
+            }                                    
+        }           
+    }    
 }

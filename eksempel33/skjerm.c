@@ -10,6 +10,7 @@
 #include <SDL2/SDL_ttf.h>
 #include "kanon.h"
 #include "spaceinvader.h"
+#include "tekst.h"
 #include "skjerm.h"
 
 Skjerm * Skjerm_opprett(void * spaceinvader) {
@@ -38,23 +39,13 @@ Skjerm * Skjerm_opprett(void * spaceinvader) {
     SDL_SetRenderDrawColor (skjerm->ren, 0, 0, 0, 255);
     SDL_RenderClear (skjerm->ren);        
     SDL_RenderPresent (skjerm->ren);        
-        
-    /* Last inn en font. */    
-        
-    skjerm->font=TTF_OpenFont("data-latin.ttf", 12);
-    if(!skjerm->font) {
-        printf("TTF_OpenFont: %s\n", TTF_GetError());
-        return NULL;
-    }    
-    
-        
+                
     return skjerm;
 
 }
 
 int Skjerm_slett (Skjerm ** skjerm) {
-
-    TTF_CloseFont ((*skjerm)->font);    
+    
     free(*skjerm);
     
     return 0;
@@ -79,6 +70,9 @@ void Skjerm_render (Skjerm * skjerm) {
     /* Render ufo'er med eventuelle tilhørene prosjektiler. */
     
     Ufoer_render (ufoer);
+        
+        
+    Tekst_render (modell->tekst_poeng);    
         
     SDL_RenderPresent(skjerm->ren);
     

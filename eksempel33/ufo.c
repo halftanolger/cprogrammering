@@ -53,8 +53,8 @@ int Ufo_slett (Ufo ** ufo) {
 
 void Ufo_render (Ufo * ufo) {
 
-    if (ufo->status == 1) {
-        return;
+    if (ufo->status == 1) { 
+        return; /* Ufo er skutt ned. */
     }
 
     Skjerm * skjerm = ((Spaceinvader*)ufo->spaceinvader)->skjerm;        
@@ -103,3 +103,24 @@ void Ufo_tikk (Ufo * ufo) {
     }
 
 }    
+
+void Ufo_tilbakestill (Ufo * ufo, int id) {
+
+    Spaceinvader * spaceinvader = (Spaceinvader*)ufo->spaceinvader;
+    Skjerm * skjerm = spaceinvader->skjerm;    
+
+    double rad = (double) (id / 11);
+    double indeks = (double) (id % 11);
+            
+    double d = (double)skjerm->bredde;
+    d = (d * 0.8) / 11.0;
+    
+    int x = (int)(10.0 + d * indeks);    
+    int y = (int)(50.0 + (d / 2.0) * rad); 
+
+    ufo->r->x = x;
+    ufo->r->y = y;
+
+    ufo->status = 0;
+    
+}

@@ -14,10 +14,8 @@
 
 Kontrollsentral * Kontrollsentral_opprett(void * spaceinvader) {
 
-    Kontrollsentral *k = (Kontrollsentral*)malloc(sizeof(Kontrollsentral));
-        
-    k->spaceinvader = spaceinvader;
-        
+    Kontrollsentral *k = (Kontrollsentral*)malloc(sizeof(Kontrollsentral));        
+    k->spaceinvader = spaceinvader;        
     return k;
     
 }
@@ -31,11 +29,11 @@ int Kontrollsentral_slett (Kontrollsentral ** Kontrollsentral) {
 
 int Kontrollsentral_er_vi_ferdig (Kontrollsentral * kontrollsentral) {
 
-    Spaceinvader *s = (Spaceinvader*)kontrollsentral->spaceinvader;
-
-    Modell *m = s->modell;
+    Spaceinvader *spaceinvader = (Spaceinvader*)kontrollsentral->spaceinvader;
+    Modell *modell = spaceinvader->modell;
     
-    if (m->status == STATUS_STOPP) {
+    if (modell
+    ->status == STATUS_STOPP) {
         return 1;
     } else {
         return 0;
@@ -45,11 +43,10 @@ int Kontrollsentral_er_vi_ferdig (Kontrollsentral * kontrollsentral) {
 
 void Kontrollsentral_avslutt (Kontrollsentral * kontrollsentral) {
 
-    Spaceinvader *s = (Spaceinvader*)kontrollsentral->spaceinvader;
-
-    Modell *m = s->modell;
+    Spaceinvader *spaceinvader = (Spaceinvader*)kontrollsentral->spaceinvader;
+    Modell *modell = spaceinvader->modell;
     
-    m->status = STATUS_STOPP;
+    modell->status = STATUS_STOPP;
 
 }
 
@@ -112,11 +109,24 @@ void Kontrollsentral_tikk (Kontrollsentral * kontrollsentral) {
        truffet en eller flere ufoer. */
          
     Kanon_sjekk_treff (kanon);
+    
+    r = Ufoer_sjekk_ny_sverm (ufoer);
+    
+    if (r == 1) {
+        Ufoer_ny_sverm (ufoer);
+    }
+    
          
     /* Sjekk om noen prosjektiler fra en eller flere ufoer har 
        truffet kanonen. */
     
     Ufoer_sjekk_treff (ufoer);
+        
+    
+    char buff[128];
+    sprintf(buff,"POENG %.4d",modell->poeng);
+    Tekst_set_melding(modell->tekst_poeng,buff);
+    
         
 }
 

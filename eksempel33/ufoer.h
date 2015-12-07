@@ -32,4 +32,29 @@ void Ufoer_render (Ufoer *);
 
 void Ufoer_sjekk_treff (Ufoer *);
 
+/**
+ * Ufoer_sjekk_ny_sverm
+ *
+ * Om alle ufoene er skutt ned, skal vi generere en ny runde med ufoer. Denne
+ * metoden sjekker om alle ufoene er skutt ned eller ikke.
+ *
+ * Parameter Ufoer* peker til ufo-sverm.
+ *
+ * Returnerer 1 hvis alle ufoene er skutt ned.
+ * Returnerer 0 hvis det eksisterer en eller flere aktive ufoer.
+ *
+ */
+int Ufoer_sjekk_ny_sverm (Ufoer *);
+
+/**
+ * Ufoer_ny_sverm
+ *
+ * Oppretter en ny sverm med ufoer.  
+ *
+ * Parameter Ufoer* peker til ufo-sverm-objekt.
+ *
+ */
+ void Ufoer_ny_sverm (Ufoer *);
+
+
 #endif // _UFOER_H_

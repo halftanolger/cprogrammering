@@ -18,6 +18,12 @@ Modell * Modell_opprett(void * spaceinvader) {
     
     m->status = STATUS_PAUSE;
     
+    m->poeng = 0;
+    
+    m->tekst_poeng = Tekst_opprett (spaceinvader, "VCR_OSD_MONO.ttf", 18);
+    m->tekst_poeng->x = 10;
+    m->tekst_poeng->y = 10;
+    
     m->ufo_retning = 1;
         
     m->ufo_tikk_timer = 0;
@@ -32,7 +38,7 @@ Modell * Modell_opprett(void * spaceinvader) {
     m->kanon = Kanon_opprett (spaceinvader);
     
     m->ufoer = Ufoer_opprett (spaceinvader);
-    
+            
     return m;
     
 }
