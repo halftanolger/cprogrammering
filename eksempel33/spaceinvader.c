@@ -70,7 +70,10 @@ int Spaceinvader_spill(Spaceinvader * spaceinvader) {
             if (e.type == SDL_QUIT){
                 Kontrollsentral_avslutt(k);                
             }
-                    
+              
+            //DENNE LOGIKKEN ER FEIL, REF:
+            //https://www.libsdl.org/release/SDL-1.2.15/docs/html/guideinputkeyboard.html
+                 
             if (e.type == SDL_KEYDOWN){
             
                 switch (e.key.keysym.sym) {
