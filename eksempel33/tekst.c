@@ -67,6 +67,7 @@ int Tekst_slett (Tekst ** tekst) {
     TTF_CloseFont ((*tekst)->font);    
 
     free(*tekst);
+    
     return 0;
     
 }
@@ -87,7 +88,9 @@ void Tekst_set_melding (Tekst * tekst, char * melding)  {
     }
     
     tekst->bredde = surface->w;    
+    
     tekst->hoeyde = surface->h;    
+    
     tekst->texture = SDL_CreateTextureFromSurface( skjerm->ren, surface );
     
     if (tekst->texture == NULL) {
@@ -106,4 +109,5 @@ void Tekst_render (Tekst * tekst) {
         
     SDL_Rect rec = {tekst->x,tekst->y,tekst->bredde, tekst->hoeyde};       
     SDL_RenderCopyEx(skjerm->ren, tekst->texture, NULL, &rec, 0, NULL, SDL_FLIP_NONE );
+    
 }

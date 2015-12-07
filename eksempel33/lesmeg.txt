@@ -10,4 +10,6 @@
   Nye momenter:
 
     - lagt til poengberegning og prensentasjon av denne (i.e tekst på skjermen)
-
+    
+    - opprettet et nytt objekt kalt 'tekst' som tar seg av logikk rundt det å 
+      vise en grafisk tekst på skjermen.

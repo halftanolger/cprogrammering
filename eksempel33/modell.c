@@ -18,8 +18,7 @@ Modell * Modell_opprett(void * spaceinvader) {
     
     m->status = STATUS_PAUSE;
     
-    m->poeng = 0;
-    
+    m->poeng = 0;    
     m->tekst_poeng = Tekst_opprett (spaceinvader, "VCR_OSD_MONO.ttf", 18);
     m->tekst_poeng->x = 10;
     m->tekst_poeng->y = 10;
