@@ -142,7 +142,7 @@ void Kontrollsentral_tikk (Kontrollsentral * kontrollsentral) {
             
 }
 
-void Kontrollsentra_les_data (Kontrollsentral * kontrollsentral) {
+void Kontrollsentral_les_data (Kontrollsentral * kontrollsentral) {
 
     Spaceinvader *spaceinvader = (Spaceinvader*)kontrollsentral->spaceinvader;
     Modell * modell = spaceinvader->modell;
@@ -168,7 +168,7 @@ void Kontrollsentra_les_data (Kontrollsentral * kontrollsentral) {
  
 }
 
-void Kontrollsentra_skriv_data (Kontrollsentral * kontrollsentral) {
+void Kontrollsentral_skriv_data (Kontrollsentral * kontrollsentral) {
 
     Spaceinvader *spaceinvader = (Spaceinvader*)kontrollsentral->spaceinvader;
     Modell * modell = spaceinvader->modell;

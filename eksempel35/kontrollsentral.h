@@ -82,8 +82,8 @@ void Kontrollsentral_kanon_fyr_av_et_prosjektil(Kontrollsentral *);
  */ 
 void Kontrollsentral_tikk (Kontrollsentral *);    
 
-void Kontrollsentra_les_data (Kontrollsentral *);    
+void Kontrollsentral_les_data (Kontrollsentral *);    
 
-void Kontrollsentra_skriv_data (Kontrollsentral *);    
+void Kontrollsentral_skriv_data (Kontrollsentral *);    
 
 #endif //_KONTROLLSENTRAL_H_

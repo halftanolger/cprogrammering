@@ -65,7 +65,7 @@ Spaceinvader * Spaceinvader_opprett() {
         return NULL;
     }
         
-    Kontrollsentra_les_data (spaceinvader->kontrollsentral);    
+    Kontrollsentral_les_data (spaceinvader->kontrollsentral);    
         
     return spaceinvader;
         
@@ -149,7 +149,7 @@ int Spaceinvader_spill(Spaceinvader * spaceinvader) {
 
     fprintf(stdout, "Spaceinvader_spill: avslutt");
     
-    Kontrollsentra_skriv_data (k);
+    Kontrollsentral_skriv_data (k);
     
     /*
     int r = 1;
