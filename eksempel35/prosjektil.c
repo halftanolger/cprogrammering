@@ -48,7 +48,12 @@ void Prosjektil_render (Prosjektil * prosjektil) {
     rect.w = prosjektil->r->b;
     rect.h = prosjektil->r->h;
         
-    SDL_SetRenderDrawColor (skjerm->ren, 200, 200, 200, 255);
+	int c = 0;
+	if (prosjektil->type == 1) {
+		c = 190;
+	}
+
+    SDL_SetRenderDrawColor (skjerm->ren, 200, 200, 200-c, 255);
     SDL_RenderFillRect (skjerm->ren, &rect);
     
 }

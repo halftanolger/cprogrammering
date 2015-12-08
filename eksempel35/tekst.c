@@ -91,6 +91,9 @@ void Tekst_set_melding (Tekst * tekst, char * melding)  {
     
     tekst->hoeyde = surface->h;    
     
+	if (tekst->texture != NULL) 
+		SDL_DestroyTexture(tekst->texture);
+
     tekst->texture = SDL_CreateTextureFromSurface( skjerm->ren, surface );
     
     if (tekst->texture == NULL) {

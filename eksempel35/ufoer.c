@@ -206,7 +206,7 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
         /* Finn ut hva som er nederste rad. */
         
         int f = 0;
-        int s[11] = {0};        
+        int s[12] = {0};        
         for (indeks = 11; indeks >= 1; indeks--) {                    
             Ufo * ufo = ufoer->ufo[(rader * 11) + indeks - 1];        
             s[indeks] = ufo->status;        

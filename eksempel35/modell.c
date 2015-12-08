@@ -20,7 +20,7 @@ Modell * Modell_opprett(void * spaceinvader) {
     m->status = STATUS_PAUSE;
     
     m->poeng = 0;    
-    m->tekst_poeng = Tekst_opprett (spaceinvader, "font.ttf", 18);
+    m->tekst_poeng = Tekst_opprett (spaceinvader, "c:\\tmp\\font.ttf", 18);
     m->tekst_poeng->x = 10;
     m->tekst_poeng->y = 10;
                

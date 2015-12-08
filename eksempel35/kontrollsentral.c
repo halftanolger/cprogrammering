@@ -111,7 +111,7 @@ void Kontrollsentral_tikk (Kontrollsentral * kontrollsentral) {
     /* Sjekk om noen prosjektiler fra kanonen har 
        truffet en eller flere ufoer. */
          
-    Kanon_sjekk_treff (kanon);
+	Kanon_sjekk_treff (kanon);
     
     /* Sjekk om kanonen har skutt ned alle ufoene, i så fall må vi lage
        en ny sverm. */
