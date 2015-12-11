@@ -13,35 +13,35 @@
 
 Modell * Modell_opprett(void * spaceinvader) {
 
-    Modell *m = (Modell*)malloc(sizeof(Modell));
+    Modell *modell = (Modell*)malloc(sizeof(Modell));
     
-    m->spaceinvader = spaceinvader;
+    modell->spaceinvader = spaceinvader;
     
-    m->status = STATUS_PAUSE;
+    modell->status = STATUS_PAUSE;
     
-    m->poeng = 0;    
-    m->tekst_poeng = Tekst_opprett (spaceinvader, "c:\\tmp\\font.ttf", 18);
-    m->tekst_poeng->x = 10;
-    m->tekst_poeng->y = 10;
+    modell->poeng = 0;    
+    modell->tekst_poeng = Tekst_opprett (spaceinvader, "font.ttf", 18);
+    modell->tekst_poeng->x = 10;
+    modell->tekst_poeng->y = 10;
                
-    m->ufo_retning = 1;
+    modell->ufo_retning = 1;
         
-    m->ufo_tikk_timer = 0;
+    modell->ufo_tikk_timer = 0;
     
-    m->ufo_fart = 20;
+    modell->ufo_fart = 20;
         
-    m->ufoer_ild_timer = 0;
+    modell->ufoer_ild_timer = 0;
     
     Skjerm * skjerm = ((Spaceinvader*)spaceinvader)->skjerm;
-    m->jord_nivaa = skjerm->hoeyde - 50;
+    modell->jord_nivaa = skjerm->hoeyde - 50;
         
-    m->kanon = Kanon_opprett (spaceinvader);
+    modell->kanon = Kanon_opprett (spaceinvader);
     
-    m->ufoer = Ufoer_opprett (spaceinvader);
+    modell->ufoer = Ufoer_opprett (spaceinvader);
             
-    m->datafil = strdup("toppresultat.dat");        
+    modell->datafil = strdup("toppresultat.dat");        
     
-    return m;
+    return modell;
     
 }
 

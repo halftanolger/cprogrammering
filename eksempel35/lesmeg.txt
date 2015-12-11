@@ -9,5 +9,11 @@
 
   Nye momenter:
 
-    - lagt til lydeffekter
+    - opprettet et nytt objekt kalt 'lyd', som fikser lydeffektene.
+    
+    - opprettet et nytt objekt kalt 'logger', som fikser logging.
          
+    - opprettet et nytt objekt kalt 'konfigurasjon', som fikser konfigurering.
+         
+         
+http://www.codeproject.com/Articles/681130/Learn-JavaScript-Part-Space-Invaders

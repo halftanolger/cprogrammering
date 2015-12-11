@@ -1,0 +1,44 @@
+﻿
+#------------------------------------------------------------------------------#
+#                                                                              #
+#   Konfigurasjonsfil                                                          #
+#                                                                              #
+#------------------------------------------------------------------------------#
+
+
+# -- LOGG ---------------------------------------------------------------------#
+
+#
+# Parameter     : logg_aktiv 
+# Hensikt       : Å slå av eller på logging.
+# Mulige verdier: 0 - av, 1 - på
+#
+
+logg_aktiv=1
+
+#
+# Parameter     : logg_nivaa 
+# Hensikt       : Å styre mengden logginformasjon som skrives til fil.
+# Mulige verdier: INFO, ERROR
+#
+
+logg_nivaa= INFO
+
+#
+# Parameter     : logg_filnavn 
+# Hensikt       : Å styre hvor logginformasjon skal skrives.
+# Mulige verdier: stdout, stderr eller et filnavn eks. logg.txt
+#
+
+logg_filnavn= logg.txt
+
+
+# -- TEST ---------------------------------------------------------------------#
+
+#
+# Parameter     : test_aktiv 
+# Hensikt       : Å slå av eller på enhetstest.
+# Mulige verdier: 0 - av, 1 - på
+#
+
+test_aktiv= 0

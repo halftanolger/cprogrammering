@@ -9,23 +9,40 @@
 
 #include <stdio.h>
 #include "spaceinvader.h"
+#include "logger.h"
+#include "konfigurasjon.h"
 #include "test/test.h"
+
+Konfigurasjon * konfigurasjon;
+Logger * logg;
 
 int main(int argc, char *argv[]) {
 
-    if (argc == 2) {
-        char * p = argv[1];
-        if (strcmp(p,"-t") == 0){
-            return test_main();
-        }
-    }
+    konfigurasjon = Konfigurasjon_opprett("konfigurasjon.txt");
+    
+    if (konfigurasjon == NULL) 
+        return 1;
+    
+    logg = Logger_opprett(konfigurasjon);
+    
+    if (logg == NULL)
+        return 1;
 
+    if (strcmp(konfigurasjon->test_aktiv,"1") == 0) 
+        return test_main();
+        
+    const char * sign = "main(int,char*[])";
+    
+    Logger_log (logg, INFO, sign, "start");
+    
     Spaceinvader *spaceinvader = Spaceinvader_opprett();
 
     Spaceinvader_spill(spaceinvader);
     
     Spaceinvader_slett(&spaceinvader);
 
+    Logger_log (logg, INFO, sign, "slutt");
+    
     return 0;
 
 }

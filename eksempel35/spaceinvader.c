@@ -10,8 +10,10 @@
 #include <assert.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include "logger.h"
 #include "spaceinvader.h"
 
+extern Logger *logg;
 
 Spaceinvader * Spaceinvader_opprett() { 
     
@@ -73,6 +75,10 @@ Spaceinvader * Spaceinvader_opprett() {
 
 int Spaceinvader_spill(Spaceinvader * spaceinvader) { 
 
+    const char * sign = "Spaceinvader_spill(Spaceinvader*)";
+
+    Logger_log (logg, INFO, sign, "start");
+    
     Skjerm *s = spaceinvader->skjerm;
     Kontrollsentral *k = spaceinvader->kontrollsentral;
     
@@ -146,8 +152,7 @@ int Spaceinvader_spill(Spaceinvader * spaceinvader) {
         Skjerm_render (s);
     
     }
-
-    fprintf(stdout, "Spaceinvader_spill: avslutt");
+    
     
     Kontrollsentral_skriv_data (k);
     
@@ -162,6 +167,7 @@ int Spaceinvader_spill(Spaceinvader * spaceinvader) {
     }
     */
     
+    Logger_log (logg, INFO, sign, "slutt");
     
     return 0; 
     
