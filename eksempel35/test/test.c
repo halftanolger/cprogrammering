@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include "test_rektangel.h"
+#include "test_lyd.h"
 #include "test.h"
 
 int test_main() {
@@ -22,7 +23,9 @@ int test_main() {
 
     int (*test_funksjons_peker_tabell[])() = {
 
-        test_rektangel_overlapp
+        /*test_rektangel_overlapp,*/
+        test_lyd
+        
 
     };
 

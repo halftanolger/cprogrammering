@@ -9,16 +9,18 @@
 #define _LYD_H_
 
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 
 typedef struct lyd_st {
     
-    void * spaceinvader;
+    Mix_Chunk * kanonild;
        
 } Lyd;
 
-Lyd * Lyd_opprett (void *);
+Lyd * Lyd_opprett ();
 
 int Lyd_slett (Lyd **);
+
+void Lyd_generer(int type);
 
 #endif // _LYD_H_

@@ -1,57 +1,50 @@
-﻿all:	SpaceInvader.exe
+#
+# Makefile
+#
 
-SpaceInvader.exe:	test/test.o test/test_rektangel.o konfigurasjon.o logger.o lyd.o tekst.o rektangel.o ufoer.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
-	gcc test/test.o test/test_rektangel.o konfigurasjon.o logger.o lyd.o tekst.o rektangel.o ufo.o ufoer.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -lSDL2_ttf -o $@
+OBJ = test/test.o \
+	test/test_rektangel.o \
+	test/test_lyd.o \
+	konfigurasjon.o \
+	logger.o \
+	lyd.o \
+	tekst.o \
+	rektangel.o \
+	ufoer.o \
+	ufo.o \
+	prosjektil.o \
+	kanon.o \
+	modell.o \
+	skjerm.o \
+	kontrollsentral.o \
+	spaceinvader.o \
+	main.o
 
-test/test.o:	test/test.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
 
-test/test_rektangel.o:	test/test_rektangel.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
 
-konfigurasjon.o:	konfigurasjon.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
+CFLAGS = -g -Wall -pedantic -std=c11 -I/usr/include/
 
-logger.o:	logger.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
+LDFLAGS = -L/bin/ -L/lib/
 
-lyd.o:	lyd.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
+LIBS = -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_mixer
 
-tekst.o:	tekst.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
+CC = gcc
 
-rektangel.o:	rektangel.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
+all:	SpaceInvader.exe
 
-ufo.o:	ufo.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
+SpaceInvader.exe:	$(OBJ)
+	$(CC) $(OBJ) -o $@ $(LDFLAGS) $(LIBS)  
 
-ufoer.o:	ufoer.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
-	
-prosjektil.o:	prosjektil.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
-
-kanon.o:	kanon.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
-
-main.o:	main.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
-
-spaceinvader.o:	spaceinvader.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
-
-modell.o:	modell.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
-
-skjerm.o:	skjerm.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
-
-kontrollsentral.o:	kontrollsentral.c
-	gcc -Wall -std=c11 -pedantic -c -I/usr/include $< -o $@
-	
 clean:
 	rm *.o 
 	rm test/*.o
 	rm SpaceInvader.exe
+
+test.o: test/test.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+test_rektangel.o: test/test_rektangel.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+test_lyd.o: test/test_lyd.c
+	$(CC) $(CFLAGS) -c $< -o $@

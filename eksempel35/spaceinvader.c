@@ -28,7 +28,7 @@ Spaceinvader * Spaceinvader_opprett() {
                     
     /* Initier SDL */
     
-    if (SDL_Init(SDL_INIT_VIDEO) != 0){
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0){
         fprintf (stderr, "SDL_Init Error: %s", SDL_GetError());
         return NULL;        
     }

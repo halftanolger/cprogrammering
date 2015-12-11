@@ -19,7 +19,7 @@ logg_aktiv=1
 #
 # Parameter     : logg_nivaa 
 # Hensikt       : Å styre mengden logginformasjon som skrives til fil.
-# Mulige verdier: INFO, ERROR
+# Mulige verdier: INFO, FEIL
 #
 
 logg_nivaa= INFO
@@ -41,4 +41,4 @@ logg_filnavn= logg.txt
 # Mulige verdier: 0 - av, 1 - på
 #
 
-test_aktiv= 0
+test_aktiv= 1
