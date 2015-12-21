@@ -22,7 +22,7 @@ int test_lyd() {
     
     Logger_log (logg, INFO, sign, "start");
 
-    if (SDL_Init(SDL_INIT_TIMER | SDL_INIT_AUDIO | SDL_INIT_VIDEO) != 0){
+    if (SDL_Init( SDL_INIT_AUDIO | SDL_INIT_VIDEO) < 0){
     
         char melding[512];
         sprintf(melding,"SDL_Init Error: %s", SDL_GetError());
@@ -30,10 +30,8 @@ int test_lyd() {
         return 1;        
         
     }    
-
-    
+   
     Logger_log (logg, INFO, sign, "SDL_Init(SDL_INIT_AUDIO) ok");
-
     
     if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 ) {
     
@@ -44,10 +42,11 @@ int test_lyd() {
         
 	}
 
+    Logger_log (logg, INFO, sign, "Mix_OpenAudio ok");
     
     Lyd *lyd = Lyd_opprett();
     
-    Lyd_generer(1);
+    Lyd_generer(lyd, 1);
         
     Lyd_slett(&lyd);
     

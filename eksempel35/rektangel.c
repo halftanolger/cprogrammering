@@ -1,4 +1,4 @@
-﻿/*
+/*
     C -programmering, en innføring. 
 
     Eksempel 35
@@ -72,7 +72,7 @@ int Rektangel_overlapp (Rektangel * r1, Rektangel * r2) {
     int v1x = r1->x;
     int v1y = r1->y;
             
-    int h2x = r2->x + r2->b;;
+    int h2x = r2->x + r2->b;
     int h2y = r2->y + r2->h;
     
     int v2x = r2->x;

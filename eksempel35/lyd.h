@@ -1,4 +1,4 @@
-﻿/*
+/*
     C -programmering, en innføring. 
 
     Eksempel 35
@@ -21,6 +21,6 @@ Lyd * Lyd_opprett ();
 
 int Lyd_slett (Lyd **);
 
-void Lyd_generer(int type);
+void Lyd_generer(Lyd *, int type);
 
 #endif // _LYD_H_
