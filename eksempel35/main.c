@@ -36,6 +36,9 @@ int main(int argc, char *argv[]) {
     Logger_log (logg, INFO, sign, "start");
     
     Spaceinvader *spaceinvader = Spaceinvader_opprett();
+    
+    if (spaceinvader == NULL) 
+        return 1;
 
     Spaceinvader_spill(spaceinvader);
     

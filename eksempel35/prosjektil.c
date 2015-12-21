@@ -35,7 +35,7 @@ int Prosjektil_slett (Prosjektil ** prosjektil) {
 void Prosjektil_render (Prosjektil * prosjektil) {
 
     if (prosjektil->status == 1) {
-        return;
+       // return;
     }
 
     Spaceinvader * spaceinvader = (Spaceinvader*)prosjektil->spaceinvader;

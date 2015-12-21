@@ -12,8 +12,12 @@
 #include "kanon.h"
 #include "spaceinvader.h"
 #include "rektangel.h"
+#include "logger.h"
 #include "ufo.h"
+#include "lyd.h"
 #include "ufoer.h"
+
+extern Logger *logg;
 
 Ufoer * Ufoer_opprett(void * spaceinvader) {
 
@@ -94,6 +98,8 @@ int Ufoer_tikk (Ufoer * ufoer) {
     Modell * modell = spaceinvader->modell;
     Skjerm * skjerm = spaceinvader->skjerm;
     
+    const char * sign = "Ufoer_tikk(Ufoer*)";
+    
     /* Oppdater eventuell eksisterende ild-givning fra ufoene. */
     
     int teller;
@@ -139,7 +145,14 @@ int Ufoer_tikk (Ufoer * ufoer) {
             Ufo * ufo = ufoer->ufo[teller];
             if ((ufo->r->x + ufo->r->b) > (skjerm->bredde - 10) ) {
                 modell->ufo_retning = 2;
-                modell->ufo_fart--;
+                
+                if (modell->ufo_fart > 1)
+                    modell->ufo_fart--;
+                
+                char str[32];
+                sprintf(str,"ny fart %d",modell->ufo_fart);
+                Logger_log (logg, FEIL, sign, str);
+                
                 break;
             }
         }
@@ -150,7 +163,12 @@ int Ufoer_tikk (Ufoer * ufoer) {
             Ufo * ufo = ufoer->ufo[teller];
             if ((ufo->r->x < 10) ) {
                 modell->ufo_retning = 4;
-                modell->ufo_fart--;
+
+                if (modell->ufo_fart > 1)
+                    modell->ufo_fart--;
+                
+                Logger_log (logg, FEIL, sign, "øker farta");
+                
                 break;
             }
         }                        
@@ -162,7 +180,9 @@ int Ufoer_tikk (Ufoer * ufoer) {
     
     int jord_kontakt = 0;
     for (teller = 0; teller < 55; teller++) {        
-        Ufo * ufo = ufoer->ufo[teller];                
+        Ufo * ufo = ufoer->ufo[teller];  
+        if (ufo->status == 1)
+            continue;
         if (ufo->r->y > modell->jord_nivaa) {
             jord_kontakt = 1;
             break;
@@ -178,6 +198,7 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
 
     Spaceinvader * spaceinvader = (Spaceinvader*)ufoer->spaceinvader;
     Modell * modell = spaceinvader->modell;
+    Lyd * lyd = modell->lyd;
     
     /* Aller først, sjekk at vi har èn eller flere aktive ufoer. */
     
@@ -228,6 +249,8 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
                 }                
             }            
             break;        
+        } else {
+            return;
         }
         
     }
@@ -239,6 +262,9 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
         modell->ufoer_ild_timer = rand()%300;
 
         Ufo * ufo = ufoer->ufo[ild_indeks];
+        
+        if (ufo->status == 1)
+            return;
         
         int teller;
         for (teller = 0; teller < MAX_ANTALL_PROSJEKTIL_UFO; teller++) {
@@ -253,10 +279,13 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
         /* Opprett et nytt prosjektilobjekt, og plasser det i ild- givningen. */
 
         int type = 1;
+                
         int x = ufo->r->x + (ufo->r->b / 2);
         int y = ufo->r->y + ufo->r->h;
     
         ufo->ild[teller] = Prosjektil_opprett (spaceinvader,type,x,y);
+                
+        Lyd_generer (lyd,3);        
                 
     } else {
         

@@ -8,7 +8,7 @@
 #ifndef _KANON_H_
 #define _KANON_H_
 
-#define MAX_ANTALL_PROSJEKTIL 100
+#define MAX_ANTALL_PROSJEKTIL 10
 
 #include "prosjektil.h"
 #include "rektangel.h"
@@ -40,7 +40,7 @@ void Kanon_flytt_til_venstre (Kanon *);
 
 void Kanon_flytt_til_hoeyre (Kanon *);
 
-void Kanon_fyr_av_et_prosjektil (Kanon *);
+int Kanon_fyr_av_et_prosjektil (Kanon *);
 
 void Kanon_tikk (Kanon *);
 

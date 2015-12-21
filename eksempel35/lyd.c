@@ -24,15 +24,31 @@ Lyd * Lyd_opprett() {
                  
     lyd->kanonild = Mix_LoadWAV( "shot.wav" ); 
     
-    if (lyd->kanonild == NULL) { 
-    
+    if (lyd->kanonild == NULL) {     
         char melding[256];
         sprintf(melding,"SDL_mixer Error: %s", Mix_GetError());        
         Logger_log (logg, FEIL, sign, melding);
-        return NULL;
-        
+        return NULL;        
     }
-                 
+        
+    lyd->ufo_treff = Mix_LoadWAV( "alien-hit.wav" ); 
+    
+    if (lyd->ufo_treff == NULL) {     
+        char melding[256];
+        sprintf(melding,"SDL_mixer Error: %s", Mix_GetError());        
+        Logger_log (logg, FEIL, sign, melding);
+        return NULL;        
+    }
+
+    lyd->ufo_ild = Mix_LoadWAV( "alien-shot.wav" ); 
+    
+    if (lyd->ufo_ild == NULL) {     
+        char melding[256];
+        sprintf(melding,"SDL_mixer Error: %s", Mix_GetError());        
+        Logger_log (logg, FEIL, sign, melding);
+        return NULL;        
+    }
+    
     return lyd;
     
 }
@@ -56,11 +72,36 @@ void Lyd_generer(Lyd * lyd, int type) {
     if (type == 1) {
     
         Logger_log (logg, INFO, sign, "kanonild");
+                
+        if (Mix_PlayChannel( 0, lyd->kanonild, 0 ) == -1) {
+            char melding[256];
+            sprintf(melding,"SDL_mixer Error: %s", Mix_GetError());        
+            Logger_log (logg, FEIL, sign, melding);            
+        }
         
-        Mix_PlayChannel( -1, lyd->kanonild, 0 );
+    } else if (type == 2) {
+    
+        Logger_log (logg, INFO, sign, "ufo_treff");
+                
+        if (Mix_PlayChannel( 1, lyd->ufo_treff, 0 ) == -1) {
+            char melding[256];
+            sprintf(melding,"SDL_mixer Error: %s", Mix_GetError());        
+            Logger_log (logg, FEIL, sign, melding);            
+        }
+        
+    } else if (type == 3) {
+    
+        Logger_log (logg, INFO, sign, "ufo_ild");
+                
+        if (Mix_PlayChannel( 1, lyd->ufo_ild, 0 ) == -1) {
+            char melding[256];
+            sprintf(melding,"SDL_mixer Error: %s", Mix_GetError());        
+            Logger_log (logg, FEIL, sign, melding);            
+        }
         
     }
-
+    
+    
     Logger_log (logg, INFO, sign, "slutt");
     
 }

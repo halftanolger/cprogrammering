@@ -11,7 +11,10 @@
 #include "modell.h"
 #include "spaceinvader.h"
 #include "rektangel.h"
+#include "logger.h"
 #include "kanon.h"
+
+extern Logger *logg;
 
 Kanon * Kanon_opprett(void * spaceinvader) {
 
@@ -94,20 +97,14 @@ void Kanon_flytt_til_hoeyre (Kanon * kanon) {
 
 }
 
-void Kanon_fyr_av_et_prosjektil (Kanon * kanon) {
+int Kanon_fyr_av_et_prosjektil (Kanon * kanon) {
 
     Spaceinvader * spaceinvader = (Spaceinvader*)kanon->spaceinvader;    
+    Modell * modell = spaceinvader->modell;
 
-    /*
-    Uint32 t = SDL_GetTicks();        
-    Uint32 d = 150;
-    Uint32 g = kanon->tiks + d;
-    if ( g > t) {
-        return;
-    }     
-    kanon->tiks = t;
-    */
-    
+    const char * sign = "Kanon_fyr_av_et_prosjektil(Kanon*)";
+
+    Logger_log (logg, INFO, sign, "start");
     
     /* Finn neste ledige plass i ild- givningen. */
     
@@ -119,7 +116,8 @@ void Kanon_fyr_av_et_prosjektil (Kanon * kanon) {
     }
 
     if (teller == MAX_ANTALL_PROSJEKTIL) {
-        return;
+        Logger_log (logg, INFO, sign, "teller == MAX_ANTALL_PROSJEKTIL");
+        return 0;
     }
         
     /* Opprett et nytt prosjektilobjekt, og plasser dette i ild- givningen. */
@@ -129,10 +127,24 @@ void Kanon_fyr_av_et_prosjektil (Kanon * kanon) {
     int y = kanon->r->y;
     
     kanon->ild[teller] = Prosjektil_opprett (spaceinvader,type,x,y);
+
+    int t = 0;
+    for (teller = 0; teller < MAX_ANTALL_PROSJEKTIL; teller++) {
+        if (kanon->ild[teller] == NULL) 
+            t++;        
+    }
+    modell->ledigeprosjektil = t;
+    
+    Logger_log (logg, INFO, sign, "slutt");
+    
+    return 1;
     
 }
 
 void Kanon_tikk (Kanon * kanon) {
+
+    Spaceinvader * spaceinvader = (Spaceinvader*)kanon->spaceinvader;
+    Modell * modell = spaceinvader->modell;
 
     int teller;
     for (teller = 0; teller < MAX_ANTALL_PROSJEKTIL; teller++) {
@@ -147,7 +159,8 @@ void Kanon_tikk (Kanon * kanon) {
             
             if ( r == 1) {                                        
                 Prosjektil_slett (&prosjektil);
-                kanon->ild[teller] = NULL;              
+                kanon->ild[teller] = NULL;  
+                modell->ledigeprosjektil++;
             }
             
         }
@@ -160,6 +173,7 @@ void Kanon_sjekk_treff (Kanon * kanon) {
 
     Spaceinvader * spaceinvader = (Spaceinvader*)kanon->spaceinvader;
     Modell * modell = spaceinvader->modell;
+    Lyd * lyd = modell->lyd;
 
     int teller;
     for (teller = 0; teller < MAX_ANTALL_PROSJEKTIL; teller++) {
@@ -167,9 +181,6 @@ void Kanon_sjekk_treff (Kanon * kanon) {
         if (kanon->ild[teller] != NULL) {    
         
             Prosjektil * prosjektil = kanon->ild[teller];            
-            if (prosjektil->status == 1) {
-                continue;
-            }
             
             /* Såfremt prosjektilet er kommet opp til nederste ufo, må 
                vi begynne å sjekke etter mulige kolisjoner. */    
@@ -186,8 +197,13 @@ void Kanon_sjekk_treff (Kanon * kanon) {
                         b = Rektangel_overlapp (r1,r2);
                         if (b == 1) {
                             ufo->status = 1;
-                            prosjektil->status = 1;
-
+                            
+                            Lyd_generer (lyd,2);
+                            
+                            Prosjektil_slett(&prosjektil);
+                            kanon->ild[teller] = NULL;
+                            modell->ledigeprosjektil++;
+                            
                             if (ufo->id < 20)
                                 modell->poeng+=2;    
                             else 

@@ -1,7 +1,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -std=c99 -c
+CFLAGS = -Wall -std=c99 -g -c
 
 INCLUDES = 
 
@@ -64,4 +64,4 @@ kontrollsentral.o:	kontrollsentral.c
 clean:
 	del *.o 
 	del test\*.o
-	del SpaceInvader.exe
+	del bin\SpaceInvader.exe

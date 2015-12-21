@@ -13,6 +13,7 @@
 #define STATUS_STOPP 3
 
 #include "tekst.h"
+#include "lyd.h"
 #include "kanon.h"
 #include "ufoer.h"
 
@@ -26,7 +27,11 @@ typedef struct modell_st {
     
     int toppresultat;
     
+    int ledigeprosjektil;
+    
     Tekst * tekst_poeng;
+    
+    Lyd * lyd;
     
     char * datafil;
         

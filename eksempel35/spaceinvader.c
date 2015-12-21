@@ -10,6 +10,7 @@
 #include <assert.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2/SDL_mixer.h>
 #include "logger.h"
 #include "spaceinvader.h"
 
@@ -17,35 +18,52 @@ extern Logger *logg;
 
 Spaceinvader * Spaceinvader_opprett() { 
     
+    const char * sign = "Spaceinvader_opprett()";
+    
+    Logger_log (logg, FEIL, sign, "start");
+    
     /* Opprett Spaceinvader-objekt. */
     
     Spaceinvader *spaceinvader = (Spaceinvader*)malloc(sizeof(Spaceinvader));
                     
     if (spaceinvader == NULL) {
-        fprintf (stderr, "malloc feilet.");
+        Logger_log (logg, FEIL, sign, "malloc feilet.");
         return NULL;    
     }
                     
     /* Initier SDL */
     
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0){
-        fprintf (stderr, "SDL_Init Error: %s", SDL_GetError());
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0){        
+        char melding[512];
+        sprintf(melding,"SDL_Init Error: %s", SDL_GetError());
+        Logger_log (logg, FEIL, sign, melding);                
         return NULL;        
     }
     
     /* Initier TTF */
     
-    if (TTF_Init() != 0) {
-        printf ("TTF_Init Error: %s", TTF_GetError());
+    if (TTF_Init() != 0) {        
+        char melding[512];
+        sprintf(melding,"TTF_Init Error: %s", TTF_GetError());        
+        Logger_log (logg, FEIL, sign, melding);        
         return NULL;        
     }
     
+    /* Initier lyd */
+    
+    if( Mix_OpenAudio( MIX_DEFAULT_FREQUENCY, MIX_DEFAULT_FORMAT, 2, 4096 ) < 0 ) {    
+        char melding[512];
+        sprintf(melding,"Mix_OpenAudio Error: %s", Mix_GetError());        
+        Logger_log (logg, FEIL, sign, melding);
+		return NULL;        
+	}
+            
     /* Opprett skjerm-objekt. */
     
     spaceinvader->skjerm = Skjerm_opprett(spaceinvader);
     
     if (spaceinvader->skjerm == NULL) {
-        fprintf (stderr, "Skjerm_opprett feilet.");
+        Logger_log (logg, FEIL, sign, "Skjerm_opprett feilet.");
         return NULL;
     }
 
@@ -54,7 +72,7 @@ Spaceinvader * Spaceinvader_opprett() {
     spaceinvader->modell = Modell_opprett(spaceinvader);
             
     if (spaceinvader->modell == NULL) {
-        fprintf (stderr, "Modell_opprett feilet.");
+        Logger_log (logg, FEIL, sign, "Modell_opprett feilet.");
         return NULL;
     }
             
@@ -63,7 +81,7 @@ Spaceinvader * Spaceinvader_opprett() {
     spaceinvader->kontrollsentral = Kontrollsentral_opprett(spaceinvader);                        
 
     if (spaceinvader->kontrollsentral == NULL) {
-        fprintf (stderr, "Kontrollsentral_opprett() feilet.");
+        Logger_log (logg, FEIL, sign, "Kontrollsentral_opprett() feilet.");
         return NULL;
     }
         
@@ -106,7 +124,10 @@ int Spaceinvader_spill(Spaceinvader * spaceinvader) {
                         x = 1;
                         break;        
                     case SDLK_SPACE:
-                        f = 1;
+                        if (f == 0) {
+                            Kontrollsentral_kanon_fyr_av_et_prosjektil(k);
+                            f = 1;
+                        }
                         break;                        
                 }
                                                 
@@ -138,10 +159,6 @@ int Spaceinvader_spill(Spaceinvader * spaceinvader) {
             Kontrollsentral_kanon_til_venstre(k);                
         }
 
-        if (f == 1) {
-            Kontrollsentral_kanon_fyr_av_et_prosjektil(k);
-        }
-
        
         /* Oppdater status */
         
@@ -152,21 +169,9 @@ int Spaceinvader_spill(Spaceinvader * spaceinvader) {
         Skjerm_render (s);
     
     }
-    
-    
+        
     Kontrollsentral_skriv_data (k);
-    
-    /*
-    int r = 1;
-    while (r) {
-        if (SDL_PollEvent(&e)){        
-            if (e.type == SDL_QUIT){
-                r = 0;                
-            }
-        }
-    }
-    */
-    
+        
     Logger_log (logg, INFO, sign, "slutt");
     
     return 0; 

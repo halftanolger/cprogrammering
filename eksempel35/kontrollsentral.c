@@ -10,6 +10,7 @@
 #include <assert.h>
 #include "modell.h"
 #include "spaceinvader.h"
+#include "lyd.h"
 #include "kontrollsentral.h"
 
 Kontrollsentral * Kontrollsentral_opprett(void * spaceinvader) {
@@ -78,7 +79,10 @@ void Kontrollsentral_kanon_fyr_av_et_prosjektil(Kontrollsentral * kontrollsentra
     Modell * modell = spaceinvader->modell;
     Kanon * kanon = modell->kanon;
     
-    Kanon_fyr_av_et_prosjektil (kanon);
+    int r = Kanon_fyr_av_et_prosjektil (kanon);
+    
+    if (r == 1) 
+        Lyd_generer (modell->lyd, 1);
 
 }
 
@@ -137,7 +141,7 @@ void Kontrollsentral_tikk (Kontrollsentral * kontrollsentral) {
     /* Skriv ut på skjermen hvor mange poeng som er oppnådd. */
     
     char buff[128];
-    sprintf(buff,"POENG %.4d TOPP %.4d",modell->poeng,modell->toppresultat);
+    sprintf(buff,"POENG %.4d TOPP %.4d (%.2d)",modell->poeng,modell->toppresultat,modell->ledigeprosjektil);
     Tekst_set_melding (modell->tekst_poeng, buff);
             
 }

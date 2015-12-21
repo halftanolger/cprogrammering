@@ -14,6 +14,8 @@
 typedef struct lyd_st {
     
     Mix_Chunk * kanonild;
+    Mix_Chunk * ufo_treff;
+    Mix_Chunk * ufo_ild;
        
 } Lyd;
 

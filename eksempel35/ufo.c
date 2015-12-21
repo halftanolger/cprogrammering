@@ -53,10 +53,6 @@ int Ufo_slett (Ufo ** ufo) {
 
 void Ufo_render (Ufo * ufo) {
 
-    if (ufo->status == 1) { 
-        return; /* Ufo er skutt ned. */
-    }
-
     Skjerm * skjerm = ((Spaceinvader*)ufo->spaceinvader)->skjerm;        
 
     SDL_Rect rect;
@@ -70,8 +66,16 @@ void Ufo_render (Ufo * ufo) {
     
     int rad = ufo->id / 11;
     
-    SDL_SetRenderDrawColor (skjerm->ren,  + (rad * 50), 200, 200, 255);
-    SDL_RenderFillRect (skjerm->ren, &rect);
+   if (ufo->status != 1) { 
+    
+        SDL_SetRenderDrawColor (skjerm->ren,  + (rad * 50), 200, 200, 255);
+        SDL_RenderFillRect (skjerm->ren, &rect);
+        
+   } else {
+   
+        /* Ufo er skutt ned. */
+        
+   }
         
     /* Render ild- givningen. */
     
