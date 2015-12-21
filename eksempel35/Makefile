@@ -1,53 +1,67 @@
 
-CFLAGS = -Wall -std=c99
+CC = gcc
 
-INCLUDES = -I/usr/include -I/usr/local/includes -I
+CFLAGS = -Wall -std=c99 -c
 
-all:	SpaceInvader.exe
+INCLUDES = 
 
-SpaceInvader.exe:	test/test.o test/test_rektangel.o tekst.o rektangel.o ufoer.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
-	gcc test/test.o test/test_rektangel.o tekst.o rektangel.o ufo.o ufoer.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -lSDL2_ttf -o $@
+all:	bin/SpaceInvader.exe
+
+bin/SpaceInvader.exe:	test/test.o test/test_lyd.o test/test_rektangel.o konfigurasjon.o logger.o tekst.o lyd.o rektangel.o ufoer.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
+	gcc test/test.o test/test_lyd.o test/test_rektangel.o konfigurasjon.o logger.o tekst.o lyd.o rektangel.o ufo.o ufoer.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_mixer -o $@
 
 test/test.o:	test/test.c
-	gcc -Wall -c -I/usr/include $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 
-test/test_rektangel.o:	test/test_rektangel.c
-	gcc -Wall -c -I/usr/include $< -o $@
+test/test_rektangel.o:  test/test_rektangel.c
+	$(CC) $(CFLAGS) $< -o $@
 
+test/test_lyd.o:   test/test_lyd.c
+	$(CC) $(CFLAGS) $< -o $@
+
+konfigurasjon.o:	konfigurasjon.c
+	$(CC) $(CFLAGS) $< -o $@
+    
 tekst.o:	tekst.c
-	gcc $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 
+lyd.o:	lyd.c
+	$(CC) $(CFLAGS) $< -o $@
+
+logger.o:	logger.c
+	$(CC) $(CFLAGS) $< -o $@
+    
 rektangel.o:	rektangel.c
-	gcc -Wall -c -I/usr/include $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 
 ufo.o:	ufo.c
-	gcc -Wall -c -I/usr/include $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 
 ufoer.o:	ufoer.c
-	gcc -Wall -c -I/usr/include $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 	
 prosjektil.o:	prosjektil.c
-	gcc -Wall -c -I/usr/include $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 
 kanon.o:	kanon.c
-	gcc -Wall -c -I/usr/include $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 
 main.o:	main.c
-	gcc -Wall -c -I/usr/include $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 
 spaceinvader.o:	spaceinvader.c
-	gcc -Wall -c -I/usr/include $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 
 modell.o:	modell.c
-	gcc -Wall -c -I/usr/include $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 
 skjerm.o:	skjerm.c
-	gcc -Wall -c -I/usr/include $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 
 kontrollsentral.o:	kontrollsentral.c
-	gcc -Wall -c -I/usr/include $< -o $@
+	$(CC) $(CFLAGS) $< -o $@
 	
 clean:
-	rm *.o 
-	rm test/*.o
-	rm SpaceInvader.exe
+	del *.o 
+	del test\*.o
+	del SpaceInvader.exe
