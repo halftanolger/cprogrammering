@@ -1,0 +1,26 @@
+﻿
+#-----------------------------------------------------------------------------#
+#                                                                             #
+# C -programmering, en introduksjon.                                          #
+#                                                                             #
+# Eksempel 36                                                                 #
+#                                                                             #
+#-----------------------------------------------------------------------------#
+
+  Nye momenter:
+
+    - lagt til en intro til spillet.
+    
+    - lagt til muligheten å spille flere ganger.
+    
+    - lagt til noen flere enhets-tester.
+    
+    - ryddet opp i koden med hensyn til logging og feilhandtering.
+         
+  ( Når eksempel 36 er ferdig, skal det meste av koding være 'ferdig'. )
+  
+
+  Om man f.eks installerer Qt og QtCreator fra www.qt.io, kan man skrive:
+  > set PATH=E:\Qt_2_0_2\Tools\mingw492_32\bin
+  > mingw32-make
+  
