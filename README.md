@@ -1,11 +1,10 @@
 ﻿# cprogrammering
 C programmering - en innføring.
 
-Alle tekstfilene her er UTF-8 -formaterte eksempler som tilhører boka "C programmmering - en innføring". 
-
-Om du benytter MinGW vil jeg anbefale terminalprogrammet mintty.exe, siden dette 
-støtter UTF-8. Benytter du Cygwin eller en Linux-terminal, vil du antageligvis 
-ikke få noe trøbbel med øæå ...
+Dette er en rekke små eksempler i C som ender opp med et mer eller mindre
+komplett SpaceInvader-lignende spill. SDL (Simple Directmedia Layer) 
+benyttes for lyd, grafikk og tekst. Koden bør kunne bygges på alt som SDL 
+støtter, som langt på vei nesten er alt :-)
 
 For å laste ned eksemplene, kan du skrive kommandoen:
 

@@ -9,11 +9,11 @@
 
   Nye momenter:
 
-    - opprettet et nytt objekt kalt 'lyd', som fikser lydeffektene.
+    - opprettet et nytt objekt kalt 'lyd', som tar seg av lydeffektene.
     
-    - opprettet et nytt objekt kalt 'logger', som fikser logging.
+    - opprettet et nytt objekt kalt 'logger', som tar seg av logging.
          
-    - opprettet et nytt objekt kalt 'konfigurasjon', som fikser konfigurering.
+    - opprettet et nytt objekt kalt 'konfigurasjon', som handterer konfigurering.
          
          
 http://www.codeproject.com/Articles/681130/Learn-JavaScript-Part-Space-Invaders
@@ -21,5 +21,6 @@ http://www.codeproject.com/Articles/681130/Learn-JavaScript-Part-Space-Invaders
 
 
   Om man f.eks installerer Qt og QtCreator fra www.qt.io, kan man skrive:
-  set PATH=E:\Qt_2_0_2\Tools\mingw492_32\bin
-  mingw32-make
+  > set PATH=E:\Qt_2_0_2\Tools\mingw492_32\bin
+  > mingw32-make
+  
