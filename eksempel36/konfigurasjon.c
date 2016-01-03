@@ -1,7 +1,7 @@
 /*
     C -programmering, en innføring. 
 
-    Eksempel 36
+    Eksempel 35
 
 */
 
@@ -11,7 +11,6 @@
 #include <string.h>
 #include <errno.h>
 #include <ctype.h>
-#include <string.h>
 #include "konfigurasjon.h"
 
 static char *trim(char *str);
