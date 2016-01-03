@@ -1,13 +1,16 @@
 ﻿all:	SpaceInvader
 
-SpaceInvader:	test/test.o test/test_rektangel.o rektangel.o ufoer.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
-	gcc test/test.o test/test_rektangel.o rektangel.o ufo.o ufoer.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lSDL2 -o $@
+SpaceInvader:	test/test.o test/test_rektangel.o tekst.o rektangel.o ufoer.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
+	gcc test/test.o test/test_rektangel.o tekst.o rektangel.o ufo.o ufoer.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lSDL2 -lSDL2_ttf -o $@
 
 test/test.o:	test/test.c
 	gcc -c -I/usr/include $< -o $@
 
 test/test_rektangel.o:	test/test_rektangel.c
 	gcc -c -I/usr/include $< -o $@
+
+tekst.o:	tekst.c
+	gcc -v -I/usr/include $< -o $@
 
 rektangel.o:	rektangel.c
 	gcc -c -I/usr/include $< -o $@
