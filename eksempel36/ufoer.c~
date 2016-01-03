@@ -259,7 +259,7 @@ void Ufoer_fyr_av_et_prosjektil (Ufoer * ufoer) {
     
     if (modell->ufoer_ild_timer == 0) {
                                 
-        modell->ufoer_ild_timer = rand()%100;
+        modell->ufoer_ild_timer = rand()%300;
 
         Ufo * ufo = ufoer->ufo[ild_indeks];
         
