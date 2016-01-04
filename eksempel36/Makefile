@@ -7,16 +7,16 @@ INCLUDES =
 
 all:	bin/SpaceInvader.exe
 
-bin/SpaceInvader.exe:	test/test.o test/test_lyd.o test/test_rektangel.o konfigurasjon.o logger.o tekst.o lyd.o rektangel.o ufoer.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
-	gcc test/test.o test/test_lyd.o test/test_rektangel.o konfigurasjon.o logger.o tekst.o lyd.o rektangel.o ufo.o ufoer.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_mixer -o $@
+bin/SpaceInvader.exe:	test.o test_lyd.o test_rektangel.o konfigurasjon.o logger.o tekst.o lyd.o rektangel.o ufoer.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
+	gcc test.o test_lyd.o test_rektangel.o konfigurasjon.o logger.o tekst.o lyd.o rektangel.o ufo.o ufoer.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o -lmingw32 -mwindows -mconsole -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_mixer -o $@
 
-test/test.o:	test/test.c
+test.o:	test/test.c
 	$(CC) $(CFLAGS) $< -o $@
 
-test/test_rektangel.o:  test/test_rektangel.c
+test_rektangel.o:  test/test_rektangel.c
 	$(CC) $(CFLAGS) $< -o $@
 
-test/test_lyd.o:   test/test_lyd.c
+test_lyd.o:   test/test_lyd.c
 	$(CC) $(CFLAGS) $< -o $@
 
 konfigurasjon.o:	konfigurasjon.c
