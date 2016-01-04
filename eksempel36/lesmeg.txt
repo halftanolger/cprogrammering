@@ -20,7 +20,41 @@
   ( Når eksempel 36 er ferdig, skal det meste av koding være 'ferdig'. )
   
 
-  Om man f.eks installerer Qt og QtCreator fra www.qt.io, kan man skrive:
-  > set PATH=E:\Qt_2_0_2\Tools\mingw492_32\bin
-  > mingw32-make
+  Byggetisp (windows)
+  -------------------
+  
+  Det å bygge (komilere og linke) et C-program på Windows, kan være en liten
+  prøvelse i seg selv. Det er mange ulike veier å velge mellom. Jeg tror det
+  enkleste for de fleste, er å bruke det mingw (minimal GNU Windows) -oppsettet
+  som kommmer med når man installerer QtCreator for Windows. Derfor har jeg laget
+  ei kort oppskrift for et slikt oppsett nedenfor. 
+  
+  1) Innstaller Qt og QtCreator fra www.qt.io. Installer f.eks her: E:\Qt_2_0_2
+  
+  2) Opprett en katalog, slik: 
+    > e:
+    > mkdir src
+    > cd src
+    > mkdir cprg
+    > cd cprg
+    
+  3) Sjekk ut eksempelkoden, slik:
+    > git clone https://github.com/halftanolger/cprogrammering.git
+
+  (Punkt 3 må gjerne utføres vha Cygwin eller 'et eller annet git-verktøy'.)
+  
+  4) Åpne et windows command -vindu, og skriv:    
+    > e:
+    > cd src\cprg\cprogrammering\eksempel36\
+    > set PATH=E:\Qt_2_0_2\Tools\mingw492_32\bin
+    > mingw32-make
+    
+    ( Nå vil SpaceInvader kompilers og linkes såfremt du har alle relevante 
+      SDL -dll'er og -headerfiler på rett plass .. :-| 
+      Google 'sdl mingw setup')
+     
+    > cd bin\
+    > SpaceInvader.exe
+      
+    
   
