@@ -23,11 +23,11 @@
   Byggetisp (windows)
   -------------------
   
-  Det å bygge (komilere og linke) et C-program på Windows, kan være en liten
+  Det å bygge (kompilere og linke) et C-program på Windows, kan være en liten
   prøvelse i seg selv. Det er mange ulike veier å velge mellom. Jeg tror det
   enkleste for de fleste, er å bruke det mingw (minimal GNU Windows) -oppsettet
   som kommmer med når man installerer QtCreator for Windows. Derfor har jeg laget
-  ei kort oppskrift for et slikt oppsett nedenfor. 
+  ei kort oppskrift for et slikt oppsett. 
   
   1) Innstaller Qt og QtCreator fra www.qt.io. Installer f.eks her: E:\Qt_2_0_2
   
@@ -49,9 +49,8 @@
     > set PATH=E:\Qt_2_0_2\Tools\mingw492_32\bin
     > mingw32-make
     
-    ( Nå vil SpaceInvader kompilers og linkes såfremt du har alle relevante 
-      SDL -dll'er og -headerfiler på rett plass .. :-| 
-      Google 'sdl mingw setup')
+    ( Nå vil SpaceInvader kompilers og linkes, såfremt du har alle relevante 
+      SDL -dll'er og -headerfiler på rett plass. Google 'sdl mingw setup' :-| )
      
     > cd bin\
     > SpaceInvader.exe
