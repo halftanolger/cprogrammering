@@ -8,9 +8,9 @@
 
 */
 
-int main(int argc, char *argv[]) {
+int main(int argument_antall, char *argument_vektor[]) {
 
-    int x = atoi(argv[1]);
+    int x = atoi(argument_vektor[1]);
 
     return x + 1;
 
