@@ -8,14 +8,14 @@
 
 */
 
-int main(int argc, char *argv[]) {
+int main(int argument_antall, char *argument_vektor[]) {
 
-    if (argc != 3) {
+    if (argument_antall != 3) {
         return 0;
     }
-    char *a = argv[0];
-    char *b = argv[1];
-    char *c = argv[2];
+    char *a = argument_vektor[0];
+    char *b = argument_vektor[1];
+    char *c = argument_vektor[2];
     int t1 = atoi(b);
     int t2 = atoi(c);
 	
