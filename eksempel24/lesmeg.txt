@@ -5,11 +5,23 @@
 #                                                                             #
 # Eksempel 24                                                                 #
 #                                                                             #
-# Her drar vi kjølen til spillet vårt, og definerer objektet med sine         #
-# viktigste metoder, samt putter inn litt funksjonalitet i alle metodene.     #
 #                                                                             #
 #-----------------------------------------------------------------------------#
 
-For å kompilere koden ved hjelp av gcc, kan du skrive 
+ Her drar vi kjølen til spillet vårt, og definerer objektet med sine         
+ viktigste metoder. Legg merke til at man på en måte kan programmere objekt-
+ orientert i C ved å definere alle metodene til det objektet man lager, i ei
+ egen kodefile, ved det navnet. I vårt tilfelle lager vi et objekt som heter
+ SpaceInvader, dermed legger vi definisjonen av alle metodene til objektet
+ i ei kodefile som vi kaller for spaceinvader.c. Deklareringen av metodene og
+ datatypene legger vi i ei header-fil som vi kaller for spaceinvader.h
 
-gcc -I. spaceinvader.c main.c
+ Nå kan vi legge private metoder som statiske funksjoner i spaceinvader.c -fila,
+ og dermed er vi ganske lik en kodestil eller kodemåte som vi kjenner igjen 
+ fra C++ og Java. 
+ 
+
+
+ For å kompilere koden ved hjelp av gcc, kan du skrive 
+
+ gcc -I. spaceinvader.c main.c

@@ -3,9 +3,6 @@
 
     Eksempel 24
 
-    Hensikten med eksempelet er å vise hvordan man kan 
-    lage et objektorientert design i C
-
 */
 
 #include <stdio.h>
@@ -15,6 +12,10 @@ int main() {
 
     Spaceinvader *spaceinvader = Spaceinvader_opprett();
 
+    if (spaceinvader == NULL) {
+        return 1;
+    }
+    
     Spaceinvader_spill(spaceinvader);
 	    
     Spaceinvader_slett(&spaceinvader);
