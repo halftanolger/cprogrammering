@@ -11,3 +11,44 @@
   lage en kompleks variabel. Videre viser eksempelet hvordan man ved
   hjelp av kommandoen typedef, kan opprette en ny type variabel.
 
+  Denne nye typen variabel, kan vi bruke som grunnlaget til en konstruksjon
+  som vi kan kalle for et objekt. Atributtene til objektet blir da de 
+  variablene som struct'en består av. Metodene til objektet, kan vi definere 
+  som vanlige funksjoner, kun med det ekstra elementet at disse funksjonene 
+  må ta inn en peker til struct'en som inneholder de atributtene som blir 
+  manipulert på.
+  
+  
+  /* Definerer struct'en punkt, e.g. atributtene til objektet. */
+  
+  struct punkt {
+    int x;
+    int y;
+  }
+
+  /* Definerer datatypen Punkt ut fra 'struct punkt' */
+  
+  typedef struct punkt Punkt;
+  
+  /* Oppretter objektet 'p' basert på datatypen 'Punkt'. */
+  
+  Punkt p;
+  
+  /* Oppretter en metode til objektet. */
+  
+  void Punkt_flytt(Punkt * p, int ny_x, int ny_y) {
+    p->x = ny_x;
+    p->y = ny_y;
+  }
+  
+  
+  Disse fire momentene er alt man trenger å kjenne til. Om man forstår dette,
+  er det fullt mulig å lage et objektorientert design i et C -programm. Legger 
+  man i tillegg alt av deklarasjoner i ei fil som heter punkt.h og alt av 
+  kodedefinisjoner i ei fil som heter punkt.c, så har man et design som 
+  skalerer. (Trenger man private hjelpemetoder i punkt.c kan man definere 
+  disse som statiske funksjoner, ..og vips så har du noe som begynner å nærme 
+  seg C++, ... pittelitt :-)
+  
+  
+  
