@@ -11,7 +11,6 @@
 
 typedef struct spaceinvader_st {
     int poeng;
-	int resultatliste[3];	
     int status;
 } Spaceinvader;
 

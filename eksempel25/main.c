@@ -15,6 +15,10 @@ int main() {
 
     Spaceinvader *spaceinvader = Spaceinvader_opprett();
 	
+    if (spaceinvader == NULL) {
+        return 1;
+    }
+    
     Spaceinvader_spill(spaceinvader);
 	    
     Spaceinvader_slett(&spaceinvader);
