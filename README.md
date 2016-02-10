@@ -11,3 +11,6 @@ For å laste ned eksemplene, kan du skrive kommandoen:
 git clone https://github.com/halftanolger/cprogrammering.git
 
 halftan@saetherskar.no
+
+
+![Alt text](spaceinvader.png?raw=true "Resultatet - SpaceInvader Light")
