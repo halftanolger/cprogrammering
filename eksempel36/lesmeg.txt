@@ -20,7 +20,7 @@
   ( Når eksempel 36 er ferdig, skal det meste av koding være 'ferdig'. )
   
 
-  Byggetisp (windows)
+  Byggetips (windows)
   -------------------
   
   Det å bygge (kompilere og linke) et C-program på Windows, kan være en liten
