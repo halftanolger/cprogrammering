@@ -7,9 +7,9 @@ INCLUDES = -I/usr/include/SDL2
 
 LIBS = -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_mixer
 
-all:	bin/SpaceInvader.exe
+all:	bin/SpaceInvader
 
-bin/SpaceInvader.exe:	test.o test_lyd.o test_rektangel.o konfigurasjon.o logger.o tekst.o lyd.o rektangel.o ufoer.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
+bin/SpaceInvader:	test.o test_lyd.o test_rektangel.o konfigurasjon.o logger.o tekst.o lyd.o rektangel.o ufoer.o ufo.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o 
 	gcc test.o test_lyd.o test_rektangel.o konfigurasjon.o logger.o tekst.o lyd.o rektangel.o ufo.o ufoer.o prosjektil.o kanon.o modell.o skjerm.o kontrollsentral.o spaceinvader.o main.o $(LIBS) -o $@
 
 test.o:	test/test.c
@@ -65,5 +65,5 @@ kontrollsentral.o:	kontrollsentral.c
 
 clean:
 	rm *.o 
-	rm bin\SpaceInvader*
-	rm test\*.o
+	rm bin/SpaceInvader*
+	
