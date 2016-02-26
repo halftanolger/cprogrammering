@@ -29,7 +29,7 @@ Skjerm * Skjerm_opprett(void * spaceinvader) {
         return NULL;        
     }    
     
-    skjerm->ren = SDL_CreateRenderer(skjerm->win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    skjerm->ren = SDL_CreateRenderer(skjerm->win, -1, SDL_RENDERER_ACCELERATED || SDL_RENDERER_PRESENTVSYNC || SDL_RENDERER_SOFTWARE);
     
     if (skjerm->ren == NULL){
         printf ("SDL_CreateRenderer Error: %s", SDL_GetError());
