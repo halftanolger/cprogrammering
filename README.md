@@ -14,3 +14,12 @@ halftan@saetherskar.no
 
 
 ![Alt text](spaceinvader.png?raw=true "Resultatet - SpaceInvader Light")
+
+
+Installering av SDL 
+
+Linux/Ubuntu: 
+sudo apt-get install libsdl2-dev libsdl2-mixer-dev libsdl2-ttf-dev
+
+Cygwin/Windows: 
+Skriv inn SDL2 i søke-feltet i Cygwin-install'eren. Velg de relevante sdl-pakkene.
