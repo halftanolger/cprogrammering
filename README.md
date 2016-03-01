@@ -1,5 +1,5 @@
 ﻿# cprogrammering
-C programmering - en innføring.
+##C programmering - en innføring.
 
 Dette er en rekke små eksempler i C som ender opp med et mer eller mindre
 komplett SpaceInvader-lignende spill. SDL (Simple Directmedia Layer) 
@@ -16,10 +16,10 @@ halftan@saetherskar.no
 ![Alt text](spaceinvader.png?raw=true "Resultatet - SpaceInvader Light")
 
 
-Installering av SDL 
+##Installering av SDL (Simple Directmedia Layer) 
 
-Linux/Ubuntu: 
+######Linux/Ubuntu
 sudo apt-get install libsdl2-dev libsdl2-mixer-dev libsdl2-ttf-dev
 
-Cygwin/Windows: 
+######Cygwin/Windows
 Skriv inn SDL2 i søke-feltet i Cygwin-install'eren. Velg de relevante sdl-pakkene.
