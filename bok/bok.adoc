@@ -1,0 +1,22 @@
+= C programmering, en introduksjon
+<forfatter>
+:doctype: book
+:encoding: utf-8
+:lang: en
+:toc: left
+:toclevels: 2
+:numbered:
+
+
+
+include::forord.adoc[]
+
+include::ordliste.adoc[]
+
+include::kapittel-01.adoc[]
+
+include::kapittel-02.adoc[]
+
+include::bibliografi.adoc[]
+
+include::indeks.adoc[]
