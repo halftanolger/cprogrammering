@@ -1,13 +1,11 @@
-= C programmering, en introduksjon
+= P
 <forfatter>
 :doctype: book
 :encoding: utf-8
-:lang: en
+:lang: no
 :toc: left
 :toclevels: 2
 :numbered:
-
-
 
 include::forord.adoc[]
 
