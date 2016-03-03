@@ -56,7 +56,19 @@ Programmeringsspråk::
   du spør og hvilket problem du ønsker å løse.
   
 Kompilator::
-  The corresponding (indented) definition.
+  Vi skal se på et programmeringsspråk som heter _C_. Det vil si at vi skal skrive 
+  vanlig _C_-kode, som vanlig tekst, i en vanlig teksteditor, slik mange programmerere 
+  har gjort det siden tidlig 1970-tall. Denne _C_-koden, som er vanlig tekst, skal vi 
+  kompilere om til maskinkode som en datamaskin kan forstå og bruke. Det som er litt 
+  bra med _C_-kode, er at slik kode kan omgjøres til nærmest en hvilken som helst 
+  maskinkode på nærmest en hvilken som helst datamaskin. Det som er poenget her, er 
+  at prosessen i å omgjøre ei vanlig tekstfil med kode, om til maskinkode, kalles å 
+  kompilere. Og for å kompilere bruker vi en kompilator.   _Wikionary_ definerer ordet 
+  kompilator slik: _et dataprogram som oversetter – kompilerer – et dataprogram skrevet 
+  i et programmeringsspråk (kalt kildekode) til et kjørbart program (maskinkode). 
+  Dette kan sammenlignes med å være tolk for to personer som snakker forskjellig språk; 
+  tolken oversetter det den ene sier, slik at den andre personen klarer å dra 
+  nytte av – dvs. forstå – informasjonen_.
   
 Variabel::
   The corresponding (indented) definition.
