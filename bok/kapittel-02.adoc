@@ -1,9 +1,24 @@
 == Kom i gang
 
-abc lupus lurum
+Nå er det på tide å begynne med noe praktisk arbeid. Som nevnt det å 
+programmere er på sett og vis et handtverk, og kan langt på vei kun læres ved 
+hjelp av praktisk arbeid. Derfor er det to, tre momenter som må utføres før vi 
+starter:
+
+* vi må finne oss en egnet kompilator
+* vi må finne oss en egnet teksteditor
+* vi må kode, kompilere og kjøre "Hello World" -eksempelet
+
+
+For å ta det siste først, så er det slik at alle lærebøker i _C_-programmering må 
+starte med et eksempel som skriver ut teksten "Hello World" på skjermen. Slik er 
+det bare. Den historiske forklaringa til dette er vel at den opprinnelig 
+læreboka i C gjør nettop det.
+
+Så, derfor, her er det:
 
 [source,c]  
-.kode.c 
+.test.c (eksempel 1)
 ---- 
 #include <stdio.h> #<1>
 
@@ -15,7 +30,15 @@ int main (int argc, char *argv[]) { #<2>
     
 }
 ----
-<1> Hooks `/hi` path when get request
-<2> Returns "Hello World!"
-<3> Returns "Hello World!"
-<4> Returns "Hello World!"
+<1> Inkluderer litt kode som blant annet definerer funksjonen printf().
+<2> Her starter vårt programm, i.e. main-funksjonen.
+<3> Her skriver vi 'Hello World!' ut på skjermen vha funksjonen printf().
+<4> Her returnerer vi verdien null tilbake til operativsystemet.
+
+
+
+
+
+
+
+
