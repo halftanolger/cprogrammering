@@ -1,25 +1,21 @@
-== Source Codes
+== Kom i gang
 
-1500'lerden beri kullanılmakta olan standard Lorem Ipsum metinleri ilgilenenler için yeniden üretilmiştir. Çiçero tarafından yazılan 1.10.32 ve 1.10.33 bölümleri de 1914 H. (((Rackham)))Rackham çevirisinden alınan İngilizce sürümleri eşliğinde özgün biçiminden yeniden üretilmiştir.
+abc lupus lurum
 
-.Editable.java
-[source,java]
-----
-public interface Editable{
-
-    void useAsciidocFX();
-
-}
-----
-
-[source,ruby]  
-.app.rb 
+[source,c]  
+.kode.c 
 ---- 
-require 'sinatra'
+#include <stdio.h> #<1>
 
-get '/hi' do # <1>
-  "Hello World!" # <2>
-end
+int main (int argc, char *argv[]) { #<2>
+
+    printf("Hello world!\n"); #<3>
+    
+    return 0; #<4>
+    
+}
 ----
 <1> Hooks `/hi` path when get request
 <2> Returns "Hello World!"
+<3> Returns "Hello World!"
+<4> Returns "Hello World!"

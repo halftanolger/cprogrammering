@@ -1,5 +1,5 @@
-= P
-<forfatter>
+= Programmering
+Halftan Sætherskar
 :doctype: book
 :encoding: utf-8
 :lang: no
@@ -15,6 +15,3 @@ include::kapittel-01.adoc[]
 
 include::kapittel-02.adoc[]
 
-include::bibliografi.adoc[]
-
-include::indeks.adoc[]

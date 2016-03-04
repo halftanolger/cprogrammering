@@ -3,9 +3,9 @@
 
 Her er ei samling ord og uttrykk som vi i større eller mindre 
 grad, må kjenne til når vi skal uvikle programvare. Mange av disse 
-begrepene må modnes, og på en måte jobbes inn, for å få en 
+begrepene må modnes for å få en 
 forståelse av hva de egentlig betyr. Derfor velger jeg å definere disse i et eget 
-kaptillet som heter _ordliste_. På den måten blir det lett å komme tilbake 
+kapittel som heter _ordliste_. På den måten blir det litt lettere å komme tilbake 
 og se nærmere på et eller flere begrep, når du jobber deg gjennom boka.
 
 [glossary]
@@ -68,8 +68,33 @@ Kompilator::
   i et programmeringsspråk (kalt kildekode) til et kjørbart program (maskinkode). 
   Dette kan sammenlignes med å være tolk for to personer som snakker forskjellig språk; 
   tolken oversetter det den ene sier, slik at den andre personen klarer å dra 
-  nytte av – dvs. forstå – informasjonen_.
+  nytte av – dvs. forstå – informasjonen_. Et viktig moment å få med seg her, er at 
+  den samme kildekoden (altså vårt C-program) kan kompileres om til en rekke ulike 
+  typer maskinkode for en rekke ulike typer datamaskiner, avhengig av hvilken kompilator 
+  vi velger å bruke. Du vil kanskje ikke se det helt store med dette med en gang, men i 
+  sin tid (en gang på 70-tallet) var faktisk dette ganske revolusjonerende. 
   
 Variabel::
-  The corresponding (indented) definition.
+  For en tid tilbake leste jeg et intervju med en kvinnelig systemutvikler, hvor hun 
+  beskrev jobben sin som programmerer. Hun kom med en flott metafor på det å 
+  programmere; hun såg for seg ei stor bokhylle med mange ulike ekser, hvor hver 
+  slik eske innholdt data som programmet hennes oppdaterte eller flyttet rundt på.
+  Dette er egentlig et fantastik godt bilde på hva som egentlig skjer. Vi har somregel 
+  en god del data, som vi strukturerer i ulik modeller, og alt programmet vårt gjør er 
+  å manipulere på denne modellen. En modell består av mindre deler som vi kaller for 
+  variabler. 
+  _Wikionary_ definerer ordet variabel slik; _et symbol som representerer et 
+  vilkårlig tall eller element i en mengde. Elementene i denne mengden kalles 
+  verdiene til variabelen_.  
+  Ovenfor laget vi en modelle av en bil i form av ei liste, som vi kalte 
+  for _bil_. Denne lista hadde flere elementer, blant annet elementet _fire dører_. 
+  Dette kan vi representere ved hjelp av en variabel som vi kaller for _dører_ og som 
+  vi gir verdien _4_. Merk deg at tallet fire er del av en eller annen definert 
+  mengde. Dette blir klarere etthvert når vi begynner å definere ulik typer variabler.
+
+--
+ dører = 4
+--
+
+  
   

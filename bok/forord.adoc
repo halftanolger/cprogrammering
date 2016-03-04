@@ -1,11 +1,14 @@
-﻿[preface]
-== Forord
-
-
+﻿
 [quote,Kristen Nygaard]
 ____
 Å programmere er å forstå.
 ____
+
+
+
+[preface]
+== Forord
+
 
 
 Hensikten med denne boka er å prøve å forklare hvordan man kan lage et 
@@ -42,7 +45,7 @@ Dette er programmering. Værre er det i bunn og grunn ikke.
 
 Alt en datamaskin gjør er å automatisere denne prosessen, slik at den kan 
 gjentas et ufattelig antall ganger med forskjellig input. Det å programmere 
-handler om å handtere kompleksitet. Og for å handtere kompleksitet må vi 
+handler om å handtere kompleksitet. For å handtere kompleksitet må vi 
 forenkle og abstrahere, og for å kunne forenkle og abstrahere må vi kunne 
 modellere og analysere. 
 
@@ -56,7 +59,7 @@ et _SpaceInvader_ -lignende spill.
 Du må ikke lure deg selv til å tro at du 
 kan lære deg å programmere, uten at du jobber deg gjennom alle eksemplene som 
 vi skal se på. Programmering er på sett og vis også et handtverk, og et 
-handtverk må øves inn for å kunne mestre det. Og for de fleste 
+handtverk må øves inn for å kunne mestre det. For de fleste 
 av oss finnes det ingen snarveier i så måte. 
 
 
@@ -71,19 +74,20 @@ ____
 
 Årsaken til at du bør sette deg litt inn i hvordan man lager et dataprogram, 
 er fordi datamaskiner blir en stadig viktigere del av tilværelsen. Vi omgir oss 
-med de nærmest hele tiden, og de utfører oppgaver 
+med dem nærmest hele tiden, og de utfører oppgaver 
 på vegne av oss stadig vekk. Ringer du med en mobiltelefon bruker du egentlig en 
 datamaskin. Kjører du en tur med en ny bil, bruker du flere hundre 
 datamaskiner. Ser du på TV eller bruker Internet, er flere tusen i sving for å 
 utføre oppgaver på vegne av deg. Derfor er det viktig at flest mulig har en 
 forståelse av hva en datamaskin er, og hvordan denne kan programmeres.
 
-Denne boka prøve å gi deg grunnleggende innsikt i hvordan du kan 
+Denne boka prøver å gi deg litt innsikt i hvordan du kan 
 programere i et programmeringsspråket som heter _C_. Du trenger egentlig ingen annen bakgrunn 
 enn litt nysgjerrighet. Når du har jobbet deg gjennom boka, vil du sitte igjen 
 med en god forståelse av hva det innebærer å lage programvare. De verktøyene og 
 metodene som omtales, er for det meste grunnleggende teknologi som har vært med 
 oss i mange ti-år, men som fortsatt er _state-of-the-art_.  
 
-
+De to programmene vi skal lage, skal vi lage slik at de fungerer på en Linux-maskin, en 
+Windows-maskin og en Android-telefon eller tablet.
 
