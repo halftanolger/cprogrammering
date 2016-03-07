@@ -1,13 +1,19 @@
 == Kom i gang
 
-Nå er det på tide å begynne med noe praktisk arbeid. Som nevnt det å 
+Nå er det på tide å begynne med noe praktisk arbeid. Som nevnt; det å 
 programmere er på sett og vis et handtverk, og kan langt på vei kun læres ved 
-hjelp av praktisk arbeid. Derfor er det to, tre momenter som må utføres før vi 
-starter:
+hjelp av praktisk arbeid. Derfor må vi aller først installere en teksteditor, som 
+gjør det mulig å skrive _C_-kode. Deretter skal vi installere en kompilator, som 
+kan omgjøre _C_-koden til et kjørbart dataprogram. Når det er gjort, skal vi 
+kode det boligatoriske _"Hello World"_-eksempelet.
 
-* vi må finne oss en egnet kompilator
-* vi må finne oss en egnet teksteditor
-* vi må kode, kompilere og kjøre "Hello World" -eksempelet
+
+.Læringmål
+----
+ - installere en egnet teksteditor
+ - installere en egnet kompilator
+ - kode, kompilere og kjøre det obligatoriske "Hello World" -eksempelet
+----
 
 
 For å ta det siste først, så er det slik at alle lærebøker i _C_-programmering må 
@@ -35,10 +41,65 @@ int main (int argc, char *argv[]) { #<2>
 <3> Her skriver vi 'Hello World!' ut på skjermen vha funksjonen printf().
 <4> Her returnerer vi verdien null tilbake til operativsystemet.
 
+Vi skal ganske snart gå gjennom dette eksempelet i detalj, men før vi kommer så 
+langt, skal vi _sette opp et uviklingsmiljø_. Vårt utviklingsmiljø vil primært 
+bestå av to programmer; en teksteditor og en kompilator. I utgangspunktet 
+er det nesten det samme hvilken teksteditor og _C_-kompilator du velger 
+å bruke. Alle eksemplene vi går gjennom, skal være forsøkt  
+laget slik at de skal kunne fungere på en rekke ulike datamaskiner; Windows, 
+Linux, Mac etc. Jeg velger likevel å fokusere på Windows, siden jeg antar at de 
+fleste bruker en slik datamaskin. 
+
+Her er det er en rekke ulike alternativer å velge mellom. Jeg velger å bruke Cygwin. 
+Cygwin er en rekke små program som gjør det mulig å simulere et Linux-miljø. 
+Deriblant også et utviklingsmiljø for _C_, i form at en 
+kompilator kalt _gcc_. Utover selve kompilatoren innholder Cygwin også et 
+skall eller terminalvindu, hvor vi kan kjøre _gcc_-programmet.
 
 
+=== Slik installerer du Cygwin gcc
 
+Cygwin fungerer slik at du starter et program som heter _setup-x86.exe_ 
+footnote:[Du kan velge mellom 32 eller 64 bit's installasjon. Jeg velger 32 :-) ]. 
+Ved hjelp av dette programmet velger du hvilke programpakker du ønsker å 
+installere. Hovedbildet til Cygwin, hvor du velger de ulike pakkene, er vist nedenfor.
 
+image::bilder/cygwin.png[600, 400]
 
+Skriv gcc i søkefeltet, som vist. Sjekk om pakken _gcc-core_ er valgt, under _Devel_.
+Gcc er en fundamental del i et hvert Linux-lignende system, derfor vil  
+gcc-core ganske sikkert allerede være valgt. Men, om så ikke skulle være tilfelle, velger 
+du denne, og trykker på neste-knappen helt til _setup wizaden_ er ferdig.
 
+Om alle gode krefter er med oss, skal vi ende opp noe slikt som dette:
 
+image::bilder/cygwin2.png[900, 600]
+
+Her har jeg åpnet et cygwin terminalvindu, og skrevet inn kommandoen; *gcc*.
+Gcc er verdt en liten studie i seg selv, for å si det forsiktig. Bokstavene gcc  
+er et akronym for "gnu c compiler" footnote:[ The abbreviation GCC
+has multiple meanings in common use.  The current official meaning is “GNU Compiler Collection”, which refers generically to the complete suite of tools.
+The name historically stood for “GNU C Compiler”, and this usage is still common when
+the emphasis is on compiling C programs.  Finally,  the name is also used when speaking
+of the
+language-independent
+component of GCC: code shared among the compilers for all
+supported languages.], hvor gnu igjen er et såkalt rekursivt akronym for _GNU is Not Unix_.
+For å kompilere et _C_-programm ved hjelp av gcc, skriver du i utgangspunktet bare gcc, 
+samt navnet på den tekstfila som inneholder din _C_-kode, slik:
+ 
+  gcc test.c
+  
+gcc vil da produsere ei fil som heter _a.exe_. 
+Dette programmet kan du starte ved å skrive:
+
+ ./a.exe
+
+Vi kommer snart tilbake til dette når vi skal skrive vårt obligatoriske _Hello World_ -program. 
+Men, før vi får gjort dette, må vi installere en god teksteditor. Vi kunne brukt Windows Notepad, 
+men går heller for en editor som heter _Notepad++_. 
+ 
+=== Slik installerer du Notepad++
+
+ 
+ 
