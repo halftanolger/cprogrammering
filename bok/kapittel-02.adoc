@@ -132,7 +132,7 @@ cygwin-terminalvindu og skriver inn kommandoen som kompilerer tekstfila _test.c_
 om til ei kjørbar binærfil, kalt _a.exe_ Tilslutt skriver du _./a.exe_ for å kjøre programmet som du 
 nettopp har laget. 
 
-Om vi ha litt flaks, skal du se at tekst _"Hello World"_, dukker opp i terminalvinduet, og vips; du har laget ditt første dataprogram!
+Om vi ha litt flaks, skal du se at teksten _"Hello World"_, dukker opp i terminalvinduet, og vips; du har laget ditt første dataprogram!
  
 image::bilder/cygwin3.png[900, 600] 
  
@@ -163,7 +163,7 @@ Da skal du forhåpentligvis se dette i terminalviduet ditt:
  
 image::bilder/cygwin4.png[900, 600] 
 
-På samme måte som i sted, kan du nå skrive _gcc test.c_ for å kompilere _C_-koden om til det 
+På samme måte som i sted, kan du nå skrive _gcc test.c_ for å kompilere _C_-koden om til et 
 kjørpart dataprogram, som skriver ut teksten _"Hello world"_ på skjermen.
 
 Da er vi i gang! Vi har installert og fått prøvd, alle verktøyene vi trenger for å 
