@@ -1,5 +1,5 @@
-= Programmering
-Halftan Sætherskar
+ï»¿= Programmering
+Halftan Saetherskar
 :doctype: book
 :encoding: utf-8
 :lang: no
