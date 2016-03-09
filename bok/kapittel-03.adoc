@@ -3,8 +3,9 @@
 WARNING: This is under contruction!
 
 Som nevnt i starten; all databehandling dreier seg rundt det faktum at du sender 
-noe data inn i en prosses, som utfører en eller flere beregninger, og returnerer et svar tilbake. Derfor 
-er det viktig å forstå hvordan man, i den enkleste form, kan gjøre dette ved hjelp 
+noe data inn i en prossess. Denne prosessen utfører deretter en eller flere beregninger. 
+Og tilslutt returnerer prosessen et svar tilbake. Derfor 
+er det viktig å forstå hvordan man i så enkelt som mulig, kan gjøre dette ved hjelp 
 av _C_-kode. Det er læringsmålet med dette kapitlet.
 
 
@@ -16,10 +17,13 @@ av _C_-kode. Det er læringsmålet med dette kapitlet.
 ----
 
 
-Inn-putt og ut-putt er i forhold til operativsystemet. Det vil si at det er operativsystemet 
-som starter programmet vårt, og som i den forbindelse også sender inn inn-putten. Det er det 
+Inn-putt og ut-putt er i forhold til operativsystemetfootnote:[Windows og Linux 
+er eksempler på operativsystem, det vil si det systemet som sørger for at 
+datamaskinen vår fungerer; skjerm, mus, tastatur etc. Det er operativsystemet 
+som starter de ulike programmene som kjører på datamaskinen.]. Det vil si at det er operativsystemet 
+som når det starter programmet vårt, sender inn inn-putten. Det er det 
 samme operativsystemet som mottar ut-putten fra vårt program, når vårt program avsluttes. 
-Windows og Linux er eksempler på to ulike operativsystem.
+ 
 
 [source,c]  
 .test.c (eksempel 2)
@@ -35,12 +39,13 @@ int main () { #<1>
 <2> Output
 
 
-Lagre denne koden i samme fila; test.c og skriv
+Lagre denne koden i ei fil kalt; _test.c_ og skriv:
 
  gcc test.c
 
 Kjør deretter programmet som ble produsert. Nå skal du ikke se noe på skjermen. 
-Men, det betyr ikke at programmet ikke returnerer noe tilbake til det programmet som startet det.
+Men, det betyr ikke at programmet ikke returnerer noe tilbake til det 
+programmet som startet det.
 
 Ok, så hva skjer egentlig her? Jo, dette er det enkleste C -programmet som er 
 mulig å skrive, og alt programmet gjør er å returnere tallet null tilbake til den 
@@ -54,29 +59,50 @@ Tenk tilbake på dette:
  input → beregninger → output
 
 Altså et dataprogram mottar noe input, utfører en beregning, og gir tilbake noe 
-output. Det betyr at når du starter progammet, skal du kunne gi noe “input” til 
-programmet, som deretter skal “gjøre et eller annet” for til slutt å gi tilbake noe “output”.
+output. Det betyr at når du starter progammet, skal du kunne gi noe _“input”_ til 
+programmet, som deretter skal _“gjøre et eller annet”_ for til slutt å gi 
+tilbake noe _“output”_.
 
-Vi venter litt med “input” -delen og ser nærmere på “gjøre et eller annet” -delen og “output” -delen.
+Vi venter litt med _“input”_ -delen og ser nærmere på _“gjøre et eller annet”_ -delen 
+og _“output”_ -delen.
 
-_“gjøre et eller annet”_ -delen i vårt tilfelle er å returnere tallet null. Men, hvordan får vi tak i resultat? 
+I vårt tilfelle ovenfor, er _“gjøre et eller annet”_ -delen å returnere tallet 
+null. Men, hvordan får vi tak i resultat? 
 
-Da må vi gå til programmet som starter vår program. Dette vil være en eller annen 
-såkalt terminal. Med terminal mener vi et program hvor du kan skrive ulike kommandoer 
-rettet mot operativsystemet, f.eks det å be om å starte et programm. Somregel 
-gjør man dette ved å skrive navnet til programmet for deretter å trykke på entertasten. 
-Windows kommando-vindu, er et slikt terminal-programm. Bash-shell er et tilsvarende terminal-program som benyttes mye i Linux.
+Da må vi gå til det programmet som starter programet vårt. Og det programmet som 
+starter vårt program, er Cygwin terminal-programmet. Det er jo i dette programmet 
+vi skriver:
 
-Det varierer litt hvordan man får tak i retur -verdien fra et programm, fra 
-terminal til terminal. Om du benytter bash-shell (Linux), kan du få tak i returverdien ved å skrive:
+ ./a.out
+ 
+for å kjøre _C_-programmet vårt.
+
+Det varierer litt hvordan man får tak i retur -verdien fra et program, fra 
+terminal til terminal. I vårt tilfelle hvor vi bruker Cygwin, kan du få tak i 
+returverdien ved å skrive:
 
  echo $? 
 
-Om du bruker et Windows -kommandovindu, må du skrive:
-
- echo %errorlevel% 
-
-Prøv nå å endre det lille test-programmet til å returnere tallet 5, slik:
+For å oppsummere: 
+ 
+ gcc test.c
+ ./a.out
+ echo $? 
+ 0
+ 
+Det vi har gjennomført ovenfor, er å kode, kompilere, kjøre samt sjekke 
+resultatet fra det enkleste _C_-programmet som er mulig å lage. Alt programmet 
+gjør er å returnere tallet null. Vi bruker 
+kommandoen _echo $?_ for å vise det tallet som ble returnert til 
+skallet footnote:[Et terminalvindu kan også omtales som et skall, siden det 
+engelse ordet _shell_ er mest vanlig å bruke på slike typer dataprogram. 
+linuxcommand.org : What is "the shell"? _Simply put, the shell is a program that 
+takes your commands from the keyboard and gives them to the operating system to 
+perform. In the old days, it was the only user interface available on a Unix 
+computer. Nowadays, we have graphical user interfaces (GUIs) in addition to 
+command line interfaces (CLIs) such as the shell._]. 
+ 
+Prøv nå å endre test-programmet til å returnere tallet 5
 
 [source,c]  
 .test.c (eksempel 3)
@@ -91,7 +117,7 @@ int main() {
 ---- 
 
 
-Lagre koden i fila; _test.c_ og skriv
+Lagre koden og skriv
 
  gcc test.c
 
@@ -100,15 +126,15 @@ for deretter å kjøre programmet.
 Skriv kommandoen:
 
  echo $? 
-( eller  echo %errorlevel% )
+
 
 for å se returverdien fra programmet.
 
-
-Som nevnt, mange C -program starter ved at en annen prosess (et annet dataprogram) 
-kaller opp funksjonen ‘main’. ‘main’ er en funksjon som returnerer et heltall. 
-Dette er definert ved at det står ‘int’ forann  “main”. Det er også mulig å sende 
-informasjon inn til main, som vi etter hvert skal se på. Men, før det skal, vi dvele litt med med begrepet ‘funksjon’.
+Som nevnt, alle C -program starter ved at en annet program  
+kaller opp funksjonen _"main"_.  Denne funksjonen returnerer et heltall. 
+Dette er definert ved at det står _"int"_ forann  _"main"_. Det er også mulig å sende 
+informasjon inn til _"main"_. Det skal vi se på etter hvert. Men, først skal vi 
+dvele litt med med begrepet _"funksjon"_.
 
 Vi kjenner til begrepet funksjon fra matematikken. Der ser gjerne en funksjon slik ut:
 
@@ -121,22 +147,24 @@ Vi kjenner til begrepet funksjon fra matematikken. Der ser gjerne en funksjon sl
  f(2) = 2 + 1
  f(2) = 3
 
-
  input → beregninger → output
  2 → 2 +1 → 3
 
 ....
 
+=== Variabler
+
 Tidligere pratet jeg i bokser og variabler. Jeg sa at et dataprogram kan sees på 
 som instruksjoner som endrer på innholdet i ulike bokser med data. 
 
-‘int’ er en slik “boks med data”, som kan inneholde et heltall.  En måte å se på hva som skjer her er som følger:
+_"int"_ er en slik boks med data som kan inneholde et heltall.  En måte å se 
+på dette, kan være som følger: terminalprogrammet har en boks hvor returverdien 
+kan lagres. Når terminalprogrammet kjører programet vårt, blir returverdien 
+lagt i denne boksen. Dermed kan terminalprogrammet etterpå vise verdien på skjermen.
 
-Terminalprogrammet har en boks som heter ‘returverdi’. Når terminalprogrammet 
-kjører vårt program ‘a.exe’, blir returverdien fra dette lagt i denne boksen. 
-Dermed kan terminalprogrammet etterpå skrive ut på skjermen verdien i denne boksen.
+Programmet vårt kan sees på som en funksjon som hele tiden returnerer tallet 5, 
+helt uavhengig av hva som sendes inn som intput.
 
-Programmet vårt kan sees på som en funksjon som hele tiden returnerer tallet 5, helt uavhengig av hva som sendes inn som intput.
 
 ....
 
@@ -166,30 +194,31 @@ int main() {
 
 ----
 
-
-
-Jeg oppretter tre bokser av typen ‘int’, det vil si ‘heltall’ (integer = heltall). 
-Legger 3 i den første og 4 i den andre og summen av den første og den andre i den tredje. Til slutt returnerer jeg med det tallet som måtte ligge i den tredje boksen.
+Jeg oppretter tre bokser av typen _int_. (int -> integer = heltall). 
+Legger 3 i den første, 4 i den andre, og summen av den første og den andre, i 
+den tredje. Til slutt returnerer jeg med det tallet som måtte ligge i den 
+tredje boksen.
 
 Legg merke til at vi kan kalle databoksene for hva vi vil. Jeg har valgt å kalle dem a,b og c. 
 
 Skriv inn koden, og test ut. 
 
-Neste steg for oss blir å modifisere programmet vårt slik at det kan ta i mot input fra skallet (eller input fra terminal-programmet). 
+Neste steg for oss blir å modifisere programmet vårt slik at det kan ta i mot 
+input fra skallet (eller input fra terminal-programmet om du vil). 
 
-Legg merke til at når du skal kompilere C-koden, som ligger i fila test.c, så oppgir du dette som input til programmet ‘gcc’ på denne måten
+Legg merke til at når du skal kompilere C-koden som ligger i fila _test.c_, så 
+oppgir du dette som input til programmet _gcc_, på denne måten:
 
  gcc test.c
 
 Det betyr at det du ønsker å putte inn som input til et C -program, skriver du i 
-tur og orden etter navnet på selve programmet, når du starter det. Så i vårt tilfelle, 
+tur og orden etter navnet på selve programmet. I vårt tilfelle, 
 om vi ønsker å gi noe input til programmet vårt, skriver vi noe slike som dette:
 
  a.exe 2
 
-Da vil vi starte programmet vårt med tallet 2 som input. 
-
-Men, hvordan får vi tak i dette tallet inne i programmet vår? 
+Da vil vi starte programmet vårt med tallet 2 som input. Men, hvordan får vi tak 
+i dette tallet inne i programmet vår? 
 
 Modifiser _test.c_ til å se slik ut:
 
@@ -207,7 +236,7 @@ int main ( int argument_antall, char *argument_vektor[] ) {
 
 ----
 
-kompiler og test det ut ved å kjøre kommandoene
+kompiler og test ved å utføre disse kommandoene:
 
 ....
 
@@ -228,66 +257,70 @@ kompiler og test det ut ved å kjøre kommandoene
  
 Jepp, her skjer det ting. Nå klarer vi å gi input til programmet vårt, vi utfører 
 ei enkel beregning ved å addere tallet 1 til det tallet som kommer inn, og vi 
-returnerer med svaret. Men, det som en gang var verdens minste C -program har nå fått inn en del “rare greier”. Vi starter med 
+returnerer med svaret. Men, det som en gang var verdens minste C -program, har nå 
+litt mer komplisert. Vi starter med: 
 
- int argument_antall og char * argument_vektor[]  
+ int argument_antall 
+ char * argument_vektor[]  
 
-Dette er to bokser eller to variabler. Den første er av typen ‘int’,  
-(int = integer = heltall). Det betyr at i variabelen argument_antall ligger det 
+Dette er to bokser eller to variabler. Den første er av typen _int_.
+Det betyr at i variabelen som heter _argument_antall_, ligger det 
 et heltall. Dette heltallet angir antall argumenter inn til programmet. Egentlig 
-angir dette tallet antall argumenter, pluss 1, siden navnet til programmet også regnes med når antallet input-argumenter telles opp.
-
-Det betyr i praksis at når du skriver
+angir dette tallet antall argumenter, pluss 1, siden navnet til programmet også 
+regnes med når antallet input-argumenter telles opp. Det betyr i praksis at når 
+du skriver:
 
  a.exe 3
 
-så vil innholdet i antall_argument være lik 2, siden det første argumentet er ‘a.exe’ og det andre er ‘3’
+så vil innholdet i antall_argument være lik 2, siden det første argumentet 
+er _a.exe_ og det andre er _3_.
 
 Altså, ved hjelp av variabelen argument_antall vet vi hvor mange argumenter som 
-kommer inn til programmet vårt. For å ta tak i selve argumentene må vi se nærmere 
-på variabelen som heter argument_vektor , for de ligger her. Denne inneholder en 
-tabell med pekere av typen ‘char’, som peker mot en tekst-representasjon av de ulike argumentene.
+kommer inn til programmet vårt. For å få tak i selve argumentene må vi se nærmere 
+på variabelen som heter _argument_vektor_. Denne inneholder en 
+tabell med pekere av typen _char_, som peker mot en tekst-representasjon av de 
+ulike argumentene.
 
-Ok, her kom det en rekke nye begrep på banen. Vi starter med typen ‘char’. Vi vet 
-fra før av at vi kan ha en variabel av typen ‘int’. Det betyr at innholdet i variabelen 
-kan være et heltall. Variabler av typen ‘char’ er forsåvidt også heltall, men historisk 
+Ok, her kom det en rekke nye begrep på banen. Vi starter med typen _char_. Vi vet 
+fra før av at vi kan ha en variabel av typen _int_. Det betyr at innholdet i variabelen 
+kan være et heltall. Variabler av typen _char_ er forsåvidt også heltall, men historisk 
 sett var disse heltallene tenkt å representere bokstaver.
 
-Det betyr at om du ønsker en variabel som skal kunne lagre en bokstav, for eksempel en ‘a’, så skriver du det slik:
+Det betyr at om du ønsker en variabel som skal kunne lagre en bokstav, for 
+eksempel en _a_, så skriver du det slik:
 
 [source,c]  
 ---- 
 char min_boks = ‘a’
 ----
 
-Her blir det opprette en variabel som heter min_boks. Denne variabelen er av typen ‘char’ og den tilordnes, det vil si, får verdien, ‘a’.
+Her blir det opprette en variabel som heter min_boks. Denne variabelen er av 
+typen _char_ og den tilordnes, det vil si, får verdien, _a_.
 
-Vi kan lage en ny variabel som heter ‘min_bokstav’, og tilordne denne variabelen verdien ‘b’ ved å skrive inn kode som dette:
-
-[source,c]  
----- 
-char min_bokstav = ‘b’
-----
+=== Tabell (aka array)
 
 Det er mulig å sette sammen bokstaver til ord eller setninger. En slik sammenstilling 
-av bokstaver kaller vi for “en streng”. En streng lager vi ved å opprett en 
-tabell av char’s. For å angi at vi ønsker en tabell av char’s skriver vi tegnene [] bak variabelnavnet, slik:
+av bokstaver kaller vi for _en streng_. En streng lager vi ved å opprett en 
+tabell av _char’s_. For å angi at vi ønsker en tabell av _char’s_ skriver vi 
+tegnene [] bak variabelnavnet, slik:
 
 [source,c]  
 ---- 
 char min_streng[] = “Hei”;
 ----
 
-Hvert enkelt tegn i strengen har sin plass i tabellen av char’s, noe som vi kan vise med en slik figur:
+Hvert enkelt tegn i strengen har sin plass i tabellen av _char’s_, noe som vi 
+kan vise med en slik figur:
 
-                      0   1   2   3
-                    +---+---+---+---+
-char min_streng[] = | H | e | i | 0 |
-                    +---+---+---+---+
+                       0   1   2   3
+                     +---+---+---+---+
+ char min_streng[] = | H | e | i | 0 |
+                     +---+---+---+---+
 
-(Helt til slutt i en streng, plasserer C et null-tall for å markere slutten.)
+Helt til slutt i en streng, plasserer C et null-tall for å markere hvor strengen slutter.
 
-Om vi bare som en øvelse, skulle ønske å lagre hver slik bokstav i tabellen, i sin egen variabel, kan vi gjøre noe slikt som dette:
+Om vi bare som en øvelse, skulle ønske å lagre hver bokstav i tabellen, i sin 
+egen variabel, kan vi gjøre det slik:
 
 [source,c]  
 ---- 
@@ -296,12 +329,13 @@ char min_bokstav_e = min_streng[1]
 char min_bokstav_i = min_streng[2]
 ----
 
-Vi ser at det er mulig å nå hvert enkelt tegn i tabellen ved å angi indeksen (eller plasseringa) til den aktuelle bokstaven i tabellen.
+Vi ser at det er mulig å nå hvert enkelt tegn i tabellen ved å angi 
+indeksen (eller plasseringa) til den aktuelle bokstaven i tabellen.
 
 For å oppsummere så langt: For å lagre en tekst-streng (ord eller setninger) i C 
-bruker vi en databoks som består av ei samling av databoksen ‘char’. Ei slik 
+bruker vi en databoks som består av ei samling av databoksen _char_. Ei slik 
 samling kaller vi for en array (eller tabell på norsk). Vi bruker tegnene ‘[‘ og  ‘]’ bak 
-variabelnavnet for å angi at dette er ei samling (eller array) av variabler.
+variabelnavnet, for å angi at dette er ei samling (eller array) av variabler.
 
 Tre variabler som hver representerer ett tegn (char):
 
@@ -326,8 +360,8 @@ Ok, nå er vi kommet et stykke på vei til å forstå setningen:
 _... For å gå tak i selve argumentene må vi se nærmere på variabelen som heter 
 argument_vektor. Denne inneholder en tabell med pekere av typen ‘char’, som peker mot en tekst-representasjon av de ulike argumentene. ..._
 
-Vi skjønner det med “tekst-representasjon”, altså vi klarer å lage en variabel 
-som inneholder en tekst. Det gjør vi ved å lage en tabell av char -variabler, slik:
+Vi skjønner det med _tekst-representasjon_. Det vil si at vi klarer å lage en variabel 
+som inneholder en tekst. Det gjør vi ved å lage en tabell av _char_ -variabler, slik:
 
               0   1   2   3   4   5   6   7   8   9   10
             +---+---+---+---+---+---+---+---+---+---+---+
@@ -348,13 +382,16 @@ Men, vi skal ha en tabell av pekere, som peker mot data av typen char.
 
 Nå drar det seg litt til her. 
 
-Vi må gå litt nærmere inn på hvordan en datamaskin egentlig fungerer. Som nevnt, dette er faktisk en god ting med C -programmering.
+=== Pekere 
 
-Du har sikkert hørt om RAM (random access memory), eller bare kort og godt; ‘minne’. 
-En datamaskin har så og så mye RAM, og mange tenker kun på minne når de skal angi “hvor stor” en 
-datamaskin er. De variablene vi har pratet om ovenfor, ligger i minnet til datamaskinen. 
-Dette minnet kan vi faktisk også se på som en tabell av databokser, hvor hver slik boks har sin 
-adresse, på samme måte som hver bokstav i en streng har sin index.
+Vi må gå litt nærmere inn på hvordan en datamaskin egentlig fungerer. 
+
+Du har sikkert hørt om RAM (random access memory), eller bare kort og godt; _minne_. 
+En datamaskin har en viss mengde fysisk RAM, og mange tenker kun på minne når de 
+skal angi _hvor stor_ en datamaskin er. De variablene vi har pratet om ovenfor, 
+ligger i minnet til datamaskinen. Dette minnet kan vi se på som en tabell av 
+databokser, hvor hver slik boks har sin egen adresse, på samme måte som hver 
+bokstav i en streng har sin egen index.
 
  +-----+-----+
  | 001 |  H  |
@@ -367,8 +404,8 @@ adresse, på samme måte som hver bokstav i en streng har sin index.
  +-----+-----+
 
 
-Dermed kan vi se på strengen vår på to måter; hvordan den er lagret i variabelen som 
-vi har i programmet vårt og hvordan den egentlig er lagret i minnet.
+Dermed kan vi se på strengen vår på to måter; hvordan den er lagret i variabelen  
+i programmet vårt, og hvordan den egentlig er lagret i minnet.
 
 [source,c]  
 ---- 
