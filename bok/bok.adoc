@@ -1,8 +1,8 @@
-﻿= Programmering
+= Programmering
 Halftan Saetherskar
 :doctype: book
 :encoding: utf-8
-:lang: no
+:lang: nn
 :toc: left
 :toclevels: 2
 :numbered:

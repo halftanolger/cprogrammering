@@ -1,30 +1,32 @@
-== Input & output
-
-WARNING: This is under contruction!
+== Innputt & Utputt
 
 Som nevnt i starten; all databehandling dreier seg rundt det faktum at du sender 
 noe data inn i en prossess. Denne prosessen utfører deretter en eller flere beregninger. 
 Og tilslutt returnerer prosessen et svar tilbake. Derfor 
-er det viktig å forstå hvordan man i så enkelt som mulig, kan gjøre dette ved hjelp 
+er det viktig å forstå hvordan man så enkelt som mulig, kan gjøre dette ved hjelp 
 av _C_-kode. Det er læringsmålet med dette kapitlet.
 
 
 .Læringsmål
 ----
- - input 
+ - innputt (aka input)
  - beregning
- - output
+ - utputt (aka output)
 ----
 
 
 Inn-putt og ut-putt er i forhold til operativsystemetfootnote:[Windows og Linux 
 er eksempler på operativsystem, det vil si det systemet som sørger for at 
 datamaskinen vår fungerer; skjerm, mus, tastatur etc. Det er operativsystemet 
-som starter de ulike programmene som kjører på datamaskinen.]. Det vil si at det er operativsystemet 
-som når det starter programmet vårt, sender inn inn-putten. Det er det 
+som starter de ulike programmene som kjører på datamaskinen.]. Det vil si at det 
+er operativsystemet, som når det starter programmet vårt, sender inn inn-putten. Det er det 
 samme operativsystemet som mottar ut-putten fra vårt program, når vårt program avsluttes. 
  
-
+Dette er innputt og utputt i sin enkleste form. Utover dette kan vi også si at vi har innputt 
+i form av data fra mus og tastatur, og utputt i form av informasjon på skjermen etc. Alt dette 
+kommer vi tilbake til. Aller først skal vi studere den aller enkleste formen for 
+innputt og utputt.
+  
 [source,c]  
 .test.c (eksempel 2)
 ---- 
@@ -35,8 +37,8 @@ int main () { #<1>
     
 }
 ----
-<1> Input
-<2> Output
+<1> Innputt
+<2> Utputt
 
 
 Lagre denne koden i ei fil kalt; _test.c_ og skriv:
@@ -56,30 +58,27 @@ om vi snakker om Linux, Mac eller Windows; et annet program starter vårt progra
 
 Tenk tilbake på dette:
 
- input → beregninger → output
+ innputt → beregninger → utputt
 
-Altså et dataprogram mottar noe input, utfører en beregning, og gir tilbake noe 
-output. Det betyr at når du starter progammet, skal du kunne gi noe _“input”_ til 
+Det betyr at når du starter progammet, skal du kunne gi noe _“innputt”_ til 
 programmet, som deretter skal _“gjøre et eller annet”_ for til slutt å gi 
-tilbake noe _“output”_.
+tilbake noe _“utputt”_.
 
-Vi venter litt med _“input”_ -delen og ser nærmere på _“gjøre et eller annet”_ -delen 
-og _“output”_ -delen.
+Vi venter litt med _“innput”_ -delen og ser nærmere på _“gjøre et eller annet”_ -delen 
+og _“utputt”_ -delen.
 
 I vårt tilfelle ovenfor, er _“gjøre et eller annet”_ -delen å returnere tallet 
 null. Men, hvordan får vi tak i resultat? 
 
-Da må vi gå til det programmet som starter programet vårt. Og det programmet som 
-starter vårt program, er Cygwin terminal-programmet. Det er jo i dette programmet 
-vi skriver:
+Da må vi gå til det programmet som starter programet vårt. Og det programmet er 
+Cygwin terminal-programmet. Det er jo i dette programmet vi skriver:
 
  ./a.out
  
 for å kjøre _C_-programmet vårt.
 
-Det varierer litt hvordan man får tak i retur -verdien fra et program, fra 
-terminal til terminal. I vårt tilfelle hvor vi bruker Cygwin, kan du få tak i 
-returverdien ved å skrive:
+Det vil varierer litt hvordan man får tak i retur -verdien fra et program. I vårt 
+tilfelle hvor vi bruker Cygwin, kan du få tak i returverdien ved å skrive:
 
  echo $? 
 
@@ -213,12 +212,12 @@ oppgir du dette som input til programmet _gcc_, på denne måten:
 
 Det betyr at det du ønsker å putte inn som input til et C -program, skriver du i 
 tur og orden etter navnet på selve programmet. I vårt tilfelle, 
-om vi ønsker å gi noe input til programmet vårt, skriver vi noe slike som dette:
+om vi ønsker å gi noe input til programmet vårt, skriver vi noe slikt som dette:
 
  a.exe 2
 
-Da vil vi starte programmet vårt med tallet 2 som input. Men, hvordan får vi tak 
-i dette tallet inne i programmet vår? 
+Da vil vi starte programmet med tallet 2 som input. Men, hvordan får vi tak 
+i dette tallet inne i programmet? 
 
 Modifiser _test.c_ til å se slik ut:
 
@@ -258,7 +257,7 @@ kompiler og test ved å utføre disse kommandoene:
 Jepp, her skjer det ting. Nå klarer vi å gi input til programmet vårt, vi utfører 
 ei enkel beregning ved å addere tallet 1 til det tallet som kommer inn, og vi 
 returnerer med svaret. Men, det som en gang var verdens minste C -program, har nå 
-litt mer komplisert. Vi starter med: 
+blitt litt mer komplisert. Vi starter med: 
 
  int argument_antall 
  char * argument_vektor[]  
@@ -272,11 +271,11 @@ du skriver:
 
  a.exe 3
 
-så vil innholdet i antall_argument være lik 2, siden det første argumentet 
+så vil innholdet i _antall_argument_ være lik 2, siden det første argumentet 
 er _a.exe_ og det andre er _3_.
 
-Altså, ved hjelp av variabelen argument_antall vet vi hvor mange argumenter som 
-kommer inn til programmet vårt. For å få tak i selve argumentene må vi se nærmere 
+Altså, ved hjelp av variabelen _argument_antall_ vet vi hvor mange argumenter som 
+kommer inn til programmet. For å få tak i selve argumentene må vi se nærmere 
 på variabelen som heter _argument_vektor_. Denne inneholder en 
 tabell med pekere av typen _char_, som peker mot en tekst-representasjon av de 
 ulike argumentene.
@@ -286,7 +285,7 @@ fra før av at vi kan ha en variabel av typen _int_. Det betyr at innholdet i va
 kan være et heltall. Variabler av typen _char_ er forsåvidt også heltall, men historisk 
 sett var disse heltallene tenkt å representere bokstaver.
 
-Det betyr at om du ønsker en variabel som skal kunne lagre en bokstav, for 
+Det betyr at, ønsker du deg en variabel som skal kunne lagre en bokstav, for 
 eksempel en _a_, så skriver du det slik:
 
 [source,c]  
@@ -294,13 +293,15 @@ eksempel en _a_, så skriver du det slik:
 char min_boks = ‘a’
 ----
 
-Her blir det opprette en variabel som heter min_boks. Denne variabelen er av 
-typen _char_ og den tilordnes, det vil si, får verdien, _a_.
+Her blir det opprette en variabel som heter _min_boks_. Denne variabelen er av 
+typen _char_ og den tilordnes verdien, _a_. 
+
+Om verdien er et tegn, må dette stå med apostrof, som vist ovenfor.
 
 === Tabell (aka array)
 
-Det er mulig å sette sammen bokstaver til ord eller setninger. En slik sammenstilling 
-av bokstaver kaller vi for _en streng_. En streng lager vi ved å opprett en 
+Det er mulig å sette sammen slike enkeltbokstaver til ord og setninger. En slik 
+sammenstilling kaller vi for _en streng_. En streng lager vi ved å opprett en 
 tabell av _char’s_. For å angi at vi ønsker en tabell av _char’s_ skriver vi 
 tegnene [] bak variabelnavnet, slik:
 
@@ -308,6 +309,8 @@ tegnene [] bak variabelnavnet, slik:
 ---- 
 char min_streng[] = “Hei”;
 ----
+
+Strengen angis med anførselstegn.
 
 Hvert enkelt tegn i strengen har sin plass i tabellen av _char’s_, noe som vi 
 kan vise med en slik figur:
@@ -319,7 +322,7 @@ kan vise med en slik figur:
 
 Helt til slutt i en streng, plasserer C et null-tall for å markere hvor strengen slutter.
 
-Om vi bare som en øvelse, skulle ønske å lagre hver bokstav i tabellen, i sin 
+Om vi, bare som en øvelse, skulle ønske å lagre hver bokstav i tabellen, i sin 
 egen variabel, kan vi gjøre det slik:
 
 [source,c]  
@@ -329,13 +332,14 @@ char min_bokstav_e = min_streng[1]
 char min_bokstav_i = min_streng[2]
 ----
 
-Vi ser at det er mulig å nå hvert enkelt tegn i tabellen ved å angi 
+Vi ser at det er mulig å hente ut hvert enkelt tegn i tabellen, ved å angi 
 indeksen (eller plasseringa) til den aktuelle bokstaven i tabellen.
 
-For å oppsummere så langt: For å lagre en tekst-streng (ord eller setninger) i C 
-bruker vi en databoks som består av ei samling av databoksen _char_. Ei slik 
-samling kaller vi for en array (eller tabell på norsk). Vi bruker tegnene ‘[‘ og  ‘]’ bak 
-variabelnavnet, for å angi at dette er ei samling (eller array) av variabler.
+.En streng er en tabell av tegn.
+NOTE: For å lagre en tekststreng (ord eller setninger) i _C_, 
+      bruker vi en databoks som består av ei samling av databoksen _char_. Ei slik 
+      samling kaller vi for en tabell. Vi bruker tegnene ‘[‘ og  ‘]’ bak 
+      variabelnavnet, for å angi at dette er en tabell av variabler.
 
 Tre variabler som hver representerer ett tegn (char):
 
@@ -384,11 +388,10 @@ Nå drar det seg litt til her.
 
 === Pekere 
 
-Vi må gå litt nærmere inn på hvordan en datamaskin egentlig fungerer. 
-
-Du har sikkert hørt om RAM (random access memory), eller bare kort og godt; _minne_. 
+For å forstå hva en peker er, må vi gå litt nærmere inn på hvordan en datamaskin 
+egentlig fungerer. Du har sikkert hørt om RAM (random access memory), eller bare kort og godt; _minne_. 
 En datamaskin har en viss mengde fysisk RAM, og mange tenker kun på minne når de 
-skal angi _hvor stor_ en datamaskin er. De variablene vi har pratet om ovenfor, 
+skal angi hvor stor en datamaskin er. De variablene vi har pratet om ovenfor, 
 ligger i minnet til datamaskinen. Dette minnet kan vi se på som en tabell av 
 databokser, hvor hver slik boks har sin egen adresse, på samme måte som hver 
 bokstav i en streng har sin egen index.
@@ -404,7 +407,7 @@ bokstav i en streng har sin egen index.
  +-----+-----+
 
 
-Dermed kan vi se på strengen vår på to måter; hvordan den er lagret i variabelen  
+Dermed kan vi se på strengen vår på to måter. Både hvordan den er lagret i variabelen  
 i programmet vårt, og hvordan den egentlig er lagret i minnet.
 
 [source,c]  
@@ -428,13 +431,21 @@ char a[] = “Hei”
  +---------------------+-----+
 
 
-(Som nevnt så putter C på en null på slutten for å markere slutten på strengen. 
-Derfor viser jeg denne nullen alle plasser hvor det er relevant ovenfor, i en lysegrå farge.)
+Som nevnt, putter _C_ på en null for å markere slutten på en streng. Derfor viser 
+jeg denne nullen alle plasser hvor det er relevant.
 
-Her har jeg brukt noen store tall for å vise de ulike minne -addressene. Om du har 
-en 64 bits datamaskin, som for tiden er det normale, har du 2^64 slike minne -adresser.  2^64 er lik 18 446 744 073 709 551 615. 
+Ovenfor har jeg brukt noen store tall for å vise de ulike minne -addressene. Om du har 
+en 64 bits datamaskin, som for tiden er det normale, kan datamaskinen din nå 2^64 slike 
+minne -adresser. Dette er et stort tall, og viser litt hvor kraftig en datamaskin 
+egentlig er.  
+ 
+ Antall mennesker på jorden         7 000 000 000 
+ Antall menneskehårstrå       700 000 000 000 000 
+ 2^64 er lik           18 446 744 073 709 551 615 
+                  
 
-Når man programmerer i C kan man nå de ulike adressene ved å bruke en konstruksjon som heter “peker”. 
+Når man programmerer i _C_, kan man nå innholdet til de ulike adressene ved å bruke en 
+konstruksjon som heter _peker_. 
 
 Om jeg ønsker meg en slik peker, som peker på strengen “Hei” ovenfor, kan jeg skrive
 
@@ -443,15 +454,22 @@ Om jeg ønsker meg en slik peker, som peker på strengen “Hei” ovenfor, kan 
  char *min_peker = &a
 ---- 
 
-verdien som nå ligger i “min_peker” vil være 9223372036854775800, altså minne -adresse 
+Verdien som nå ligger i _min_peker_ vil være 9223372036854775800, altså minneadressen  
 til den første bokstaven i strengen “Hei”.
 
- (Husk på at strengen “Hei” starter med adressen til den første bokstaven og varer helt til det dukker opp et null-tall.)
+Strengen “Hei” starter med adressen til den første bokstaven, og 
+varer helt til det dukker opp et null-tall. 
 
- &a betyr; gi meg minne -adressen til variabelen ‘a’.
+Ampersand forann en variabel, betyr med andre ord; gi meg minneadressen til denne variabelen.
 
 
-Kjapp oppsummering; når vi programmerer kan vi se på variablene som bokser hvor vi putter ulike typer data oppi. 
+.Databokser av ulik type
+NOTE: Når vi programmerer kan vi se på variablene som bokser, som kan inneholde 
+      ulike typer data. Hver type boks kan lagre sin type data. Og hver slik 
+      boks har sin unike adresse. Denne adressen kan man hente ut ved å sette en 
+      ampersand forann navnet til boksen.      
+ 
+
 
 [source,c]  
 ---- 
@@ -502,7 +520,7 @@ Altså, om vi skal hente verdien i den databoksen som gjemmer seg bak adressen,
 må vi oppgi ei stjerne forann variabelnavnet. Om vi ikke gjør det, henter vi ut selve adressen.
 
 På samme måte som vi kan ha en tabell av databokser av typen char, kan vi ha en 
-tabell av databokser av typen “peker til char”.
+tabell av databokser av typen _peker til char_.
 
 a er en databoks av typen char, som inneholder tegnet ‘h’
 
@@ -511,14 +529,14 @@ a er en databoks av typen char, som inneholder tegnet ‘h’
  char a = ‘h’;
 ---- 
  
-b er en databoks av typen “tabell av char”, som inneholder strengen “hei”
+b er en databoks av typen _tabell av char_, som inneholder strengen; “hei”
 
 [source,c]  
 ---- 
  char b[] = “hei”;
 ---- 
 
-Ut fra denne tabellen kan vi hent hver enkelt databoks av typen char, på denne måten:
+Ut fra denne tabellen kan vi hent hver enkel databoks av typen char, slik:
 
 [source,c]  
 ---- 
@@ -527,7 +545,7 @@ Ut fra denne tabellen kan vi hent hver enkelt databoks av typen char, på denne 
  char boks_for_i = b[2];
 ---- 
  
-Det samme kan vi gjøre med datatypen “peker til char”, slik:
+Det samme kan vi gjøre med datatypen _peker til char_, slik:
 
 [source,c]  
 ---- 
@@ -563,24 +581,26 @@ eller som i bildet ovenfor, hvor den samme pekeren ligger som første element i 
  char a2 = *tabell_av_peker[0]
 ----  
 
-Ok, kjapp oppsummering igjen: En databoks har et navn og en type. Navnet bestemmer 
-vi som lager dataprogrammet. Typen er noe som er definert i programmeringsspråket. Vi 
-som programmerere velger hvilken type vi ønsker å bruke. En databoks ligger egentlig 
-lagret en plass i minnet. Vi har to måter å nå en databoks på. Enten ved å henvise til 
-navnet på databoksen, eller ved å bruke en peker som peker mot den adressen hvor databoksen ligger i minnet. 
+
+.Databokser av ulik type
+NOTE: Ok, kjapp oppsummering igjen. En databoks har et navn og en type. Navnet bestemmer 
+      vi som lager dataprogrammet. Typen er noe som er definert i programmeringsspråket. Vi 
+      som programmerere velger hvilken type vi ønsker å bruke. En databoks ligger egentlig 
+      lagret en plass i minnet. Vi har to måter å nå en databoks på. Enten ved å henvise til 
+      navnet på databoksen, eller ved å bruke en peker som peker mot den adressen hvor databoksen ligger i minnet. 
 
 Dette er på mange måter kjernen i C-programmering. Det at vi kan programmere med pekere, 
-som kan peke “hvor som helst”, gir oss mange muligheter som vi skal se nærmere på etter hvert.
+som kan peke _hvor som helst_, gir oss mange muligheter. På godt og ondt.
 
-Tilbake til main -funksjonen vår. Der har vi at det første argumentet (int argument_antall) 
-angir antallet input -argumenter, og det andre argumentet (char *argument_vektor[])  
+Tilbake til main -funksjonen vår. Der har vi at det første argumentet (_int argument_antall_) 
+angir antallet input -argumenter, og det andre argumentet (_char *argument_vektor[]_)  
 er en tabell av pekere til tekst -strenger. Husk at en tekst -streng er en tabell av databokser av typen char.
 
-Det betyr at om vi lager oss et program som heter a.exe som tar inn to tall som parametre, som vist her:
+Det betyr at om vi lager oss et program som heter _a.exe_, som tar inn to tall som parametre, som vist her:
 
  a.exe 2 3
 
-vil ‘argument_antall’ og ‘argument_vektor’ se slik ut:
+vil _argument_antall_ og _argument_vektor_, se slik ut:
 
                        +---+
  int argument_antall = | 3 |
@@ -590,7 +610,7 @@ vil ‘argument_antall’ og ‘argument_vektor’ se slik ut:
  char *argument_vektor[] = | 032 | 040 | 048 |
                            +-----+-----+-----+
 
-Hvor dataminnet ser slik ut: (litt forenklet)
+Hvor det tenkte, litt forenkla, dataminnet ser slik ut: 
 
  +-----+---------+
  | …   |         |
@@ -607,14 +627,14 @@ Hvor dataminnet ser slik ut: (litt forenklet)
 Dette betyr at inne i main -funksjonen vet vi hvor mange argumenter som kommer inn, 
 og vi vet hvordan vi kan plukke dem ut fra argument_vektor -variabelen.
 
-Om jeg ønsker å vite hva programmet heter, kan jeg hente det ut slik
+Om jeg ønsker å vite hva programmet heter, kan jeg hente det ut slik;
 
 [source,c]  
 ---- 
  char *a = argv[0]
 ----  
 
-Det første tallet kan jeg hente ut slik
+Variablen _a_ vil nå peke mot strengen "a.exe". Det første tallet kan jeg hente ut slik:
 
 [source,c]  
 ---- 
@@ -630,17 +650,18 @@ og det andre slik
  int t2 = atoi(c);
 ----  
 
-Husk på at det er tekst -strenger vi henter ut fra argv -tabellen. Når det gjelder 
-navnet til programmet, altså det første argumentet, så er det en tekststreng. Denne 
-variabelen er grei. Men, når det gjelder de to tallene må vi gjøre om datatypen fra 
-char til int. De databoksene vi får ut fra argv er databokser som inneholder en tekst -streng av tallene. 
+Husk på at det er tekst -strenger vi henter ut fra _argument_vektor_ -tabellen. 
+Når det gjelder navnet til programmet, altså det første argumentet, så er det 
+en tekststreng. Denne variabelen er grei. Men, når det gjelder de to tallene må 
+vi gjøre om datatypen fra char til int. De databoksene vi får ut fra _argument_vektor_
+ er databokser som inneholder en tekst -streng av tallene. 
 Her kommer funksjonen ‘atoi()’ inn i bildet. Denne funksjonen omgjør en databoks som 
 innholder en tekstrepresentasjon av et tall, om til en databoks som inneholder en 
-heltallsrepresentasjon av tallet. atoi er et akronym for ascii-to-integer. Om den 
+heltallsrepresentasjon. atoi er et akronym for ascii-to-integer. Om den 
 tekststrengen som sendes inn til atoi skulle vise seg å ikke innholde et tall, vil 
 funksjonen retunere verdien null.
 
-Jeg kan kjapt prøve å forklare litt hva ascii er.
+Jeg skal kjapt prøve å forklare litt hva ascii er:
 
 _American Standard Code for Information Interchange er en måte å kode bokstaver på. 
 Husk på at en datamaskin egentlig bare kan forstå tall som er kodet i det binære tallsystemet, 
@@ -653,15 +674,16 @@ Når du skriver
 
  char min_boks = ‘A’
 
-legger du egentlig tallet 65 inn i denne boksen.
+legger du _egentlig_ tallet 65 inn i denne boksen.
 
-65 er ascii verdien for stor ‘a’. Tilsvarende har vi at ascii -verdien for tegnet ‘2’ 
-er desimaltallet 50. Om vi ønsker å omgjøre teksten ‘2’ om til  tallet to, må vi bruke konverterings -funksjonen atoi. 
+65 er ascii-verdien for stor ‘a’. Tilsvarende har vi at ascii -verdien for tegnet ‘2’ 
+er desimaltallet 50. Om vi ønsker å omgjøre teksten ‘2’ om til  tallet to, må vi 
+bruke konverterings -funksjonen _atoi_. 
 
 Bottom line her er at du må gjøre om tekst-representasjonen av tallet til 
-heltalls -representasjonen av tallet, og dette utføres ved hjelp av funksjonen atoi. 
+heltalls -representasjonen av tallet, og dette utføres ved hjelp av funksjonen _atoi_. 
 
-Nå skal vi ha et fiks ferdig C -program som skal kunne legge samme to tall, som vist her:
+Nå skal vi ha et fiks ferdig _C_-program som skal kunne legge samme to tall:
 
 [source,c]  
 .test.c (eksempel 6)
@@ -674,7 +696,8 @@ Nå skal vi ha et fiks ferdig C -program som skal kunne legge samme to tall, som
      
 	char *a = argument_vektor[0];
 	char *b = argument_vektor[1];
-	char *c = argument_vektor[2];	
+	char *c = argument_vektor[2];
+	
 	int t1 = atoi(b);
 	int t2 = atoi(c);
     
@@ -684,34 +707,35 @@ Nå skal vi ha et fiks ferdig C -program som skal kunne legge samme to tall, som
 ----
 
 
-Legg merke til at jeg sjekker innholdet i databoksen ‘argument_antall’. Om innholdet 
-ikke er tallet 3, returnerer jeg tallet 0 for å indikere at brukeren har tastet inn feil antall argumenter. 
+Legg merke til at jeg sjekker innholdet i databoksen _argument_antall_. Om innholdet 
+ikke er tallet 3, returnerer jeg tallet 0 for å indikere at brukeren har tastet 
+inn feil antall argumenter. 
 
-Om innholdet er 3, henter jeg ut de tre argumentene og gjør om de to siste til heltall, 
-som jeg til slutt adderer og returnerer summen av tilbake til terminalprogrammet.
+Om innholdet er 3, henter jeg ut de tre argumentene og gjør om de to siste til heltall. 
+Til slutt adderes disse, og summen blir returnert tilbake til terminalprogrammet.
 
 Dette er faktisk et ganske fiks ferdig program, takket være den enkle sjekken helt i 
 starten, hvor vi sjekker at antallet argumenter er 3 før vi går videre. 
 
 Prøv å ta bort denne sjekken, og kjør programmet ut noen inputparametre. Hva skjer? 
 
-(Det som skjer er at vi henter noen databokser, b og c, ut fra minne som “ikke eksiterer”, 
-eller ikke tilhører vårt program. Da vil programmet feile.)
+(Det som skjer er at vi henter noen databokser; b og c, ut fra minne som _ikke eksiterer_, 
+eller ikke tilhører vårt program. Da vil programmet ganske sikkert feile.)
 
-En annen liten “short-comming” ved dette programmet, er at vi antageligvis bare kan 
+En lite problem med dette programmet, er at vi antageligvis bare kan 
 returnere tall opp til 256, eller èn byte. Det vil si at om du legger sammen to tall 
 hvor summer blir større en 256, vil det tallet som fremkommer på skjermen ikke være rett, 
 siden du bare vil se den første byten av tallet. Dette har med å gjøre hvordan c-programmet 
 vårt sender svaret tilbake til terminalprogrammet, og som nevnt så gjør vi det på en veldig minimalistisk måte nå.
 
-Derfor skal vi innføre en kjekk liten funksjon som heter printf, som lar oss selv 
-skrive ut tallet på skjermen.  printf er så grunnleggende for en rekke programmeringsspråk, 
+Derfor skal vi innføre en kjekk liten funksjon som heter _printf_. Denne lar oss selv 
+skrive ut tallet på skjermen.  _printf_ er så grunnleggende for en rekke programmeringsspråk, 
 at den har fått sin egen wiki-side på Internett. Dette kommer av at mange programmeringspråk 
 har behov for å kunne skrive ut en tekststreng på skjermen. I tillegg til selve teksten, 
 ønsker man som oftes å putte på andre datatyper, typisk tall, i samme slengen. Man formaterer 
-teksten litt, før den skrives ut. Derav navnet printf, som er en forkortelse for; “print formatert”. 
+teksten litt, før den skrives ut. Derav navnet _printf_, som er en forkortelse for; “_print formatert_”. 
 
-For å kunne bruke denne funksjonen må du skrive denne kommandoen øverst i kodefila di:
+For å kunne bruke denne funksjonen må du skrive denne linja øverst i kodefila di:
 
 [source,c]  
 ---- 
@@ -719,9 +743,9 @@ For å kunne bruke denne funksjonen må du skrive denne kommandoen øverst i kod
 ---- 
 
 På den måten forteller du til kompilatoren at du ønsker å bruke en funksjon som 
-allerede eksisterer, og at definisjonen på denne ligger i ei fil som heter stdio.h
+allerede eksisterer, og at definisjonen på denne ligger i ei fil som heter _stdio.h_
 
-Om du ønsker å skrive ut en enkel tekst ved help av printf, kan du skrive
+Om du ønsker å skrive ut en enkel tekst ved help av _printf_, kan du skrive
 
 [source,c]  
 ---- 
@@ -729,10 +753,11 @@ printf (“Hello world”);
 ---- 
 
 Om du ønsker å skrive ut en formatert tekst, må du inn med noen koder. 
-Med “formatert tekst” menes at man kan putte inn verdier som ligger i ulike databokser, 
-inn i tekst -strengen før den skrives ut på skjermen. For eksempel så har vi sett 
-at det er mulig å lagre heltall i databokser av typen ‘int’. Om vi ønsker å formatere 
-verdien til en slik databoks, inn i en tekst-streng, før denne skrives ut på skjermen, kan vi gjøre dette slik:
+Med _formatert tekst_ menes at man kan putte inn verdier som ligger i ulike databokser, 
+inn i tekststrengen, før den skrives ut på skjermen. For eksempel, så har vi sett 
+at det er mulig å lagre heltall i databokser av typen _int_. Om vi ønsker å formatere 
+verdien til en slik databoks, inn i en tekststreng, før denne skrives ut på skjermen, 
+kan vi gjøre dette slik:
 
 [source,c]  
 ---- 
@@ -750,13 +775,13 @@ Dette vil resultere i følgende setning på skjermen:
 Legg merke til at på samme måte som main er en funksjon som tar inn to parametre, 
 er også printf en funksjon som tar inn ulike parametre. I vårt tilfelle er disse parametrene en tekststreng og en databoks for heltall.
 
-Funksjonen printf er laget slik at den bytter ut ulike koder i tekststrengen, 
+Funksjonen _printf_ er laget slik at den bytter ut ulike koder i tekststrengen, 
 med verdien i de ulike variablene som kommer etter tekststrengen. For eksempel, 
-om man setter inn denne koden; ‘%d’, så forventer printf at det skal komme en 
-variabel av typen ‘int’ like etter tekststrengen.
+om man setter inn denne koden; ‘%d’, så forventer _printf_ at det skal komme en 
+variabel av typen _int_ like etter tekststrengen.
 
 Det er mulig å definere flere variabler som skal formateres inn i tekststrengen. 
-Det er bare å putte på i rekker og rad.
+Det er bare å putte på, i rekker og rad:
 
 [source,c]  
 ---- 
@@ -769,33 +794,36 @@ Det er bare å putte på i rekker og rad.
  
 Dette vil resultere i følgende setning på skjermen:
 
-Verdien til a er 123 og verdien til b er 456
+ Verdien til a er 123 og verdien til b er 456
 
 Man kan bruke andre typer databokser, som for eksempel en tabell av chars, som 
-vi kjenner som en streng. Da må man bruke koden ‘%s’ som vist her:
+vi kjenner som en streng. Da må vi bruke koden ‘%s’ som vist her:
 
 [source,c]  
 .test.c (eksempel 7)
 ---- 
 
  char a[] = “hei”;
+ 
  int b = 2;
  int c = 3;
  int d = b + c;
+ 
  printf (“a = %s b = %d c = %d d = %d”, a, b, c, d);
 
 ---- 
 
 
-Vi nærmer oss nå slutte på kapittelet “Mitt første C-program”, hvor vi hovedsakelig 
-har tatt for oss egenskapene til funksjonen main. 
+Vi nærmer oss nå slutte på kapittelet “Innputt & utputt”, hvor vi hovedsakelig 
+har tatt for oss egenskapene til funksjonen _main_. 
 
-main er funksjonen hvor et C -program starter. Her kommer “kallet” fra operativsystemet, 
-og her kan det komme et sett med inputargumenter inn til programmet vårt. Vi har 
-lært at i alle fall navnet til programmet kommer inn som argument. Det kan komme 
-flere argumenter. Vi har også lært at main kan returenere verdien til et heltall 
-tilbake til operativsystemet. Somregel brukes denne verdien til å indikere 
-tilbake “hvordan det gikk”; om programmet feilet, manglet noen inputargumenter etc.
+_main_ er funksjonen hvor et _C_-program starter. Her kommer _kallet_ fra 
+operativsystemet, og her kan det komme et sett med inputargumenter inn til 
+programmet vårt. Vi har lært at i alle fall navnet til programmet kommer inn som 
+argument. Det kan komme flere argumenter. Vi har også lært at _main_-funksjonen 
+kan returnere verdien til et heltall, tilbake til operativsystemet. Somregel 
+brukes denne verdien til å indikere tilbake “_hvordan det gikk_”; om programmet 
+feilet, manglet noen inputargumenter etc.
 
 Helt til slutt viser jeg et komplett eksempel som bruker alt dette. 
 
@@ -806,41 +834,54 @@ Helt til slutt viser jeg et komplett eksempel som bruker alt dette.
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {    
-	char *navn = argv[0];
-	if (argc != 3) {
-    	printf("\nBruk: %s t1 t2 \n", navn);
-   	 	printf("\n  	hvor t1 og t2 er to heltall ");
-   	 	printf("som er > 0\n\n");   	 
-    	printf("Programmet adderer to tall og ");
-    	printf("skriver summen ut paa skjermen.\n");
-   	 	return 1;
+
+    char *navn = argv[0];
+    
+    if (argc != 3) {
+        printf("\nBruk: %s t1 t2 \n", navn);
+        printf("\n      hvor t1 og t2 er to heltall ");
+        printf("som er > 0\n\n");    
+        printf("Programmet adderer to tall og ");
+        printf("skriver summen ut paa skjermen.\n");
+        return 1;
     }
-	char *a = argv[1];
-	char *b = argv[2];
-	int t1 = atoi(a);
-    	if (t1 == 0) {
-   	 	  printf("\nFeil: t1 maa vaere et heltall > 0\n");
-   	 	  return 1;
-    	}   	 
-	int t2 = atoi(b);
-    	if (t2 == 0) {
-   	 	  printf("\nFeil: t2 maa vaere et heltall > 0\n");
-   	 	  return 1;
-    	}
-	int t3 = t1 + t2;
+    
+    char *a = argv[1];
+    char *b = argv[2];
+    
+    int t1 = atoi(a);
+    
+    if (t1 == 0) {
+        printf("\nFeil: t1 maa vaere et heltall > 0\n");
+        return 1;
+    } 
+    
+    int t2 = atoi(b);
+    
+    if (t2 == 0) {
+        printf("\nFeil: t2 maa vaere et heltall > 0\n");
+        return 1;
+    }
+    
+    int t3 = t1 + t2;
     printf ("Summen av %d og %d er %d\n", t1, t2, t3);
-	return 0;
+    
+    return 0;
+    
 }
 
 ---- 
 
 Utover det vi har lært tidligere, ser du at jeg har puttet inn en ny kode i 
-“format-strengen” til printf. Den nye koden er “\n” som forteller at printf skal skrive ut et linjeskift (new line).
+“format-strengen” til _printf_. Den nye koden er “\n” som forteller at _printf_ skal skrive ut et linjeskift (new line).
 
-I tillegg sjekker jeg returverdien til atoi. Om denne er null er det en viss 
-sannsynlighet for at brukeren ikke har oppgitt et heltall. Han eller hun har i 
-alle fall ikke oppgitt et heltall som er større enn null, derfor bør man skrive ut ei feilmelding når det skjer.
+I tillegg sjekker jeg returverdien til funksjonen _atoi_. Om denne er null, er det 
+en viss sannsynlighet for at brukeren ikke har oppgitt et heltall. Han eller hun har i 
+alle fall ikke oppgitt et heltall som er større enn null, derfor bør man skrive 
+ut ei feilmelding når det skjer.
 
 Ta gjerne å eksperimenter med denne kode. Lag et program som kan multiplisere to 
 tall. Lag  også et program som kan dividere, dvs at t1 blir divident og t2 blir divisor. 
-Prøv å skriv ut en litt annen tekst i starten og slutten av programmet.
+Prøv også å skriv ut en litt annen tekst, i starten og slutten av programmet. Jobb litt 
+med denne koden. Om du synes dette var mye rart å forholde seg til, så kan jeg 
+trøste deg med at det blir egentlig ikke noe særlig mer komplisert enn dette.
