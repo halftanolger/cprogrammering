@@ -1,0 +1,190 @@
+== Kontrollkommandoer
+
+Nå skal vi begynne å se litt om kontrollkommandoer. Vi har tidligere snakket om 
+databokser, som vi kan se på som beholdere av ulike typer data. Nå skal vi ta for 
+oss hvordan innholdet i disse ulike databoksene kan være med på å bestemme hva som 
+skal skje i et dataprogram. 
+
+
+.Læringsmål
+----
+ - if else
+ - for
+ - while
+----
+
+
+Vi har allerede truffet på _if_ (hvis).
+
+Hvis “_et eller annet_”, så “_gjør et eller annet_”.
+
+
+ Databoks b = 3
+ Hvis b er lik 3 så avslutt programmet.
+
+eller i form av C-kode
+
+[source,c]  
+---- 
+
+int b = 3;
+if (b == 3) { return 0; }
+
+---- 
+
+Legg merke til at når vi skal tilordne verdien 3 til variabelen ‘b’, så bruker 
+vi èn stykk likhetstegn, mens når vi skal sjekke om en variabel er lik en verdi, 
+bruker vi to stykker likhetstegn. 
+
+På sammen måte som vi dissekerte main-funksjonen i forrige kapittel, skal vi nå 
+se litt nærmere på hvordan vi bruker “_hvis_” -kommandoen i _C_.
+
+----
+ if (  ‘et eller annet’  )  {
+
+  ‘gjør dette’
+
+ } else {
+
+  ‘hvis ikke gjør dette’
+
+ }
+----
+
+Innholdet i ‘_et eller annet_’ vil være et logiskt uttrykk som evalurerer til 
+sant eller ikke sant, henholdsvis 1 eller 0.
+
+Tenk deg at vi oppretter to databokser av typen heltall, som vi kan kalle 
+for a og b, og plasserer heltallene 2 og 3 oppi disse, slik:
+
+[source,c]  
+---- 
+int a = 2;
+int b = 3;
+---- 
+
+Deretter oppretter vi en tom databoks av typen heltall, som vi kaller for c, slik:
+
+[source,c]  
+---- 
+int c;
+---- 
+
+Nå kan vi lage ulike logiske uttrykk hvor vi bruker a og b. Basert på om disse 
+logiske uttrykkene evaluerer til ‘_sant_’ eller ‘_usant_’, kan vi legge ulike 
+verdier i variabelen c.
+
+Eksempler på ulike logiske uttrykk vi kan konstruere:
+
+ Er a lik b?          --> evalurerer til ‘usant’.
+ Er a ulik b?         --> evalurerer til ‘sant’.
+ Er a større enn b?   --> evalurerer til ‘usant’.
+ Er a mindre enn b?   --> evalurerer til ‘sant’.
+
+Om vi putter på “litt C-kode” kan vi skrive det slik
+
+ Er a lik b?        --> if (a == b) --> evalurerer til ‘usant’ --> 0 
+ Er a ulik b?       --> if (a != b) --> evalurerer til ‘sant’  --> 1
+ Er a større enn b? --> if (a > b)  --> evalurerer til ‘usant’ --> 0
+ Er a mindre enn b? --> if (a < b)  --> evalurerer til ‘sant’  --> 1
+
+Vi ser at dette egentlig er ganske likt ting og tang vi kjenner fra matematikken. 
+Det er ikke så rart, siden logikk er ei grein av matematikken. Når vi regner med 
+bokstaver i matematikken kaller vi det for algebra. Innenfor programmering bruker 
+vi noe som heter boolsk algebra. Da regner vi med uttrykk, eller regnestykker om du vil, 
+som evaluerer til ‘_sant_’ eller ‘_usant_’.
+
+Jeg skal prøve å konkretisere dette med noen eksempler.
+
+Innen vanlig algebra har du at om a = 3 og b = 3, så er a = b _sant_. 
+
+I boolsk algebra opererer vi kun med ‘_sant_’ eller ‘_ikke sant_’. Det betyr i 
+praksis at det som ikke er sant, må være usant. Om a = 1 (‘_sant_’) og b = 0 (‘_usant_’) 
+så er a != b _sant_. Det vil si at uttrykket ‘a er ikke lik b’ er _sant_. Vi kan 
+putte tegnet ‘!’ foran et boolsk uttrykk for å invertere det, det vil si gjøre et 
+_sant_ uttrykk _usant_ og vise versa. !a = b, blir da _sant_.
+
+Det er kanskje ikke så lurt å dra dette for langt her? Dette er bare et tankesett 
+som må øves inn. For noen kommer dette lettere enn for andre. Uansett er det bare 
+litt øving som skal til, så skjønner du dette. 
+
+I tillegg til kontrollkomandoen ‘_hvis_’, har vi kontrollkommandoen ‘_mens_’ eller 
+‘_så lenge_’.
+
+ Databoks b = 10
+ Så lenge b er større enn 10, trekk 1 fra b.
+
+I form av _C_-kode: 
+
+[source,c]  
+.test.c (eksempel 9)
+---- 
+int b = 10;
+
+while ( b > 0 ) {
+
+    b = b - 1;
+
+}
+---- 
+
+
+
+En slik kontrollkommando definerer hva vi kaller for _ei løkke_ eller _en loop_. 
+Programmet ovenfor vil gå i ei løkke med 10 iterasjoner, hvor den for hver iterasjon 
+trekker 1 fra databoksen av heletall som vi kaller for b.
+
+Disse to kontroll -kommandoene; _if_ og _while_, styrer flyten i programmet. Et 
+dataprogram er bare en veldig detaljert beskrivelse av hvordan man skal endre på 
+innholdet i ulike variabler. Det finnes en del flere slike kontrollkommandoer, 
+men _if_ og _while_ er i særklasse mest brukt. Kanskje bortsett fra en 
+kontrollkommando som mye brukes for _å løpe_ gjennom en tabell? 
+
+Mange ganger når 
+man skal lage et dataprogram, har man bruke for å gjøre ei beregning på en tabell 
+av data. Om man for eksempel ønsker å gjøre en streng med tekst om til kun å bestå av 
+store bokstaver, kan man skrive noe slikt som dette:
+
+[source,c]  
+.test.c (eksempel 10)
+---- 
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {    
+
+    char tekst[] = "Dette er en tekst.";        
+    
+    int i;
+    for(i=0;i<17; i=i+1) {
+        tekst[i]=toupper(tekst[i]);        
+    }    
+    
+    printf("%s",tekst);
+    
+    return 0;    
+}
+----
+
+
+
+Det eneste som er helt nytt i koden ovenfor er 
+
+[source,c]  
+---- 
+ for(i=0;i<17; i=i+1) { }
+----
+
+for-løkke-kommandoen består av tre deler, adskilt med semikolon. Den første delen 
+initialiserer en teller, den andre delen sjekker innholdet i telleren mot en 
+grenseverdi, og den tredje delen endrer på telleren for hver iterasjon i løkka. 
+
+Derfor er for -løkka mye bruke når man har behov for å gjøre en operasjon på hvert 
+element i en tabell. _while_ og _for_ gjør mer eller mindre det samme, og de kan 
+ofte brukes om hverandre.
+
+_if_, _while_ og _for_ brukes til å styre flyten i et c-program. Basert på 
+innholdet i en eller flere databokser, kan vi bruke disse kommandoen til å 
+bestemme hva som skal skje videre i programmet.
+
