@@ -1,28 +1,29 @@
-== Kontrollkommandoer
+== Flytkontroll
 
-Nå skal vi begynne å se litt om kontrollkommandoer. Vi har tidligere snakket om 
+Nå skal vi se litt på flytkontrollkommandoer. Vi har tidligere snakket om 
 databokser, som vi kan se på som beholdere av ulike typer data. Nå skal vi ta for 
-oss hvordan innholdet i disse ulike databoksene kan være med på å bestemme hva som 
-skal skje i et dataprogram. 
+oss hvordan innholdet i disse databoksene, kan være med på å bestemme hva som 
+skal skje i et dataprogram. Eller sagt på en annen måte; hvordan verdien til en 
+variabel, er med på å bestemme flyten i programmet.
 
 
 .Læringsmål
 ----
- - if else
- - for
- - while
+ - kommandoen; if else
+ - kommandoen; for
+ - kommandoen; while
 ----
 
 
 Vi har allerede truffet på _if_ (hvis).
 
-Hvis “_et eller annet_”, så “_gjør et eller annet_”.
+Hvis “_et eller annet_”, så “_gjør et eller annet_”. For eksempel:
 
 
  Databoks b = 3
- Hvis b er lik 3 så avslutt programmet.
+ Hvis b er lik 3, så avslutt programmet.
 
-eller i form av C-kode
+Uttrykt i form av C-kode:
 
 [source,c]  
 ---- 
@@ -32,12 +33,11 @@ if (b == 3) { return 0; }
 
 ---- 
 
-Legg merke til at når vi skal tilordne verdien 3 til variabelen ‘b’, så bruker 
-vi èn stykk likhetstegn, mens når vi skal sjekke om en variabel er lik en verdi, 
-bruker vi to stykker likhetstegn. 
+NOTE: Legg merke til at når vi skal tilordne verdien 3 til variabelen _b_, så bruker 
+      vi ett likhetstegn, mens når vi skal sjekke om en variabel er lik en verdi, 
+      bruker vi to likhetstegn etter hverandre. 
 
-På sammen måte som vi dissekerte main-funksjonen i forrige kapittel, skal vi nå 
-se litt nærmere på hvordan vi bruker “_hvis_” -kommandoen i _C_.
+Når man har en _hvis_, har man ofte også en _hvis ikke_, som kan kalles _ellers_. 
 
 ----
  if (  ‘et eller annet’  )  {
@@ -46,16 +46,16 @@ se litt nærmere på hvordan vi bruker “_hvis_” -kommandoen i _C_.
 
  } else {
 
-  ‘hvis ikke gjør dette’
+  ‘ellers gjør dette’
 
  }
 ----
 
 Innholdet i ‘_et eller annet_’ vil være et logiskt uttrykk som evalurerer til 
-sant eller ikke sant, henholdsvis 1 eller 0.
+sant eller ikke sant. Hvor sant = 1 og usant = 0.
 
 Tenk deg at vi oppretter to databokser av typen heltall, som vi kan kalle 
-for a og b, og plasserer heltallene 2 og 3 oppi disse, slik:
+for _a_ og _b_, og plasserer heltallene 2 og 3 oppi disse, slik:
 
 [source,c]  
 ---- 
@@ -70,7 +70,7 @@ Deretter oppretter vi en tom databoks av typen heltall, som vi kaller for c, sli
 int c;
 ---- 
 
-Nå kan vi lage ulike logiske uttrykk hvor vi bruker a og b. Basert på om disse 
+Nå kan vi lage ulike logiske uttrykk hvor vi bruker _a_ og _b_. Basert på om disse 
 logiske uttrykkene evaluerer til ‘_sant_’ eller ‘_usant_’, kan vi legge ulike 
 verdier i variabelen c.
 
@@ -88,8 +88,23 @@ Om vi putter på “litt C-kode” kan vi skrive det slik
  Er a større enn b? --> if (a > b)  --> evalurerer til ‘usant’ --> 0
  Er a mindre enn b? --> if (a < b)  --> evalurerer til ‘sant’  --> 1
 
+[source,c]  
+---- 
+ int a = 1;
+ int b = 2;
+ int c;
+ 
+ if (a > b) {
+   c = 3;
+ } else { 
+   c = 4;
+ }
+---- 
+ 
+Hvilken verdi har _c_? 3 eller 4? 
+ 
 Vi ser at dette egentlig er ganske likt ting og tang vi kjenner fra matematikken. 
-Det er ikke så rart, siden logikk er ei grein av matematikken. Når vi regner med 
+Det er ikke så rart, siden logikk er ei gren av matematikken. Når vi regner med 
 bokstaver i matematikken kaller vi det for algebra. Innenfor programmering bruker 
 vi noe som heter boolsk algebra. Da regner vi med uttrykk, eller regnestykker om du vil, 
 som evaluerer til ‘_sant_’ eller ‘_usant_’.
@@ -100,15 +115,15 @@ Innen vanlig algebra har du at om a = 3 og b = 3, så er a = b _sant_.
 
 I boolsk algebra opererer vi kun med ‘_sant_’ eller ‘_ikke sant_’. Det betyr i 
 praksis at det som ikke er sant, må være usant. Om a = 1 (‘_sant_’) og b = 0 (‘_usant_’) 
-så er a != b _sant_. Det vil si at uttrykket ‘a er ikke lik b’ er _sant_. Vi kan 
+så er a != b _sant_. (!= betyr _ikke lik_.) Det vil si at uttrykket ‘a er ikke lik b’ er _sant_. Vi kan 
 putte tegnet ‘!’ foran et boolsk uttrykk for å invertere det, det vil si gjøre et 
-_sant_ uttrykk _usant_ og vise versa. !a = b, blir da _sant_.
+_sant_ uttrykk _usant_ og vise versa. !a = b, blir da for eksempel _sant_.
 
 Det er kanskje ikke så lurt å dra dette for langt her? Dette er bare et tankesett 
 som må øves inn. For noen kommer dette lettere enn for andre. Uansett er det bare 
 litt øving som skal til, så skjønner du dette. 
 
-I tillegg til kontrollkomandoen ‘_hvis_’, har vi kontrollkommandoen ‘_mens_’ eller 
+I tillegg til flyt-kontroll-komandoen ‘_hvis_’, har vi kommandoen ‘_mens_’ eller 
 ‘_så lenge_’.
 
  Databoks b = 10
@@ -128,21 +143,18 @@ while ( b > 0 ) {
 }
 ---- 
 
-
-
-En slik kontrollkommando definerer hva vi kaller for _ei løkke_ eller _en loop_. 
+En slik flyt-kontroll-kommando definerer hva vi kaller for _ei løkke_ eller _en loop_. 
 Programmet ovenfor vil gå i ei løkke med 10 iterasjoner, hvor den for hver iterasjon 
-trekker 1 fra databoksen av heletall som vi kaller for b.
+trekker 1 fra databoksen _b_.
 
-Disse to kontroll -kommandoene; _if_ og _while_, styrer flyten i programmet. Et 
+Disse to kommandoene; _if_ og _while_, styrer flyten i programmet. Et 
 dataprogram er bare en veldig detaljert beskrivelse av hvordan man skal endre på 
 innholdet i ulike variabler. Det finnes en del flere slike kontrollkommandoer, 
 men _if_ og _while_ er i særklasse mest brukt. Kanskje bortsett fra en 
-kontrollkommando som mye brukes for _å løpe_ gjennom en tabell? 
+kommando som er mye brukt for _å løpe_ gjennom en tabell? 
 
-Mange ganger når 
-man skal lage et dataprogram, har man bruke for å gjøre ei beregning på en tabell 
-av data. Om man for eksempel ønsker å gjøre en streng med tekst om til kun å bestå av 
+Mange ganger har man bruk for å gjøre ei beregning på en tabell 
+av data. Om man for eksempel ønsker å gjøre en streng med tekst, om til å kun bestå av 
 store bokstaver, kan man skrive noe slikt som dette:
 
 [source,c]  
@@ -169,7 +181,7 @@ int main() {
 
 
 
-Det eneste som er helt nytt i koden ovenfor er 
+Det eneste som er helt nytt i koden ovenfor, er: 
 
 [source,c]  
 ---- 
