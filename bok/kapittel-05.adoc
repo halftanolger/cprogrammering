@@ -1,0 +1,231 @@
+== Struktur
+
+Her skal vi se på hvordan vi kan dele opp et program i flere deler. Det å lage 
+et dataprogram er egentlig å løse et problem eller en oppgave. Problemet løses 
+som regel, ved å dele hovedproblemet opp i mindre mindre deler som løses hver for seg.
+I _C_ gjøres dette ved å lage nye funksjoner from kalles opp fra _main_-funksjonen. 
+Disse ulike funksjonene settes sammen i hva vi kan kalle for en struktur eller et design, derfor valgte jeg
+ å kalle dette kapitellet for _struktur_.
+
+.Læringsmål
+----
+ - hvordan dele opp et program i flere funksjoner.
+----
+
+
+
+Vi fortsetter med programmet vårt som legger sammen to tall. 
+
+Vi kan si at det å legge sammen to tall består av tre momenter; 
+
+ -først oppgir vi de to tallene
+ -så skal det utføres ei beregning hvor disse to tallene summeres 
+ -og til slutt skal summen presenteres. 
+
+En måte å dele opp et problem i C, er å opprette funksjoner. Vi har allerede 
+brukt funksjonene _aoti_ og _printf_. Dette er funksjoner som har utført ganske 
+kompliserte oppgaver for oss. På sammen måte kan vi dele vårt problem opp i 
+funksjoner som vi lager selv. 
+
+[source,c]  
+.test.c (eksempel 11)
+---- 
+#include <stdio.h>
+
+int min_funksjon(int a, int b) {
+
+    return a+b;
+    
+}
+
+int main() {
+
+    int c = min_funksjon(2,3);
+    
+    printf(“c=%d”,c);
+    
+    return 0;
+    
+}
+----
+
+Det er ikke noen forskjell mellom de funksjonene som allerede finnes i _C_ og 
+de funksjonene vi lager selv. Det eneste vi må huske på er at funksjonen vi 
+lager selv må være deklarert ovenfor, eller forann, main-funksjonen, som 
+vist ovenfor. På den måten vet kompilatoren hva ‘_min_funksjon_’ er, når den 
+kommer dit og skal lage maskinkode.
+
+Nedenfor er et litt mer rikholdig eksempel, hvor jeg har laget meg tre 
+funksjoner; en for å lese inn data, en for å utføre beregningen, og en 
+for å skrive ut resultatet. I tillegg kommer jeg drassende med _scanf_ som er en 
+standard _c_-funksjon for å lese inn data fra tastaturet, eller mer 
+korrekt, _stdin_ (standard in) som det kalles i _c_-verden.
+
+
+[source,c]  
+.test.c (eksempel 12)
+---- 
+
+#include <stdio.h>
+
+void min_input(char *tekst, int *data) {
+
+    printf("%s",tekst);
+    scanf("%d",data);
+    
+}
+
+int min_beregning(int a, int b) {
+
+    return a+b;
+    
+}
+
+void min_output(int a, int b, int c) {
+
+    printf("%d + %d = %d\n",a,b,c);
+    
+}
+
+int main() {    
+    
+    int a,b,c;
+    
+    min_input("Oppgi et tall, a: ",&a);
+    min_input("Oppgi et tall, b: ",&b);
+        
+    c = min_beregning(a,b);
+    
+    min_output(a,b,c);    
+    return 0;    
+    
+}
+
+----
+
+Nå har vi lært litt om databokser, også kalt for variabler, som vi bruker 
+for å lagre data. Vi har lært at det er ulike typer data og vi har sett på 
+heltall (kalt for _int_) og tegn (kalt for _char_). Vi har også sette på 
+flyt-kontroll-kommandoer, som vi bruker for å styre flyten i programmet. Tre 
+eksempler på kontrollkommandoer er _if_, _while_ og _for_. Disse styrer flyten i 
+programmet, baset på innholdet i en eller flere databokser. Tilslutt har vi sett 
+på hvordan vi kan dele et program opp i flere mindre program som vi kaller for 
+funksjoner.
+
+Det å lære seg et programmeringsspråk er ganske likt det å lære seg et 
+talespråk. Man må øve mye, og ikke minst bruke språket for å få det inn i 
+fingrene. Derfor skal jeg avslutte denne introduksjonsrunden med et ganske 
+rikholdig eksempel, som du kan eksperimentere litt med selv. Det er et program 
+hvor du kan velge mellom å addere eller multiplisere to tall.
+
+[source,c]  
+.test.c (eksempel 13)
+---- 
+
+#include <stdio.h>
+#include <string.h>
+
+void min_input(char *tekst, int *data) {
+
+    printf("%s",tekst);
+    scanf("%d",data);
+    
+}
+
+int meny() {
+
+    int valg;
+    int valg_ok = 0;
+    
+    while (valg_ok == 0) {      
+    
+        printf("\nVelg 1 for aa avslutte\n");
+        printf("Velg 2 for aa legge sammen to tall, a + b\n");
+        printf("Velg 3 for aa multiplisere to tall, a x b\n");
+        printf("\n");
+                
+        min_input("Velg:",&valg);
+        
+        if (valg == 1 || valg == 2 || valg == 3) {
+        
+            return valg;    
+            
+        } else {
+        
+            printf("Ugyldig valg, velg 1, 2 eller 3\n");
+            
+        }        
+    }    
+    
+}
+
+int min_beregning(int a, int b, int type) {
+
+    if (type == 2) {
+    
+        return a+b;
+        
+    } else if (type == 3) {
+    
+        return a*b;
+        
+    } else {
+    
+        return 0;
+        
+    }
+    
+}
+
+void min_output(int a, int b, int c, int type) {
+
+    char t;
+    
+    if (type == 2) {
+    
+        t = '+';
+        
+    } else if (type == 3) {
+    
+        t = '*';
+        
+    }
+    
+    printf("\n%d %c %d = %d\n",a,t,b,c);
+    
+}
+
+int main() {           #<1>     
+
+    int a,b,c,v;       #<2>        
+        
+    while (1) {        #<3>
+    
+        v = meny();    #<4>
+
+        if (v == 1)    #<5>
+            return 0;
+                        
+        min_input("\nOppgi et tall, a: ",&a);  #<6>
+        min_input("Oppgi et tall, b: ",&b);    #<7>
+        
+        c = min_beregning(a,b,v); #<8>
+        
+        min_output(a,b,c,v);      #<9>   
+        
+    }
+        
+}
+----
+<1> Her starter programmet.
+<2> Fire databokser som kan inneholde heltatt, defineres.
+<3> Her går vi inn i en evigvarende løkke.
+<4> Funksjonen _meny_ kalles opp, og returnerer med en verdi som legges i _v_
+<5> Om denne verdien er lik 1, avslutter vi vårt program.
+<6> Funksjonen _min_innputt_ kalles opp, med to parametre.
+<7> Funksjonen _min_innputt_ kalles opp, med to andre parametre.
+<8> Funksjonen _min_beregning_ kalles opp, med tre parametre.
+<9> Funksjonen _min_utputt_ kalles opp, med fire parametre.
+
+TODO: forklar funksjonene ..
+
