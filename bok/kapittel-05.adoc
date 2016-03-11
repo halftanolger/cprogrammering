@@ -4,8 +4,8 @@ Her skal vi se på hvordan vi kan dele opp et program i flere deler. Det å lage
 et dataprogram er egentlig å løse et problem eller en oppgave. Problemet løses 
 som regel, ved å dele hovedproblemet opp i mindre mindre deler som løses hver for seg.
 I _C_ gjøres dette ved å lage nye funksjoner from kalles opp fra _main_-funksjonen. 
-Disse ulike funksjonene settes sammen i hva vi kan kalle for en struktur eller et design, derfor valgte jeg
- å kalle dette kapitellet for _struktur_.
+Disse ulike funksjonene settes sammen i hva vi kan kalle for en struktur eller et 
+design, derfor valgte jeg å kalle dette kapitlet for _struktur_.
 
 .Læringsmål
 ----
@@ -103,6 +103,25 @@ int main() {
 
 ----
 
+Vi skal ta for oss hver funksjon, og se nærmere på hva den gjør.
+
+.Funksjonen _main()_
+Dette er vår gode gamle _main_-funksjon, hvor programmet starter. Det første 
+som skjer her, er at vi definerer oss tre variabler. Deretter bruker vi tre 
+funksjoner som vi har laget selv, for å utføre det vi ønsker å gjøre. Og helt 
+tilslutt, returnerer vi tallet null tilbake til den prosessen som startet oss. I
+
+.Funksjonen _min_beregning()_
+bla bla bla
+
+.Funksjonen _min_utputt()_
+bla bla bla
+
+.Funksjonen _min_innputt()_
+bla bla bla
+
+
+.Oppsummering
 Nå har vi lært litt om databokser, også kalt for variabler, som vi bruker 
 for å lagre data. Vi har lært at det er ulike typer data og vi har sett på 
 heltall (kalt for _int_) og tegn (kalt for _char_). Vi har også sette på 
@@ -227,5 +246,4 @@ int main() {           #<1>
 <8> Funksjonen _min_beregning_ kalles opp, med tre parametre.
 <9> Funksjonen _min_utputt_ kalles opp, med fire parametre.
 
-TODO: forklar funksjonene ..
 
