@@ -3,7 +3,7 @@
 Her skal vi se på hvordan vi kan dele opp et program i flere deler. Det å lage 
 et dataprogram er egentlig å løse et problem eller en oppgave. Problemet løses 
 som regel, ved å dele hovedproblemet opp i mindre mindre deler som løses hver for seg.
-I _C_ gjøres dette ved å lage nye funksjoner from kalles opp fra _main_-funksjonen. 
+I _C_ gjøres dette ved å lage nye funksjoner, som kalles opp fra _main_-funksjonen. 
 Disse ulike funksjonene settes sammen i hva vi kan kalle for en struktur eller et 
 design, derfor valgte jeg å kalle dette kapitlet for _struktur_.
 
@@ -12,20 +12,18 @@ design, derfor valgte jeg å kalle dette kapitlet for _struktur_.
  - hvordan dele opp et program i flere funksjoner.
 ----
 
-
-
-Vi fortsetter med programmet vårt som legger sammen to tall. 
-
-Vi kan si at det å legge sammen to tall består av tre momenter; 
+Vi fortsetter med programmet vårt, som legger sammen to tall. Vi kan si at det å 
+legge sammen to tall består av tre momenter; 
 
  -først oppgir vi de to tallene
- -så skal det utføres ei beregning hvor disse to tallene summeres 
+ -deretter utføres det ei beregning, hvor tallene summeres 
  -og til slutt skal summen presenteres. 
 
-En måte å dele opp et problem i C, er å opprette funksjoner. Vi har allerede 
-brukt funksjonene _aoti_ og _printf_. Dette er funksjoner som har utført ganske 
-kompliserte oppgaver for oss. På sammen måte kan vi dele vårt problem opp i 
-funksjoner som vi lager selv. 
+Vi har allerede brukt funksjonene _atoi_ og _printf_. Dette er funksjoner som 
+har utført ganske kompliserte oppgaver for oss. (_atoi_ = ascii to interger, 
+_printf_ = print formatted) På sammen måte kan vi dele vårt problem opp i 
+funksjoner som vi lager selv. For eksempel kan vi lage en funksjon, som legger 
+sammen to tall, slik som dette:
 
 [source,c]  
 .test.c (eksempel 11)
@@ -49,17 +47,15 @@ int main() {
 }
 ----
 
-Det er ikke noen forskjell mellom de funksjonene som allerede finnes i _C_ og 
+Det er ikke noen forskjell mellom de funksjonene som allerede finnes i _C_, og 
 de funksjonene vi lager selv. Det eneste vi må huske på er at funksjonen vi 
-lager selv må være deklarert ovenfor, eller forann, main-funksjonen, som 
-vist ovenfor. På den måten vet kompilatoren hva ‘_min_funksjon_’ er, når den 
-kommer dit og skal lage maskinkode.
+lager selv, må være deklarert ovenfor, eller forann, main-funksjonen, som 
+vist ovenfor. 
 
-Nedenfor er et litt mer rikholdig eksempel, hvor jeg har laget meg tre 
-funksjoner; en for å lese inn data, en for å utføre beregningen, og en 
-for å skrive ut resultatet. I tillegg kommer jeg drassende med _scanf_ som er en 
-standard _c_-funksjon for å lese inn data fra tastaturet, eller mer 
-korrekt, _stdin_ (standard in) som det kalles i _c_-verden.
+Nedenfor er et litt større eksempel. Her har jeg laget tre funksjoner; en for å 
+lese inn data, en for å utføre beregningen, og en for å skrive ut resultatet. 
+I tillegg bruker jeg _scanf_, som er en standard _C_-funksjon for å lese inn data
+ fra tastaturet, samt _printf_ som vi kjenner fra før.
 
 
 [source,c]  
@@ -68,7 +64,7 @@ korrekt, _stdin_ (standard in) som det kalles i _c_-verden.
 
 #include <stdio.h>
 
-void min_input(char *tekst, int *data) {
+void min_innputt(char *tekst, int *data) {
 
     printf("%s",tekst);
     scanf("%d",data);
@@ -81,7 +77,7 @@ int min_beregning(int a, int b) {
     
 }
 
-void min_output(int a, int b, int c) {
+void min_utputt(int a, int b, int c) {
 
     printf("%d + %d = %d\n",a,b,c);
     
@@ -89,38 +85,106 @@ void min_output(int a, int b, int c) {
 
 int main() {    
     
-    int a,b,c;
+    int a,b,c;                              #<1>     
     
-    min_input("Oppgi et tall, a: ",&a);
-    min_input("Oppgi et tall, b: ",&b);
+    min_innputt("Oppgi et tall, a: ",&a);   #<2>     
+    min_innputt("Oppgi et tall, b: ",&b);   #<3>     
         
-    c = min_beregning(a,b);
+    c = min_beregning(a,b);                 #<4>
     
-    min_output(a,b,c);    
+    min_utputt(a,b,c);                      #<5>
     return 0;    
     
 }
 
 ----
 
+<1> Definerer tre variabler/databokse for heltall.
+<2> Ved hjelp av funksjonen _min_innputt_ leser vi inn en verdi i _a_
+<3> Ved hjelp av funksjonen _min_innputt_ leser vi inn en verdi i _b_
+<4> Ved hjelp av funksjonen _min_beregning_ kalkulerer vi: _c = a + b_
+<5> Ved hjelp av funksjonen _min_utputt_ skriver vi ut _c_ til skjerm.
+
 Vi skal ta for oss hver funksjon, og se nærmere på hva den gjør.
 
 .Funksjonen _main()_
-Dette er vår gode gamle _main_-funksjon, hvor programmet starter. Det første 
-som skjer her, er at vi definerer oss tre variabler. Deretter bruker vi tre 
-funksjoner som vi har laget selv, for å utføre det vi ønsker å gjøre. Og helt 
-tilslutt, returnerer vi tallet null tilbake til den prosessen som startet oss. I
+Dette er vår gode gamle _main_-funksjon. Her starter programmet. Det første 
+som skjer er at vi definerer tre variabler. Deretter bruker vi tre 
+funksjoner for å utføre det vi ønsker å gjøre. Til slutt returnerer vi tallet null 
+tilbake til operativsystmet.
 
 .Funksjonen _min_beregning()_
-bla bla bla
+Funksjonen tar inn to tall, og returnerer med summen av disse.
 
 .Funksjonen _min_utputt()_
-bla bla bla
+Funksjonen tar inn tre heltall; a, b, c. Ved hjelp av funksjonen _printf_ flettes 
+disse tallene inn i en formatert tekststreng, og skrives ut på skjermen.
 
 .Funksjonen _min_innputt()_
-bla bla bla
+Dette er kanskje den mest avanserte funksjonen, siden den tar inn to pekere. En peker 
+er som nevnt en spesiell type variabel, som inneholder minneadressen til den aktuelle 
+databoksen. 
 
+Den første pekeren inneholder adressen til en _char_-variabel. Og som 
+nevnt, så består en tekststreng av en rekke _char_-variabler etter hverandre, som avsluttes med 
+tallet null. Dermed holder det for _printf_-funksjonen å få inn en _char_-peker til det 
+første tegnet i strengen. _printf_ kan da bytte ut _%s_ med strengen som _test_ peker på.
 
+----
+ char *p = "en streng"
+ 
+              0   1   2   3   4   5   6   7   8   9
+            +---+---+---+---+---+---+---+---+---+---+  
+ char *p => | e | n |   | s | t | r | e | n | g | 0 |
+            +---+---+---+---+---+---+---+---+---+---+  
+ 
+ char *p vil innholde minneadressen til 'e'
+---- 
+ 
+Bare for å øke forvirrelsen ytterligere rundt det med _char_-pekere, så kan det nevnes her 
+at vi kunne brukt en vanlig tabell av _char_ også. Da måtte funksjonen sett slik ut:
+
+ void min_innputt(char tekst[], int *data) {
+    printf("%s",tekst);
+    scanf("%d",data);
+ }
+ 
+Dette kommer av at for oss, her og nå, så er dette det samme:
+
+ char *p = "en streng"
+ char p[] = "en strenng"
+ 
+men, egentlig blir strengen lagret på litt ulikt vis. Men, som sagt, for oss har det 
+ingen praktisk betyning. 
+ 
+Den neste pekeren som kommer inn til funksjonen _min_innputt_, er en peker til en 
+heltallsvariabel, kalt data. I dette tilfellet har vi ikke noe valg, vi må sende inn 
+en peker. Grunnen til dette er at funksjonen _scanf_ skal lagre et heltall på denne 
+adressen. På den måten kan andre funksjone senere hente ut innholdet som gjemmer seg 
+bak denne adressen. Her ligger på sett og vis litt av essensen, eller kjernen, i _C_-programmering 
+gjemt. Men, det kan være litt vanskelig å forstå, så jeg skal prøve å ta det stegvis.
+
+I hovedfunksjonen _main_ blir det opprettet en variabel, kalt _a_. Denne har en 
+type, en verdi og en adresse. Typen er _int_. Verdien er i utgangspunktet en vilkårlig verdi. 
+Men, adressen er fast. Vi kan for eksempel si at adressen er 1234.
+
+Når vi skriver _&a_ henter vi ut adressen til variabelen. Denne adressen lagrer vi i en 
+peker. Husk at:
+
+ int a;
+ int *peker_til_a = &a;
+ 
+Det er denne pekeren som kommer som innput til funksjonen _min_innputt_. Når vi har 
+denne adressen, kan vi bruke den til å lagre en heltallsverdi på denne adressen. Det 
+er nettopp det som skjer i funksjonen _scanf_. Når funksjonen _min_innputt_ returnerer tilbake 
+til hovedfunksjonen _main_, vil innholdet i variabelen _a_ ha blitt endret. På grunn av at vi 
+brukte en peker til en variabel, klarte vi å endre innholdet på denne. 
+Altså innholdet i _a_ ble endret av funksjonen _scanf_, som ble kalt opp av funksjonen 
+_min_innputt_ som ble kalt opp av _main_, hvor _a_ ble definert. Det er nettopp dette som 
+er styrken ved å bruke pekere; man tar med seg en referanse til en variabel, og kan hent ut 
+verdien og eller oppdatere denne, hvor som helst.  
+ 
+  
 .Oppsummering
 Nå har vi lært litt om databokser, også kalt for variabler, som vi bruker 
 for å lagre data. Vi har lært at det er ulike typer data og vi har sett på 
@@ -129,13 +193,16 @@ flyt-kontroll-kommandoer, som vi bruker for å styre flyten i programmet. Tre
 eksempler på kontrollkommandoer er _if_, _while_ og _for_. Disse styrer flyten i 
 programmet, baset på innholdet i en eller flere databokser. Tilslutt har vi sett 
 på hvordan vi kan dele et program opp i flere mindre program som vi kaller for 
-funksjoner.
+funksjoner. Og vi har sett på hvordan vi kan bruke pekere for å dele på data 
+mellom ulike funksjoner.
 
 Det å lære seg et programmeringsspråk er ganske likt det å lære seg et 
-talespråk. Man må øve mye, og ikke minst bruke språket for å få det inn i 
-fingrene. Derfor skal jeg avslutte denne introduksjonsrunden med et ganske 
-rikholdig eksempel, som du kan eksperimentere litt med selv. Det er et program 
-hvor du kan velge mellom å addere eller multiplisere to tall.
+talespråk. Man må bruke språket, for å få det inn i 
+fingrene. Derfor skal vi runde av dette kapitlet med et rikholdig eksempel. Dette 
+eksempelet må du eksperimentere litt med selv. Det er et program 
+hvor du kan velge mellom å addere eller multiplisere to tall. Det er bare litt mer avansert, 
+enn eksempelet ovenfor, så jeg tror du skjønner hva som skjer. Prøv å gjør ulike 
+endringer på dette programmet.
 
 [source,c]  
 .test.c (eksempel 13)
@@ -238,7 +305,7 @@ int main() {           #<1>
 ----
 <1> Her starter programmet.
 <2> Fire databokser som kan inneholde heltatt, defineres.
-<3> Her går vi inn i en evigvarende løkke.
+<3> Her går vi inn i en evigvarende løkke. 1 er alltid _sant_ :-)
 <4> Funksjonen _meny_ kalles opp, og returnerer med en verdi som legges i _v_
 <5> Om denne verdien er lik 1, avslutter vi vårt program.
 <6> Funksjonen _min_innputt_ kalles opp, med to parametre.
