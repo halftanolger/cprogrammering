@@ -156,11 +156,24 @@ for hele programmet, og en type _scope_ som gjelder for den aktuelle kodefila fo
 
 La oss først ta det _globale scopet_.
 
-Legg merke til at alle variablene vi har definert og brukt så langt, hele tiden har vært definert mellom to klammeparanteser. Disse har definert scopet til variabelen på en eller annen måte, enten ved å definere variablen inne i en eller annen funksjon, eller ved å definere variabelen inne ei if-blokk, while-blokk eller for-blokk. 
+Legg merke til at alle variablene vi har definert og brukt så langt, har hele tiden 
+vært definert mellom to klammeparanteser. Disse har definert scopet til variabelen 
+på en eller annen måte; enten ved å definere variablen inne i en eller annen funksjon, 
+eller ved å definere variabelen inne ei if-blokk, while-blokk eller for-blokk. 
 
-Her kommer det snedige; om vi definerer en variabel utenfor ei slik blokk blir det hva vi kaller for global. Det vil si at vi kan bruke den hvor som helst i programmet. Men, da må også navnet være unikt for hele programmet. Vi kan for eksempel ikke ha to globale variabler som vi kaller for ‘a’. Alle globale variabler må ha unike navn, siden de er .. globale.
+Her kommer det snedige; om vi definerer en variabel utenfor ei slik blokk blir 
+den hva vi kaller for _global_. Det vil si at vi kan bruke den hvor som helst i 
+programmet. Men, da må også navnet være unikt for hele programmet. Vi kan for 
+eksempel ikke ha to globale variabler som vi kaller for ‘a’. Alle globale variabler 
+må ha unike navn, siden de er; ..globale.
 
-Dette er helt analogt til det med postadresser. Om vi ikke hadde hatt postnummer så måtte alle gateadressene vært unike. Ok, tilbake til C. Nedenfor er et eksempel som prøve å vise hvordan en global variabel fungerer.
+Dette er helt analogt til det eksempelet med postadresser. Om vi ikke hadde hatt 
+postnummer, så måtte alle gateadressene vært unike. Ok, tilbake til _C_. Nedenfor er 
+et eksempel som prøve å vise hvordan en global variabel fungerer:
+
+[source,c]  
+.test.c (eksempel 17)
+---- 
 
 #include <stdio.h>
 int a = 1;
@@ -181,7 +194,7 @@ int main() {
     }        
     return 0;    
 }
-Eksempel 17
+---- 
 
 Dette programmet vil skrive ut
 1213
