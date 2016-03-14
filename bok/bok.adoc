@@ -21,4 +21,6 @@ include::kapittel-04.adoc[]
 
 include::kapittel-05.adoc[]
 
+include::kapittel-06.adoc[]
+
 include::bibliografi.adoc[]
