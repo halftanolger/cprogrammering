@@ -1,0 +1,59 @@
+== Analyse
+
+Før man begynner å programmere, må man ha et problem som skal løses. Dette problemet 
+bør analyseres på forhand, slik at vi får en best mulig forståelse av hva problemet dreier seg om.
+Det finnes også her, en rekke ulike teknikker for å bygge forståelse rundt ei 
+problemstilling. Vi skal se litt på noe som kanskje kan kalles for _objektorientert analyse_.
+
+.Læringsmål
+----
+ - å analysere et problem
+----
+
+image::bilder/analyse.jpg[300, 200]
+
+Hva betyr det egentlig å analysere? Analyse og syntese er to motpareter. Når du analyserer 
+betrakter du noe som er satt sammen av mange deler. Under analysen kommer du 
+frem til mindre deler problemer. Disse mindre delene kan du så analysere videre igjen. 
+På den måten analyserer du deg frem til en forståelse av hvordan noe er satt sammen og  
+fungerer. 
+
+Motsatsen til _analyse_ heter _syntese_. Her har vi har kunnskap om to ulike deler, 
+som vi setter sammen til kunnskap om èn ny del. 
+
+Når vi utfører en objektorientert analyse er vi interessert i å finne de ulike 
+relevante objektene, og deres egenskaper. Ta for eksempel en objektorienter analyse 
+av en bil. Hva er de viktigste delen, og egenskapene til disse delene? Jo, det kan 
+være slik som at en bil har dører. Dørene må kunne åpnes og lukkes. I tillegg har 
+dørene vindu. De må kunne åpnes og lukkes. Ei dør har en lås. Den må kunne låses 
+opp og igjen. En lås har en nøkkel. Denne har en radiosender som kan kommunisere 
+med låsen. Denne radiosenderen må ha en id eller digital nøkkel, slik at  
+radiokommunikasjonen er sikker. Om vi tar for oss motoren, så skjønner du at vi 
+kan skrive side opp og side ned om alle objektene vi finner, og relevante egenskaper 
+til disse ulike objektene. Da skjønner du også at litt av kunsten rundt 
+analyse-arbeidet er å treffe rett med hensyn til graden av detaljer. 
+
+Eller sagt på en litt annen måte; det å være på rett abstraksjonsnivå i forhold 
+til det problemet man ønsker å løse, eller finne ut av, er veldig viktig. Er man 
+på et for lavt abstraksjonsnivå får man ikke noe nytte av analysen, siden det bare 
+blir en sky av detaljer. Er man derimot på et for høyt abstraksjonsnivå, klarer man 
+ikke å gå inn i problemstilligen og komme opp med en modell eller forståelse, som tar 
+deg videre i problemløsningsprosessen.
+
+Uansett, objektorientert analyse går ut på å avdekke de relevante objektene og 
+egenskapene til disse, samt hvordan de ulike objektene samhandler med hverandre 
+for å løse en oppgave. Denne måten å tenke på fungere rimelig bra for mange 
+problemer som vi ønsker å løse ved hjelp av en datamaskin. Men, du skal vite at 
+dette er ikke den eneste måte å gå frem på, det finnes en rekke andre metoder.  
+Og igjen, husk på at objekt analyse er bare atter et triks for å handtere kompleksitet. 
+Vi bruker objektorientert analyse for å bygge kunnskap og forståelse rundt det 
+problemet vi ønsker å løse.
+
+Men, nå ble det mye abstrakt snakk her. For å forstå dette stoffet, må vi konkretisere det 
+med et eksempel. Eksempelet vi skal ta for oss er et dataprogram som skal hjelpe oss å 
+avvikle et skirenn. Dette er ei ganske stor og _rund_ progblemstilling, så her trengs 
+det litt analyse for å komme videre.
+
+
+TODO: alt ...
+
