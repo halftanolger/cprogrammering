@@ -1,4 +1,4 @@
-== Systemutvikling
+== Moduler
 
 Hittil har vi sett på det mest grunnleggende rundt _C_-programmering. Men, allerede 
 har vi erfart at det fort blir mange slike variabler og funksjoner. Hvor mange variabler 

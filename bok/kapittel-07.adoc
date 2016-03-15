@@ -50,10 +50,15 @@ Vi bruker objektorientert analyse for å bygge kunnskap og forståelse rundt det
 problemet vi ønsker å løse.
 
 Men, nå ble det mye abstrakt snakk her. For å forstå dette stoffet, må vi konkretisere det 
-med et eksempel. Eksempelet vi skal ta for oss er et dataprogram som skal hjelpe oss å 
-avvikle et skirenn. Dette er ei ganske stor og _rund_ progblemstilling, så her trengs 
-det litt analyse for å komme videre.
+med et eller flere eksempler. Det første eksempelet vi skal ta for oss, er et 
+dataprogram som skal hjelpe oss å avvikle et skirenn. Dette er ei ganske stor 
+og _rund_ progblemstilling, så her trengs det litt analyse for å komme videre. 
+Når vi har analysret litt, skal vi strukturere og programmere. Og til slutt har vi 
+kanskje et verktøy som kan hjelp oss i å avvikle et skirenn.
+
+(Det andre og siste eksempelet vi skal se på, er utviklingen av et Space-Invader-lignende 
+spill, med grafikk og lydeffekter. )
 
 
-TODO: alt ...
+
 

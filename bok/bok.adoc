@@ -1,5 +1,5 @@
 = Programmering
-Halftan Saetherskar
+halftan@online.no 
 :doctype: book
 :encoding: utf-8
 :lang: nn
@@ -24,6 +24,10 @@ include::kapittel-05.adoc[]
 include::kapittel-06.adoc[]
 
 include::kapittel-07.adoc[]
+
+include::kapittel-08.adoc[]
+
+include::kapittel-09.adoc[]
 
 include::bibliografi.adoc[]
 
