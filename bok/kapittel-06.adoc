@@ -1,14 +1,14 @@
 == Systemutvikling
 
-Hittil har vi sett på det mest grunnleggende rundt _C_-programmering. Men allerede 
-har vi erfart at det fort blir mange variabler og funksjoner. Hvor mange variabler 
-og funksjoner som må opprettes, er en av mange vurderinger som må gjøres når man 
-skal lage et dataprogram. Hva skal de ulike variablene hete? Hva skal de inneholde 
+Hittil har vi sett på det mest grunnleggende rundt _C_-programmering. Men, allerede 
+har vi erfart at det fort blir mange slike variabler og funksjoner. Hvor mange variabler 
+og funksjoner som må opprettes, er en av mange vurderinger som må gjøres, når man 
+lager et dataprogram. Hva skal de ulike variablene hete? Hva skal de inneholde 
 av data? Hvilke funksjoner trenger vi for å utføre de beregningene som må til for 
 at programmet vårt skal gjøre det vi ønsker? Alt dette blir raskt komplekst. Derfor 
 handler mye omkring programmering, å finne ulike teknikker for å handtere kompleksitet. 
 Eller formulert på en annen måte; det å programmere er det samme som å 
-handtere kompleksitet. Derfor finnes det en rekke metoder og strategier for å 
+handtere kompleksitet. Det finnes det en rekke metoder og strategier for å  
 handtere denne kompleksiteten. 
 
 
@@ -17,21 +17,21 @@ handtere denne kompleksiteten.
  - lære hva scope er
 ----
 
-
+=== Scope 
 
 Et triks for å handtere kompleksitet, er å innføre _scope_. 
 
 Hva er _scope_? 
 
 _scope_ er det området du ser, eller noe er synlig innenfor. Dette begrepet er 
-spesielt relevant når vi snakker om variabler. Når du lager et 
+relevant når vi snakker om variabler. Når du lager et 
 dataprogram av en viss størrelse, vil du etterhvert opprette mange variabler. 
 Disse variablene må ha sitt unike navn. Så hvordan fikser vi det?
 
-Tenk deg en adresse. Tenk deg at du har gateadressen _“Hjemvegen 123”_. Dette er 
+Tenk deg en adresse. Tenk deg at du har gateadressen; _“Hjemvegen 123”_. Dette er 
 ikke en veldig unik adresse. Antageligvis er det mange andre som har 
-samme adressen, bare andre plasser. Det vil si at de har samme adressen, men med andre 
-postnummer. Vi kan godt tenke oss at det finnes to ulike postnummer, 
+samme adressen, bare andre steder. De har samme adressen, bare med andre 
+postnummer. Vi kan godt tenke oss at det for eksempel finnes to ulike postnummer, 
 hvor denne gateadressen finnes:
 
  Hjemvegen 123
@@ -41,7 +41,7 @@ hvor denne gateadressen finnes:
  5678 DER
 
 De to gateadressene ligger i to ulike _scope_. To ulike synsfelt. To ulike områder. 
-I hvert sitt synsfelt er de to gateadressene helt unike. Relatert til _C_ og 
+I hvert sitt synsfelt er de to gateadressene unike. Relatert til _C_ og 
 variabler, blir bildet slik:
 
 [source,c]  
@@ -59,8 +59,8 @@ int main() {
 }
 ----
 
-Siden de to variablene ligger i to ulike _scope_ kan de godt hete det samme. Det 
-er likevel to helt unike variabler. Klammeparantes tegnene {} definerer et 
+Siden de to variablene ligger i to ulike _scope_, kan de godt hete det samme. Det 
+er likevel to unike variabler. Klammeparantes tegnene {} definerer et 
 _scope_ i _C_. Det betyr at vi kan lage konstruksjoner som dette
 
 [source,c]  
@@ -81,7 +81,7 @@ Dette vil resultere i utskrifta:
 
  333332
 
-Eller forklart i _C_ kode i sin enkleste form
+Eller forklart i _C_ kode, i sin enkleste form
 
 [source,c]  
 .test.c (eksempel 16)
@@ -103,8 +103,8 @@ Dette vil resultere i utskrifta:
  32
 
 Vi styrer altså synligheten til de ulike variablene ved å definere ulike _scope_. Jeg 
-er klar over at dette kan virke litt rart akkurat nå. Men årsaken til at jeg 
-stresser dette er at etter hvert vil vi kanskje ha tusenvis av slike variabler. 
+er klar over at dette kan virke litt rart akkurat nå. Men, årsaken til at jeg 
+stresser dette, er at etter hvert vil vi kanskje ha tusenvis av slike variabler. 
 Derfor er det viktig å vite hvordan vi handterer dette. Det å vite at en variabel 
 kun er synlig innenfor sitt _scope_, er fundamental kunnskap.
 
@@ -154,36 +154,43 @@ den vil da være unik, siden den eksisterer i sitt _scope_.
 Som nevnt dette er èn type _scope_. Det er to typer til; en type _scope_ som er global 
 for hele programmet, og en type _scope_ som gjelder for den aktuelle kodefila footnote:[kompileringsenhet; kodefila pluss headerfiler]. 
 
+
 La oss først ta det _globale scopet_.
 
-Legg merke til at alle variablene vi har definert og brukt så langt, har hele tiden 
-vært definert mellom to klammeparanteser. Disse har definert scopet til variabelen 
-på en eller annen måte; enten ved å definere variablen inne i en eller annen funksjon, 
-eller ved å definere variabelen inne ei if-blokk, while-blokk eller for-blokk. 
+=== Globalt scope
 
-Her kommer det snedige; om vi definerer en variabel utenfor ei slik blokk blir 
-den hva vi kaller for _global_. Det vil si at vi kan bruke den hvor som helst i 
+Legg merke til at alle variablene vi har definert så langt, har hele tiden 
+vært definert mellom to klammeparanteser. Klammeparantesene har definert scopet 
+til variabelen; enten ved å definere variabelen inne i en eller annen funksjon, 
+eller ved å definere variabelen inne ei _if_-blokk, _while_-blokk eller _for_-blokk. 
+
+Her kommer det snedige; om vi definerer en variabel utenfor ei slik blokk, blir 
+variabelen hva vi kaller for _global_. Det vil si at vi kan bruke den hvor som helst i 
 programmet. Men, da må også navnet være unikt for hele programmet. Vi kan for 
-eksempel ikke ha to globale variabler som vi kaller for ‘a’. Alle globale variabler 
-må ha unike navn, siden de er; ..globale.
+eksempel ikke ha to globale variabler som vi kaller for _‘a’_. Alle globale variabler 
+må ha et unikt navn, siden de er; ... globale.
 
-Dette er helt analogt til det eksempelet med postadresser. Om vi ikke hadde hatt 
-postnummer, så måtte alle gateadressene vært unike. Ok, tilbake til _C_. Nedenfor er 
-et eksempel som prøve å vise hvordan en global variabel fungerer:
+Dette er helt analogt til eksempelet med postadresser. Om vi ikke hadde hatt 
+postnummer, så måtte alle gateadressene vært unike. Nedenfor er et eksempel som 
+viser hvordan en global variabel fungerer:
 
 [source,c]  
 .test.c (eksempel 17)
 ---- 
 
 #include <stdio.h>
+
 int a = 1;
+
 void funk1() {    
     printf("%d",a);
 }
+
 void funk2() {    
     int a = 2;
     printf("%d",a);
 }
+
 int main() {    
     funk1();
     funk2();
@@ -197,27 +204,49 @@ int main() {
 ---- 
 
 Dette programmet vil skrive ut
-1213
 
-Legg merke til at den globale variablen a blir bruke både i funk1 og i main, samt at den globale variabelen a ikke er avgrenset av noen klammeparanteser.
+ 1213
 
-Det siste trikse i boka med hensyn til variabler og scope, er å skrive kommandoen static forann variabeldefinisjonen. Dette gir kun mening når vi vet hvordan vi kan dele et C-program opp i flere kodefiler, og det igjen henger sammen med en annen strategi for å hantere kompleksitet.
+Legg merke til at den globale variablen _a_ blir bruke både i _funk1_ og i _main_.
+Legg også merke til at den globale variabelen _a_ ikke er avgrenset av noen klammeparanteser.
 
-Vi har sett at vi kan dele et programm opp i flere funksjoner; alt starter i main, men main igjen kaller opp en rekke andre funksjoner, deriblant noen som vi selv har laget. De vi ikke selv har laget har vi importert til programmet vårt ved hjelp av kodelinja
+=== Statiske variabler (kompileringsenhetsscope)
 
-#include <stdio.h>
+Det siste trikse i boka, med hensyn til variabler og scope, er å skrive kommandoen 
+_static_ forann variabeldefinisjonen. Dette gir kun mening når vi vet hvordan vi kan 
+dele et _C_-program opp i flere kodefiler.
 
-Det jeg prøver å si, er at èn strategi for å handtere kompleksiteten, er å dele koden opp i flere filer. På samme måte som de ulike innebygde funksjonene i C ligger i ulike kodefiler, kan vi legge våre egene funksjoner i ulike kodefiler. På den måte kan vi få en viss oversikt og stuktur. Dette vil kanskje ikke være klart for deg umiddelbart, men tro meg, dette er helt avgjørende for å kunne lage programvare av en viss størrelse. De aller fleste programmeringsspråk støtter dette trikset for å hantere kompleksitet.
+Vi har sett at vi kan dele et programm opp i flere funksjoner. Alt starter i _main_, og herfra  
+kan vi kalle opp andre funksjoner, også funksjoner som vi lager selv. De funksjonene vi ikke 
+selv har laget, har vi importert til programmet vårt ved hjelp av kodelinja
 
-Så hvordan går vi frem for å dele programmet vårt opp i flere filer? For å forstå dette, må vi se litt nærmere på hvordan C-kompilatoren omgjør vår kode til maskinkode.
+ #include <stdio.h>
 
-Vi har allerde sett at vi kan inkludere andre filer i vår egen kodefil ved å skrive slikt som dette:
+En viktig strategi for å handtere kompleksiteten, er å dele koden opp i flere tekstfiler. 
+På samme måte som de ulike innebygde funksjonene i _C_, ligger i ulike kodefiler, kan vi 
+legge våre egene funksjoner i ulike kodefiler. På den måte kan vi få en viss oversikt 
+og stuktur. Dette er helt avgjørende for å kunne lage programvare av en viss størrelse. 
+De fleste programmeringsspråk støtter dette trikset for å håndtere kompleksitet, også _C_. 
 
-#include <stdio.h>
+Selvfølgelig :-)
 
-I stdio.h vil deklareringen til f.eks printf -funksjonen ligge. Selve koden, som vi kan kalle for definisjonen, ligger en annen plass, eller rettere i ei anna fil. Og nå er vi ved kjernen i noe som er litt sentralt i mange programeringsspråk; det er forskjell på å deklarere noe og å definere noe.
+Så hvordan går vi frem for å dele programmet vårt opp i flere filer? For å forstå dette, 
+må vi se litt nærmere på hvordan _C_-kompilatoren omgjør vår kode til maskinkode.
+
+Vi har allerde sett at vi kan inkludere andre filer i vår egen kodefil ved å skrive 
+slikt som dette:
+
+ #include <stdio.h>
+
+I _stdio.h_ vil deklareringen til f.eks _printf_-funksjonen ligge. Selve koden, som vi 
+kan kalle for definisjonen, ligger en annen plass, eller rettere i ei anna fil. Og nå 
+er vi ved kjernen i noe som er litt sentralt i mange programeringsspråk; det er forskjell 
+på _å deklarere_ noe og _å definere_ noe.
 
 Jeg skal vise forskjellen med et konkret eksempel:
+
+[source,c]  
+---- 
 
 int funk(int a, int b) {
     int c = a + b;
@@ -230,10 +259,20 @@ int main() {
     return 0;
 }
 
-Vi kjenner igjen dette oppsettet, hvor vi har definert vår egen funksjon som vi anvender i hovedfunksjonen main. Vi vet også at om denne ikke ble plassert ovenfor main, så vil kompilatoren feile med en eller annen feilmelding. (Prøv gjerne ut dette i praksis.)
+---- 
 
-Om jeg absolutt ville plassere den nye funksjonen nedenfor main, må jeg deklarere denne på en eller annen måte. Dette for at kompilatoren skal kjenne igjen funksjonen, når den blir kalt opp i main. Måten vi kan gjøre dette på, er som følger:
+Vi kjenner igjen dette oppsettet, hvor vi har definert vår egen funksjon som vi 
+anvender i hovedfunksjonen _main_. Vi vet også at om denne ikke ble plassert 
+ovenfor _main_, så vil kompilatoren feile med en eller annen feilmelding. (Prøv 
+gjerne ut dette i praksis.)
 
+Om jeg absolutt vil plassere den nye funksjonen nedenfor _main_-funksjonen, må jeg deklarere 
+den nye funksjonen først. Dette må jeg gjøre for at kompilatoren skal kjenne igjen funksjonen, 
+når den treffer på denne i _main_. Måten vi gjør dette på, er som følger:
+
+[source,c]  
+.test.c (eksempel 18)
+---- 
 
 int funk(int a, int b);
 
@@ -248,71 +287,119 @@ int funk(int a, int b) {
     return c;
 }
 
-Eksempel 18
+---- 
 
-Nå har jeg deklarert signaturen til funksjonen, slik at når kompilatoren kommer ned i main-funksjonen og treffer på vår funksjon, så vet denne hva som kreves av input-parametre og hva som returneres. Altså typen databokser inn og ut av funksjonen, samt navnet på funksjon. Legg merke til at kombinasjonen av returverdi, navn og inputverdier til en funksjon alltid vil være unik, derfor kaller vi dette for signaturen til funksjonen. Selve definisjonen, altså innholdet i funksjonen, kan nå kommer senere, dvs etter main-funksjonen, gjerne definert i ei egen fil.
 
-Nå kan vi velge å lage to nye kodefiler. La oss kalle disse for funk.h og funk.c, hvor vi i funk.h legger deklarasjonen, og hvor vi i funk.c legger definisjonen:
+Her har jeg deklarert _signaturen_ til funksjonen, slik at når kompilatoren kommer 
+ned i _main_-funksjonen og treffer på vår funksjon, så vet denne hva som kreves av 
+innputt-parametre og hva som returneres. Legg merke til at kombinasjonen av returverdi, navn og 
+inputverdier til en funksjon, alltid vil være unik. Derfor kaller vi dette 
+for _signaturen_ til funksjonen. Selve _definisjonen_, altså innholdet i funksjonen, kan 
+nå kommer senere, dvs etter _main-funksjonen_. 
 
-funk.h
+Nå kan vi velge å lage to nye kodefiler. La oss kalle disse for _funk.h_ og _funk.c_. 
+I _funk.h_ legger vi _deklarasjonen_ av funksjonen. Og i _funk.c_ legger _definisjonen_:
 
+
+
+[source,c]  
+.funk.h 
+---- 
 int funk(int a, b);
+---- 
 
-funk.c
-
+[source,c]  
+.funk.c
+---- 
 int funk(int a, int b) {
     int c = a + b;
     return c;
 }
+---- 
 
-test.c 
 
+[source,c]  
+.test.c (eksempel 19)
+---- 
 #include <stdio.h> /* For printf */
-#include <funk.h> /* For funk */
+#include <funk.h>  /* For funk */
 
 int main() {
     int a = funk(2,3);
     printf(“%d”,a);
     return 0;
 }
+----
 
-Eksempel 19
 
-For å kompilere koden vår, må vi nå skrive:
 
-gcc -I . funk.c test.c
+For å kompilere denne koden, må vi nå skrive:
 
-hvor vi oppgir de to kodefilene våre, som nå er funk.c og test.c, samt at vi med parameteren “-I.” forteller kompilatoren at den skal lete etter “inklude-filer” i samme katalogen som vi starter kompilatoren i. En prikk, eller punkum, angir den filkatalogen du står i.
+ gcc -I . funk.c test.c
 
-Ok, her ble det mye hokus pokus, og du bør egentlig nå lurer på hvorfor vi trenger alt dette styret. Det som engang var en ganske oversiktelig kode, er nå blitt en mye mikk makk spredd over flere filer, noe som igjen medførte at det å kompilere koden også blir litt mer komplisert. Åraken til at vi splitter opp programmet på denne måten er for å kunne handtere kompleksitet. Husk på at et dataprogram fort kan bli flere tusen linjer med kode, og dette bør vi stukturere i ulike filer for å holde en viss oversikt. Somregel plasserer vi funksjoner som hører sammen i egne filer. På den måten får vi en struktur.
+hvor vi oppgir de to kodefilene våre, som nå er _funk.c_ og _test.c_, samt at vi 
+med parameteren “-I.” forteller kompilatoren at den skal lete etter _“inklude-filer”_ i samme 
+katalog som vi starter kompilatoren i. En prikk, eller punkum, angir den filkatalogen 
+du står i.
 
-Et dataprogram består somregel av mange deler. En god del av disse delene kan være kode som vi ikke har laget selv. Denne koden som andre har laget, kan vi benytte oss av i to former; enten som ren kodetekst, hvor vi selv kompilerer denne om til maskinkode, eller som binær-kode hvor koden allerede er kompilert om til maskinkode. For å forstå litt mer av denne prosessen må vi se litt nærmere på hva som skjer når vi kompilerer.
+Ok, her ble det mye hokus pokus, og du bør egentlig nå lurer på hvorfor vi trenger 
+alt dette styret. Det som engang var en ganske oversiktelig kode, er nå blitt en 
+mye mikk makk spredd over flere filer, noe som igjen medførte at det å kompilere 
+koden også blir litt mer komplisert. Åraken til at vi splitter opp programmet på denne måten, 
+er for å kunne handtere kompleksitet. Husk på at et dataprogram fort kan bli flere 
+tusen linjer med kode, og dette bør vi stukturere i ulike filer for å holde en viss 
+oversikt. Som regel plasserer vi funksjoner som hører sammen, i egne filer. På den 
+måten får vi en struktur. Og det blir lettere å forstå hvordan koden henger sammen.
 
-gcc -I funk.c test.c
+Et dataprogram består av mange deler. En god del av disse delene er kode som vi ikke 
+har laget selv. Denne koden som andre har laget, kan vi benytte oss av i to former; 
+enten som ren kodetekst, hvor vi selv kompilerer denne om til maskinkode, eller 
+som binær-kode hvor koden allerede er kompilert om til maskinkode. For å forstå litt 
+mer av denne prosessen må vi se litt nærmere på hva som skjer når vi kompilerer.
 
-Det som skjer ovenfor er egentlig to operasjoner. Først blir de to filene kompilert om til maskinkode, eller mer korrekt; objektfiler. Deretter blir de linket, satt sammen, til ei såkalt kjørbar fil, her kalt a.exe
+ gcc -I . funk.c test.c
 
-gcc -c funk.c
-gcc -I. -c test.c
+Det som skjer ovenfor er egentlig to operasjoner. Først blir de to filene kompilert 
+om til maskinkode, eller mer korrekt; objektfiler. Deretter blir de linket, satt sammen, 
+til ei såkalt kjørbar fil, her kalt a.exe
 
-gcc funk.o test.o
+----
+ gcc -c funk.c
+ gcc -I. -c test.c
+ gcc funk.o test.o
+----
 
-Som regel ønsker vi å gi et mer beskrivende navn til den fila. Dette kan vi gjøre slik:
+Som regel ønsker vi å gi et mer beskrivende navn til den kjørbare fila. Dette kan 
+vi gjøre slik:
 
-gcc funk.o test.o -o mittprogram
+ gcc funk.o test.o -o mittprogram
 
-.. og vips, så har du ei fil som heter mittprogram.exe som du kan starte.
+Dette vil produsere ei fil som heter mittprogram.exe
 
-Det er viktig å vite at det å bygge et C program består av to steg: kompilering og linking. Når man kompilerer gjør man ei kodefil (som kan bestå av flere filer vha “#include”) om til ei objektfil. Ei objektfil inneholder maskinkode for akkurat din type datamaskin. Deretter settes  objekt-filene sammen til ei fil. Denne fila representerer programmet ditt. 
+Det er viktig å vite at det å bygge et _C_-program består av to steg: kompilering 
+og linking. Når man kompilerer, gjør man ei kodefil (som kan bestå av flere filer 
+vha “#include”) om til ei objektfil. Ei objektfil inneholder maskinkode for akkurat 
+din type datamaskin. Deretter settes  objekt-filene sammen til ei kjørbar fil. Denne 
+fila representerer programmet ditt. 
 
-Siden et program består av veldig mange kodelinjer, vil man ofte komme opp i situasjoner hvor det er lurt å gjennbruke eksisterende kode. Somregel er store deler av et programm nettopp slik gjenbruk av eksisterende koden, siden de aller fleste program har felles funksjonalitet i større eller mindre grad.
+Siden et program består av veldig mange kodelinjer, vil man ofte komme opp i 
+situasjoner hvor det er lurt å gjennbruke eksisterende kode. Somregel er store 
+deler av et programm nettopp slik gjenbruk av eksisterende koden, siden de aller 
+fleste program har felles funksjonalitet i større eller mindre grad.
 
-Om vi skulle ønske å gjenbruke den funksjonen som vi lagde ovenfor, hvordan skulle vi gå frem? Jo, vi har jo allerede lagt både deklarasjonen (funk.h) og koden (funk.c) i to egne filer. Så det å gjenbruke denne master piecen blir relativt enkelt. Alt vi trenger å gjøre er å lage en ny main-funksjon. Dette kan vi gjøre ved å opprette ei fil som vi kaller for test2.c 
+Om vi skulle ønske å gjenbruke den funksjonen som vi lagde ovenfor, hvordan skulle 
+vi gå frem? Jo, vi har jo allerede lagt både deklarasjonen (funk.h) og koden (funk.c) i to 
+egne filer. Så det å gjenbruke denne _master piec'en_ blir relativt enkelt. Alt vi 
+trenger å gjøre er å lage en ny _main_-funksjon. Dette kan vi gjøre ved å opprette 
+ei fil som vi kaller for _test2.c_ 
 
-test2.c
+
+[source,c]  
+.test2.c 
+---- 
 
 #include <stdio.h> /* For printf */
-#include <funk.h> /* For funk */
+#include <funk.h>  /* For funk */
 
 int main() {
     int a = funk(2,3);
@@ -320,41 +407,72 @@ int main() {
     return 0;
 }
 
+----
+
 Kompiler ditt nye program slik
 
-gcc -I. -c test2.c
+ gcc -I . -c test2.c
 
 
-Link ditt nye program, med vår gamle funksjon, som fortsatt ligger i funk.o -fila, slik
+Link ditt nye program, med vår gamle funksjon, som fortsatt ligger i _funk.o_ -fila, slik:
 
-gcc funk.o test2.o
+ gcc funk.o test2.o
 
-Du fil nå få opprettet fila a.exe. Om du kjører denne vil du få følgende ut på skjermen:
+Du får nå få opprettet fila _a.exe_. Om du kjører denne vil du få følgende ut på skjermen:
 
-Test 2 funk(2,3)=5
+ Test 2 funk(2,3)=5
 
-Det du nettopp utførte, var å bruke et kodebibliotek kalt funk.o, altså kode som eksiterte fra før. Vi kan også kalle dette for en modul. Dette trikset gjør det mulig å bygge utrolig kompleks programmvare, siden man kan sette samme et program ved hjelp av å koble på, eller linke inn, enorme mengde kode som andre har laget, slik at ditt program utfører det du ønsker å oppnå.
+Det du nettopp utførte, var å gjenbruke et kodebibliotek kalt _funk.o_.  Altså kode 
+som eksiterte fra før. Vi kan gjerne kalle dette for en modul. Dette trikset gjør 
+det mulig å bygge utrolig komplekse dataprogram.
 
-En ting er at du kan gjenbruke kode. Det er i seg selv lurt. Men, kanskje er den aller største gevinsten at du ikke trenger å vite hvordan innholdet i en modul er kodet. Du trenger bare å vite hvordan du skal bruke den. Dette gjør at du kan abstrahere deg fra detaljer som ikke er relevante for din problemstilling.
+En ting er at du kan gjenbruke kode. Det er i seg selv lurt. Men, kanskje er den 
+aller største gevinsten at du ikke trenger å vite hvordan innholdet i en modul er kodet. 
+Du trenger bare å vite hvordan du skal bruke den. Dette gjør at du kan _abstrahere_ deg fra 
+detaljer som ikke er relevant for din problemstilling.
 
-Litt lengre ut i boka, hvor vi skal lage et enkelt spill, kommer vi til å ta i bruk et kodebibliotek som heter SDL (Simple Directmedia Layer). Dette kodebiblioteket vil ta seg av mye av jobben rundt det å få grafikk ut på skjermen, samt det å motta input fra mus og tastatur. Dermed kan vi abstrahere oss bort fra alle detaljene relatert til dette, og kun konsentere oss omkring spill-logikken, samt hvordan vi skal anvende SDL for å vise grafikk etc.
+Litt lengre ut i boka skal vi lage et enkelt spill. Her kommer vi til å ta i bruk et 
+kodebibliotek som heter SDL (Simple Directmedia Layer). Dette kodebiblioteket vil ta seg 
+av mye av jobben rundt det å vise grafikk på skjermen, samt det å motta innputt. Dermed 
+kan vi abstrahere oss bort fra alle detaljene rundt dette.
 
+Dette delkapitlet heter _statiske variabler (kompileringsenhetsscope)_. Nå har vi nok 
+grunnlag til å kunne forstå denne aller siste typen _scope_.
 
-Jeg har bare et lite triks igjen å fortelle om, før vi kan begynne å se på hvordan vi skal lage spillet vårt. Det siste momentet i hvordan vi kan handtere kompleksitet, er relatert til skope. Vi husker at en variabel kunne ha forskjellige skope. Dette skopet var i stor grad styrt av klammeparanteser. Innenfor et skope måtte variabelnavnet være unikt. Om vi plassert en variabel på utsiden av enhver klammeparantes, ble den hva vi kaller en global variabel. Da kan du nå den, eller bruke den i hele progammet, når som helst.
+Vi husker at en variabel kunne ha forskjellige _skope_. Dette skopet var i stor grad 
+styrt av klammeparanteser. Innenfor et _skope_ måtte variabelnavnet 
+være unikt. Om vi plassert en variabel på utsiden av enhver klammeparantes, ble den hva 
+vi kaller en global variabel. Da kan du nå den, eller bruke den, i hele progammet, når 
+som helst.
 
-Det betyr i praksis, at om vi tar å definerer oss en global variabel i fila funk.c så vil den også kunne benyttes i kode som vi skriver i fila test2.c Og dette vil som regel ikke være ønskelig. I slike tilfeller vil man ofte ønske at den globale variablen kun skal være synlig for kode relatert til fila funk.c For å få dette til, skriver man bare kommandoen static forann variabelen eller funksjonen. Da vil skopet til den aktuelle variablen eller funkjonen, bli den aktuelle kodefila med tilhørende include -filer. Nå er vi inne på litt finurlige greier. Men, jeg må likevel nevne det, siden det danner grunnlaget for hvordan vi senere skal bygge opp en applikasjon, dvs et større dataprogram.
+Det betyr i praksis, at om vi tar å definerer oss en global variabel i fila _funk.c_, så vil 
+den også kunne benyttes i kode som vi skriver i fila _test2.c_ Dette vil som regel 
+ikke være ønskelig. I slike tilfeller vil man ofte ønske at den globale variablen kun 
+skal være synlig for kode relatert til fila _funk.c_ For å få dette til, skriver man 
+bare kommandoen _static_ forann variabelen eller funksjonen. Da vil skopet til den 
+aktuelle variablen eller funkjonen, bli den aktuelle kodefila med 
+tilhørende _include_-filer. 
 
-Jeg skal konkretisere dette trikset med et eksempel. Tenk deg at vi har laget et kodebiliotek bestående av vår funksjon, som tar inn to tall og returnerer med et nytt tall mellom 0 og 100 som angir sannsynligheten for at begge de to input-tallene inngår i neste ukes lottorekke.
+Nå er vi inne på litt finurlige greier. Men, dette er viktig å kunne noe om, når man 
+skal lage litt større dataprogram.
 
-Da vil funk.h og funk.c se slik ut:
+Jeg skal konkretisere dette trikset med et eksempel. 
 
-funk.h
+Tenk deg at vi har laget et kodebiliotek bestående av vår funksjon. Funksjonen tar 
+inn to tall og returnerer med et nytt tall mellom 0 og 100. Tallet som returneres 
+angir sannsynligheten for at begge innputt-tallene inngår i neste ukes lottorekke.
 
+Da vil _funk.h_ og _funk.c_ kunne se slik ut:
+
+[source,c]  
+.funk.h
+---- 
 int funk(int a, int b);
+----
 
-
-funk.c
-
+[source,c]  
+.funk.c (eksempel 19)
+---- 
 static int hemmelig_funksjon(int a, int b) {
     return 50;
 }
@@ -362,11 +480,13 @@ static int hemmelig_funksjon(int a, int b) {
 int funk(int a, int b) {
     int c = hemmelig_funksjon(a,b);
 }
+----
 
-Mens et program som benytter koden vår (eller vårt kodebilliotek) kan se slik ut:
+Et program som benytter koden vår (eller vårt kodebilliotek) kan se slik ut:
 
-test2.c
-
+[source,c]  
+.test2.c (eksempel 20)
+---- 
 #include <stdio.h>
 #include <funk.h>
 
@@ -375,9 +495,22 @@ int main() {
     printf(“%d”,a);
     return 0;
 }
+---- 
 
-Eksempel 20
 
-Det at jeg skriver ‘static’ forann funksjonen ‘hemmelig_funskjon’, gjør det denne på en måte blir usynlig for kode som er definert i test2.c Det muligjør også at vi i test2.c kan lage vår egen funksjon som har akkurat samme signaturen (dvs heter det samme). 
+Det at jeg skriver _static_ forann funksjonen _‘hemmelig_funskjon’_, gjør at
+denne blir usynlig for kode som er definert i _test2.c_ 
 
-Dette trikset gjør at det blir vesentlig lettere å lage komplekse dataprogram. Funksjonsnavnet blir hva vi kan kalle for “privat” innenfor kodefila.
+Det igjen muligjør også at vi i _test2.c_, kan lage vår egen funksjon som har akkurat 
+samme signatur. 
+
+Dette trikset gjør at det blir vesentlig lettere å lage komplekse dataprogram, siden 
+variabler og funksjoner kan ha sitt _scope_ innenfor en modul eller kodebibliotek.
+ 
+I C++ og Java omtales slike variabler og funksjoner som _“private_”, innenfor sin modul.
+
+.Oppsummering
+
+Todo: alt ...
+
+
