@@ -1,0 +1,15 @@
+﻿
+#-----------------------------------------------------------------------------#
+#                                                                             #
+# C -programmering, en introduksjon.                                          #
+#                                                                             #
+# Eksempel 40                                                                 #
+#                                                                             #
+#-----------------------------------------------------------------------------#
+
+ Dette er et komplett dataprogram, som løser en oppgave. Nb! Det er stort 
+ rom for forbedringer! Blant annet bør man lagre deltakerne til fil.
+ 
+ (Programmet lar deg registrere deltakere på et skirenn. Deretter kan man
+ registrere starttid og sluttid, og utfra disse, få beregnet ei resultat-
+ liste.)
