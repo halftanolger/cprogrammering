@@ -8,7 +8,7 @@
 #-----------------------------------------------------------------------------#
 
  Samme eksemplet som nummer 40, bare forbedret litt slik at data lagres 
- mellom økt.
+ mellom hver økt.
  
  For å bygge dette programmet vha gcc, kan du skrive:
  
