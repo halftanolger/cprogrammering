@@ -1,0 +1,17 @@
+﻿
+#-----------------------------------------------------------------------------#
+#                                                                             #
+# C -programmering, en introduksjon.                                          #
+#                                                                             #
+# Eksempel 41                                                                 #
+#                                                                             #
+#-----------------------------------------------------------------------------#
+
+ Dette er samme eksempelet som nummer 40, bare ytterligere forbedret slik at 
+ data lagres mellom hver gang man bruker programmet.
+ 
+ For å bygge dette programmet vha gcc, kan du skrive:
+ 
+ gcc -I . main.c
+ 
+ 
