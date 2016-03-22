@@ -14,4 +14,8 @@
  kan man registrere starttid og sluttid. Utfra disse tidene beregnes det ei 
  resultatliste.
  
+ For å bygge dette programmet vha gcc, kan du skrive:
+ 
+ gcc -I . main.c
+ 
  
