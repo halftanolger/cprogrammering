@@ -67,9 +67,7 @@ int init() {
     
     int teller = 0;
     FILE * fd = 0;
-       
-    fd = fopen(filnavn,"rb");                         
-           
+                      
     /* Nullstill alle deltaker-variablene */
     
     for (teller = 0; teller < MAX_ANTALL; teller++) {
@@ -87,7 +85,11 @@ int init() {
         deltakere[teller].sluttid.sekund = 0;
         
     }
-        
+
+    /* Les inn data fra fil, om denne finnes. */
+    
+    fd = fopen(filnavn,"rb");                                 
+    
     if (fd == 0) {        
         return 1;
     }    
@@ -108,11 +110,13 @@ void avslutt() {
     
     int teller = 0;
     FILE * fd = 0; 
-        
+
+    /* Skriv data til fil. */
+    
     fd = fopen(filnavn,"wb");   
 
     if (fd == 0) {
-        fprintf(stderr,"\nFeil. Klarer ikke å åpne fila %s\n", filnavn);
+        fprintf(stderr,"\nFeil. Klarte ikke å åpne fila %s\n", filnavn);
     }    
     
     for (teller = 0; teller < MAX_ANTALL; teller++) {
@@ -203,13 +207,13 @@ int slett_deltaker() {
         if (deltakere[teller].nummer == nummer) {                        
             deltakere[teller].nummer = 0;            
             printf("\n\n Deltaker er slettet: %s \n\n", deltakere[teller].navn);                       
-            return 1;
+            return 0;
         }        
     }
         
     printf("\n\n Feilmelding: angitt deltaker er ikke registrert. \n\n");
     
-    return 0;
+    return 1;
 }
 
 int registrer_starttid()  {
@@ -236,13 +240,13 @@ int registrer_starttid()  {
                 deltakere[teller].starttid.time,
                 deltakere[teller].starttid.minutt,
                 deltakere[teller].starttid.sekund);                       
-            return 1;
+            return 0;
         }        
     }
         
     printf("\n\n Feilmelding: angitt deltaker er ikke registrert. \n\n");        
         
-    return 0;
+    return 1;
 }
 
 int registrer_sluttid()  {
@@ -269,13 +273,13 @@ int registrer_sluttid()  {
                 deltakere[teller].sluttid.time,
                 deltakere[teller].sluttid.minutt,
                 deltakere[teller].sluttid.sekund);                       
-            return 1;
+            return 0;
         }        
     }
         
     printf("\n\n Feilmelding: angitt deltaker er ikke registrert. \n\n");        
     
-    return 0;
+    return 1;
 }
 
 int vis_deltakerliste() {
