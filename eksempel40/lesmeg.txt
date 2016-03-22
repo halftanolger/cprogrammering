@@ -7,9 +7,11 @@
 #                                                                             #
 #-----------------------------------------------------------------------------#
 
- Dette er et komplett dataprogram, som løser en oppgave. Nb! Det er stort 
+ Dette er et komplett dataprogram, som løser en oppgave. Det er likevel stort 
  rom for forbedringer! Blant annet bør man lagre deltakerne til fil.
  
- (Programmet lar deg registrere deltakere på et skirenn. Deretter kan man
- registrere starttid og sluttid, og utfra disse, få beregnet ei resultat-
- liste.)
+ Programmet lar deg registrere deltakere, som skal delta på et skirenn. Deretter 
+ kan man registrere starttid og sluttid. Utfra disse tidene beregnes det ei 
+ resultatliste.
+ 
+ 

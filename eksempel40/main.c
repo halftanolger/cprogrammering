@@ -4,10 +4,19 @@
     Eksempel 40
 
     Hensikten med eksempelet er å vise et mer eller mindre komplett
-    dataprogram som løser en konkret oppgave. I dette tilfellet er den 
-    primære oppgaven som løses det å beregne anvendt tid, på et skirenn, og 
-    ut fra dette, generere ei resultatliste.
+    dataprogram, som løser en konkret oppgave. I dette tilfellet er den 
+    primære oppgaven å beregne anvendt tid, ifm et skirenn. Ut fra beregnet 
+    anvendt tid, skal det også lages ei resultatliste.
 
+    Følgende funksjoner er implementert:
+    
+        - register en deltaker
+        - slett en deltaker
+        - registrer klokkeslett for starttidspunkt
+        - registrer klokkeslett for måltidspunkt
+        - skriv ut ei deltakerliste
+        - skriv ut ei resultatliste
+        
 */
 
 #include <stdio.h>
@@ -142,21 +151,87 @@ int registrer_deltaker() {
 
 int slett_deltaker() {
     
-    //TODO: alt ...
+    int nummer,teller = 0;
+        
+    printf("\n\n Angi deltaker \n\n");
+    printf(" nummer   : ");
+    scanf("%2d",&nummer);
+         
+    for (teller = 0; teller < MAX_ANTALL; teller++) {        
+        if (deltakere[teller].nummer == nummer) {                        
+            deltakere[teller].nummer = 0;            
+            printf("\n\n Deltaker er slettet: %s \n\n", deltakere[teller].navn);                       
+            return 1;
+        }        
+    }
+        
+    printf("\n\n Feilmelding: angitt deltaker er ikke registrert. \n\n");
     
     return 0;
 }
 
 int registrer_starttid()  {
     
-    //TODO: alt ...
+    int nummer,time, minutt, sekund, teller = 0;
+        
+    printf("\n\n Angi starttid \n\n");
+    printf(" nummer   : ");
+    scanf("%2d",&nummer);
+    printf(" time     : ");
+    scanf("%2d",&time);
+    printf(" minutt   : ");
+    scanf("%2d",&minutt);
+    printf(" sekund   : ");
+    scanf("%2d",&sekund);
     
+    for (teller = 0; teller < MAX_ANTALL; teller++) {        
+        if (deltakere[teller].nummer == nummer) {                                                
+            deltakere[teller].starttid.time = time;
+            deltakere[teller].starttid.minutt = minutt;
+            deltakere[teller].starttid.sekund = sekund;            
+            printf("\n\n Starttid er registrert: %s (%.2d:%.2d:%.2d) \n\n", 
+                deltakere[teller].navn,
+                deltakere[teller].starttid.time,
+                deltakere[teller].starttid.minutt,
+                deltakere[teller].starttid.sekund);                       
+            return 1;
+        }        
+    }
+        
+    printf("\n\n Feilmelding: angitt deltaker er ikke registrert. \n\n");        
+        
     return 0;
 }
 
 int registrer_sluttid()  {
     
-    //TODO: alt ...
+    int nummer,time, minutt, sekund, teller = 0;
+        
+    printf("\n\n Angi sluttid \n\n");
+    printf(" nummer   : ");
+    scanf("%2d",&nummer);
+    printf(" time     : ");
+    scanf("%2d",&time);
+    printf(" minutt   : ");
+    scanf("%2d",&minutt);
+    printf(" sekund   : ");
+    scanf("%2d",&sekund);
+    
+    for (teller = 0; teller < MAX_ANTALL; teller++) {        
+        if (deltakere[teller].nummer == nummer) {                                                
+            deltakere[teller].sluttid.time = time;
+            deltakere[teller].sluttid.minutt = minutt;
+            deltakere[teller].sluttid.sekund = sekund;            
+            printf("\n\n Sluttid er registrert: %20s (%.2d:%.2d:%.2d) \n\n", 
+                deltakere[teller].navn,
+                deltakere[teller].sluttid.time,
+                deltakere[teller].sluttid.minutt,
+                deltakere[teller].sluttid.sekund);                       
+            return 1;
+        }        
+    }
+        
+    printf("\n\n Feilmelding: angitt deltaker er ikke registrert. \n\n");        
     
     return 0;
 }
@@ -169,7 +244,7 @@ int vis_deltakerliste() {
     
     for (teller = 0; teller < MAX_ANTALL; teller++) {        
         if (deltakere[teller].nummer != 0) {                 
-            printf("%2d %s\n", deltakere[teller].nummer, deltakere[teller].navn);                       
+            printf("%.2d %s\n", deltakere[teller].nummer, deltakere[teller].navn);                       
         }        
     }
     
@@ -178,7 +253,101 @@ int vis_deltakerliste() {
 
 int vis_resultatliste()  {
     
-    //TODO: alt ...
+    int teller = 0;    
+    int antall = 0;
+    int r[MAX_ANTALL][2] = {0};
+    struct tid resultat[MAX_ANTALL];
+    struct tid t1, t2, diff;
     
+    /* Beregn anvendt tid. */
+    
+    for (teller = 0; teller < MAX_ANTALL; teller++) {        
+        if (deltakere[teller].nummer != 0) {                 
+
+            t1.time = deltakere[teller].sluttid.time;
+            t1.minutt = deltakere[teller].sluttid.minutt;
+            t1.sekund = deltakere[teller].sluttid.sekund;
+
+            t2.time = deltakere[teller].starttid.time;
+            t2.minutt = deltakere[teller].starttid.minutt;
+            t2.sekund = deltakere[teller].starttid.sekund;
+                        
+            if (t2.sekund > t1.sekund) {
+                t1.minutt --;
+                t1.sekund += 60;
+            }
+
+            diff.sekund = t1.sekund - t2.sekund;
+
+            if (t2.minutt > t1.minutt) {
+                t1.time --;
+                t1.minutt += 60;
+            }
+
+            diff.minutt = t1.minutt - t2.minutt;
+            diff.time = t1.time - t2.time;
+
+            resultat[teller].time = diff.time;
+            resultat[teller].minutt = diff.minutt;
+            resultat[teller].sekund = diff.sekund;
+                
+            r[antall][0] = diff.time * 60 * 60 + diff.minutt * 60 + diff.sekund;
+            r[antall][1] = deltakere[teller].nummer;        
+            antall++;
+        }
+    }
+
+    /* Sorter lista vha 'Bubble sort'-algoritmen. */
+    
+    int c,d,e,f;
+    
+    for (c = 0; c < antall - 1; c++) {     
+        for (d = 0; d < antall - c - 1; d++) {         
+            if (r[d][0] > r[d+1][0]) {  
+                 
+                /* Bytt om */
+
+                e = r[d][0];
+                f = r[d][1];
+                
+                r[d][0] = r[d+1][0];
+                r[d][1] = r[d+1][1];
+                
+                r[d+1][0] = e;
+                r[d+1][1] = f;
+    
+            }            
+        }        
+    }
+     
+    /* Skriv ut liste til skjerm. */ 
+    
+    printf("\n\n Resultatliste \n\n");    
+    printf("%2s %-20s %-8s %-8s %-8s\n","Nr","Navn","Start","Slutt","Brukt"); 
+    printf("--------------------------------------------------\n");
+    
+    for (c = 0; c < antall; c++) {   
+        for (teller = 0; teller < MAX_ANTALL; teller++) {               
+            if (deltakere[teller].nummer == r[c][1]) { 
+            
+                printf("%2d %-20s %.2d:%.2d:%.2d %.2d:%.2d:%.2d %.2d:%.2d:%.2d  \n", 
+                deltakere[teller].nummer, 
+                deltakere[teller].navn,
+                deltakere[teller].starttid.time,
+                deltakere[teller].starttid.minutt,
+                deltakere[teller].starttid.sekund,
+                deltakere[teller].sluttid.time,
+                deltakere[teller].sluttid.minutt,
+                deltakere[teller].sluttid.sekund,
+                resultat[teller].time,
+                resultat[teller].minutt,
+                resultat[teller].sekund);
+                break;
+                
+            }                    
+        }        
+    }
+   
     return 0;
+    
 }
