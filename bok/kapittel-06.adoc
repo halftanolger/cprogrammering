@@ -2,14 +2,15 @@
 
 Hittil har vi sett på det mest grunnleggende rundt _C_-programmering. Men, allerede 
 har vi erfart at det fort blir mange slike variabler og funksjoner. Hvor mange variabler 
-og funksjoner som må opprettes, er en av mange vurderinger som må gjøres, når man 
+og funksjoner som må opprettes, er en av mange vurderinger som må gjøres når man 
 lager et dataprogram. Hva skal de ulike variablene hete? Hva skal de inneholde 
 av data? Hvilke funksjoner trenger vi for å utføre de beregningene som må til for 
 at programmet vårt skal gjøre det vi ønsker? Alt dette blir raskt komplekst. Derfor 
 handler mye omkring programmering, å finne ulike teknikker for å handtere kompleksitet. 
 Eller formulert på en annen måte; det å programmere er det samme som å 
 handtere kompleksitet. Det finnes det en rekke metoder og strategier for å  
-handtere denne kompleksiteten. 
+handtere denne kompleksiteten. En metode er å dele koden opp i ulike moduler 
+med hensyn til hvilke variabler som er synlige.
 
 
 .Læringsmål
@@ -19,7 +20,7 @@ handtere denne kompleksiteten.
 
 === Scope 
 
-Et triks for å handtere kompleksitet, er å innføre _scope_. 
+Et triks for å handtere kompleksitet er å innføre begrepet; _scope_. 
 
 Hva er _scope_? 
 
