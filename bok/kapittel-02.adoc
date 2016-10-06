@@ -1,8 +1,8 @@
 == Kom i gang
 
 Nå er det på tide å begynne med praktisk arbeid. Som nevnt; det å 
-programmere er på sett og vis et handtverk, og kan langt på vei kun læres  
-ved praktisk arbeid. Derfor må vi aller først installere en teksteditor som 
+programmere er på sett og vis et handtverk. Det kan langt på vei, kun læres  
+ved praktisk arbeid. Derfor må vi aller først installere en teksteditor, som 
 gjør det mulig å skrive _C_-kode. Deretter skal vi installere en kompilator, som 
 kan omgjøre _C_-koden til et kjørbart dataprogram. Når det er gjort, skal vi 
 kode det obligatoriske _"Hello World"_-eksempelet, som skriver ut teksten; 
@@ -19,8 +19,8 @@ _"Hello world"_ på skjermen.
 
 For å ta det siste først, så er det slik at alle lærebøker i _C_ må 
 starte med et eksempel som skriver ut teksten "Hello World" på skjermen. Slik er 
-det bare. Den historiske forklaringa til dette er at den opprinnelig 
-læreboka i C gjør nettop det.
+det bare. (Den historiske forklaringa til dette er at den opprinnelig 
+læreboka i _C_ gjør nettop det.)
 
 Så, derfor, her er det:
 
@@ -51,9 +51,9 @@ laget slik at de skal kunne fungere på en rekke ulike datamaskiner; Windows,
 Linux, Mac etc. Jeg velger likevel å fokusere på Windows, siden jeg antar at de 
 fleste bruker en slik datamaskin. 
 
-Når det gjelder Windows, er det er en mange ulike alternativer å velge mellom, 
+Når det gjelder Windows, er det mange ulike alternativer å velge mellom, 
 både når det gjelder valg av teksteditor og valg av kompilator. Jeg velger å bruke Cygwin. 
-Cygwin er en rekke små program som gjør det mulig å simulere et Linux-miljø. 
+Cygwin er en rekke små program som gjør det mulig å simulere et Linux-miljø på en Windows-maskin. 
 Deriblant også et utviklingsmiljø for _C_, i form at en 
 kompilator kalt _gcc_. Utover selve kompilatoren innholder Cygwin også et 
 skall eller terminalvindu, hvor vi kan kjøre _gcc_-programmet.
@@ -62,7 +62,7 @@ skall eller terminalvindu, hvor vi kan kjøre _gcc_-programmet.
 === Slik installerer du Cygwin gcc
 
 Installering av Cygwin fungerer slik, at du starter et program som heter _setup-x86.exe_ 
-footnote:[Du kan velge mellom 32 eller 64 bit's installasjon. Jeg velger 32 :-) ]. 
+footnote:[Du kan velge mellom 32 eller 64 bit's installasjon. Jeg velger 32 ]. 
 Ved hjelp av dette programmet velger du hvilke programpakker du ønsker å 
 installere. Hovedbildet til Cygwin, hvor du velger de ulike pakkene, er vist nedenfor.
 

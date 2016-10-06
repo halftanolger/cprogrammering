@@ -26,8 +26,8 @@ Jeg har valgt å fokusere på _C_, og på det aller mest grunnleggende
 ved dette språket. Jeg tror det er viktig å ha en god forståelse om de
 grunnleggende byggeklossene, når man skal lære seg noe nytt. Alt vi skal gå 
 gjennom i denne boka er av en slik karakter. Det kan kanskje virke litt kjedelig 
-i starten. Men, tro meg, når du har kontroll på de grunnleggende prinsippene, vil 
-du ha et mye bedre fundament for å skjønne resten. I denne sammenhengen er 
+i starten. Men, når du har kontroll på de grunnleggende prinsippene, vil 
+du ha et mye bedre fundament for å forstå de mer avanserte aspektene ved det å programmere en datamaskin. I denne sammenhengen er 
 _C_-programmering spesielt bra, siden de fleste andre programmeringspråk 
  har sitt utspring eller tankegods, nettopp fra _C_. Derfor vil du lettere kunne 
 forstå et nytt programmeringsspråk, om du først kjenner litt til _C_.  
@@ -57,12 +57,10 @@ dataprogrammet er *3*.
 
 Dette er programmering. Værre er det i bunn og grunn ikke. Alt en datamaskin 
 gjør er å automatisere denne prosessen, slik at den kan 
-gjentas et ufattelig antall ganger, med forskjellig innputt. Det å programmere 
-handler om å handtere kompleksitet. For å handtere kompleksitet må vi 
-forenkle og abstrahere, og for å kunne forenkle og abstrahere må vi kunne 
-modellere og analysere. 
+gjentas et ufattelig antall ganger, gjerne med forskjellig innputt med påfølgende forskjellig resultat. 
 
-Denne boka prøver å gi en introduksjon til disse ulike
+Det å programmere handler også om å handtere kompleksitet. For å handtere kompleksitet må vi forenkle og abstrahere, og for å kunne forenkle og abstrahere må vi kunne 
+modellere og analysere. Denne boka prøver å gi en introduksjon til disse ulike
 begrepene. Dette skal vi få til ved å relatere disse abstrakte utrykkene 
 til konkrete problemer som vi støter på i forbindelse med at vi utvikler to 
 dataprogram. Det første dataprogrammet vi skal lage, er et program som 
@@ -100,6 +98,6 @@ enn litt nysgjerrighet. Når du har jobbet deg gjennom boka, vil du sitte igjen
 med en god forståelse av hva det innebærer å lage programvare. De verktøyene og 
 metodene som omtales, er for det meste grunnleggende teknologi som har vært med 
 oss i mange ti-år, men som fortsatt er _state-of-the-art_. Bare det, er et 
-argument for å lære seg enkel _C_-programmering  :-)
+argument for å lære seg enkel _C_-programmering.
 
 

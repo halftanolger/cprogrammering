@@ -12,9 +12,15 @@
 #include <stdio.h>
 #include <funk.h>
 
+int hemmelig_funksjon(int a, int b) {
+    return 45;
+}
+
+
 int main() {
     int a = funk(2,3);
-    printf("%d",a);
+    printf("%d\n",a);
+    printf("%d\n",hemmelig_funksjon(2,3));
     return 0;
 }
 

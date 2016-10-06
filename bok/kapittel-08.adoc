@@ -1,3 +1,5 @@
 == Ski-data, et eksempel
 
-todo: alt ...
+Dette kapittelet skal ta for seg analyse, design og implementasjon av et 
+dataprogram som skal hjelp oss med å avvikle et skirenn.
+

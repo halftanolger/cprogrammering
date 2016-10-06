@@ -34,7 +34,7 @@ Modell::
   vi lager en modell av noe, så forenkler vi virkeligheten. Vi gjør automatisk en 
   seleksjon i det vi velger oss ut noen atributter eller egenskaper, som vi tror 
   er viktigst. Men, vi har i alle fall begynt prosessen i det å konkretisere ei 
-  løsning på ei problemstilling. Nedenfor ser vi to ulike modeller av en bil; ei tegning 
+  løsning på en eller annen problemstilling. Nedenfor ser vi to ulike modeller av en bil; ei tegning 
   og ei liste.
   
 image::bilder/bil.jpg[300, 200]
@@ -44,26 +44,25 @@ image::bilder/bil.jpg[300, 200]
 --
 
 Programmeringsspråk::
-  En vanlig datamaskin er bygd opp av mange milliarder transistorer. Disse er satt 
-  sammen til ulike logiske kretser som kan programmeres ved hjelp av noe som heter 
+  En vanlig datamaskin er bygd opp av mange milliarder transistorer, som vi kan se 
+  på som brytere som enten er på eller av; en eller null. Disse bryterne benyttes til å konstruere ulike 
+  logiske kretser som kan programmeres ved hjelp av noe som heter 
   et maskinspråk eller maskinkode. Når vi skal lage vårt dataprogram, så skal vi 
   bruke et programmeringsspråk, som på en eller annen måte, ender opp til å bli slik 
   maskinkode. Hvordan dette skjer, er så pass komplekst, at vi velger å abstrahere 
   oss litt bort fra det. Vi sier bare at vi definerer dataprogrammet vårt i et 
   programmeringsspråk, som ender opp som maskinkode som igjen styrer de ulike 
-  logiske enhetene i datamaskinen. Det er en rekke ulike programmeringsspråk å 
-  velge mellom. Hvilke programmeringsspråk som er best, vil variere mellom hvem 
-  du spør og hvilket problem du ønsker å løse.
-  
+  logiske enhetene i datamaskinen. Det finnen en rekke ulike programmeringsspråk å velge mellom. 
+    
 Kompilator::
   Vi skal se på et programmeringsspråk som heter _C_. Det vil si at vi skal skrive 
   vanlig _C_-kode, som vanlig tekst, i en vanlig teksteditor, slik mange programmerere 
   har gjort det siden tidlig 1970-tall. Denne _C_-koden, som er vanlig tekst, skal vi 
   kompilere om til maskinkode som en datamaskin kan forstå og bruke. Det som er litt 
   bra med _C_-kode, er at slik kode kan omgjøres til nærmest en hvilken som helst 
-  maskinkode på nærmest en hvilken som helst datamaskin. Det som er poenget her, er 
-  at prosessen i å omgjøre ei vanlig tekstfil med kode, om til maskinkode, kalles å 
-  kompilere. Og for å kompilere bruker vi en kompilator.   _Wikionary_ definerer ordet 
+  maskinkode på nærmest en hvilken som helst datamaskin. Prosessen å omgjøre ei 
+  vanlig tekstfil med kode, om til maskinkode, kalles å 
+  kompilere. For å kompilere bruker vi en kompilator.   _Wikionary_ definerer ordet 
   kompilator slik: _et dataprogram som oversetter – kompilerer – et dataprogram skrevet 
   i et programmeringsspråk (kalt kildekode) til et kjørbart program (maskinkode). 
   Dette kan sammenlignes med å være tolk for to personer som snakker forskjellig språk; 
@@ -71,13 +70,14 @@ Kompilator::
   nytte av – dvs. forstå – informasjonen_. Et viktig moment å få med seg her, er at 
   den samme kildekoden (altså vårt C-program) kan kompileres om til en rekke ulike 
   typer maskinkode for en rekke ulike typer datamaskiner, avhengig av hvilken kompilator 
-  vi velger å bruke. Du vil kanskje ikke se det helt store med dette med en gang, men i 
-  sin tid (en gang på 70-tallet) var faktisk dette ganske revolusjonerende. 
+  vi velger å bruke. Du vil kanskje ikke se det geniale med dette, men i 
+  sin tid (en gang på 70-tallet) var faktisk dette ganske revolusjonerende innenfor det å 
+  lage programmvare.  
   
 Variabel::
   For en tid tilbake leste jeg et intervju med en kvinnelig systemutvikler, hvor hun 
   beskrev jobben sin som programmerer. Hun kom med en flott metafor på det å 
-  programmere; hun såg for seg ei stor bokhylle med mange ulike ekser, hvor hver 
+  programmere; hun såg for seg ei stor bokhylle med mange ulike esker, hvor hver 
   slik eske innholdt data som programmet hennes oppdaterte eller flyttet rundt på.
   Dette er egentlig et fantastik godt bilde på hva som egentlig skjer. Vi har somregel 
   en god del data, som vi strukturerer i ulik modeller, og alt programmet vårt gjør er 

@@ -1,9 +1,7 @@
 == Analyse
 
-Før man begynner å programmere, må man ha et problem som skal løses. Dette problemet 
-bør analyseres på forhand, slik at vi får en best mulig forståelse av hva problemet dreier seg om.
-Det finnes også her, en rekke ulike teknikker for å bygge forståelse rundt ei 
-problemstilling. Vi skal se litt på noe som kanskje kan kalles for _objektorientert analyse_.
+Før vi begynner å programmere, må vi ha en god forståelse av hva vi egentlig skal få til. 
+Hvilket problem skal vi egentlig løse? Vi må med andre ord analysere oppgaven.
 
 .Læringsmål
 ----
@@ -14,7 +12,8 @@ image::bilder/analyse.jpg[300, 200]
 
 Hva betyr det egentlig å analysere? Analyse og syntese er to motpareter. Når du analyserer 
 betrakter du noe som er satt sammen av mange deler. Under analysen kommer du 
-frem til mindre deler problemer. Disse mindre delene kan du så analysere videre igjen. 
+frem til mindre delproblemer, og hvordan disse står i forhold til hverandre. Disse 
+mindre delproblemene kan du så analysere videre igjen. 
 På den måten analyserer du deg frem til en forståelse av hvordan noe er satt sammen og  
 fungerer. 
 
@@ -40,13 +39,13 @@ blir en sky av detaljer. Er man derimot på et for høyt abstraksjonsnivå, klar
 ikke å gå inn i problemstilligen og komme opp med en modell eller forståelse, som tar 
 deg videre i problemløsningsprosessen.
 
-Uansett, objektorientert analyse går ut på å avdekke de relevante objektene og 
+Uansett, analyse går ut på å avdekke de relevante delene og 
 egenskapene til disse, samt hvordan de ulike objektene samhandler med hverandre 
 for å løse en oppgave. Denne måten å tenke på fungere rimelig bra for mange 
 problemer som vi ønsker å løse ved hjelp av en datamaskin. Men, du skal vite at 
 dette er ikke den eneste måte å gå frem på, det finnes en rekke andre metoder.  
 Og igjen, husk på at objekt analyse er bare atter et triks for å handtere kompleksitet. 
-Vi bruker objektorientert analyse for å bygge kunnskap og forståelse rundt det 
+Vi bruker analyse for å bygge kunnskap og forståelse rundt det 
 problemet vi ønsker å løse.
 
 Men, nå ble det mye abstrakt snakk her. For å forstå dette stoffet, må vi konkretisere det 

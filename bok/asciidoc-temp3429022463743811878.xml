@@ -1,0 +1,1936 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>Untitled</title>
+<date>2016-10-06</date>
+</info>
+<simpara>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?asciidoc-toc maxdepth="2"?&gt;
+&lt;?asciidoc-numbered?&gt;
+&lt;book xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="nn"&gt;
+&lt;info&gt;
+&lt;title&gt;Programmering&lt;/title&gt;
+&lt;date&gt;2016-10-06&lt;/date&gt;
+&lt;author&gt;
+&lt;personname&gt;
+&lt;firstname&gt;<link xlink:href="mailto:halftan@online.no">halftan@online.no</link>&lt;/firstname&gt;
+&lt;/personname&gt;
+&lt;/author&gt;
+&lt;authorinitials&gt;h&lt;/authorinitials&gt;
+&lt;/info&gt;
+&lt;preface&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;blockquote&gt;
+&lt;attribution&gt;
+Kristen Nygaard
+&lt;/attribution&gt;
+&lt;simpara&gt;Å programmere er å forstå.&lt;/simpara&gt;
+&lt;/blockquote&gt;
+&lt;/preface&gt;
+&lt;preface xml:id="_forord"&gt;
+&lt;title&gt;Forord&lt;/title&gt;
+&lt;simpara&gt;Hensikten med denne boka er å prøve å forklare hvordan man kan lage et
+dataprogram ved help av programmeringsspråket &lt;emphasis&gt;C&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Det å lage et dataprogram kan sammenlignes med å skrive en roman, eller
+konstruere en større eventyrfortelling. Før man kan begynne, må man beherske et
+skriftspråk. Eller i vårt tilfelle, et
+programmeringsspråk. Her er det mange meninger omkring hvilket språk som er best,
+og hvordan man i så fall skal gå frem for å lære seg dette. Etter at man har
+lært seg et eller annet programmeringsspråk, er det enda flere meninger omkring hvordan
+man bør gå frem for å konstruere selve programmet.&lt;/simpara&gt;
+&lt;simpara&gt;Jeg har valgt å fokusere på &lt;emphasis&gt;C&lt;/emphasis&gt;, og på det aller mest grunnleggende
+ved dette språket. Jeg tror det er viktig å ha en god forståelse om de
+grunnleggende byggeklossene, når man skal lære seg noe nytt. Alt vi skal gå
+gjennom i denne boka er av en slik karakter. Det kan kanskje virke litt kjedelig
+i starten. Men, tro meg, når du har kontroll på de grunnleggende prinsippene, vil
+du ha et mye bedre fundament for å skjønne resten. I denne sammenhengen er
+&lt;emphasis&gt;C&lt;/emphasis&gt;-programmering spesielt bra, siden de fleste andre programmeringspråk
+ har sitt utspring eller tankegods, nettopp fra &lt;emphasis&gt;C&lt;/emphasis&gt;. Derfor vil du lettere kunne
+forstå et nytt programmeringsspråk, om du først kjenner litt til &lt;emphasis&gt;C&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Det som kanskje skiller rådene i denne boka, litt fra de som
+allerede finnes, er at disse er skrevet på norsk, på en
+muntlig form, og primært rettet mot skoleelever. Jeg tenker at en ungdom som
+går på ungdomsskolen og som skjønner hvordan en enkel matematisk funksjon
+fungere, kan lære litt om programmering ut fra det som står her.&lt;/simpara&gt;
+&lt;simpara&gt;Skjønner du dette, er det bare å kjøre på:&lt;/simpara&gt;
+&lt;screen&gt;En funksjonen er definert ved uttrykket f(x) = x + 1</simpara>
+<simpara>Gitt at x = 2</simpara>
+<simpara>Får vi at</simpara>
+<simpara>f(x) = x + 1
+f(2) = 2 + 1
+f(2) = 3&lt;/screen&gt;
+&lt;simpara&gt;Dataprogrammet er &lt;emphasis role="strong"&gt;x+1&lt;/emphasis&gt;. Input til dataprogrammet er &lt;emphasis role="strong"&gt;2&lt;/emphasis&gt;. Og svaret fra
+dataprogrammet er &lt;emphasis role="strong"&gt;3&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Dette er programmering. Værre er det i bunn og grunn ikke. Alt en datamaskin
+gjør er å automatisere denne prosessen, slik at den kan
+gjentas et ufattelig antall ganger, med forskjellig innputt. Det å programmere
+handler om å handtere kompleksitet. For å handtere kompleksitet må vi
+forenkle og abstrahere, og for å kunne forenkle og abstrahere må vi kunne
+modellere og analysere.&lt;/simpara&gt;
+&lt;simpara&gt;Denne boka prøver å gi en introduksjon til disse ulike
+begrepene. Dette skal vi få til ved å relatere disse abstrakte utrykkene
+til konkrete problemer som vi støter på i forbindelse med at vi utvikler to
+dataprogram. Det første dataprogrammet vi skal lage, er et program som
+hjelper oss å avvikle et skirenn. Det andre programmet vi skal lage er
+et &lt;emphasis&gt;SpaceInvader&lt;/emphasis&gt; -lignende spill.&lt;/simpara&gt;
+&lt;simpara&gt;Du må ikke lure deg selv til å tro at du
+kan lære deg å programmere, uten at du jobber deg gjennom alle eksemplene som
+vi skal se på. Programmering er på sett og vis også et handtverk, og et
+handtverk må øves inn for å kunne mestre det. For de fleste
+av oss finnes det ingen snarveier i så måte.&lt;/simpara&gt;
+&lt;blockquote&gt;
+&lt;attribution&gt;
+En hver voksen person
+&lt;/attribution&gt;
+&lt;simpara&gt;Suksess skyldes
+ikke talent, men
+hardt arbeid og litt flaks.&lt;/simpara&gt;
+&lt;/blockquote&gt;
+&lt;simpara&gt;Årsaken til at du bør sette deg litt inn i hvordan man lager et dataprogram,
+er fordi datamaskiner blir en stadig viktigere del av tilværelsen. Vi omgir oss
+med dem nærmest hele tiden, og de utfører oppgaver
+på vegne av oss stadig vekk. Ringer du med en mobiltelefon bruker du egentlig en
+datamaskin. Kjører du en tur med en ny bil, bruker du flere hundre
+datamaskiner. Ser du på TV eller bruker Internet, er flere tusen i sving for å
+utføre oppgaver på vegne av deg. Derfor er det viktig at flest mulig har en
+forståelse av hva en datamaskin er, og hvordan denne kan programmeres.&lt;/simpara&gt;
+&lt;simpara&gt;Denne boka prøver å gi deg litt innsikt i hvordan du kan
+programere i programmeringsspråket &lt;emphasis&gt;C&lt;/emphasis&gt;. Du trenger egentlig ingen annen bakgrunn
+enn litt nysgjerrighet. Når du har jobbet deg gjennom boka, vil du sitte igjen
+med en god forståelse av hva det innebærer å lage programvare. De verktøyene og
+metodene som omtales, er for det meste grunnleggende teknologi som har vært med
+oss i mange ti-år, men som fortsatt er &lt;emphasis&gt;state-of-the-art&lt;/emphasis&gt;. Bare det, er et
+argument for å lære seg enkel &lt;emphasis&gt;C&lt;/emphasis&gt;-programmering  :-)&lt;/simpara&gt;
+&lt;/preface&gt;
+&lt;glossary xml:id="_ordliste"&gt;
+&lt;title&gt;Ordliste&lt;/title&gt;
+&lt;simpara&gt;Her er ei samling ord og uttrykk som vi i større eller mindre
+grad, må kjenne til når vi skal uvikle programvare. Mange av disse
+begrepene må modnes for å få en
+forståelse av hva de egentlig betyr. Derfor velger jeg å definere disse i et eget
+kapittel som heter &lt;emphasis&gt;ordliste&lt;/emphasis&gt;. På den måten blir det litt lettere å komme tilbake
+og se nærmere på et eller flere begrep, når du jobber deg gjennom boka.&lt;/simpara&gt;
+&lt;glossentry&gt;
+&lt;glossterm&gt;Abstraksjon&lt;/glossterm&gt;
+&lt;glossdef&gt;
+&lt;simpara&gt;På en måte kan vi si at alt som har med programmering å gjøre har med
+det å abstrahere. &lt;emphasis&gt;Wikionary&lt;/emphasis&gt; definerer det å abstrahere som det &lt;emphasis&gt;å trekke fram
+visse vesentlige egenskaper ved noe, og se bort fra andre mer uvesentlige&lt;/emphasis&gt;. Når man
+abstrahere noe, kan man gjøre det av ulik grad, eller på ulike nivå. Når to
+programmerere skal diskutere ei problemstilling, er det viktig at de er på
+samme abstraksjonsnivå. Dette gjelder vel egentlig i alle livets aspekter, men når
+vi lager programmvare må vi i alle fall være bevist på at vi forenkler
+virkeligheten i den hensikt å kunne forstå og løse ei problemstilling. Og at vi
+forenkler den i ulik grad, avhening av hvor vi er i prossessen.&lt;/simpara&gt;
+&lt;/glossdef&gt;
+&lt;/glossentry&gt;
+&lt;glossentry&gt;
+&lt;glossterm&gt;Modell&lt;/glossterm&gt;
+&lt;glossdef&gt;
+&lt;simpara&gt;Det å abstrahere er bokstavelig talt, et abstrakt begrep. I prosessen å bevege
+seg fra en abstrakt tanke frem til ei konkret løsning, innfører vi begrepet; &lt;emphasis&gt;en modell&lt;/emphasis&gt;.
+&lt;emphasis&gt;Wikionary&lt;/emphasis&gt; definerer en modell i denne sammenhengen, som en &lt;emphasis&gt;forenklet beskrivelse, figur
+eller fysisk objekt laget for å forklare og fremheve hvordan noe fungerer&lt;/emphasis&gt;. Jeg
+skal prøve å konkretisere dette med et eksempel. Tenk deg en bil. Hvordan skal vi
+beskrive denne? Hva består den av; hva er de viktigste bestanddelene? En måte å
+gi svar på disse spørsmålene, er ved å lage en modell, for eksempel i form av ei
+skisse. Vi kunne også laget denne modellen i form av ei liste, som
+vi for eksempel kunne kalle for &lt;emphasis&gt;bil&lt;/emphasis&gt;. Elementene i denne lista kunne for
+eksempel være; fire dører, fire hjul, to støtfangere. Legg merke til at med en gang
+vi lager en modell av noe, så forenkler vi virkeligheten. Vi gjør automatisk en
+seleksjon i det vi velger oss ut noen atributter eller egenskaper, som vi tror
+er viktigst. Men, vi har i alle fall begynt prosessen i det å konkretisere ei
+løsning på ei problemstilling. Nedenfor ser vi to ulike modeller av en bil; ei tegning
+og ei liste.&lt;/simpara&gt;
+&lt;/glossdef&gt;
+&lt;/glossentry&gt;
+&lt;informalfigure&gt;
+&lt;mediaobject&gt;
+&lt;imageobject&gt;
+&lt;imagedata fileref="bilder/bil.jpg" contentwidth="200"/&gt;
+&lt;/imageobject&gt;
+&lt;textobject&gt;&lt;phrase&gt;300&lt;/phrase&gt;&lt;/textobject&gt;
+&lt;/mediaobject&gt;
+&lt;/informalfigure&gt;
+&lt;literallayout class="monospaced"&gt;bil: fire dører, fire hjul, to støtfangere&lt;/literallayout&gt;
+&lt;variablelist&gt;
+&lt;varlistentry&gt;
+&lt;term&gt;Programmeringsspråk&lt;/term&gt;
+&lt;listitem&gt;
+&lt;simpara&gt;En vanlig datamaskin er bygd opp av mange milliarder transistorer. Disse er satt
+sammen til ulike logiske kretser som kan programmeres ved hjelp av noe som heter
+et maskinspråk eller maskinkode. Når vi skal lage vårt dataprogram, så skal vi
+bruke et programmeringsspråk, som på en eller annen måte, ender opp til å bli slik
+maskinkode. Hvordan dette skjer, er så pass komplekst, at vi velger å abstrahere
+oss litt bort fra det. Vi sier bare at vi definerer dataprogrammet vårt i et
+programmeringsspråk, som ender opp som maskinkode som igjen styrer de ulike
+logiske enhetene i datamaskinen. Det er en rekke ulike programmeringsspråk å
+velge mellom. Hvilke programmeringsspråk som er best, vil variere mellom hvem
+du spør og hvilket problem du ønsker å løse.&lt;/simpara&gt;
+&lt;/listitem&gt;
+&lt;/varlistentry&gt;
+&lt;varlistentry&gt;
+&lt;term&gt;Kompilator&lt;/term&gt;
+&lt;listitem&gt;
+&lt;simpara&gt;Vi skal se på et programmeringsspråk som heter &lt;emphasis&gt;C&lt;/emphasis&gt;. Det vil si at vi skal skrive
+vanlig &lt;emphasis&gt;C&lt;/emphasis&gt;-kode, som vanlig tekst, i en vanlig teksteditor, slik mange programmerere
+har gjort det siden tidlig 1970-tall. Denne &lt;emphasis&gt;C&lt;/emphasis&gt;-koden, som er vanlig tekst, skal vi
+kompilere om til maskinkode som en datamaskin kan forstå og bruke. Det som er litt
+bra med &lt;emphasis&gt;C&lt;/emphasis&gt;-kode, er at slik kode kan omgjøres til nærmest en hvilken som helst
+maskinkode på nærmest en hvilken som helst datamaskin. Det som er poenget her, er
+at prosessen i å omgjøre ei vanlig tekstfil med kode, om til maskinkode, kalles å
+kompilere. Og for å kompilere bruker vi en kompilator.   &lt;emphasis&gt;Wikionary&lt;/emphasis&gt; definerer ordet
+kompilator slik: &lt;emphasis&gt;et dataprogram som oversetter – kompilerer – et dataprogram skrevet
+i et programmeringsspråk (kalt kildekode) til et kjørbart program (maskinkode).
+Dette kan sammenlignes med å være tolk for to personer som snakker forskjellig språk;
+tolken oversetter det den ene sier, slik at den andre personen klarer å dra
+nytte av – dvs. forstå – informasjonen&lt;/emphasis&gt;. Et viktig moment å få med seg her, er at
+den samme kildekoden (altså vårt C-program) kan kompileres om til en rekke ulike
+typer maskinkode for en rekke ulike typer datamaskiner, avhengig av hvilken kompilator
+vi velger å bruke. Du vil kanskje ikke se det helt store med dette med en gang, men i
+sin tid (en gang på 70-tallet) var faktisk dette ganske revolusjonerende.&lt;/simpara&gt;
+&lt;/listitem&gt;
+&lt;/varlistentry&gt;
+&lt;varlistentry&gt;
+&lt;term&gt;Variabel&lt;/term&gt;
+&lt;listitem&gt;
+&lt;simpara&gt;For en tid tilbake leste jeg et intervju med en kvinnelig systemutvikler, hvor hun
+beskrev jobben sin som programmerer. Hun kom med en flott metafor på det å
+programmere; hun såg for seg ei stor bokhylle med mange ulike ekser, hvor hver
+slik eske innholdt data som programmet hennes oppdaterte eller flyttet rundt på.
+Dette er egentlig et fantastik godt bilde på hva som egentlig skjer. Vi har somregel
+en god del data, som vi strukturerer i ulik modeller, og alt programmet vårt gjør er
+å manipulere på denne modellen. En modell består av mindre deler som vi kaller for
+variabler.
+&lt;emphasis&gt;Wikionary&lt;/emphasis&gt; definerer ordet variabel slik; &lt;emphasis&gt;et symbol som representerer et
+vilkårlig tall eller element i en mengde. Elementene i denne mengden kalles
+verdiene til variabelen&lt;/emphasis&gt;.
+Ovenfor laget vi en modelle av en bil i form av ei liste, som vi kalte
+for &lt;emphasis&gt;bil&lt;/emphasis&gt;. Denne lista hadde flere elementer, blant annet elementet &lt;emphasis&gt;fire dører&lt;/emphasis&gt;.
+Dette kan vi representere ved hjelp av en variabel som vi kaller for &lt;emphasis&gt;dører&lt;/emphasis&gt; og som
+vi gir verdien &lt;emphasis&gt;4&lt;/emphasis&gt;. Merk deg at tallet fire er del av en eller annen definert
+mengde. Dette blir klarere etthvert når vi begynner å definere ulik typer variabler.&lt;/simpara&gt;
+&lt;/listitem&gt;
+&lt;/varlistentry&gt;
+&lt;/variablelist&gt;
+&lt;literallayout class="monospaced"&gt;dører = 4&lt;/literallayout&gt;
+&lt;/glossary&gt;
+&lt;chapter xml:id="_introduksjon"&gt;
+&lt;title&gt;Introduksjon&lt;/title&gt;
+&lt;simpara&gt;Datamaskinen er etter hvert blitt en kompleks maskin bestående av flere
+milliarder ulike komponenter. En av årsakene til dette er at det har vist seg relativt
+enkelt å stadig lage mer rikholdige datamaskiner med hensyn til de
+komponentene som inngår. Når det derimot kommer til hvordan vi programmerer
+maskinene, har det ikke skjedd en tilsvarende rivende utvikling. Det har riktig nok
+vært en utvikling på dette området også, men vi kan ikke si at den har
+vært like stor.&lt;/simpara&gt;
+&lt;section xml:id="_hvorfor_akkurat_emphasis_c_emphasis"&gt;
+&lt;title&gt;Hvorfor akkurat &lt;emphasis&gt;C&lt;/emphasis&gt;&lt;/title&gt;
+&lt;simpara&gt;Siden 1970-tallet har programmeringsspråket &lt;emphasis&gt;C&lt;/emphasis&gt; vært en av bærebjelkene når det
+kommer til det å lage programvare. For eksempel er de mest sentrale delene i de
+fleste operativsystemene (e.g. Windows, Linux, Mac OS X) laget
+i C. Android som svært
+mange har et, bokstavelig talt, nært forhold til, består også hovedsakelig av
+&lt;emphasis&gt;C&lt;/emphasis&gt;-kode. I tillegg benyttes hovedsakelig &lt;emphasis&gt;C&lt;/emphasis&gt; når det kommer til &lt;emphasis&gt;embeddet systems&lt;/emphasis&gt;,
+det vil si alle de små datamaskinene som du finner i biler, motorsykler, traktorer, vaskemaskiner etc.&lt;/simpara&gt;
+&lt;simpara&gt;En årsak til at programmerignsspråket &lt;emphasis&gt;C&lt;/emphasis&gt; er så mye anvendt, kan være at dette spåket
+gir en tilsynelatende optimal abstraksjon inn mot sentrale komponenter i en
+datamaskinen. &lt;emphasis&gt;C&lt;/emphasis&gt; benyttes til å lage kode for alt fra små sykkel-computere til
+store datasystem som beregner været, eller installasjoner som sendes ut i verdensrommet.&lt;/simpara&gt;
+&lt;simpara&gt;Derfor er det vel anvendt tid å lære seg å programere i &lt;emphasis&gt;C&lt;/emphasis&gt;. &lt;emphasis&gt;C&lt;/emphasis&gt; er også et enkelt
+språk å lære seg og etter at du har lært deg litt &lt;emphasis&gt;C&lt;/emphasis&gt;, vil det være mye lettere å
+forstå tankegangen bak en rekke andre programmeringsspråk som finnes der ute.&lt;/simpara&gt;
+&lt;/section&gt;
+&lt;section xml:id="_hva_er_en_datamaskin"&gt;
+&lt;title&gt;Hva er en datamaskin&lt;/title&gt;
+&lt;simpara&gt;Som nevnt kan en datamaskin være alt fra den 8-bits datamaskinen som gjemmer seg
+inne i sykkel-computeren din, til svære distribuerte datasystemer hvor de ulike
+delene befinner seg på flere steder rundt om i verden.&lt;/simpara&gt;
+&lt;simpara&gt;Vi skal definere datamaskinen slik vi ser den som en &lt;emphasis&gt;C&lt;/emphasis&gt; -programmerer som lager
+et dataprogram for en datamaskin som har et operativsystem. Sagt på en annen måte; som en
+C-programmerer som lager et program for Linux, Windows, Mac eller Android.&lt;/simpara&gt;
+&lt;simpara&gt;Den enkleste modellen vi da kan komme opp med, er et system som bastert på noe
+input, utfører en beregning som presenteres på en eller annen output-enhet.&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;input -&gt; compute -&gt; output&lt;/literallayout&gt;
+&lt;simpara&gt;En datamaskin kan ikke finne på noe helt av seg selv. Alt som presenteres, for
+eksempel som tekst på en skjerm, er basert på at det er gjort en eller flere
+beregninger på noe data som er gitt som input. Vi kan som nevnt derfor sammenligne
+et dataprogram med en matematisk funksjon, som for eksempel denne:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;f(x) = x² + 2&lt;/literallayout&gt;
+&lt;simpara&gt;Her er x input, f(x) er output, og selve beregningen er x² + 2.&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;input --&gt; compute --&gt; output
+x --&gt; x² + 2 --&gt; f(x)
+1 --&gt; 1² + 2 --&gt; 3&lt;/literallayout&gt;
+&lt;simpara&gt;En annen måte å se på det å programmere kan være å si at det å programmere er
+å endre på data. Vi plasserer data i ulike beholdere, gjerne
+kalt variabler, og programmet vi lager manipulerer på innholdet i disse
+beholderne. Vi kan med andre ord se på variablen x ovenfor som en beholder
+hvor vi plasserer tallet 1 og deretter utfører ei beregning basert på
+formelen x^2+2 og får til slutt ut svaret 3, som vi igjen plasserer i beholderen
+som vi kaller for f(x).&lt;/simpara&gt;
+&lt;simpara&gt;Gitt denne metaforen kan vi kanskje se på datamaskinen som ei stor bokhylle,
+med mange ulike bokser eller esker, hvor vi kan plassere data.&lt;/simpara&gt;
+&lt;informalfigure&gt;
+&lt;mediaobject&gt;
+&lt;imageobject&gt;
+&lt;imagedata fileref="bilder/bokhylle.jpg" contentwidth="400"/&gt;
+&lt;/imageobject&gt;
+&lt;textobject&gt;&lt;phrase&gt;600&lt;/phrase&gt;&lt;/textobject&gt;
+&lt;/mediaobject&gt;
+&lt;/informalfigure&gt;
+&lt;simpara&gt;Tenk deg en boks hvor du kan lagre et heltall mellom 1 og 100. I denne boksen
+legger du tallet 15. Deretter lager du et dataprogram som øker dette tallet
+med 5. Hva blir da verdien på tallet i boksen?&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;Boks b
+b = 15
+b = b + 5
+Vis verdien til b på skjermen. (b er nå lik 20)&lt;/literallayout&gt;
+&lt;simpara&gt;Det som gjør det hele kompleks, er at det finnes mange ulike bokser og uendelig
+mange muligheter når det kommer til hvordan vi kan endre innholdet i disse.&lt;/simpara&gt;
+&lt;simpara&gt;Skal du lage en enkel kalkulator som øker verdien til et tall med 5, så holder
+det kanskje med en boks som kan lagre heltall mellom 1 og 100. Men skal du for
+eksempel, lage en teksteditor må du ha en boks som kan lagre tekst. Det finnes
+mange ulike behov som gjør at vi lager oss mange ulike boksen eller variabler.
+Men, prinsippet er det samme; vi oppretter noe data i en eller flere variabler,
+for deretter å endre på innholdet i disse ved hjelp av et dataprogram.&lt;/simpara&gt;
+&lt;simpara&gt;Det at vi bruker begrepet boks eller variabel, på den beholderen som lagrer den
+informasjonen vi ønsker å endre på, kaller vi for en abstraksjon. Egentlig ligger
+informasjonen i ulike registre inne i datamaskinen, som igjen er bygd opp av
+transistorer, som vi denne sammenhengen kan se på som små brytere som enten er
+på eller av; 1 eller 0. Igjen har vi det at egentlig så er ikke dette så
+vanskelig å forstå. Men, størrelseorden med hensyn til antallet slike brytere,
+og kompleksiteten med hensyn til hvordan de er satt sammen, er av en slik art
+at det neppe finnes en enkeltperson som har den fulle og hele oversikten.&lt;/simpara&gt;
+&lt;simpara&gt;En datamaskin er en kompleks sammenstilling av mange små komponenter, og vi
+konstruere oss ulike abstraksjoner og forenklinger for å klare å forstå hva som skjer.&lt;/simpara&gt;
+&lt;simpara&gt;Og som nevnt, en årsak til at C er et populært programmeringsspråk, kan være at
+nettopp dette språket har en tilsynelatende optimal abstraksjon inn mot selve
+datamaskinen. På mange måter kan vi si at beviset på dette ligger i muligheten
+til å lage et dataprogram i C,  som du kan få til å kjøre på mange ulike
+datamaskiner. C er også et kjekt programmeringsspråk å lære seg når man ønsker å
+lære mest mulig rundt hvordan en datamaskin egentlig fungerer. Sagt på en annen måte;
+C har et lavere abstrasjonsnivå inn mot selve datamaskinen, enn en rekke andre språk. Dette
+er bra i noen sammenhenger, og ikke fullt så bra i andre. I vår sammenheng, hvor
+vi skal lære grunnleggende ferdigheter rundt det å programmere en datamaskin, mener jeg
+dette er bra.&lt;/simpara&gt;
+&lt;/section&gt;
+&lt;/chapter&gt;
+&lt;chapter xml:id="_kom_i_gang"&gt;
+&lt;title&gt;Kom i gang&lt;/title&gt;
+&lt;simpara&gt;Nå er det på tide å begynne med praktisk arbeid. Som nevnt; det å
+programmere er på sett og vis et handtverk, og kan langt på vei kun læres
+ved praktisk arbeid. Derfor må vi aller først installere en teksteditor som
+gjør det mulig å skrive &lt;emphasis&gt;C&lt;/emphasis&gt;-kode. Deretter skal vi installere en kompilator, som
+kan omgjøre &lt;emphasis&gt;C&lt;/emphasis&gt;-koden til et kjørbart dataprogram. Når det er gjort, skal vi
+kode det obligatoriske &lt;emphasis&gt;"Hello World"&lt;/emphasis&gt;-eksempelet, som skriver ut teksten;
+&lt;emphasis&gt;"Hello world"&lt;/emphasis&gt; på skjermen.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;Læringsmål&lt;/title&gt;
+&lt;para&gt;
+&lt;screen&gt; - installere en egnet teksteditor
+ - installere en egnet kompilator
+ - kode, kompilere og kjøre det obligatoriske "Hello World" -eksempelet&lt;/screen&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;For å ta det siste først, så er det slik at alle lærebøker i &lt;emphasis&gt;C&lt;/emphasis&gt; må
+starte med et eksempel som skriver ut teksten "Hello World" på skjermen. Slik er
+det bare. Den historiske forklaringa til dette er at den opprinnelig
+læreboka i C gjør nettop det.&lt;/simpara&gt;
+&lt;simpara&gt;Så, derfor, her er det:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 1)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;#include &lt;stdio.h&gt; &lt;co xml:id="CO1-1"/&gt;</simpara>
+<simpara>int main (int argc, char *argv[]) { &lt;co xml:id="CO1-2"/&gt;</simpara>
+<literallayout class="monospaced">printf("Hello world!\n"); &lt;co xml:id="CO1-3"/&gt;</literallayout>
+<literallayout class="monospaced">return 0; &lt;co xml:id="CO1-4"/&gt;</literallayout>
+<simpara>}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;calloutlist&gt;
+&lt;callout arearefs="CO1-1"&gt;
+&lt;para&gt;Inkluderer litt kode som blant annet definerer funksjonen printf().&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO1-2"&gt;
+&lt;para&gt;Her starter vårt program, i.e. main-funksjonen.&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO1-3"&gt;
+&lt;para&gt;Her skriver vi 'Hello World!' ut på skjermen vha funksjonen printf().&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO1-4"&gt;
+&lt;para&gt;Her returnerer vi verdien null til operativsystemet, som startet vårt program.&lt;/para&gt;
+&lt;/callout&gt;
+&lt;/calloutlist&gt;
+&lt;simpara&gt;Vi skal ganske snart gå gjennom dette eksempelet i detalj, men før vi kommer så
+langt, skal vi &lt;emphasis&gt;sette opp et uviklingsmiljø&lt;/emphasis&gt;. Vårt utviklingsmiljø vil primært
+bestå av to programmer; en teksteditor og en kompilator. I utgangspunktet
+er det nesten det samme hvilken teksteditor og &lt;emphasis&gt;C&lt;/emphasis&gt;-kompilator du velger
+å bruke. Alle eksemplene vi går gjennom, skal være forsøkt
+laget slik at de skal kunne fungere på en rekke ulike datamaskiner; Windows,
+Linux, Mac etc. Jeg velger likevel å fokusere på Windows, siden jeg antar at de
+fleste bruker en slik datamaskin.&lt;/simpara&gt;
+&lt;simpara&gt;Når det gjelder Windows, er det er en mange ulike alternativer å velge mellom,
+både når det gjelder valg av teksteditor og valg av kompilator. Jeg velger å bruke Cygwin.
+Cygwin er en rekke små program som gjør det mulig å simulere et Linux-miljø.
+Deriblant også et utviklingsmiljø for &lt;emphasis&gt;C&lt;/emphasis&gt;, i form at en
+kompilator kalt &lt;emphasis&gt;gcc&lt;/emphasis&gt;. Utover selve kompilatoren innholder Cygwin også et
+skall eller terminalvindu, hvor vi kan kjøre &lt;emphasis&gt;gcc&lt;/emphasis&gt;-programmet.&lt;/simpara&gt;
+&lt;section xml:id="_slik_installerer_du_cygwin_gcc"&gt;
+&lt;title&gt;Slik installerer du Cygwin gcc&lt;/title&gt;
+&lt;simpara&gt;Installering av Cygwin fungerer slik, at du starter et program som heter &lt;emphasis&gt;setup-x86.exe&lt;/emphasis&gt;
+&lt;footnote&gt;&lt;simpara&gt;Du kan velge mellom 32 eller 64 bit&#8217;s installasjon. Jeg velger 32 :-)&lt;/simpara&gt;&lt;/footnote&gt;.
+Ved hjelp av dette programmet velger du hvilke programpakker du ønsker å
+installere. Hovedbildet til Cygwin, hvor du velger de ulike pakkene, er vist nedenfor.&lt;/simpara&gt;
+&lt;informalfigure&gt;
+&lt;mediaobject&gt;
+&lt;imageobject&gt;
+&lt;imagedata fileref="bilder/cygwin.png" contentwidth="400"/&gt;
+&lt;/imageobject&gt;
+&lt;textobject&gt;&lt;phrase&gt;600&lt;/phrase&gt;&lt;/textobject&gt;
+&lt;/mediaobject&gt;
+&lt;/informalfigure&gt;
+&lt;simpara&gt;Skriv gcc i søkefeltet, som vist. Sjekk om pakken &lt;emphasis&gt;gcc-core&lt;/emphasis&gt; er valgt, under &lt;emphasis&gt;Devel&lt;/emphasis&gt;.
+Gcc er en fundamental del i et hvert Linux-lignende system, derfor vil
+gcc-core ganske sikkert allerede være valgt. Men, om så ikke skulle være tilfelle, velger
+du denne, og trykker på neste-knappen helt til &lt;emphasis&gt;setup wizarden&lt;/emphasis&gt; er ferdig.&lt;/simpara&gt;
+&lt;simpara&gt;Om alle gode krefter er med oss, skal vi ende opp med noe slikt som dette:&lt;/simpara&gt;
+&lt;informalfigure&gt;
+&lt;mediaobject&gt;
+&lt;imageobject&gt;
+&lt;imagedata fileref="bilder/cygwin2.png" contentwidth="600"/&gt;
+&lt;/imageobject&gt;
+&lt;textobject&gt;&lt;phrase&gt;900&lt;/phrase&gt;&lt;/textobject&gt;
+&lt;/mediaobject&gt;
+&lt;/informalfigure&gt;
+&lt;simpara&gt;Her har jeg åpnet et cygwin terminalvindu, og skrevet inn kommandoen; &lt;emphasis role="strong"&gt;gcc&lt;/emphasis&gt;.
+Gcc er verdt en liten studie i seg selv, for å si det forsiktig. Bokstavene gcc
+er et akronym for "gnu c compiler" &lt;footnote&gt;&lt;simpara&gt;The abbreviation GCC has multiple meanings in common use.  The current official meaning is “GNU Compiler Collection”, which refers generically to the complete suite of tools. The name historically stood for “GNU C Compiler”, and this usage is still common when the emphasis is on compiling C programs.  Finally,  the name is also used when speaking of the language-independent component of GCC: code shared among the compilers for all supported languages. For mer informasjon, se gcc.gnu.org&lt;/simpara&gt;&lt;/footnote&gt;, hvor gnu igjen er et såkalt rekursivt akronym for &lt;emphasis&gt;GNU is Not Unix&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;For å kompilere et &lt;emphasis&gt;C&lt;/emphasis&gt;-programm ved hjelp av gcc, skriver du i utgangspunktet bare gcc,
+samt navnet på den tekstfila som inneholder din &lt;emphasis&gt;C&lt;/emphasis&gt;-kode, slik:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;gcc test.c&lt;/literallayout&gt;
+&lt;simpara&gt;gcc vil da produsere ei fil som heter &lt;emphasis&gt;a.exe&lt;/emphasis&gt;.
+Dette programmet kan du starte ved å skrive:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;./a.exe&lt;/literallayout&gt;
+&lt;simpara&gt;Vi kommer snart tilbake til dette når vi skal skrive vårt obligatoriske &lt;emphasis&gt;Hello World&lt;/emphasis&gt; -program.
+Men, før vi får skrevet vårt første &lt;emphasis&gt;C&lt;/emphasis&gt;-program, må vi installere en god teksteditor. Vi kunne brukt Windows Notepad,
+men går heller for en litt mer pimpa editor, kalt &lt;emphasis&gt;Notepad&lt;/emphasis&gt;. (Uttales Notepad-pluss-pluss.)&lt;/simpara&gt;
+&lt;/section&gt;
+&lt;section xml:id="_slik_installerer_du_notepad"&gt;
+&lt;title&gt;Slik installerer du Notepad&lt;/title&gt;
+&lt;simpara&gt;Notepad-pluss-pluss har etterhvert utviklet seg til å bli kanskje den beste generelle teksteditoren
+som er å oppdrive for Windows? I tillegg er den, som kompilatoren gcc, helt gratis å laste ned og bruke.
+Du finner &lt;emphasis&gt;Notepad-pluss-pluss&lt;/emphasis&gt; her:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;<link xlink:href="https://notepad-plus-plus.org/&lt;/literallayout&gt">https://notepad-plus-plus.org/&lt;/literallayout&gt</link>;
+&lt;simpara&gt;Om alle gode krefter fortsatt er med oss, skal vi ende opp med noe som ligner dette her:&lt;/simpara&gt;
+&lt;informalfigure&gt;
+&lt;mediaobject&gt;
+&lt;imageobject&gt;
+&lt;imagedata fileref="bilder/notepadpp1.png" contentwidth="600"/&gt;
+&lt;/imageobject&gt;
+&lt;textobject&gt;&lt;phrase&gt;900&lt;/phrase&gt;&lt;/textobject&gt;
+&lt;/mediaobject&gt;
+&lt;/informalfigure&gt;
+&lt;simpara&gt;Som du ser, jeg har jeg tastet inn "Hello World" -eksempelet som vi kjenner
+litt fra før.&lt;/simpara&gt;
+&lt;simpara&gt;Jeg lagrer denne teksten i ei fil, som jeg kaller for &lt;emphasis&gt;test.c&lt;/emphasis&gt;&lt;/simpara&gt;
+&lt;simpara&gt;Fila plasserer jeg her:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;c:\cygwin\home\halftan\src\cprg\cprogramming\eksempel1\&lt;/literallayout&gt;
+&lt;simpara&gt;Legg merke til at hjemmekatalogen min, på mitt Cygwin-system, er:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;c:\cygwin\home\halftan\&lt;/literallayout&gt;
+&lt;simpara&gt;Du kan godt lagre din &lt;emphasis&gt;test.c&lt;/emphasis&gt; -fil rett på din hjemmekatalog. Deretter åpnet du et
+cygwin-terminalvindu og skriver inn kommandoen som kompilerer tekstfila &lt;emphasis&gt;test.c&lt;/emphasis&gt;, og gjør den
+om til ei kjørbar binærfil, kalt &lt;emphasis&gt;a.exe&lt;/emphasis&gt; Tilslutt skriver du &lt;emphasis&gt;./a.exe&lt;/emphasis&gt; for å kjøre programmet som du
+nettopp har laget.&lt;/simpara&gt;
+&lt;simpara&gt;Om vi ha litt flaks, skal du se at teksten &lt;emphasis&gt;"Hello World"&lt;/emphasis&gt;, dukker opp i terminalvinduet, og vips; du har laget ditt første dataprogram!&lt;/simpara&gt;
+&lt;informalfigure&gt;
+&lt;mediaobject&gt;
+&lt;imageobject&gt;
+&lt;imagedata fileref="bilder/cygwin3.png" contentwidth="600"/&gt;
+&lt;/imageobject&gt;
+&lt;textobject&gt;&lt;phrase&gt;900&lt;/phrase&gt;&lt;/textobject&gt;
+&lt;/mediaobject&gt;
+&lt;/informalfigure&gt;
+&lt;simpara&gt;Alle eksemplene som vi skal gå gjennom, eksisterer allerede som tekstfiler. Disse finner du her:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;<link xlink:href="https://github.com/halftanolger/cprogrammering&lt;/literallayout&gt">https://github.com/halftanolger/cprogrammering&lt;/literallayout&gt</link>;
+&lt;simpara&gt;Git og github er også verdt et lite studium i seg selv. Her bruker jeg github
+som en lagringsplass for dette bokprosjektet, deriblant all eksempelkoden. Om du
+ønsker &lt;emphasis&gt;å sjekke ut&lt;/emphasis&gt; alle eksemplene fra denne lagringsplassen, kan du
+gjøre det slik:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;mkdir src &lt;co xml:id="CO2-1"/&gt;
+cd src &lt;co xml:id="CO2-2"/&gt;
+git clone <link xlink:href="https://github.com/halftanolger/cprogrammering">https://github.com/halftanolger/cprogrammering</link> &lt;co xml:id="CO2-3"/&gt;&lt;/literallayout&gt;
+&lt;calloutlist&gt;
+&lt;callout arearefs="CO2-1"&gt;
+&lt;para&gt;Opprett en katalog som heter src&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO2-2"&gt;
+&lt;para&gt;Gå ned i denne katalogen&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO2-3"&gt;
+&lt;para&gt;Hent &lt;emphasis&gt;cprogrammering&lt;/emphasis&gt; fra github&lt;/para&gt;
+&lt;/callout&gt;
+&lt;/calloutlist&gt;
+&lt;simpara&gt;Prøv deretter å utfør:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;cd cprogrammering
+cd eksempel1
+cat test.c&lt;/literallayout&gt;
+&lt;simpara&gt;Da skal du forhåpentligvis se dette i terminalviduet ditt:&lt;/simpara&gt;
+&lt;informalfigure&gt;
+&lt;mediaobject&gt;
+&lt;imageobject&gt;
+&lt;imagedata fileref="bilder/cygwin4.png" contentwidth="600"/&gt;
+&lt;/imageobject&gt;
+&lt;textobject&gt;&lt;phrase&gt;900&lt;/phrase&gt;&lt;/textobject&gt;
+&lt;/mediaobject&gt;
+&lt;/informalfigure&gt;
+&lt;simpara&gt;På samme måte som i sted, kan du nå skrive &lt;emphasis&gt;gcc test.c&lt;/emphasis&gt; for å kompilere &lt;emphasis&gt;C&lt;/emphasis&gt;-koden om til et
+kjørpart dataprogram, som skriver ut teksten &lt;emphasis&gt;"Hello world"&lt;/emphasis&gt; på skjermen.&lt;/simpara&gt;
+&lt;simpara&gt;Da er vi i gang! Vi har installert og fått prøvd, alle verktøyene vi trenger for å
+programmere i C. Nå er det bare å begynne å bruke språket.&lt;/simpara&gt;
+&lt;/section&gt;
+&lt;/chapter&gt;
+&lt;chapter xml:id="_innputt_utputt"&gt;
+&lt;title&gt;Innputt &amp; Utputt&lt;/title&gt;
+&lt;simpara&gt;Som nevnt i starten; all databehandling dreier seg rundt det faktum at du sender
+noe data inn i en prossess. Denne prosessen utfører deretter en eller flere beregninger.
+Og tilslutt returnerer prosessen et svar tilbake. Derfor
+er det viktig å forstå hvordan man så enkelt som mulig, kan gjøre dette ved hjelp
+av &lt;emphasis&gt;C&lt;/emphasis&gt;-kode. Det er læringsmålet med dette kapitlet.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;Læringsmål&lt;/title&gt;
+&lt;para&gt;
+&lt;screen&gt; - innputt (aka input)
+ - beregning
+ - utputt (aka output)&lt;/screen&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Inn-putt og ut-putt er i forhold til operativsystemet&lt;footnote&gt;&lt;simpara&gt;Windows og Linux er eksempler på operativsystem, det vil si det systemet som sørger for at datamaskinen vår fungerer; skjerm, mus, tastatur etc. Det er operativsystemet som starter de ulike programmene som kjører på datamaskinen.&lt;/simpara&gt;&lt;/footnote&gt;. Det vil si at det
+er operativsystemet, som når det starter programmet vårt, sender inn inn-putten. Det er det
+samme operativsystemet som mottar ut-putten fra vårt program, når vårt program avsluttes.&lt;/simpara&gt;
+&lt;simpara&gt;Dette er innputt og utputt i sin enkleste form. Utover dette kan vi også si at vi har innputt
+i form av data fra mus og tastatur, og utputt i form av informasjon på skjermen etc. Alt dette
+kommer vi tilbake til. Aller først skal vi studere den aller enkleste formen for
+innputt og utputt.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 2)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int main () { &lt;co xml:id="CO3-1"/&gt;</simpara>
+<literallayout class="monospaced">return 0; &lt;co xml:id="CO3-2"/&gt;</literallayout>
+<simpara>}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;calloutlist&gt;
+&lt;callout arearefs="CO3-1"&gt;
+&lt;para&gt;Innputt&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO3-2"&gt;
+&lt;para&gt;Utputt&lt;/para&gt;
+&lt;/callout&gt;
+&lt;/calloutlist&gt;
+&lt;simpara&gt;Lagre denne koden i ei fil kalt; &lt;emphasis&gt;test.c&lt;/emphasis&gt; og skriv:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;gcc test.c&lt;/literallayout&gt;
+&lt;simpara&gt;Kjør deretter programmet som ble produsert. Nå skal du ikke se noe på skjermen.
+Men, det betyr ikke at programmet ikke returnerer noe tilbake til det
+programmet som startet det.&lt;/simpara&gt;
+&lt;simpara&gt;Ok, så hva skjer egentlig her? Jo, dette er det enkleste C -programmet som er
+mulig å skrive, og alt programmet gjør er å returnere tallet null tilbake til den
+prosessen som startet programmet. Likevel er det mye å lære av det som skjer her.
+Først merker vi oss at det er en eller annen prosess som starter det programmet vi lager.
+Denne prosessen kjører gjerne i et eller annet operativsystem. Det er det samme
+om vi snakker om Linux, Mac eller Windows; et annet program starter vårt program.&lt;/simpara&gt;
+&lt;simpara&gt;Tenk tilbake på dette:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;innputt → beregninger → utputt&lt;/literallayout&gt;
+&lt;simpara&gt;Det betyr at når du starter progammet, skal du kunne gi noe &lt;emphasis&gt;“innputt”&lt;/emphasis&gt; til
+programmet, som deretter skal &lt;emphasis&gt;“gjøre et eller annet”&lt;/emphasis&gt; for til slutt å gi
+tilbake noe &lt;emphasis&gt;“utputt”&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Vi venter litt med &lt;emphasis&gt;“innput”&lt;/emphasis&gt; -delen og ser nærmere på &lt;emphasis&gt;“gjøre et eller annet”&lt;/emphasis&gt; -delen
+og &lt;emphasis&gt;“utputt”&lt;/emphasis&gt; -delen.&lt;/simpara&gt;
+&lt;simpara&gt;I vårt tilfelle ovenfor, er &lt;emphasis&gt;“gjøre et eller annet”&lt;/emphasis&gt; -delen å returnere tallet
+null. Men, hvordan får vi tak i resultat?&lt;/simpara&gt;
+&lt;simpara&gt;Da må vi gå til det programmet som starter programet vårt. Og det programmet er
+Cygwin terminal-programmet. Det er jo i dette programmet vi skriver:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;./a.out&lt;/literallayout&gt;
+&lt;simpara&gt;for å kjøre &lt;emphasis&gt;C&lt;/emphasis&gt;-programmet vårt.&lt;/simpara&gt;
+&lt;simpara&gt;Det vil varierer litt hvordan man får tak i retur -verdien fra et program. I vårt
+tilfelle hvor vi bruker Cygwin, kan du få tak i returverdien ved å skrive:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;echo $?&lt;/literallayout&gt;
+&lt;simpara&gt;For å oppsummere:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;gcc test.c
+./a.out
+echo $?
+0&lt;/literallayout&gt;
+&lt;simpara&gt;Det vi har gjennomført ovenfor, er å kode, kompilere, kjøre samt sjekke
+resultatet fra det enkleste &lt;emphasis&gt;C&lt;/emphasis&gt;-programmet som er mulig å lage. Alt programmet
+gjør er å returnere tallet null. Vi bruker
+kommandoen &lt;emphasis&gt;echo $?&lt;/emphasis&gt; for å vise det tallet som ble returnert til
+skallet &lt;footnote&gt;&lt;simpara&gt;Et terminalvindu kan også omtales som et skall, siden det engelse ordet &lt;emphasis&gt;shell&lt;/emphasis&gt; er mest vanlig å bruke på slike typer dataprogram. linuxcommand.org : What is "the shell"? &lt;emphasis&gt;Simply put, the shell is a program that takes your commands from the keyboard and gives them to the operating system to perform. In the old days, it was the only user interface available on a Unix computer. Nowadays, we have graphical user interfaces (GUIs) in addition to command line interfaces (CLIs) such as the shell.&lt;/emphasis&gt;&lt;/simpara&gt;&lt;/footnote&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Prøv nå å endre test-programmet til å returnere tallet 5&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 3)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int main() {</simpara>
+<literallayout class="monospaced">return 5;</literallayout>
+<simpara>}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Lagre koden og skriv&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;gcc test.c&lt;/literallayout&gt;
+&lt;simpara&gt;for deretter å kjøre programmet.&lt;/simpara&gt;
+&lt;simpara&gt;Skriv kommandoen:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;echo $?&lt;/literallayout&gt;
+&lt;simpara&gt;for å se returverdien fra programmet.&lt;/simpara&gt;
+&lt;simpara&gt;Som nevnt, alle C -program starter ved at en annet program
+kaller opp funksjonen &lt;emphasis&gt;"main"&lt;/emphasis&gt;.  Denne funksjonen returnerer et heltall.
+Dette er definert ved at det står &lt;emphasis&gt;"int"&lt;/emphasis&gt; forann  &lt;emphasis&gt;"main"&lt;/emphasis&gt;. Det er også mulig å sende
+informasjon inn til &lt;emphasis&gt;"main"&lt;/emphasis&gt;. Det skal vi se på etter hvert. Men, først skal vi
+dvele litt med med begrepet &lt;emphasis&gt;"funksjon"&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Vi kjenner til begrepet funksjon fra matematikken. Der ser gjerne en funksjon slik ut:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt; f(x) = x +1</simpara>
+<literallayout class="monospaced">Sett inn x = 2</literallayout>
+<literallayout class="monospaced">f(2) = 2 + 1
+f(2) = 3</literallayout>
+<literallayout class="monospaced"> input → beregninger → output
+ 2 → 2 +1 → 3&lt;/literallayout&gt;
+&lt;section xml:id="_variabler"&gt;
+&lt;title&gt;Variabler&lt;/title&gt;
+&lt;simpara&gt;Tidligere pratet jeg i bokser og variabler. Jeg sa at et dataprogram kan sees på
+som instruksjoner som endrer på innholdet i ulike bokser med data.&lt;/simpara&gt;
+&lt;simpara&gt;&lt;emphasis&gt;"int"&lt;/emphasis&gt; er en slik boks med data som kan inneholde et heltall.  En måte å se
+på dette, kan være som følger: terminalprogrammet har en boks hvor returverdien
+kan lagres. Når terminalprogrammet kjører programet vårt, blir returverdien
+lagt i denne boksen. Dermed kan terminalprogrammet etterpå vise verdien på skjermen.&lt;/simpara&gt;
+&lt;simpara&gt;Programmet vårt kan sees på som en funksjon som hele tiden returnerer tallet 5,
+helt uavhengig av hva som sendes inn som intput.&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt; f(x) = 5</literallayout>
+<literallayout class="monospaced"> f(1) = 5
+ f(2) = 5
+ f(3) = 5&lt;/literallayout&gt;
+&lt;simpara&gt;La oss modifisere programmet slik at det legger sammen to tall.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 4)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int main() {</literallayout>
+<literallayout class="monospaced">int a = 2;
+int b = 3;
+int c = a + b;</literallayout>
+<literallayout class="monospaced">return c;</literallayout>
+<simpara>}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Jeg oppretter tre bokser av typen &lt;emphasis&gt;int&lt;/emphasis&gt;. (int &#8594; integer = heltall).
+Legger 3 i den første, 4 i den andre, og summen av den første og den andre, i
+den tredje. Til slutt returnerer jeg med det tallet som måtte ligge i den
+tredje boksen.&lt;/simpara&gt;
+&lt;simpara&gt;Legg merke til at vi kan kalle databoksene for hva vi vil. Jeg har valgt å kalle dem a,b og c.&lt;/simpara&gt;
+&lt;simpara&gt;Skriv inn koden, og test ut.&lt;/simpara&gt;
+&lt;simpara&gt;Neste steg for oss blir å modifisere programmet vårt slik at det kan ta i mot
+input fra skallet (eller input fra terminal-programmet om du vil).&lt;/simpara&gt;
+&lt;simpara&gt;Legg merke til at når du skal kompilere C-koden som ligger i fila &lt;emphasis&gt;test.c&lt;/emphasis&gt;, så
+oppgir du dette som input til programmet &lt;emphasis&gt;gcc&lt;/emphasis&gt;, på denne måten:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;gcc test.c&lt;/literallayout&gt;
+&lt;simpara&gt;Det betyr at det du ønsker å putte inn som input til et C -program, skriver du i
+tur og orden etter navnet på selve programmet. I vårt tilfelle,
+om vi ønsker å gi noe input til programmet vårt, skriver vi noe slikt som dette:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;a.exe 2&lt;/literallayout&gt;
+&lt;simpara&gt;Da vil vi starte programmet med tallet 2 som input. Men, hvordan får vi tak
+i dette tallet inne i programmet?&lt;/simpara&gt;
+&lt;simpara&gt;Modifiser &lt;emphasis&gt;test.c&lt;/emphasis&gt; til å se slik ut:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 5)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int main ( int argument_antall, char *argument_vektor[] ) {</simpara>
+<literallayout class="monospaced">int x = atoi(argument_vektor[1]);</literallayout>
+<literallayout class="monospaced">return x + 1;</literallayout>
+<simpara>}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;kompiler og test ved å utføre disse kommandoene:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt; &gt;gcc test.c
+ &gt;a.exe 1
+ &gt;echo $?
+ &gt;2</simpara>
+<literallayout class="monospaced">&amp;gt;a.exe 2
+&amp;gt;echo $?
+&amp;gt;3</literallayout>
+<literallayout class="monospaced"> &amp;gt;a.exe 3
+ &amp;gt;echo $?
+ &amp;gt;4&lt;/literallayout&gt;
+&lt;simpara&gt;Jepp, her skjer det ting. Nå klarer vi å gi input til programmet vårt, vi utfører
+ei enkel beregning ved å addere tallet 1 til det tallet som kommer inn, og vi
+returnerer med svaret. Men, det som en gang var verdens minste C -program, har nå
+blitt litt mer komplisert. Vi starter med:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;int argument_antall
+char * argument_vektor[]&lt;/literallayout&gt;
+&lt;simpara&gt;Dette er to bokser eller to variabler. Den første er av typen &lt;emphasis&gt;int&lt;/emphasis&gt;.
+Det betyr at i variabelen som heter &lt;emphasis&gt;argument_antall&lt;/emphasis&gt;, ligger det
+et heltall. Dette heltallet angir antall argumenter inn til programmet. Egentlig
+angir dette tallet antall argumenter, pluss 1, siden navnet til programmet også
+regnes med når antallet input-argumenter telles opp. Det betyr i praksis at når
+du skriver:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;a.exe 3&lt;/literallayout&gt;
+&lt;simpara&gt;så vil innholdet i &lt;emphasis&gt;antall_argument&lt;/emphasis&gt; være lik 2, siden det første argumentet
+er &lt;emphasis&gt;a.exe&lt;/emphasis&gt; og det andre er &lt;emphasis&gt;3&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Altså, ved hjelp av variabelen &lt;emphasis&gt;argument_antall&lt;/emphasis&gt; vet vi hvor mange argumenter som
+kommer inn til programmet. For å få tak i selve argumentene må vi se nærmere
+på variabelen som heter &lt;emphasis&gt;argument_vektor&lt;/emphasis&gt;. Denne inneholder en
+tabell med pekere av typen &lt;emphasis&gt;char&lt;/emphasis&gt;, som peker mot en tekst-representasjon av de
+ulike argumentene.&lt;/simpara&gt;
+&lt;simpara&gt;Ok, her kom det en rekke nye begrep på banen. Vi starter med typen &lt;emphasis&gt;char&lt;/emphasis&gt;. Vi vet
+fra før av at vi kan ha en variabel av typen &lt;emphasis&gt;int&lt;/emphasis&gt;. Det betyr at innholdet i variabelen
+kan være et heltall. Variabler av typen &lt;emphasis&gt;char&lt;/emphasis&gt; er forsåvidt også heltall, men historisk
+sett var disse heltallene tenkt å representere bokstaver.&lt;/simpara&gt;
+&lt;simpara&gt;Det betyr at, ønsker du deg en variabel som skal kunne lagre en bokstav, for
+eksempel en &lt;emphasis&gt;a&lt;/emphasis&gt;, så skriver du det slik:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;char min_boks = ‘a’&lt;/programlisting&gt;
+&lt;simpara&gt;Her blir det opprette en variabel som heter &lt;emphasis&gt;min_boks&lt;/emphasis&gt;. Denne variabelen er av
+typen &lt;emphasis&gt;char&lt;/emphasis&gt; og den tilordnes verdien, &lt;emphasis&gt;a&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Om verdien er et tegn, må dette stå med apostrof, som vist ovenfor.&lt;/simpara&gt;
+&lt;/section&gt;
+&lt;section xml:id="_tabell_aka_array"&gt;
+&lt;title&gt;Tabell (aka array)&lt;/title&gt;
+&lt;simpara&gt;Det er mulig å sette sammen slike enkeltbokstaver til ord og setninger. En slik
+sammenstilling kaller vi for &lt;emphasis&gt;en streng&lt;/emphasis&gt;. En streng lager vi ved å opprett en
+tabell av &lt;emphasis&gt;char’s&lt;/emphasis&gt;. For å angi at vi ønsker en tabell av &lt;emphasis&gt;char’s&lt;/emphasis&gt; skriver vi
+tegnene [] bak variabelnavnet, slik:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;char min_streng[] = “Hei”;&lt;/programlisting&gt;
+&lt;simpara&gt;Strengen angis med anførselstegn.&lt;/simpara&gt;
+&lt;simpara&gt;Hvert enkelt tegn i strengen har sin plass i tabellen av &lt;emphasis&gt;char’s&lt;/emphasis&gt;, noe som vi
+kan vise med en slik figur:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;                      0   1   2   3
+                    +---+---+---+---+
+char min_streng[] = | H | e | i | 0 |
+                    +---+---+---+---+&lt;/literallayout&gt;
+&lt;simpara&gt;Helt til slutt i en streng, plasserer C et null-tall for å markere hvor strengen slutter.&lt;/simpara&gt;
+&lt;simpara&gt;Om vi, bare som en øvelse, skulle ønske å lagre hver bokstav i tabellen, i sin
+egen variabel, kan vi gjøre det slik:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;char min_bokstav_h = min_streng[0]
+char min_bokstav_e = min_streng[1]
+char min_bokstav_i = min_streng[2]&lt;/programlisting&gt;
+&lt;simpara&gt;Vi ser at det er mulig å hente ut hvert enkelt tegn i tabellen, ved å angi
+indeksen (eller plasseringa) til den aktuelle bokstaven i tabellen.&lt;/simpara&gt;
+&lt;note&gt;
+&lt;title&gt;En streng er en tabell av tegn.&lt;/title&gt;
+&lt;simpara&gt;For å lagre en tekststreng (ord eller setninger) i &lt;emphasis&gt;C&lt;/emphasis&gt;,
+      bruker vi en databoks som består av ei samling av databoksen &lt;emphasis&gt;char&lt;/emphasis&gt;. Ei slik
+      samling kaller vi for en tabell. Vi bruker tegnene ‘[‘ og  ‘]’ bak
+      variabelnavnet, for å angi at dette er en tabell av variabler.&lt;/simpara&gt;
+&lt;/note&gt;
+&lt;simpara&gt;Tre variabler som hver representerer ett tegn (char):&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;char a = ‘h’
+char b = ‘e’
+char c = ‘i’&lt;/programlisting&gt;
+&lt;simpara&gt;Tre variabler, som hver representerer ei samling tegn, altså en array av tegn (char’s):&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;char a[] = “Hei verden”
+char b[] = “Hello world”
+char c[] = “Bonjour monde”&lt;/programlisting&gt;
+&lt;simpara&gt;Ok, nå er vi kommet et stykke på vei til å forstå setningen:&lt;/simpara&gt;
+&lt;simpara&gt;&lt;emphasis&gt;&amp;#8230;&amp;#8203; For å gå tak i selve argumentene må vi se nærmere på variabelen som heter
+argument_vektor. Denne inneholder en tabell med pekere av typen ‘char’, som peker mot en tekst-representasjon av de ulike argumentene. &amp;#8230;&amp;#8203;&lt;/emphasis&gt;&lt;/simpara&gt;
+&lt;simpara&gt;Vi skjønner det med &lt;emphasis&gt;tekst-representasjon&lt;/emphasis&gt;. Det vil si at vi klarer å lage en variabel
+som inneholder en tekst. Det gjør vi ved å lage en tabell av &lt;emphasis&gt;char&lt;/emphasis&gt; -variabler, slik:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;             0   1   2   3   4   5   6   7   8   9   10
+           +---+---+---+---+---+---+---+---+---+---+---+
+char a[] = | H | e | i |   | v | e | r | d | e | n | 0 |
+           +---+---+---+---+---+---+---+---+---+---+---+&lt;/literallayout&gt;
+&lt;literallayout class="monospaced"&gt;             0   1   2   3   4   5   6   7   8   9   10  11
+           +---+---+---+---+---+---+---+---+---+---+---+---+
+char b[] = | H | e | l | l | o |   | w | o | r | l | d | 0 |
+           +---+---+---+---+---+---+---+---+---+---+---+---+&lt;/literallayout&gt;
+&lt;literallayout class="monospaced"&gt;             0   1   2   3   4   5   6   7   8   9   10  11  12  13
+           +---+---+---+---+---+---+---+---+---+---+---+---+---+---+
+char c[] = | B | o | n | j | o | u | r |   | m | o | n | d | e | 0 |
+           +---+---+---+---+---+---+---+---+---+---+---+---+---+---+&lt;/literallayout&gt;
+&lt;simpara&gt;Men, vi skal ha en tabell av pekere, som peker mot data av typen char.&lt;/simpara&gt;
+&lt;simpara&gt;Nå drar det seg litt til her.&lt;/simpara&gt;
+&lt;/section&gt;
+&lt;section xml:id="_pekere"&gt;
+&lt;title&gt;Pekere&lt;/title&gt;
+&lt;simpara&gt;For å forstå hva en peker er, må vi gå litt nærmere inn på hvordan en datamaskin
+egentlig fungerer. Du har sikkert hørt om RAM (random access memory), eller bare kort og godt; &lt;emphasis&gt;minne&lt;/emphasis&gt;.
+En datamaskin har en viss mengde fysisk RAM, og mange tenker kun på minne når de
+skal angi hvor stor en datamaskin er. De variablene vi har pratet om ovenfor,
+ligger i minnet til datamaskinen. Dette minnet kan vi se på som en tabell av
+databokser, hvor hver slik boks har sin egen adresse, på samme måte som hver
+bokstav i en streng har sin egen index.&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;+-----+-----+
+| 001 |  H  |
++-----+-----+
+| 002 |  e  |
++-----+-----+
+| 003 |  i  |
++-----+-----+
+| 004 |  0  |
++-----+-----+&lt;/literallayout&gt;
+&lt;simpara&gt;Dermed kan vi se på strengen vår på to måter. Både hvordan den er lagret i variabelen
+i programmet vårt, og hvordan den egentlig er lagret i minnet.&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;char a[] = “Hei”&lt;/programlisting&gt;
+&lt;literallayout class="monospaced"&gt;             0   1   2   3
+           +---+---+---+---+
+char a[] = | H | e | i | 0 |
+           +---+---+---+---+&lt;/literallayout&gt;
+&lt;literallayout class="monospaced"&gt;+---------------------+-----+
+| 9223372036854775800 |  H  |
++---------------------+-----+
+| 9223372036854775808 |  e  |
++---------------------+-----+
+| 9223372036854775816 |  i  |
++---------------------+-----+
+| 9223372036854775825 |  0  |
++---------------------+-----+&lt;/literallayout&gt;
+&lt;simpara&gt;Som nevnt, putter &lt;emphasis&gt;C&lt;/emphasis&gt; på en null for å markere slutten på en streng. Derfor viser
+jeg denne nullen alle plasser hvor det er relevant.&lt;/simpara&gt;
+&lt;simpara&gt;Ovenfor har jeg brukt noen store tall for å vise de ulike minne -addressene. Om du har
+en 64 bits datamaskin, som for tiden er det normale, kan datamaskinen din nå 2^64 slike
+minne -adresser. Dette er et stort tall, og viser litt hvor kraftig en datamaskin
+egentlig er.&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;Antall mennesker på jorden         7 000 000 000
+Antall menneskehårstrå       700 000 000 000 000
+2^64 er lik           18 446 744 073 709 551 615&lt;/literallayout&gt;
+&lt;simpara&gt;Når man programmerer i &lt;emphasis&gt;C&lt;/emphasis&gt;, kan man nå innholdet til de ulike adressene ved å bruke en
+konstruksjon som heter &lt;emphasis&gt;peker&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Om jeg ønsker meg en slik peker, som peker på strengen “Hei” ovenfor, kan jeg skrive&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char *min_peker = &amp;amp;a&lt;/programlisting&gt;
+&lt;simpara&gt;Verdien som nå ligger i &lt;emphasis&gt;min_peker&lt;/emphasis&gt; vil være 9223372036854775800, altså minneadressen
+til den første bokstaven i strengen “Hei”.&lt;/simpara&gt;
+&lt;simpara&gt;Strengen “Hei” starter med adressen til den første bokstaven, og
+varer helt til det dukker opp et null-tall.&lt;/simpara&gt;
+&lt;simpara&gt;Ampersand forann en variabel, betyr med andre ord; gi meg minneadressen til denne variabelen.&lt;/simpara&gt;
+&lt;note&gt;
+&lt;title&gt;Databokser av ulik type&lt;/title&gt;
+&lt;simpara&gt;Når vi programmerer kan vi se på variablene som bokser, som kan inneholde
+      ulike typer data. Hver type boks kan lagre sin type data. Og hver slik
+      boks har sin unike adresse. Denne adressen kan man hente ut ved å sette en
+      ampersand forann navnet til boksen.&lt;/simpara&gt;
+&lt;/note&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char a = ‘h’&lt;/programlisting&gt;
+&lt;simpara&gt;Disse boksene ligger i minnet til datamaskinen. Enhver minneplassering har sin adresse.&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;+---------------------+-----+
+| …                   |     |
++---------------------+-----+
+| 9223372036854775800 |     |
++---------------------+-----+
+| 9223372036854775808 |  h  |
++---------------------+-----+
+| 9223372036854775816 |     |
++---------------------+-----+
+| …                   |     |
++---------------------+-----+&lt;/literallayout&gt;
+&lt;simpara&gt;Om vi ønsker å få tak i denne adressen, skriver vi en ampersand ‘&amp;amp;’ forann variabelnavnet.
+Adressen kan deretter lagres i en egen databoks som vi kaller for en peker. En peker har en type, for å vise hvilken type databoks som gjemmer seg bak adressen.&lt;/simpara&gt;
+&lt;simpara&gt;At databoksen inneholder en peker, angir vi ved å skrive ei stjerne foran variabelen når vi deklarerer den.&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char *min_peker_til_a = &amp;amp;a&lt;/programlisting&gt;
+&lt;literallayout class="monospaced"&gt;                        +---------------------+
+char *min_peker_til_a = | 9223372036854775808 |
+                        +---------------------+&lt;/literallayout&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char b = *min_peker_til_a;&lt;/programlisting&gt;
+&lt;literallayout class="monospaced"&gt;char a og char b inneholder nå begge verdien “h”.&lt;/literallayout&gt;
+&lt;simpara&gt;Legg merke til dette:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;9223372036854775808 = min_peker_til_a;
+‘h’ = *min_peker_til_a;&lt;/literallayout&gt;
+&lt;simpara&gt;Altså, om vi skal hente verdien i den databoksen som gjemmer seg bak adressen,
+må vi oppgi ei stjerne forann variabelnavnet. Om vi ikke gjør det, henter vi ut selve adressen.&lt;/simpara&gt;
+&lt;simpara&gt;På samme måte som vi kan ha en tabell av databokser av typen char, kan vi ha en
+tabell av databokser av typen &lt;emphasis&gt;peker til char&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;a er en databoks av typen char, som inneholder tegnet ‘h’&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char a = ‘h’;&lt;/programlisting&gt;
+&lt;simpara&gt;b er en databoks av typen &lt;emphasis&gt;tabell av char&lt;/emphasis&gt;, som inneholder strengen; “hei”&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char b[] = “hei”;&lt;/programlisting&gt;
+&lt;simpara&gt;Ut fra denne tabellen kan vi hent hver enkel databoks av typen char, slik:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char boks_for_h = b[0];
+ char boks_for_e = b[1];
+ char boks_for_i = b[2];&lt;/programlisting&gt;
+&lt;simpara&gt;Det samme kan vi gjøre med datatypen &lt;emphasis&gt;peker til char&lt;/emphasis&gt;, slik:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char a = ‘a’
+ char b = ‘b’
+ char c = ‘c’</literallayout>
+<literallayout class="monospaced"> char *pa = &amp;amp;a;
+ char *pb = &amp;amp;b;
+ char *pc = &amp;amp;c;&lt;/programlisting&gt;
+&lt;simpara&gt;Disse kan vi legge i en tabell, slik:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char *tabell_av_pekere[] = {pa,pb,pc};&lt;/programlisting&gt;
+&lt;simpara&gt;på samme måte som da vi opprettet en streng av flere tegn.&lt;/simpara&gt;
+&lt;simpara&gt;Vi henter ut verdien til det pekeren peker på, ved å sette ei stjerne foran variabelnavnet.&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char a2 = *pa&lt;/programlisting&gt;
+&lt;simpara&gt;eller som i bildet ovenfor, hvor den samme pekeren ligger som første element i en tabell-variabel&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char a2 = *tabell_av_peker[0]&lt;/programlisting&gt;
+&lt;note&gt;
+&lt;title&gt;Databokser av ulik type&lt;/title&gt;
+&lt;simpara&gt;Ok, kjapp oppsummering igjen. En databoks har et navn og en type. Navnet bestemmer
+      vi som lager dataprogrammet. Typen er noe som er definert i programmeringsspråket. Vi
+      som programmerere velger hvilken type vi ønsker å bruke. En databoks ligger egentlig
+      lagret en plass i minnet. Vi har to måter å nå en databoks på. Enten ved å henvise til
+      navnet på databoksen, eller ved å bruke en peker som peker mot den adressen hvor databoksen ligger i minnet.&lt;/simpara&gt;
+&lt;/note&gt;
+&lt;simpara&gt;Dette er på mange måter kjernen i C-programmering. Det at vi kan programmere med pekere,
+som kan peke &lt;emphasis&gt;hvor som helst&lt;/emphasis&gt;, gir oss mange muligheter. På godt og ondt.&lt;/simpara&gt;
+&lt;simpara&gt;Tilbake til main -funksjonen vår. Der har vi at det første argumentet (&lt;emphasis&gt;int argument_antall&lt;/emphasis&gt;)
+angir antallet input -argumenter, og det andre argumentet (&lt;emphasis&gt;char *argument_vektor[]&lt;/emphasis&gt;)
+er en tabell av pekere til tekst -strenger. Husk at en tekst -streng er en tabell av databokser av typen char.&lt;/simpara&gt;
+&lt;simpara&gt;Det betyr at om vi lager oss et program som heter &lt;emphasis&gt;a.exe&lt;/emphasis&gt;, som tar inn to tall som parametre, som vist her:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;a.exe 2 3&lt;/literallayout&gt;
+&lt;simpara&gt;vil &lt;emphasis&gt;argument_antall&lt;/emphasis&gt; og &lt;emphasis&gt;argument_vektor&lt;/emphasis&gt;, se slik ut:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;                      +---+
+int argument_antall = | 3 |
+                      +---+&lt;/literallayout&gt;
+&lt;literallayout class="monospaced"&gt;                          +-----+-----+-----+
+char *argument_vektor[] = | 032 | 040 | 048 |
+                          +-----+-----+-----+&lt;/literallayout&gt;
+&lt;simpara&gt;Hvor det tenkte, litt forenkla, dataminnet ser slik ut:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;+-----+---------+
+| …   |         |
++-----+---------+
+| 032 | ‘a.exe’ |
++-----+---------+
+| 040 |  ‘2’    |
++-----+---------+
+| 048 |  ‘3’    |
++-----+---------+
+| …   |         |
++-----+---------+&lt;/literallayout&gt;
+&lt;simpara&gt;Dette betyr at inne i main -funksjonen vet vi hvor mange argumenter som kommer inn,
+og vi vet hvordan vi kan plukke dem ut fra argument_vektor -variabelen.&lt;/simpara&gt;
+&lt;simpara&gt;Om jeg ønsker å vite hva programmet heter, kan jeg hente det ut slik;&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char *a = argv[0]&lt;/programlisting&gt;
+&lt;simpara&gt;Variablen &lt;emphasis&gt;a&lt;/emphasis&gt; vil nå peke mot strengen "a.exe". Det første tallet kan jeg hente ut slik:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char *b = argv[1];
+ int t1 = atoi(b);&lt;/programlisting&gt;
+&lt;simpara&gt;og det andre slik&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char *c = *argv[2];
+ int t2 = atoi(c);&lt;/programlisting&gt;
+&lt;simpara&gt;Husk på at det er tekst -strenger vi henter ut fra &lt;emphasis&gt;argument_vektor&lt;/emphasis&gt; -tabellen.
+Når det gjelder navnet til programmet, altså det første argumentet, så er det
+en tekststreng. Denne variabelen er grei. Men, når det gjelder de to tallene må
+vi gjøre om datatypen fra char til int. De databoksene vi får ut fra &lt;emphasis&gt;argument_vektor&lt;/emphasis&gt;
+ er databokser som inneholder en tekst -streng av tallene.
+Her kommer funksjonen ‘atoi()’ inn i bildet. Denne funksjonen omgjør en databoks som
+innholder en tekstrepresentasjon av et tall, om til en databoks som inneholder en
+heltallsrepresentasjon. atoi er et akronym for ascii-to-integer. Om den
+tekststrengen som sendes inn til atoi skulle vise seg å ikke innholde et tall, vil
+funksjonen retunere verdien null.&lt;/simpara&gt;
+&lt;simpara&gt;Jeg skal kjapt prøve å forklare litt hva ascii er:&lt;/simpara&gt;
+&lt;simpara&gt;&lt;emphasis&gt;American Standard Code for Information Interchange er en måte å kode bokstaver på.
+Husk på at en datamaskin egentlig bare kan forstå tall som er kodet i det binære tallsystemet,
+altså kun tallene; null og ett. Ved hjelp av tallene null og ett kan vi kontruere alle heltall,
+og vi kan lage systemer for å konstruere desimaltall. På samme måte må vi lage systemer for å
+representere tekst. Vi kan for eksempel si at desimal -tallet 65 skal bety bokstaven ‘A’.
+Det er nettopp det ascii definerer for oss, samt en rekke andre tegn og bokstaver.&lt;/emphasis&gt;&lt;/simpara&gt;
+&lt;simpara&gt;Når du skriver&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;char min_boks = ‘A’&lt;/literallayout&gt;
+&lt;simpara&gt;legger du &lt;emphasis&gt;egentlig&lt;/emphasis&gt; tallet 65 inn i denne boksen.&lt;/simpara&gt;
+&lt;simpara&gt;65 er ascii-verdien for stor ‘a’. Tilsvarende har vi at ascii -verdien for tegnet ‘2’
+er desimaltallet 50. Om vi ønsker å omgjøre teksten ‘2’ om til  tallet to, må vi
+bruke konverterings -funksjonen &lt;emphasis&gt;atoi&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Bottom line her er at du må gjøre om tekst-representasjonen av tallet til
+heltalls -representasjonen av tallet, og dette utføres ved hjelp av funksjonen &lt;emphasis&gt;atoi&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Nå skal vi ha et fiks ferdig &lt;emphasis&gt;C&lt;/emphasis&gt;-program som skal kunne legge samme to tall:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 6)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; int main(int argument_antall, char *argument_vektor[]) {</literallayout>
+<literallayout class="monospaced">if (argument_antall != 3){
+      return 0;
+   }</literallayout>
+<literallayout class="monospaced">char *a = argument_vektor[0];
+char *b = argument_vektor[1];
+char *c = argument_vektor[2];</literallayout>
+<literallayout class="monospaced">int t1 = atoi(b);
+int t2 = atoi(c);</literallayout>
+<literallayout class="monospaced">return t1 + t2;</literallayout>
+<literallayout class="monospaced"> }&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Legg merke til at jeg sjekker innholdet i databoksen &lt;emphasis&gt;argument_antall&lt;/emphasis&gt;. Om innholdet
+ikke er tallet 3, returnerer jeg tallet 0 for å indikere at brukeren har tastet
+inn feil antall argumenter.&lt;/simpara&gt;
+&lt;simpara&gt;Om innholdet er 3, henter jeg ut de tre argumentene og gjør om de to siste til heltall.
+Til slutt adderes disse, og summen blir returnert tilbake til terminalprogrammet.&lt;/simpara&gt;
+&lt;simpara&gt;Dette er faktisk et ganske fiks ferdig program, takket være den enkle sjekken helt i
+starten, hvor vi sjekker at antallet argumenter er 3 før vi går videre.&lt;/simpara&gt;
+&lt;simpara&gt;Prøv å ta bort denne sjekken, og kjør programmet ut noen inputparametre. Hva skjer?&lt;/simpara&gt;
+&lt;simpara&gt;(Det som skjer er at vi henter noen databokser; b og c, ut fra minne som &lt;emphasis&gt;ikke eksiterer&lt;/emphasis&gt;,
+eller ikke tilhører vårt program. Da vil programmet ganske sikkert feile.)&lt;/simpara&gt;
+&lt;simpara&gt;En lite problem med dette programmet, er at vi antageligvis bare kan
+returnere tall opp til 256, eller èn byte. Det vil si at om du legger sammen to tall
+hvor summer blir større en 256, vil det tallet som fremkommer på skjermen ikke være rett,
+siden du bare vil se den første byten av tallet. Dette har med å gjøre hvordan c-programmet
+vårt sender svaret tilbake til terminalprogrammet, og som nevnt så gjør vi det på en veldig minimalistisk måte nå.&lt;/simpara&gt;
+&lt;simpara&gt;Derfor skal vi innføre en kjekk liten funksjon som heter &lt;emphasis&gt;printf&lt;/emphasis&gt;. Denne lar oss selv
+skrive ut tallet på skjermen.  &lt;emphasis&gt;printf&lt;/emphasis&gt; er så grunnleggende for en rekke programmeringsspråk,
+at den har fått sin egen wiki-side på Internett. Dette kommer av at mange programmeringspråk
+har behov for å kunne skrive ut en tekststreng på skjermen. I tillegg til selve teksten,
+ønsker man som oftes å putte på andre datatyper, typisk tall, i samme slengen. Man formaterer
+teksten litt, før den skrives ut. Derav navnet &lt;emphasis&gt;printf&lt;/emphasis&gt;, som er en forkortelse for; “&lt;emphasis&gt;print formatert&lt;/emphasis&gt;”.&lt;/simpara&gt;
+&lt;simpara&gt;For å kunne bruke denne funksjonen må du skrive denne linja øverst i kodefila di:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;#include &amp;lt;stdio.h&amp;gt;&lt;/programlisting&gt;
+&lt;simpara&gt;På den måten forteller du til kompilatoren at du ønsker å bruke en funksjon som
+allerede eksisterer, og at definisjonen på denne ligger i ei fil som heter &lt;emphasis&gt;stdio.h&lt;/emphasis&gt;&lt;/simpara&gt;
+&lt;simpara&gt;Om du ønsker å skrive ut en enkel tekst ved help av &lt;emphasis&gt;printf&lt;/emphasis&gt;, kan du skrive&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;printf (“Hello world”);&lt;/programlisting&gt;
+&lt;simpara&gt;Om du ønsker å skrive ut en formatert tekst, må du inn med noen koder.
+Med &lt;emphasis&gt;formatert tekst&lt;/emphasis&gt; menes at man kan putte inn verdier som ligger i ulike databokser,
+inn i tekststrengen, før den skrives ut på skjermen. For eksempel, så har vi sett
+at det er mulig å lagre heltall i databokser av typen &lt;emphasis&gt;int&lt;/emphasis&gt;. Om vi ønsker å formatere
+verdien til en slik databoks, inn i en tekststreng, før denne skrives ut på skjermen,
+kan vi gjøre dette slik:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int min_boks = 123;</literallayout>
+<simpara>printf (“Verdien til databoksen min_boks er %d”, a);&lt;/programlisting&gt;
+&lt;simpara&gt;Dette vil resultere i følgende setning på skjermen:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;Verdien til databoksen min_boks er 123&lt;/literallayout&gt;
+&lt;simpara&gt;Legg merke til at på samme måte som main er en funksjon som tar inn to parametre,
+er også printf en funksjon som tar inn ulike parametre. I vårt tilfelle er disse parametrene en tekststreng og en databoks for heltall.&lt;/simpara&gt;
+&lt;simpara&gt;Funksjonen &lt;emphasis&gt;printf&lt;/emphasis&gt; er laget slik at den bytter ut ulike koder i tekststrengen,
+med verdien i de ulike variablene som kommer etter tekststrengen. For eksempel,
+om man setter inn denne koden; ‘%d’, så forventer &lt;emphasis&gt;printf&lt;/emphasis&gt; at det skal komme en
+variabel av typen &lt;emphasis&gt;int&lt;/emphasis&gt; like etter tekststrengen.&lt;/simpara&gt;
+&lt;simpara&gt;Det er mulig å definere flere variabler som skal formateres inn i tekststrengen.
+Det er bare å putte på, i rekker og rad:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; int a = 123;
+ int b = 456;
+ printf (“Verdien til a er %d og verdien til b er %d”, a, b);&lt;/programlisting&gt;
+&lt;simpara&gt;Dette vil resultere i følgende setning på skjermen:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;Verdien til a er 123 og verdien til b er 456&lt;/literallayout&gt;
+&lt;simpara&gt;Man kan bruke andre typer databokser, som for eksempel en tabell av chars, som
+vi kjenner som en streng. Da må vi bruke koden ‘%s’ som vist her:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 7)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; char a[] = “hei”;</simpara>
+<literallayout class="monospaced">int b = 2;
+int c = 3;
+int d = b + c;</literallayout>
+<literallayout class="monospaced"> printf (“a = %s b = %d c = %d d = %d”, a, b, c, d);&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Vi nærmer oss nå slutte på kapittelet “Innputt &amp;amp; utputt”, hvor vi hovedsakelig
+har tatt for oss egenskapene til funksjonen &lt;emphasis&gt;main&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;&lt;emphasis&gt;main&lt;/emphasis&gt; er funksjonen hvor et &lt;emphasis&gt;C&lt;/emphasis&gt;-program starter. Her kommer &lt;emphasis&gt;kallet&lt;/emphasis&gt; fra
+operativsystemet, og her kan det komme et sett med inputargumenter inn til
+programmet vårt. Vi har lært at i alle fall navnet til programmet kommer inn som
+argument. Det kan komme flere argumenter. Vi har også lært at &lt;emphasis&gt;main&lt;/emphasis&gt;-funksjonen
+kan returnere verdien til et heltall, tilbake til operativsystemet. Somregel
+brukes denne verdien til å indikere tilbake “&lt;emphasis&gt;hvordan det gikk&lt;/emphasis&gt;”; om programmet
+feilet, manglet noen inputargumenter etc.&lt;/simpara&gt;
+&lt;simpara&gt;Helt til slutt viser jeg et komplett eksempel som bruker alt dette.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 8)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;#include &amp;lt;stdio.h&amp;gt;</literallayout>
+<simpara>int main(int argc, char *argv[]) {</simpara>
+<literallayout class="monospaced">char *navn = argv[0];</literallayout>
+<literallayout class="monospaced">if (argc != 3) {
+    printf("\nBruk: %s t1 t2 \n", navn);
+    printf("\n      hvor t1 og t2 er to heltall ");
+    printf("som er &amp;gt; 0\n\n");
+    printf("Programmet adderer to tall og ");
+    printf("skriver summen ut paa skjermen.\n");
+    return 1;
+}</literallayout>
+<literallayout class="monospaced">char *a = argv[1];
+char *b = argv[2];</literallayout>
+<literallayout class="monospaced">int t1 = atoi(a);</literallayout>
+<literallayout class="monospaced">if (t1 == 0) {
+    printf("\nFeil: t1 maa vaere et heltall &amp;gt; 0\n");
+    return 1;
+}</literallayout>
+<literallayout class="monospaced">int t2 = atoi(b);</literallayout>
+<literallayout class="monospaced">if (t2 == 0) {
+    printf("\nFeil: t2 maa vaere et heltall &amp;gt; 0\n");
+    return 1;
+}</literallayout>
+<literallayout class="monospaced">int t3 = t1 + t2;
+printf ("Summen av %d og %d er %d\n", t1, t2, t3);</literallayout>
+<literallayout class="monospaced">return 0;</literallayout>
+<simpara>}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Utover det vi har lært tidligere, ser du at jeg har puttet inn en ny kode i
+“format-strengen” til &lt;emphasis&gt;printf&lt;/emphasis&gt;. Den nye koden er “\n” som forteller at &lt;emphasis&gt;printf&lt;/emphasis&gt; skal skrive ut et linjeskift (new line).&lt;/simpara&gt;
+&lt;simpara&gt;I tillegg sjekker jeg returverdien til funksjonen &lt;emphasis&gt;atoi&lt;/emphasis&gt;. Om denne er null, er det
+en viss sannsynlighet for at brukeren ikke har oppgitt et heltall. Han eller hun har i
+alle fall ikke oppgitt et heltall som er større enn null, derfor bør man skrive
+ut ei feilmelding når det skjer.&lt;/simpara&gt;
+&lt;simpara&gt;Ta gjerne å eksperimenter med denne kode. Lag et program som kan multiplisere to
+tall. Lag  også et program som kan dividere, dvs at t1 blir divident og t2 blir divisor.
+Prøv også å skriv ut en litt annen tekst, i starten og slutten av programmet. Jobb litt
+med denne koden. Om du synes dette var mye rart å forholde seg til, så kan jeg
+trøste deg med at det blir egentlig ikke noe særlig mer komplisert enn dette.&lt;/simpara&gt;
+&lt;/section&gt;
+&lt;/chapter&gt;
+&lt;chapter xml:id="_flytkontroll"&gt;
+&lt;title&gt;Flytkontroll&lt;/title&gt;
+&lt;simpara&gt;Nå skal vi se litt på flytkontrollkommandoer. Vi har tidligere snakket om
+databokser, som vi kan se på som beholdere av ulike typer data. Nå skal vi ta for
+oss hvordan innholdet i disse databoksene, kan være med på å bestemme hva som
+skal skje i et dataprogram. Eller sagt på en annen måte; hvordan verdien til en
+variabel, er med på å bestemme flyten i programmet.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;Læringsmål&lt;/title&gt;
+&lt;para&gt;
+&lt;screen&gt; - kommandoen; if else
+ - kommandoen; for
+ - kommandoen; while&lt;/screen&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Vi har allerede truffet på &lt;emphasis&gt;if&lt;/emphasis&gt; (hvis).&lt;/simpara&gt;
+&lt;simpara&gt;Hvis “&lt;emphasis&gt;et eller annet&lt;/emphasis&gt;”, så “&lt;emphasis&gt;gjør et eller annet&lt;/emphasis&gt;”. For eksempel:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;Databoks b = 3
+Hvis b er lik 3, så avslutt programmet.&lt;/literallayout&gt;
+&lt;simpara&gt;Uttrykt i form av C-kode:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int b = 3;
+if (b == 3) { return 0; }&lt;/programlisting&gt;
+&lt;note&gt;
+&lt;simpara&gt;Legg merke til at når vi skal tilordne verdien 3 til variabelen &lt;emphasis&gt;b&lt;/emphasis&gt;, så bruker
+      vi ett likhetstegn, mens når vi skal sjekke om en variabel er lik en verdi,
+      bruker vi to likhetstegn etter hverandre.&lt;/simpara&gt;
+&lt;/note&gt;
+&lt;simpara&gt;Når man har en &lt;emphasis&gt;hvis&lt;/emphasis&gt;, har man ofte også en &lt;emphasis&gt;hvis ikke&lt;/emphasis&gt;, som kan kalles &lt;emphasis&gt;ellers&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;screen&gt; if (  ‘et eller annet’  )  {</simpara>
+<literallayout class="monospaced">‘gjør dette’</literallayout>
+<literallayout class="monospaced">} else {</literallayout>
+<literallayout class="monospaced">‘ellers gjør dette’</literallayout>
+<literallayout class="monospaced"> }&lt;/screen&gt;
+&lt;simpara&gt;Innholdet i ‘&lt;emphasis&gt;et eller annet&lt;/emphasis&gt;’ vil være et logiskt uttrykk som evalurerer til
+sant eller ikke sant. Hvor sant = 1 og usant = 0.&lt;/simpara&gt;
+&lt;simpara&gt;Tenk deg at vi oppretter to databokser av typen heltall, som vi kan kalle
+for &lt;emphasis&gt;a&lt;/emphasis&gt; og &lt;emphasis&gt;b&lt;/emphasis&gt;, og plasserer heltallene 2 og 3 oppi disse, slik:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int a = 2;
+int b = 3;&lt;/programlisting&gt;
+&lt;simpara&gt;Deretter oppretter vi en tom databoks av typen heltall, som vi kaller for c, slik:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int c;&lt;/programlisting&gt;
+&lt;simpara&gt;Nå kan vi lage ulike logiske uttrykk hvor vi bruker &lt;emphasis&gt;a&lt;/emphasis&gt; og &lt;emphasis&gt;b&lt;/emphasis&gt;. Basert på om disse
+logiske uttrykkene evaluerer til ‘&lt;emphasis&gt;sant&lt;/emphasis&gt;’ eller ‘&lt;emphasis&gt;usant&lt;/emphasis&gt;’, kan vi legge ulike
+verdier i variabelen c.&lt;/simpara&gt;
+&lt;simpara&gt;Eksempler på ulike logiske uttrykk vi kan konstruere:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;Er a lik b?          --&amp;gt; evalurerer til ‘usant’.
+Er a ulik b?         --&amp;gt; evalurerer til ‘sant’.
+Er a større enn b?   --&amp;gt; evalurerer til ‘usant’.
+Er a mindre enn b?   --&amp;gt; evalurerer til ‘sant’.&lt;/literallayout&gt;
+&lt;simpara&gt;Om vi putter på “litt C-kode” kan vi skrive det slik&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;Er a lik b?        --&amp;gt; if (a == b) --&amp;gt; evalurerer til ‘usant’ --&amp;gt; 0
+Er a ulik b?       --&amp;gt; if (a != b) --&amp;gt; evalurerer til ‘sant’  --&amp;gt; 1
+Er a større enn b? --&amp;gt; if (a &amp;gt; b)  --&amp;gt; evalurerer til ‘usant’ --&amp;gt; 0
+Er a mindre enn b? --&amp;gt; if (a &amp;lt; b)  --&amp;gt; evalurerer til ‘sant’  --&amp;gt; 1&lt;/literallayout&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; int a = 1;
+ int b = 2;
+ int c;</literallayout>
+<literallayout class="monospaced"> if (a &amp;gt; b) {
+   c = 3;
+ } else {
+   c = 4;
+ }&lt;/programlisting&gt;
+&lt;simpara&gt;Hvilken verdi har &lt;emphasis&gt;c&lt;/emphasis&gt;? 3 eller 4?&lt;/simpara&gt;
+&lt;simpara&gt;Vi ser at dette egentlig er ganske likt ting og tang vi kjenner fra matematikken.
+Det er ikke så rart, siden logikk er ei gren av matematikken. Når vi regner med
+bokstaver i matematikken kaller vi det for algebra. Innenfor programmering bruker
+vi noe som heter boolsk algebra. Da regner vi med uttrykk, eller regnestykker om du vil,
+som evaluerer til ‘&lt;emphasis&gt;sant&lt;/emphasis&gt;’ eller ‘&lt;emphasis&gt;usant&lt;/emphasis&gt;’.&lt;/simpara&gt;
+&lt;simpara&gt;Jeg skal prøve å konkretisere dette med noen eksempler.&lt;/simpara&gt;
+&lt;simpara&gt;Innen vanlig algebra har du at om a = 3 og b = 3, så er a = b &lt;emphasis&gt;sant&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;I boolsk algebra opererer vi kun med ‘&lt;emphasis&gt;sant&lt;/emphasis&gt;’ eller ‘&lt;emphasis&gt;ikke sant&lt;/emphasis&gt;’. Det betyr i
+praksis at det som ikke er sant, må være usant. Om a = 1 (‘&lt;emphasis&gt;sant&lt;/emphasis&gt;’) og b = 0 (‘&lt;emphasis&gt;usant&lt;/emphasis&gt;’)
+så er a != b &lt;emphasis&gt;sant&lt;/emphasis&gt;. (!= betyr &lt;emphasis&gt;ikke lik&lt;/emphasis&gt;.) Det vil si at uttrykket ‘a er ikke lik b’ er &lt;emphasis&gt;sant&lt;/emphasis&gt;. Vi kan
+putte tegnet ‘!’ foran et boolsk uttrykk for å invertere det, det vil si gjøre et
+&lt;emphasis&gt;sant&lt;/emphasis&gt; uttrykk &lt;emphasis&gt;usant&lt;/emphasis&gt; og vise versa. !a = b, blir da for eksempel &lt;emphasis&gt;sant&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Det er kanskje ikke så lurt å dra dette for langt her? Dette er bare et tankesett
+som må øves inn. For noen kommer dette lettere enn for andre. Uansett er det bare
+litt øving som skal til, så skjønner du dette.&lt;/simpara&gt;
+&lt;simpara&gt;I tillegg til flyt-kontroll-komandoen ‘&lt;emphasis&gt;hvis&lt;/emphasis&gt;’, har vi kommandoen ‘&lt;emphasis&gt;mens&lt;/emphasis&gt;’ eller
+‘&lt;emphasis&gt;så lenge&lt;/emphasis&gt;’.&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;Databoks b = 10
+Så lenge b er større enn 10, trekk 1 fra b.&lt;/literallayout&gt;
+&lt;simpara&gt;I form av &lt;emphasis&gt;C&lt;/emphasis&gt;-kode:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 9)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int b = 10;</literallayout>
+<simpara>while ( b &gt; 0 ) {</simpara>
+<literallayout class="monospaced">b = b - 1;</literallayout>
+<simpara>}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;En slik flyt-kontroll-kommando definerer hva vi kaller for &lt;emphasis&gt;ei løkke&lt;/emphasis&gt; eller &lt;emphasis&gt;en loop&lt;/emphasis&gt;.
+Programmet ovenfor vil gå i ei løkke med 10 iterasjoner, hvor den for hver iterasjon
+trekker 1 fra databoksen &lt;emphasis&gt;b&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Disse to kommandoene; &lt;emphasis&gt;if&lt;/emphasis&gt; og &lt;emphasis&gt;while&lt;/emphasis&gt;, styrer flyten i programmet. Et
+dataprogram er bare en veldig detaljert beskrivelse av hvordan man skal endre på
+innholdet i ulike variabler. Det finnes en del flere slike kontrollkommandoer,
+men &lt;emphasis&gt;if&lt;/emphasis&gt; og &lt;emphasis&gt;while&lt;/emphasis&gt; er i særklasse mest brukt. Kanskje bortsett fra en
+kommando som er mye brukt for &lt;emphasis&gt;å løpe&lt;/emphasis&gt; gjennom en tabell?&lt;/simpara&gt;
+&lt;simpara&gt;Mange ganger har man bruk for å gjøre ei beregning på en tabell
+av data. Om man for eksempel ønsker å gjøre en streng med tekst, om til å kun bestå av
+store bokstaver, kan man skrive noe slikt som dette:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 10)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;</simpara>
+<simpara>int main() {</simpara>
+<literallayout class="monospaced">char tekst[] = "Dette er en tekst.";</literallayout>
+<literallayout class="monospaced">int i;
+for(i=0;i&amp;lt;17; i=i+1) {
+    tekst[i]=toupper(tekst[i]);
+}</literallayout>
+<literallayout class="monospaced">printf("%s",tekst);</literallayout>
+<literallayout class="monospaced">    return 0;
+}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Det eneste som er helt nytt i koden ovenfor, er:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt; for(i=0;i&amp;lt;17; i=i+1) { }&lt;/programlisting&gt;
+&lt;simpara&gt;for-løkke-kommandoen består av tre deler, adskilt med semikolon. Den første delen
+initialiserer en teller, den andre delen sjekker innholdet i telleren mot en
+grenseverdi, og den tredje delen endrer på telleren for hver iterasjon i løkka.&lt;/simpara&gt;
+&lt;simpara&gt;Derfor er for -løkka mye bruke når man har behov for å gjøre en operasjon på hvert
+element i en tabell. &lt;emphasis&gt;while&lt;/emphasis&gt; og &lt;emphasis&gt;for&lt;/emphasis&gt; gjør mer eller mindre det samme, og de kan
+ofte brukes om hverandre.&lt;/simpara&gt;
+&lt;simpara&gt;&lt;emphasis&gt;if&lt;/emphasis&gt;, &lt;emphasis&gt;while&lt;/emphasis&gt; og &lt;emphasis&gt;for&lt;/emphasis&gt; brukes til å styre flyten i et c-program. Basert på
+innholdet i en eller flere databokser, kan vi bruke disse kommandoen til å
+bestemme hva som skal skje videre i programmet.&lt;/simpara&gt;
+&lt;/chapter&gt;
+&lt;chapter xml:id="_struktur"&gt;
+&lt;title&gt;Struktur&lt;/title&gt;
+&lt;simpara&gt;Her skal vi se på hvordan vi kan dele opp et program i flere deler. Det å lage
+et dataprogram er egentlig å løse et problem eller en oppgave. Problemet løses
+som regel, ved å dele hovedproblemet opp i mindre mindre deler som løses hver for seg.
+I &lt;emphasis&gt;C&lt;/emphasis&gt; gjøres dette ved å lage nye funksjoner, som kalles opp fra &lt;emphasis&gt;main&lt;/emphasis&gt;-funksjonen.
+Disse ulike funksjonene settes sammen i hva vi kan kalle for en struktur eller et
+design, derfor valgte jeg å kalle dette kapitlet for &lt;emphasis&gt;struktur&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;Læringsmål&lt;/title&gt;
+&lt;para&gt;
+&lt;screen&gt; - hvordan dele opp et program i flere funksjoner.&lt;/screen&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Vi fortsetter med programmet vårt, som legger sammen to tall. Vi kan si at det å
+legge sammen to tall består av tre momenter;&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;-først oppgir vi de to tallene
+-deretter utføres det ei beregning, hvor tallene summeres
+-og til slutt skal summen presenteres.&lt;/literallayout&gt;
+&lt;simpara&gt;Vi har allerede brukt funksjonene &lt;emphasis&gt;atoi&lt;/emphasis&gt; og &lt;emphasis&gt;printf&lt;/emphasis&gt;. Dette er funksjoner som
+har utført ganske kompliserte oppgaver for oss. (&lt;emphasis&gt;atoi&lt;/emphasis&gt; = ascii to interger,
+&lt;emphasis&gt;printf&lt;/emphasis&gt; = print formatted) På sammen måte kan vi dele vårt problem opp i
+funksjoner som vi lager selv. For eksempel kan vi lage en funksjon, som legger
+sammen to tall, slik som dette:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 11)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;#include &amp;lt;stdio.h&amp;gt;</literallayout>
+<simpara>int min_funksjon(int a, int b) {</simpara>
+<literallayout class="monospaced">return a+b;</literallayout>
+<simpara>}</simpara>
+<simpara>int main() {</simpara>
+<literallayout class="monospaced">int c = min_funksjon(2,3);</literallayout>
+<literallayout class="monospaced">printf(“c=%d”,c);</literallayout>
+<literallayout class="monospaced">return 0;</literallayout>
+<simpara>}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Det er ikke noen forskjell mellom de funksjonene som allerede finnes i &lt;emphasis&gt;C&lt;/emphasis&gt;, og
+de funksjonene vi lager selv. Det eneste vi må huske på er at funksjonen vi
+lager selv, må være deklarert ovenfor, eller forann, main-funksjonen, som
+vist ovenfor.&lt;/simpara&gt;
+&lt;simpara&gt;Nedenfor er et litt større eksempel. Her har jeg laget tre funksjoner; en for å
+lese inn data, en for å utføre beregningen, og en for å skrive ut resultatet.
+I tillegg bruker jeg &lt;emphasis&gt;scanf&lt;/emphasis&gt;, som er en standard &lt;emphasis&gt;C&lt;/emphasis&gt;-funksjon for å lese inn data
+ fra tastaturet, samt &lt;emphasis&gt;printf&lt;/emphasis&gt; som vi kjenner fra før.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 12)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;#include &lt;stdio.h&gt;</simpara>
+<simpara>void min_innputt(char *tekst, int *data) {</simpara>
+<literallayout class="monospaced">printf("%s",tekst);
+scanf("%d",data);</literallayout>
+<simpara>}</simpara>
+<simpara>int min_beregning(int a, int b) {</simpara>
+<literallayout class="monospaced">return a+b;</literallayout>
+<simpara>}</simpara>
+<simpara>void min_utputt(int a, int b, int c) {</simpara>
+<literallayout class="monospaced">printf("%d + %d = %d\n",a,b,c);</literallayout>
+<simpara>}</simpara>
+<simpara>int main() {</simpara>
+<literallayout class="monospaced">int a,b,c;                              &lt;co xml:id="CO4-1"/&gt;</literallayout>
+<literallayout class="monospaced">min_innputt("Oppgi et tall, a: ",&amp;amp;a);   &lt;co xml:id="CO4-2"/&gt;
+min_innputt("Oppgi et tall, b: ",&amp;amp;b);   &lt;co xml:id="CO4-3"/&gt;</literallayout>
+<literallayout class="monospaced">c = min_beregning(a,b);                 &lt;co xml:id="CO4-4"/&gt;</literallayout>
+<literallayout class="monospaced">min_utputt(a,b,c);                      &lt;co xml:id="CO4-5"/&gt;
+return 0;</literallayout>
+<simpara>}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;calloutlist&gt;
+&lt;callout arearefs="CO4-1"&gt;
+&lt;para&gt;Definerer tre variabler/databokse for heltall.&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO4-2"&gt;
+&lt;para&gt;Ved hjelp av funksjonen &lt;emphasis&gt;min_innputt&lt;/emphasis&gt; leser vi inn en verdi i &lt;emphasis&gt;a&lt;/emphasis&gt;&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO4-3"&gt;
+&lt;para&gt;Ved hjelp av funksjonen &lt;emphasis&gt;min_innputt&lt;/emphasis&gt; leser vi inn en verdi i &lt;emphasis&gt;b&lt;/emphasis&gt;&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO4-4"&gt;
+&lt;para&gt;Ved hjelp av funksjonen &lt;emphasis&gt;min_beregning&lt;/emphasis&gt; kalkulerer vi: &lt;emphasis&gt;c = a + b&lt;/emphasis&gt;&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO4-5"&gt;
+&lt;para&gt;Ved hjelp av funksjonen &lt;emphasis&gt;min_utputt&lt;/emphasis&gt; skriver vi ut &lt;emphasis&gt;c&lt;/emphasis&gt; til skjerm.&lt;/para&gt;
+&lt;/callout&gt;
+&lt;/calloutlist&gt;
+&lt;simpara&gt;Vi skal ta for oss hver funksjon, og se nærmere på hva den gjør.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;Funksjonen &lt;emphasis&gt;main()&lt;/emphasis&gt;&lt;/title&gt;
+&lt;para&gt;Dette er vår gode gamle &lt;emphasis&gt;main&lt;/emphasis&gt;-funksjon. Her starter programmet. Det første
+som skjer er at vi definerer tre variabler. Deretter bruker vi tre
+funksjoner for å utføre det vi ønsker å gjøre. Til slutt returnerer vi tallet null
+tilbake til operativsystmet.&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;Funksjonen &lt;emphasis&gt;min_beregning()&lt;/emphasis&gt;&lt;/title&gt;
+&lt;para&gt;Funksjonen tar inn to tall, og returnerer med summen av disse.&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;Funksjonen &lt;emphasis&gt;min_utputt()&lt;/emphasis&gt;&lt;/title&gt;
+&lt;para&gt;Funksjonen tar inn tre heltall; a, b, c. Ved hjelp av funksjonen &lt;emphasis&gt;printf&lt;/emphasis&gt; flettes
+disse tallene inn i en formatert tekststreng, og skrives ut på skjermen.&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;Funksjonen &lt;emphasis&gt;min_innputt()&lt;/emphasis&gt;&lt;/title&gt;
+&lt;para&gt;Dette er kanskje den mest avanserte funksjonen, siden den tar inn to pekere. En peker
+er som nevnt en spesiell type variabel, som inneholder minneadressen til den aktuelle
+databoksen.&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Den første pekeren inneholder adressen til en &lt;emphasis&gt;char&lt;/emphasis&gt;-variabel. Og som
+nevnt, så består en tekststreng av en rekke &lt;emphasis&gt;char&lt;/emphasis&gt;-variabler etter hverandre, som avsluttes med
+tallet null. Dermed holder det for &lt;emphasis&gt;printf&lt;/emphasis&gt;-funksjonen å få inn en &lt;emphasis&gt;char&lt;/emphasis&gt;-peker til det
+første tegnet i strengen. &lt;emphasis&gt;printf&lt;/emphasis&gt; kan da bytte ut &lt;emphasis&gt;%s&lt;/emphasis&gt; med strengen som &lt;emphasis&gt;test&lt;/emphasis&gt; peker på.&lt;/simpara&gt;
+&lt;screen&gt; char *p = "en streng"</simpara>
+<literallayout class="monospaced">             0   1   2   3   4   5   6   7   8   9
+           +---+---+---+---+---+---+---+---+---+---+
+char *p =&amp;gt; | e | n |   | s | t | r | e | n | g | 0 |
+           +---+---+---+---+---+---+---+---+---+---+</literallayout>
+<literallayout class="monospaced"> char *p vil innholde minneadressen til 'e'&lt;/screen&gt;
+&lt;simpara&gt;Bare for å øke forvirrelsen ytterligere rundt det med &lt;emphasis&gt;char&lt;/emphasis&gt;-pekere, så kan det nevnes her
+at vi kunne brukt en vanlig tabell av &lt;emphasis&gt;char&lt;/emphasis&gt; også. Da måtte funksjonen sett slik ut:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;void min_innputt(char tekst[], int *data) {
+   printf("%s",tekst);
+   scanf("%d",data);
+}&lt;/literallayout&gt;
+&lt;simpara&gt;Dette kommer av at for oss, her og nå, så er dette det samme:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;char *p = "en streng"
+char p[] = "en strenng"&lt;/literallayout&gt;
+&lt;simpara&gt;men, egentlig blir strengen lagret på litt ulikt vis. Men, som sagt, for oss har det
+ingen praktisk betyning.&lt;/simpara&gt;
+&lt;simpara&gt;Den neste pekeren som kommer inn til funksjonen &lt;emphasis&gt;min_innputt&lt;/emphasis&gt;, er en peker til en
+heltallsvariabel, kalt data. I dette tilfellet har vi ikke noe valg, vi må sende inn
+en peker. Grunnen til dette er at funksjonen &lt;emphasis&gt;scanf&lt;/emphasis&gt; skal lagre et heltall på denne
+adressen. På den måten kan andre funksjone senere hente ut innholdet som gjemmer seg
+bak denne adressen. Her ligger på sett og vis litt av essensen, eller kjernen, i &lt;emphasis&gt;C&lt;/emphasis&gt;-programmering
+gjemt. Men, det kan være litt vanskelig å forstå, så jeg skal prøve å ta det stegvis.&lt;/simpara&gt;
+&lt;simpara&gt;I hovedfunksjonen &lt;emphasis&gt;main&lt;/emphasis&gt; blir det opprettet en variabel, kalt &lt;emphasis&gt;a&lt;/emphasis&gt;. Denne har en
+type, en verdi og en adresse. Typen er &lt;emphasis&gt;int&lt;/emphasis&gt;. Verdien er i utgangspunktet en vilkårlig verdi.
+Men, adressen er fast. Vi kan for eksempel si at adressen er 1234.&lt;/simpara&gt;
+&lt;simpara&gt;Når vi skriver &lt;emphasis&gt;&amp;amp;a&lt;/emphasis&gt; henter vi ut adressen til variabelen. Denne adressen lagrer vi i en
+peker. Husk at:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;int a;
+int *peker_til_a = &amp;amp;a;&lt;/literallayout&gt;
+&lt;simpara&gt;Det er denne pekeren som kommer som innput til funksjonen &lt;emphasis&gt;min_innputt&lt;/emphasis&gt;. Når vi har
+denne adressen, kan vi bruke den til å lagre en heltallsverdi på denne adressen. Det
+er nettopp det som skjer i funksjonen &lt;emphasis&gt;scanf&lt;/emphasis&gt;. Når funksjonen &lt;emphasis&gt;min_innputt&lt;/emphasis&gt; returnerer tilbake
+til hovedfunksjonen &lt;emphasis&gt;main&lt;/emphasis&gt;, vil innholdet i variabelen &lt;emphasis&gt;a&lt;/emphasis&gt; ha blitt endret. På grunn av at vi
+brukte en peker til en variabel, klarte vi å endre innholdet på denne.
+Altså innholdet i &lt;emphasis&gt;a&lt;/emphasis&gt; ble endret av funksjonen &lt;emphasis&gt;scanf&lt;/emphasis&gt;, som ble kalt opp av funksjonen
+&lt;emphasis&gt;min_innputt&lt;/emphasis&gt; som ble kalt opp av &lt;emphasis&gt;main&lt;/emphasis&gt;, hvor &lt;emphasis&gt;a&lt;/emphasis&gt; ble definert. Det er nettopp dette som
+er styrken ved å bruke pekere; man tar med seg en referanse til en variabel, og kan hent ut
+verdien og eller oppdatere denne, hvor som helst.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;Oppsummering&lt;/title&gt;
+&lt;para&gt;Nå har vi lært litt om databokser, også kalt for variabler, som vi bruker
+for å lagre data. Vi har lært at det er ulike typer data og vi har sett på
+heltall (kalt for &lt;emphasis&gt;int&lt;/emphasis&gt;) og tegn (kalt for &lt;emphasis&gt;char&lt;/emphasis&gt;). Vi har også sette på
+flyt-kontroll-kommandoer, som vi bruker for å styre flyten i programmet. Tre
+eksempler på kontrollkommandoer er &lt;emphasis&gt;if&lt;/emphasis&gt;, &lt;emphasis&gt;while&lt;/emphasis&gt; og &lt;emphasis&gt;for&lt;/emphasis&gt;. Disse styrer flyten i
+programmet, baset på innholdet i en eller flere databokser. Tilslutt har vi sett
+på hvordan vi kan dele et program opp i flere mindre program som vi kaller for
+funksjoner. Og vi har sett på hvordan vi kan bruke pekere for å dele på data
+mellom ulike funksjoner.&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Det å lære seg et programmeringsspråk er ganske likt det å lære seg et
+talespråk. Man må bruke språket, for å få det inn i
+fingrene. Derfor skal vi runde av dette kapitlet med et rikholdig eksempel. Dette
+eksempelet må du eksperimentere litt med selv. Det er et program
+hvor du kan velge mellom å addere eller multiplisere to tall. Det er bare litt mer avansert,
+enn eksempelet ovenfor, så jeg tror du skjønner hva som skjer. Prøv å gjør ulike
+endringer på dette programmet.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 13)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;string.h&amp;gt;</literallayout>
+<simpara>void min_input(char *tekst, int *data) {</simpara>
+<literallayout class="monospaced">printf("%s",tekst);
+scanf("%d",data);</literallayout>
+<simpara>}</simpara>
+<simpara>int meny() {</simpara>
+<literallayout class="monospaced">int valg;
+int valg_ok = 0;</literallayout>
+<literallayout class="monospaced">while (valg_ok == 0) {</literallayout>
+<literallayout class="monospaced">printf("\nVelg 1 for aa avslutte\n");
+printf("Velg 2 for aa legge sammen to tall, a + b\n");
+printf("Velg 3 for aa multiplisere to tall, a x b\n");
+printf("\n");</literallayout>
+<literallayout class="monospaced">min_input("Velg:",&amp;amp;valg);</literallayout>
+<literallayout class="monospaced">if (valg == 1 || valg == 2 || valg == 3) {</literallayout>
+<literallayout class="monospaced">return valg;</literallayout>
+<literallayout class="monospaced">} else {</literallayout>
+<literallayout class="monospaced">printf("Ugyldig valg, velg 1, 2 eller 3\n");</literallayout>
+<literallayout class="monospaced">    }
+}</literallayout>
+<simpara>}</simpara>
+<simpara>int min_beregning(int a, int b, int type) {</simpara>
+<literallayout class="monospaced">if (type == 2) {</literallayout>
+<literallayout class="monospaced">return a+b;</literallayout>
+<literallayout class="monospaced">} else if (type == 3) {</literallayout>
+<literallayout class="monospaced">return a*b;</literallayout>
+<literallayout class="monospaced">} else {</literallayout>
+<literallayout class="monospaced">return 0;</literallayout>
+<literallayout class="monospaced">}</literallayout>
+<simpara>}</simpara>
+<simpara>void min_output(int a, int b, int c, int type) {</simpara>
+<literallayout class="monospaced">char t;</literallayout>
+<literallayout class="monospaced">if (type == 2) {</literallayout>
+<literallayout class="monospaced">t = '+';</literallayout>
+<literallayout class="monospaced">} else if (type == 3) {</literallayout>
+<literallayout class="monospaced">t = '*';</literallayout>
+<literallayout class="monospaced">}</literallayout>
+<literallayout class="monospaced">printf("\n%d %c %d = %d\n",a,t,b,c);</literallayout>
+<simpara>}</simpara>
+<simpara>int main() {           &lt;co xml:id="CO5-1"/&gt;</simpara>
+<literallayout class="monospaced">int a,b,c,v;       &lt;co xml:id="CO5-2"/&gt;</literallayout>
+<literallayout class="monospaced">while (1) {        &lt;co xml:id="CO5-3"/&gt;</literallayout>
+<literallayout class="monospaced">v = meny();    &lt;co xml:id="CO5-4"/&gt;</literallayout>
+<literallayout class="monospaced">if (v == 1)    &lt;co xml:id="CO5-5"/&gt;
+    return 0;</literallayout>
+<literallayout class="monospaced">min_input("\nOppgi et tall, a: ",&amp;amp;a);  &lt;co xml:id="CO5-6"/&gt;
+min_input("Oppgi et tall, b: ",&amp;amp;b);    &lt;co xml:id="CO5-7"/&gt;</literallayout>
+<literallayout class="monospaced">c = min_beregning(a,b,v); &lt;co xml:id="CO5-8"/&gt;</literallayout>
+<literallayout class="monospaced">min_output(a,b,c,v);      &lt;co xml:id="CO5-9"/&gt;</literallayout>
+<literallayout class="monospaced">}</literallayout>
+<simpara>}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;calloutlist&gt;
+&lt;callout arearefs="CO5-1"&gt;
+&lt;para&gt;Her starter programmet.&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO5-2"&gt;
+&lt;para&gt;Fire databokser som kan inneholde heltatt, defineres.&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO5-3"&gt;
+&lt;para&gt;Her går vi inn i en evigvarende løkke. 1 er alltid &lt;emphasis&gt;sant&lt;/emphasis&gt; :-)&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO5-4"&gt;
+&lt;para&gt;Funksjonen &lt;emphasis&gt;meny&lt;/emphasis&gt; kalles opp, og returnerer med en verdi som legges i &lt;emphasis&gt;v&lt;/emphasis&gt;&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO5-5"&gt;
+&lt;para&gt;Om denne verdien er lik 1, avslutter vi vårt program.&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO5-6"&gt;
+&lt;para&gt;Funksjonen &lt;emphasis&gt;min_innputt&lt;/emphasis&gt; kalles opp, med to parametre.&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO5-7"&gt;
+&lt;para&gt;Funksjonen &lt;emphasis&gt;min_innputt&lt;/emphasis&gt; kalles opp, med to andre parametre.&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO5-8"&gt;
+&lt;para&gt;Funksjonen &lt;emphasis&gt;min_beregning&lt;/emphasis&gt; kalles opp, med tre parametre.&lt;/para&gt;
+&lt;/callout&gt;
+&lt;callout arearefs="CO5-9"&gt;
+&lt;para&gt;Funksjonen &lt;emphasis&gt;min_utputt&lt;/emphasis&gt; kalles opp, med fire parametre.&lt;/para&gt;
+&lt;/callout&gt;
+&lt;/calloutlist&gt;
+&lt;/chapter&gt;
+&lt;chapter xml:id="_moduler"&gt;
+&lt;title&gt;Moduler&lt;/title&gt;
+&lt;simpara&gt;Hittil har vi sett på det mest grunnleggende rundt &lt;emphasis&gt;C&lt;/emphasis&gt;-programmering. Men, allerede
+har vi erfart at det fort blir mange slike variabler og funksjoner. Hvor mange variabler
+og funksjoner som må opprettes, er en av mange vurderinger som må gjøres når man
+lager et dataprogram. Hva skal de ulike variablene hete? Hva skal de inneholde
+av data? Hvilke funksjoner trenger vi for å utføre de beregningene som må til for
+at programmet vårt skal gjøre det vi ønsker? Alt dette blir raskt komplekst. Derfor
+handler mye omkring programmering å finne ulike teknikker for å handtere kompleksitet.
+ Det finnes det en rekke metoder og strategier for å
+handtere denne kompleksiteten. En metode er å dele koden opp i ulike moduler
+med hensyn til hvilke variabler som er synlige.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;Læringsmål&lt;/title&gt;
+&lt;para&gt;
+&lt;screen&gt; - lære hva scope er&lt;/screen&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;section xml:id="_scope"&gt;
+&lt;title&gt;Scope&lt;/title&gt;
+&lt;simpara&gt;Et triks for å handtere kompleksitet er å innføre begrepet; &lt;emphasis&gt;scope&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Hva er &lt;emphasis&gt;scope&lt;/emphasis&gt;?&lt;/simpara&gt;
+&lt;simpara&gt;&lt;emphasis&gt;scope&lt;/emphasis&gt; er det området du ser, eller noe er synlig innenfor. Dette begrepet er
+relevant når vi snakker om variabler. Når du lager et
+dataprogram av en viss størrelse, vil du etterhvert opprette mange variabler.
+Disse variablene må ha sitt unike navn. Så hvordan fikser vi det?&lt;/simpara&gt;
+&lt;simpara&gt;Tenk deg en adresse. Tenk deg at du har gateadressen; &lt;emphasis&gt;“Hjemvegen 123”&lt;/emphasis&gt;. Dette er
+ikke en veldig unik adresse. Antageligvis er det mange andre som har
+samme adressen, bare andre steder. De har samme adressen, bare med andre
+postnummer. Vi kan godt tenke oss at det for eksempel finnes to ulike postnummer,
+hvor denne gateadressen finnes:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;Hjemvegen 123
+1234 HER&lt;/literallayout&gt;
+&lt;literallayout class="monospaced"&gt;Hjemvegen 123
+5678 DER&lt;/literallayout&gt;
+&lt;simpara&gt;De to gateadressene ligger i to ulike &lt;emphasis&gt;scope&lt;/emphasis&gt;. To ulike synsfelt. To ulike områder.
+I hvert sitt synsfelt er de to gateadressene unike. Relatert til &lt;emphasis&gt;C&lt;/emphasis&gt; og
+variabler, blir bildet slik:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 14)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int funk() {
+    int hjemvegen123 = 1;
+    return hjemvegen123;
+}</simpara>
+<simpara>int main() {
+    int hjemvegen123 = 2;
+    printf(“%d %d”,hjemvegen123, funk());
+    return 0;
+}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Siden de to variablene ligger i to ulike &lt;emphasis&gt;scope&lt;/emphasis&gt;, kan de godt hete det samme. Det
+er likevel to unike variabler.&lt;/simpara&gt;
+&lt;simpara&gt;Klammeparantestegnene {} definerer et
+&lt;emphasis&gt;scope&lt;/emphasis&gt; i &lt;emphasis&gt;C&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Det betyr at vi kan lage konstruksjoner som dette&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 15)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int main() {
+    int hjemvegen123 = 2;
+    for (int i=0; i&lt;5; i=i+1) {
+        int hjemvegen123 = 3;
+        printf(“%d”,hjemvegen123);
+    }
+    printf(“%d”,hjemvegen123);
+    return 0;
+}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Dette vil resultere i utskrifta:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;333332&lt;/literallayout&gt;
+&lt;simpara&gt;Eller forklart i &lt;emphasis&gt;C&lt;/emphasis&gt; kode, i sin enkleste form&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 16)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int main() {
+    int a = 2;
+    {
+        int a = 3;
+        printf(“%d”,a);
+    }
+    printf(“%d”,a);
+    return 0;
+}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Dette vil resultere i utskrifta:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;32&lt;/literallayout&gt;
+&lt;simpara&gt;Vi styrer altså synligheten til de ulike variablene ved å definere ulike &lt;emphasis&gt;scope&lt;/emphasis&gt;. Jeg
+er klar over at dette kan virke litt rart akkurat nå. Men, årsaken til at jeg
+stresser dette, er at etter hvert vil vi kanskje ha tusenvis av slike variabler.
+Derfor er det viktig å vite hvordan vi handterer dette. Det å vite at en variabel
+kun er synlig innenfor sitt &lt;emphasis&gt;scope&lt;/emphasis&gt;, er fundamental kunnskap.&lt;/simpara&gt;
+&lt;simpara&gt;Vi har sett på disse typene &lt;emphasis&gt;scope&lt;/emphasis&gt; så langt:&lt;/simpara&gt;
+&lt;screen&gt; void funk()
+ {</simpara>
+<literallayout class="monospaced">‘dette er et scope, kalt f.eks A’</literallayout>
+<literallayout class="monospaced">}</literallayout>
+<literallayout class="monospaced">int main()
+{</literallayout>
+<literallayout class="monospaced">‘dette er et scope, kalt f.eks B’</literallayout>
+<literallayout class="monospaced">{</literallayout>
+<literallayout class="monospaced">‘dette er et scope, kalt f.eks C’</literallayout>
+<literallayout class="monospaced">}</literallayout>
+<literallayout class="monospaced">‘dette er et scope, kalt f.eks B’ (samme som B ovenfor)</literallayout>
+<literallayout class="monospaced"> }&lt;/screen&gt;
+&lt;simpara&gt;Dette er èn type &lt;emphasis&gt;scope&lt;/emphasis&gt;. De er alle definerte ved hjelp av
+klammeparanteser. Slike scope kan du definere hvor mange du vil.&lt;/simpara&gt;
+&lt;simpara&gt;Det finnes ytterligere to typer &lt;emphasis&gt;scope&lt;/emphasis&gt;; en type &lt;emphasis&gt;scope&lt;/emphasis&gt; som er global
+for hele programmet, og en type &lt;emphasis&gt;scope&lt;/emphasis&gt; som kun gjelder for den aktuelle kodefila &lt;footnote&gt;&lt;simpara&gt;kompileringsenhet; kodefila pluss headerfiler&lt;/simpara&gt;&lt;/footnote&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;La oss først ta det &lt;emphasis&gt;globale scopet&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;/section&gt;
+&lt;section xml:id="_globalt_scope"&gt;
+&lt;title&gt;Globalt scope&lt;/title&gt;
+&lt;simpara&gt;Legg merke til at alle variablene vi har definert så langt, har hele tiden
+vært definert mellom to klammeparanteser. Klammeparantesene har definert scopet
+til variabelen; enten ved å definere variabelen inne i en eller annen funksjon,
+eller ved å definere variabelen inne ei &lt;emphasis&gt;if&lt;/emphasis&gt;-blokk, &lt;emphasis&gt;while&lt;/emphasis&gt;-blokk eller &lt;emphasis&gt;for&lt;/emphasis&gt;-blokk.&lt;/simpara&gt;
+&lt;simpara&gt;Her kommer det snedige; om vi definerer en variabel utenfor ei slik blokk, blir
+variabelen hva vi kaller for &lt;emphasis&gt;global&lt;/emphasis&gt;. Det vil si at vi kan bruke den hvor som helst i
+programmet. Men, da må også navnet være unikt for hele programmet. Vi kan for
+eksempel ikke ha to globale variabler som vi kaller for &lt;emphasis&gt;‘a’&lt;/emphasis&gt;. Alle globale variabler
+må ha et unikt navn, siden de er; &amp;#8230;&amp;#8203; globale.&lt;/simpara&gt;
+&lt;simpara&gt;Dette er helt analogt til eksempelet med postadresser. Om vi ikke hadde hatt
+postnummer, så måtte alle gateadressene vært unike. Nedenfor er et eksempel som
+viser hvordan en global variabel fungerer:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 17)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;#include &amp;lt;stdio.h&amp;gt;</literallayout>
+<simpara>int a = 1;</simpara>
+<simpara>void funk1() {
+    printf("%d",a);
+}</simpara>
+<simpara>void funk2() {
+    int a = 2;
+    printf("%d",a);
+}</simpara>
+<simpara>int main() {
+    funk1();
+    funk2();
+    printf("%d",a);
+    {
+        int a=3;
+        printf("%d",a);
+    }
+    return 0;
+}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Dette programmet vil skrive ut&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;1213&lt;/literallayout&gt;
+&lt;simpara&gt;Legg merke til at den globale variablen &lt;emphasis&gt;a&lt;/emphasis&gt; blir bruke både i &lt;emphasis&gt;funk1&lt;/emphasis&gt; og i &lt;emphasis&gt;main&lt;/emphasis&gt;.
+Legg også merke til at den globale variabelen &lt;emphasis&gt;a&lt;/emphasis&gt; ikke er avgrenset av noen klammeparanteser.&lt;/simpara&gt;
+&lt;/section&gt;
+&lt;section xml:id="_statiske_variabler_kompileringsenhetsscope"&gt;
+&lt;title&gt;Statiske variabler (kompileringsenhetsscope)&lt;/title&gt;
+&lt;simpara&gt;Den tredje og siste, typen &lt;emphasis&gt;scope&lt;/emphasis&gt; vi skal se på, er relatert til noe som kalles
+statiske variabler.&lt;/simpara&gt;
+&lt;simpara&gt;En statisk variabel opprettes ved å skrive kommandoen
+&lt;emphasis&gt;static&lt;/emphasis&gt; forann variabeldefinisjonen. For å forstå hvordan dette er relatert
+til &lt;emphasis&gt;scope&lt;/emphasis&gt;, må vi først se litt på hvordan vi kan dele et &lt;emphasis&gt;C&lt;/emphasis&gt;-program opp i
+flere kodefiler.&lt;/simpara&gt;
+&lt;simpara&gt;Vi har sett at vi kan dele et programm opp i flere funksjoner. Alt starter i &lt;emphasis&gt;main&lt;/emphasis&gt;, og herfra
+kan vi kalle opp andre funksjoner, også funksjoner som vi lager selv. De funksjonene vi ikke
+selv har laget, har vi importert til programmet vårt ved hjelp av kodelinja:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;#include &lt;stdio.h&gt;&lt;/literallayout&gt;
+&lt;simpara&gt;En viktig strategi for å handtere kompleksiteten, er å dele koden opp i flere tekstfiler.
+På samme måte som de ulike innebygde funksjonene i &lt;emphasis&gt;C&lt;/emphasis&gt; ligger i ulike kodefiler, kan vi
+legge våre egene funksjoner i ulike kodefiler. På den måte kan vi få en viss oversikt
+og stuktur. Dette er helt avgjørende for å kunne lage store og omfattende program.
+De fleste programmeringsspråk støtter dette trikset for å håndtere kompleksitet, også &lt;emphasis&gt;C&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Så, hvordan går vi frem for å dele programmet vårt opp i flere filer?&lt;/simpara&gt;
+&lt;simpara&gt;For å forstå dette, må vi se litt nærmere på hvordan &lt;emphasis&gt;C&lt;/emphasis&gt;-kompilatoren omgjør vår kode til maskinkode.&lt;/simpara&gt;
+&lt;simpara&gt;Vi har allerde sett at vi kan inkludere andre filer i vår egen kodefil ved å skrive
+slikt som dette:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;#include &lt;stdio.h&gt;&lt;/literallayout&gt;
+&lt;simpara&gt;I &lt;emphasis&gt;stdio.h&lt;/emphasis&gt; vil deklareringen til f.eks &lt;emphasis&gt;printf&lt;/emphasis&gt;-funksjonen ligge. Selve koden, som vi
+kan kalle for definisjonen, ligger en annen plass, eller rettere i ei anna fil. Og nå
+er vi ved kjernen i noe som er litt sentralt i mange programeringsspråk; det er forskjell
+på &lt;emphasis&gt;å deklarere&lt;/emphasis&gt; noe og &lt;emphasis&gt;å definere&lt;/emphasis&gt; noe.&lt;/simpara&gt;
+&lt;simpara&gt;Jeg skal vise forskjellen med et konkret eksempel:&lt;/simpara&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int funk(int a, int b) {
+    int c = a + b;
+    return c;
+}</simpara>
+<simpara>int main() {
+    int a = funk(2,3);
+    printf(“%a”,d);
+    return 0;
+}&lt;/programlisting&gt;
+&lt;simpara&gt;Vi kjenner igjen dette oppsettet. Her definerer vi vår egen funksjon, som vi
+anvender i hovedfunksjonen &lt;emphasis&gt;main&lt;/emphasis&gt;. Vi vet også at om denne ikke ble plassert
+ovenfor &lt;emphasis&gt;main&lt;/emphasis&gt;, så vil kompilatoren feile med en eller annen feilmelding. (Prøv
+gjerne ut dette i praksis.)&lt;/simpara&gt;
+&lt;simpara&gt;Om jeg absolutt vil plassere den nye funksjonen nedenfor &lt;emphasis&gt;main&lt;/emphasis&gt;-funksjonen, må jeg &lt;emphasis&gt;deklarere&lt;/emphasis&gt;
+den nye funksjonen først. Dette må jeg gjøre for at kompilatoren skal kjenne igjen funksjonen,
+når den treffer på denne i &lt;emphasis&gt;main&lt;/emphasis&gt;. Måten vi gjør dette på, er som følger:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 18)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int funk(int a, int b);</simpara>
+<simpara>int main() {
+    int a = funk(2,3);
+    printf(“%a”,d);
+    return 0;
+}</simpara>
+<simpara>int funk(int a, int b) {
+    int c = a + b;
+    return c;
+}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Her har jeg deklarert &lt;emphasis&gt;signaturen&lt;/emphasis&gt; til funksjonen, slik at når kompilatoren kommer
+ned i &lt;emphasis&gt;main&lt;/emphasis&gt;-funksjonen og treffer på vår funksjon, så vet denne hva som kreves av
+innputt-parametre og hva som returneres. Legg merke til at kombinasjonen av returverdi, navn og
+inputverdier til en funksjon, alltid vil være unik. Derfor kaller vi dette
+for &lt;emphasis&gt;signaturen&lt;/emphasis&gt; til funksjonen. Selve &lt;emphasis&gt;definisjonen&lt;/emphasis&gt;, altså innholdet i funksjonen, kan
+nå kommer senere, dvs etter &lt;emphasis&gt;main-funksjonen&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Nå kan vi velge å lage to nye kodefiler. La oss kalle disse for &lt;emphasis&gt;funk.h&lt;/emphasis&gt; og &lt;emphasis&gt;funk.c&lt;/emphasis&gt;.
+I &lt;emphasis&gt;funk.h&lt;/emphasis&gt; legger vi &lt;emphasis&gt;deklarasjonen&lt;/emphasis&gt; av funksjonen. Og i &lt;emphasis&gt;funk.c&lt;/emphasis&gt; legger &lt;emphasis&gt;definisjonen&lt;/emphasis&gt;:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;funk.h&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int funk(int a, b);&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;funk.c&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int funk(int a, int b) {
+    int c = a + b;
+    return c;
+}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test.c (eksempel 19)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;#include &lt;stdio.h&gt; /* For printf <emphasis role="strong">/
+#include &lt;funk.h&gt;  /</emphasis> For funk */</simpara>
+<simpara>int main() {
+    int a = funk(2,3);
+    printf(“%d”,a);
+    return 0;
+}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;For å kompilere denne koden, må vi nå skrive:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;gcc -I . funk.c test.c&lt;/literallayout&gt;
+&lt;simpara&gt;hvor vi oppgir de to kodefilene våre, som nå er &lt;emphasis&gt;funk.c&lt;/emphasis&gt; og &lt;emphasis&gt;test.c&lt;/emphasis&gt;, samt at vi
+med parameteren “-I.” forteller kompilatoren at den skal lete etter &lt;emphasis&gt;“inklude-filer”&lt;/emphasis&gt; i samme
+katalog som vi starter kompilatoren i. En prikk, eller punkum, angir den filkatalogen
+du står i.&lt;/simpara&gt;
+&lt;simpara&gt;Ok, her ble det mye hokus pokus, og du bør egentlig nå lurer på hvorfor vi trenger
+alt dette styret. Det som engang var en ganske oversiktelig kode, er nå blitt en
+mye mikk makk, spredd over flere filer. Noe som igjen medfører at det å kompilere
+koden blir mer komplisert.&lt;/simpara&gt;
+&lt;simpara&gt;Åraken til at vi splitter opp programmet på denne måten,
+er for å kunne handtere kompleksitet.&lt;/simpara&gt;
+&lt;simpara&gt;Husk på at et dataprogram fort kan bli flere
+tusen linjer med kode, og dette bør vi stukturere i ulike filer for å holde en viss
+oversikt. Som regel plasserer vi funksjoner som hører sammen, i egne filer. På den
+måten får vi en struktur. Og det blir lettere å forstå hvordan koden henger sammen.&lt;/simpara&gt;
+&lt;simpara&gt;Et dataprogram består av mange deler. En god del av disse delene er kode som vi ikke
+har laget selv. Denne koden som andre har laget, kan vi benytte oss av i to former;
+enten som ren kodetekst, hvor vi selv kompilerer denne om til maskinkode, eller
+som binær-kode hvor koden allerede er kompilert om til maskinkode. For å forstå litt
+mer av denne prosessen må vi se litt nærmere på hva som skjer når vi kompilerer.&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;gcc -I . funk.c test.c&lt;/literallayout&gt;
+&lt;simpara&gt;Det som skjer ovenfor er egentlig to operasjoner. Først blir de to filene kompilert
+om til maskinkode, eller mer korrekt; objektfiler. Deretter blir de linket, satt sammen,
+til ei såkalt kjørbar fil, her kalt a.exe&lt;/simpara&gt;
+&lt;screen&gt; gcc -c funk.c
+ gcc -I. -c test.c
+ gcc funk.o test.o&lt;/screen&gt;
+&lt;simpara&gt;Som regel ønsker vi å gi et mer beskrivende navn til den kjørbare fila. Dette kan
+vi gjøre slik:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;gcc funk.o test.o -o mittprogram&lt;/literallayout&gt;
+&lt;simpara&gt;Dette vil produsere ei fil som heter mittprogram.exe&lt;/simpara&gt;
+&lt;simpara&gt;Det er viktig å vite at det å bygge et &lt;emphasis&gt;C&lt;/emphasis&gt;-program består av to steg: kompilering
+og linking. Når man kompilerer, gjør man ei kodefil (som kan bestå av flere filer
+vha “#include”) om til ei objektfil. Ei objektfil inneholder maskinkode for akkurat
+din type datamaskin. Deretter settes  objekt-filene sammen til ei kjørbar fil. Denne
+fila representerer programmet ditt.&lt;/simpara&gt;
+&lt;simpara&gt;Siden et program består av veldig mange kodelinjer, vil man ofte komme opp i
+situasjoner hvor det er lurt å gjennbruke eksisterende kode. Somregel er store
+deler av et programm nettopp slik gjenbruk av eksisterende koden, siden de aller
+fleste program har felles funksjonalitet i større eller mindre grad.&lt;/simpara&gt;
+&lt;simpara&gt;Om vi skulle ønske å gjenbruke den funksjonen som vi lagde ovenfor, hvordan skulle
+vi gå frem? Jo, vi har jo allerede lagt både deklarasjonen (funk.h) og koden (funk.c) i to
+egne filer. Alt vi
+trenger å gjøre er å lage en ny &lt;emphasis&gt;main&lt;/emphasis&gt;-funksjon. Dette kan vi gjøre ved å opprette
+ei fil som vi kaller for &lt;emphasis&gt;test2.c&lt;/emphasis&gt;&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test2.c&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;#include &lt;stdio.h&gt; /* For printf <emphasis role="strong">/
+#include &lt;funk.h&gt;  /</emphasis> For funk */</simpara>
+<simpara>int main() {
+    int a = funk(2,3);
+    printf(“Test 2 funk(2,3)=%d”,a);
+    return 0;
+}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Kompiler ditt nye program slik&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;gcc -I . -c test2.c&lt;/literallayout&gt;
+&lt;simpara&gt;Link ditt nye program, med vår gamle funksjon, som fortsatt ligger i &lt;emphasis&gt;funk.o&lt;/emphasis&gt; -fila, slik:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;gcc funk.o test2.o&lt;/literallayout&gt;
+&lt;simpara&gt;Du får nå få opprettet fila &lt;emphasis&gt;a.exe&lt;/emphasis&gt;. Om du kjører denne vil du få følgende ut på skjermen:&lt;/simpara&gt;
+&lt;literallayout class="monospaced"&gt;Test 2 funk(2,3)=5&lt;/literallayout&gt;
+&lt;simpara&gt;Det du nettopp utførte, var å gjenbruke et kodebibliotek kalt &lt;emphasis&gt;funk.o&lt;/emphasis&gt;.  Altså kode
+som eksiterte fra før. Vi kan gjerne kalle dette for en modul. Dette trikset gjør
+det mulig å bygge utrolig komplekse dataprogram, siden vi gjerne baserer oss på kode som andre har laget.&lt;/simpara&gt;
+&lt;simpara&gt;En ting er at du kan gjenbruke kode. Det er i seg selv lurt. Men, kanskje er den
+aller største gevinsten at du ikke trenger å vite hvordan innholdet i en modul er kodet.
+Du trenger bare å vite hvordan du skal bruke den. Dette gjør at du kan &lt;emphasis&gt;abstrahere&lt;/emphasis&gt; deg fra
+detaljer som ikke er relevant for din problemstilling.&lt;/simpara&gt;
+&lt;simpara&gt;Litt lengre ut i boka skal vi lage et enkelt spill. Her kommer vi til å ta i bruk et
+kodebibliotek som heter SDL (Simple Directmedia Layer). Dette kodebiblioteket vil ta seg
+av mye av jobben rundt det å vise grafikk på skjermen, samt det å motta innputt. Dermed
+kan vi abstrahere oss bort fra alle detaljene rundt dette.&lt;/simpara&gt;
+&lt;simpara&gt;Dette delkapitlet heter &lt;emphasis&gt;statiske variabler (kompileringsenhetsscope)&lt;/emphasis&gt;. Nå har vi nok
+grunnlag til å kunne forstå denne aller siste typen &lt;emphasis&gt;scope&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;simpara&gt;Vi husker at en variabel kunne ha forskjellige &lt;emphasis&gt;skope&lt;/emphasis&gt;. Dette skopet var i stor grad
+styrt av klammeparanteser. Innenfor et &lt;emphasis&gt;skope&lt;/emphasis&gt; måtte variabelnavnet
+være unikt. Om vi plassert en variabel på utsiden av enhver klammeparantes, ble den hva
+vi kaller en global variabel. Da kan du nå den, eller bruke den, i hele progammet, når
+som helst.&lt;/simpara&gt;
+&lt;simpara&gt;Det betyr i praksis, at om vi tar å definerer oss en global variabel i fila &lt;emphasis&gt;funk.c&lt;/emphasis&gt;, så vil
+den også kunne benyttes i kode som vi skriver i fila &lt;emphasis&gt;test2.c&lt;/emphasis&gt; Dette vil som regel
+ikke være ønskelig. I slike tilfeller vil man ofte ønske at den globale variablen kun
+skal være synlig for kode relatert til fila &lt;emphasis&gt;funk.c&lt;/emphasis&gt; For å få dette til, skriver man
+bare kommandoen &lt;emphasis&gt;static&lt;/emphasis&gt; forann variabelen eller funksjonen. Da vil skopet til den
+aktuelle variablen eller funkjonen, bli den aktuelle kodefila med
+tilhørende &lt;emphasis&gt;include&lt;/emphasis&gt;-filer.&lt;/simpara&gt;
+&lt;simpara&gt;Nå er vi inne på litt finurlige greier. Men, dette er viktig å kunne noe om, når man
+skal lage litt større dataprogram.&lt;/simpara&gt;
+&lt;simpara&gt;Jeg skal konkretisere dette trikset med et eksempel.&lt;/simpara&gt;
+&lt;simpara&gt;Tenk deg at vi har laget et kodebiliotek bestående av en funksjon. Funksjonen tar
+inn to tall og returnerer med et nytt tall mellom 0 og 100. Tallet som returneres
+angir sannsynligheten for at begge innputt-tallene inngår i neste ukes lottorekke.&lt;/simpara&gt;
+&lt;simpara&gt;Da vil &lt;emphasis&gt;funk.h&lt;/emphasis&gt; og &lt;emphasis&gt;funk.c&lt;/emphasis&gt; kunne se slik ut:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;funk.h&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;int funk(int a, int b);&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;funk.c (eksempel 19)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;static int hemmelig_funksjon(int a, int b) {
+    return 50;
+}</simpara>
+<simpara>int funk(int a, int b) {
+    int c = hemmelig_funksjon(a,b);
+}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Et program som benytter koden vår (eller vårt kodebilliotek) kan se slik ut:&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;test2.c (eksempel 20)&lt;/title&gt;
+&lt;para&gt;
+&lt;programlisting language="c" linenumbering="unnumbered"&gt;#include &lt;stdio.h&gt;
+#include &lt;funk.h&gt;</simpara>
+<simpara>int main() {
+    int a = funk(2,3);
+    printf(“%d”,a);
+    return 0;
+}&lt;/programlisting&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Det at jeg skriver &lt;emphasis&gt;static&lt;/emphasis&gt; forann funksjonen &lt;emphasis&gt;‘hemmelig_funskjon’&lt;/emphasis&gt;, gjør at
+denne blir usynlig for kode som er definert i &lt;emphasis&gt;test2.c&lt;/emphasis&gt;&lt;/simpara&gt;
+&lt;simpara&gt;Det igjen muligjør også at vi i &lt;emphasis&gt;test2.c&lt;/emphasis&gt;, kan lage vår egen funksjon som har akkurat
+samme signatur.&lt;/simpara&gt;
+&lt;simpara&gt;Dette trikset gjør at det blir vesentlig lettere å lage komplekse dataprogram, siden
+variabler og funksjoner kan ha sitt &lt;emphasis&gt;scope&lt;/emphasis&gt; innenfor en modul eller kodebibliotek.&lt;/simpara&gt;
+&lt;simpara&gt;I C++ og Java omtales slike variabler og funksjoner som &lt;emphasis&gt;“private&lt;/emphasis&gt;”, innenfor sin modul.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;Oppsummering&lt;/title&gt;
+&lt;para&gt;Årsaken til at vi har ulike &lt;emphasis&gt;scope&lt;/emphasis&gt;, er for å kunne handtere kompleksitet. Ved hjelp av
+&lt;emphasis&gt;scope&lt;/emphasis&gt; kan vi avgrense hvor en variabel er synling.&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;simpara&gt;Vi har tre ulike typer &lt;emphasis&gt;scope&lt;/emphasis&gt;:&lt;/simpara&gt;
+&lt;itemizedlist&gt;
+&lt;listitem&gt;
+&lt;simpara&gt;En variabel definert innenfor klammeparanteser, er i et &lt;emphasis&gt;scope&lt;/emphasis&gt; definert av klammeparantesene.&lt;/simpara&gt;
+&lt;/listitem&gt;
+&lt;listitem&gt;
+&lt;simpara&gt;En variabel som er definert utenfor et hvert sett av klammeparanteser, er i et globalt &lt;emphasis&gt;scope&lt;/emphasis&gt;.&lt;/simpara&gt;
+&lt;/listitem&gt;
+&lt;listitem&gt;
+&lt;simpara&gt;En variabel som er definert med kommandoen &lt;emphasis&gt;static&lt;/emphasis&gt; forann seg, befinner seg
+i &lt;emphasis&gt;scopet&lt;/emphasis&gt; til kompileringsenheten&lt;footnote&gt;&lt;simpara&gt;kompileringsenhet; kodefila pluss headerfiler&lt;/simpara&gt;&lt;/footnote&gt;&lt;/simpara&gt;
+&lt;/listitem&gt;
+&lt;/itemizedlist&gt;
+&lt;/section&gt;
+&lt;/chapter&gt;
+&lt;chapter xml:id="_analyse"&gt;
+&lt;title&gt;Analyse&lt;/title&gt;
+&lt;simpara&gt;Før vi begynner å programmere, må vi ha en god forståelse av hva vi egentlig skal få til.
+Hvilket problem skal vi egentlig løse? Vi må med andre ord analysere oppgaven.&lt;/simpara&gt;
+&lt;formalpara&gt;
+&lt;title&gt;Læringsmål&lt;/title&gt;
+&lt;para&gt;
+&lt;screen&gt; - å analysere et problem&lt;/screen&gt;
+&lt;/para&gt;
+&lt;/formalpara&gt;
+&lt;informalfigure&gt;
+&lt;mediaobject&gt;
+&lt;imageobject&gt;
+&lt;imagedata fileref="bilder/analyse.jpg" contentwidth="200"/&gt;
+&lt;/imageobject&gt;
+&lt;textobject&gt;&lt;phrase&gt;300&lt;/phrase&gt;&lt;/textobject&gt;
+&lt;/mediaobject&gt;
+&lt;/informalfigure&gt;
+&lt;simpara&gt;Hva betyr det egentlig å analysere? Analyse og syntese er to motpareter. Når du analyserer
+betrakter du noe som er satt sammen av mange deler. Under analysen kommer du
+frem til mindre delproblemer, og hvordan disse står i forhold til hverandre. Disse
+mindre delproblemene kan du så analysere videre igjen.
+På den måten analyserer du deg frem til en forståelse av hvordan noe er satt sammen og
+fungerer.&lt;/simpara&gt;
+&lt;simpara&gt;Motsatsen til &lt;emphasis&gt;analyse&lt;/emphasis&gt; heter &lt;emphasis&gt;syntese&lt;/emphasis&gt;. Her har vi har kunnskap om to ulike deler,
+som vi setter sammen til kunnskap om èn ny del.&lt;/simpara&gt;
+&lt;simpara&gt;Når vi utfører en objektorientert analyse er vi interessert i å finne de ulike
+relevante objektene, og deres egenskaper. Ta for eksempel en objektorienter analyse
+av en bil. Hva er de viktigste delen, og egenskapene til disse delene? Jo, det kan
+være slik som at en bil har dører. Dørene må kunne åpnes og lukkes. I tillegg har
+dørene vindu. De må kunne åpnes og lukkes. Ei dør har en lås. Den må kunne låses
+opp og igjen. En lås har en nøkkel. Denne har en radiosender som kan kommunisere
+med låsen. Denne radiosenderen må ha en id eller digital nøkkel, slik at
+radiokommunikasjonen er sikker. Om vi tar for oss motoren, så skjønner du at vi
+kan skrive side opp og side ned om alle objektene vi finner, og relevante egenskaper
+til disse ulike objektene. Da skjønner du også at litt av kunsten rundt
+analyse-arbeidet er å treffe rett med hensyn til graden av detaljer.&lt;/simpara&gt;
+&lt;simpara&gt;Eller sagt på en litt annen måte; det å være på rett abstraksjonsnivå i forhold
+til det problemet man ønsker å løse, eller finne ut av, er veldig viktig. Er man
+på et for lavt abstraksjonsnivå får man ikke noe nytte av analysen, siden det bare
+blir en sky av detaljer. Er man derimot på et for høyt abstraksjonsnivå, klarer man
+ikke å gå inn i problemstilligen og komme opp med en modell eller forståelse, som tar
+deg videre i problemløsningsprosessen.&lt;/simpara&gt;
+&lt;simpara&gt;Uansett, analyse går ut på å avdekke de relevante delene og
+egenskapene til disse, samt hvordan de ulike objektene samhandler med hverandre
+for å løse en oppgave. Denne måten å tenke på fungere rimelig bra for mange
+problemer som vi ønsker å løse ved hjelp av en datamaskin. Men, du skal vite at
+dette er ikke den eneste måte å gå frem på, det finnes en rekke andre metoder.
+Og igjen, husk på at objekt analyse er bare atter et triks for å handtere kompleksitet.
+Vi bruker analyse for å bygge kunnskap og forståelse rundt det
+problemet vi ønsker å løse.&lt;/simpara&gt;
+&lt;simpara&gt;Men, nå ble det mye abstrakt snakk her. For å forstå dette stoffet, må vi konkretisere det
+med et eller flere eksempler. Det første eksempelet vi skal ta for oss, er et
+dataprogram som skal hjelpe oss å avvikle et skirenn. Dette er ei ganske stor
+og &lt;emphasis&gt;rund&lt;/emphasis&gt; progblemstilling, så her trengs det litt analyse for å komme videre.
+Når vi har analysret litt, skal vi strukturere og programmere. Og til slutt har vi
+kanskje et verktøy som kan hjelp oss i å avvikle et skirenn.&lt;/simpara&gt;
+&lt;simpara&gt;(Det andre og siste eksempelet vi skal se på, er utviklingen av et Space-Invader-lignende
+spill, med grafikk og lydeffekter. )&lt;/simpara&gt;
+&lt;/chapter&gt;
+&lt;chapter xml:id="_ski_data_et_eksempel"&gt;
+&lt;title&gt;Ski-data, et eksempel&lt;/title&gt;
+&lt;simpara&gt;Dette kapittelet skal ta for seg analyse, design og implementasjon av et
+dataprogram som skal hjelp oss med å avvikle et skirenn.&lt;/simpara&gt;
+&lt;/chapter&gt;
+&lt;chapter xml:id="_spaceinvader_et_eksempel"&gt;
+&lt;title&gt;Spaceinvader, et eksempel&lt;/title&gt;
+&lt;simpara&gt;todo: alt &#8230;&#8203;&lt;/simpara&gt;
+&lt;/chapter&gt;
+&lt;bibliography xml:id="_bibliografi"&gt;
+&lt;title&gt;Bibliografi&lt;/title&gt;
+&lt;bibliodiv&gt;
+&lt;title&gt;Bøker&lt;/title&gt;
+&lt;bibliomixed&gt;
+&lt;bibliomisc&gt;&lt;anchor xml:id="taoup" xreflabel="[taoup]"/&gt;[taoup] Eric Steven Raymond. 'The Art of Unix Programming'. Addison-Wesley. ISBN 0-13-142901-9.&lt;/bibliomisc&gt;
+&lt;/bibliomixed&gt;
+&lt;bibliomixed&gt;
+&lt;bibliomisc&gt;&lt;anchor xml:id="walsh-muellner" xreflabel="[walsh-muellner]"/&gt;[walsh-muellner] Norman Walsh &amp; Leonard Muellner. 'DocBook - The Definitive Guide'. O’Reilly &amp; Associates. 1999. ISBN 1-56592-580-7.&lt;/bibliomisc&gt;
+&lt;/bibliomixed&gt;
+&lt;/bibliodiv&gt;
+&lt;/bibliography&gt;
+&lt;/book&gt;</simpara>
+</article>
