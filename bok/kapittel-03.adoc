@@ -1,30 +1,31 @@
-== Innputt & Utputt
+== Innputt og utputt
 
 Som nevnt i starten; all databehandling dreier seg rundt det faktum at du sender 
-noe data inn i en prossess. Denne prosessen utfører deretter en eller flere beregninger. 
-Og tilslutt returnerer prosessen et svar tilbake. Derfor kan det være lurt 
-å forstå hvordan man, så enkelt som mulig, kan gjøre dette ved hjelp 
+noe data inn i en prossess. Denne prosessen utfører deretter en eller flere beregninger, for 
+til slutt å returnerer et svar tilbake. 
+
+Derfor kan det være lurt å forstå hvordan man, så enkelt som mulig, kan gjøre dette ved hjelp 
 av _C_-kode. Det er læringsmålet med dette kapitlet.
 
 
 .Læringsmål
 ----
- - innputt (aka input)
+ - innputt 
  - beregning
- - utputt (aka output)
+ - utputt 
 ----
 
 
-Inn-putt og ut-putt er i forhold til operativsystemet footnote:[Windows og Linux 
+Innputt og utputt er i forhold til operativsystemet footnote:[Windows og Linux 
 er eksempler på operativsystem, det vil si det systemet som sørger for at 
 datamaskinen vår fungerer; skjerm, mus, tastatur etc. Det er operativsystemet 
 som starter de ulike programmene som kjører på datamaskinen.]. Det vil si at det 
-er operativsystemet, som når det starter programmet vårt, sender inn inn-putten. Det er det 
-samme operativsystemet som mottar ut-putten fra vårt program, når vårt program avsluttes. 
+er operativsystemet, som når det starter programmet vårt, gir oss innputten. Det er det 
+samme operativsystemet som mottar utputten når programet avsluttes. 
  
 Dette er innputt og utputt i sin enkleste form. Utover dette kan vi også si at vi har innputt 
-i form av data fra mus og tastatur, og utputt i form av informasjon på skjermen etc. Dette 
-kommer vi tilbake til. Aller først skal vi studere den aller enkleste formen for 
+i form av data fra mus og tastatur, og utputt i form av informasjon på skjerm og høytalere etc. Dette 
+kommer vi tilbake til. Aller først skal vi se på den aller enkleste formen for 
 innputt og utputt.
   
 [source,c]  
@@ -37,8 +38,8 @@ int main () { #<1>
     
 }
 ----
-<1> Innputt
-<2> Utputt
+<1> Programmet starter her, og mottar innputt.
+<2> Programmet avslutter her, og sender tilbake noe utputt.
 
 
 Lagre denne koden i ei fil kalt; _test.c_ og skriv:
@@ -51,8 +52,8 @@ programmet som startet det.
 
 Ok, så hva skjer egentlig her? Jo, dette er det enkleste C -programmet som er 
 mulig å skrive, og alt programmet gjør er å returnere tallet null tilbake til den 
-prosessen som startet programmet. Likevel er det mye å lære av det som skjer her. 
-Først merker vi oss at det er en eller annen prosess som starter det programmet vi lager. 
+prosessen som startet programmet. Likevel er det mye å lære;
+først merker vi oss at det er en eller annen prosess som starter det programmet vi lager. 
 Denne prosessen kjører gjerne i et eller annet operativsystem. Det er det samme 
 om vi snakker om Linux, Mac eller Windows; et annet program starter vårt program. 
 
