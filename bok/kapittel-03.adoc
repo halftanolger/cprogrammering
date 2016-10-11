@@ -285,16 +285,16 @@ argument_vektor. Denne inneholder en tabell med pekere av typen ‘char’, som 
 
 
 I den siste setningen dukket det opp en rekke nye begreper som vi skal bruke 
-resten av kapittelet til å lære oss. Mye av dette vil fortone seg svært komplisert. Men, ei fattig trøst er
-at når du får en forståelse av dette, har du kommet svært langt i å få en grunnleggende forståelse for hvordan 
-en datamaskin egentlig fungerer. Som tidligere nevnt, dette er kanskje en av de store fordelene ved å lære seg _C_ -programmering.
-Derfor, fatt mot, og jobb deg gjennom alle eksemplene som følger.
+resten av kapittelet til å lære oss. Mye av dette vil fortone seg komplisert. Ei fattig trøst er
+at når du får en forståelse av dette, har du kommet langt i å få en grunnleggende forståelse av hvordan 
+en datamaskin fungerer. Dette er en av de store fordelene ved å lære seg _C_ -programmering.
 
-Vi skal nå ta for oss datatyper, tabeller og pekere. (Also known as 'the heart of darkness' with regard to C -programming.) Dette er som nevnt så 
-vanskelig å forstå om du ikke har vært borti det tidligere, at du langt på vei bare kan glemme å lære dette kun ved å lese hva som står her. 
-Dette stoffet må jobbes inn. Og det gjør du ved å skrive inn og kompilere og kjøre all de eksemplene som er her. Om 
-du ikke allerede har jobbet med de eksemplene som vi allerede har gått gjennom, kan du like godt stopp her. Dette vil du neppe 
-forstå, uten at du "koder det inn" i fingrene. Så enkelt, og så brutalt er det, ref. Kristen Nygårds ord; å programmere er å forstå.
+Derfor, fatt mot.
+
+Vi skal nå se på datatyper, tabeller og pekere. (Also known as 'the heart of darkness' with regard to C -programming.) Dette er som nevnt så 
+vanskelig å forstå at du langt på vei kan glemme å lære dette kun ved å lese. Dette stoffet må jobbes inn. Det gjør du ved å skrive 
+inn og kompilere og kjøre alle eksemplene. Om du ikke allerede har jobbet med de eksemplene som vi allerede har gått gjennom, 
+kan du like gjerne stoppe her. Ref. Kristen Nygårds ord; å programmere er å forstå.
 
 === Datatyper 
 
