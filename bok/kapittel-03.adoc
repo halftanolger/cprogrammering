@@ -210,7 +210,7 @@ oppgir du dette som input til programmet _gcc_, på denne måten:
 
  gcc test.c
 
-Dette viser inputt skriver du i tur og orden etter navnet på selve programmet. I vårt tilfelle skriver vi noe slikt som dette:
+Dette viser at inputt er noe du skriver i tur og orden etter navnet på selve programmet. I vårt tilfelle skriver vi noe slikt som dette:
 
  a.exe 2
 
@@ -255,7 +255,7 @@ Kompiler og test ved å utføre disse kommandoene:
 Jepp, her skjer det ting. Nå klarer vi å gi input til programmet vårt, vi utfører 
 ei enkel beregning ved å addere tallet 1 til det tallet som kommer inn, og vi 
 returnerer med svaret. Men, det som en gang var verdens minste C -program, har nå 
-blitt litt mer komplisert. Vi starter med: 
+blitt litt mer komplisert. Vi starter med de to innputt-variablene til funksjonen 'main': 
 
  int argument_antall 
  char * argument_vektor[]  
@@ -285,11 +285,16 @@ argument_vektor. Denne inneholder en tabell med pekere av typen ‘char’, som 
 
 
 I den siste setningen dukket det opp en rekke nye begreper som vi skal bruke 
-resten av kapittelet til å lære oss. Mye av dette vil fortone seg komplisert, men ei fattig trøst er
-at når du får en forståelse dette, så har du fått en grunnleggende forståelse for hvordan et hvert dataprogramm egentlig fungerer.
-Som tidligere nevnt, dette er kanskje en av de store fordelene ved å lære seg _C_ -programmering.
+resten av kapittelet til å lære oss. Mye av dette vil fortone seg svært komplisert. Men, ei fattig trøst er
+at når du får en forståelse av dette, har du kommet svært langt i å få en grunnleggende forståelse for hvordan 
+en datamaskin egentlig fungerer. Som tidligere nevnt, dette er kanskje en av de store fordelene ved å lære seg _C_ -programmering.
+Derfor, fatt mot, og jobb deg gjennom alle eksemplene som følger.
 
-Vi nå ta for oss datatyper, tabeller og pekere.
+Vi skal nå ta for oss datatyper, tabeller og pekere. (Also known as 'the heart of darkness' with regard to C -programming.) Dette er som nevnt så 
+vanskelig å forstå om du ikke har vært borti det tidligere, at du langt på vei bare kan glemme å lære dette kun ved å lese hva som står her. 
+Dette stoffet må jobbes inn. Og det gjør du ved å skrive inn og kompilere og kjøre all de eksemplene som er her. Om 
+du ikke allerede har jobbet med de eksemplene som vi allerede har gått gjennom, kan du like godt stopp her. Dette vil du neppe 
+forstå, uten at du "koder det inn" i fingrene. Så enkelt, og så brutalt er det, ref. Kristen Nygårds ord; å programmere er å forstå.
 
 === Datatyper 
 
