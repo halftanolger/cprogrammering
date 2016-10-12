@@ -389,14 +389,14 @@ int vis_resultatliste()  {
     /* Skriv ut liste til skjerm. */ 
     
     printf("\n\n Resultatliste \n\n");    
-    printf("%2s %-20s %-8s %-8s %-8s\n","Nr","Navn","Start","Slutt","Brukt"); 
-    printf("--------------------------------------------------\n");
+    printf("% 2s %-20s %-8s %-8s %-8s\n"," Nr","Navn","Start","Slutt","Brukt"); 
+    printf(" --------------------------------------------------\n");
     
     for (c = 0; c < antall; c++) {   
         for (teller = 0; teller < MAX_ANTALL; teller++) {               
             if (deltakere[teller].nummer == r[c][1]) { 
             
-                printf("%2d %-20s %.2d:%.2d:%.2d %.2d:%.2d:%.2d %.2d:%.2d:%.2d  \n", 
+                printf(" %2d %-20s %.2d:%.2d:%.2d %.2d:%.2d:%.2d %.2d:%.2d:%.2d  \n", 
                 deltakere[teller].nummer, 
                 deltakere[teller].navn,
                 deltakere[teller].starttid.time,
