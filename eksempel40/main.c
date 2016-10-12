@@ -93,8 +93,8 @@ int meny() {
     printf(" 0 - avslutt \n");
     printf(" 1 - registrer deltaker \n");
     printf(" 2 - slett deltaker \n");
-    printf(" 3 - registrer start-tid på deltaker \n");
-    printf(" 4 - registrer slutt-tid på deltaker \n");
+    printf(" 3 - registrer start-tid for en deltaker \n");
+    printf(" 4 - registrer slutt-tid for en deltaker \n");
     printf(" 5 - vis deltakerliste \n");
     printf(" 6 - vis resultatliste \n\n");    
     printf(" Velg: ");
@@ -240,11 +240,21 @@ int vis_deltakerliste() {
 
     int teller = 0;
     
-    printf("\n\n Deltakerliste \n\n");
-    
+    printf("\n\n Deltakerliste \n\n");    
+    printf(" %2s %-20s %-8s %-8s %-8s\n","Nr","Navn","Start","Slutt"); 
+    printf(" -----------------------------------------\n");
+       
     for (teller = 0; teller < MAX_ANTALL; teller++) {        
         if (deltakere[teller].nummer != 0) {                 
-            printf("%.2d %s\n", deltakere[teller].nummer, deltakere[teller].navn);                       
+                printf(" %2d %-20s %.2d:%.2d:%.2d %.2d:%.2d:%.2d  \n", 
+                deltakere[teller].nummer, 
+                deltakere[teller].navn,
+                deltakere[teller].starttid.time,
+                deltakere[teller].starttid.minutt,
+                deltakere[teller].starttid.sekund,
+                deltakere[teller].sluttid.time,
+                deltakere[teller].sluttid.minutt,
+                deltakere[teller].sluttid.sekund);            
         }        
     }
     

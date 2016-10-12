@@ -1,7 +1,7 @@
 
 CC = gcc
 
-CFLAGS = -Wall -std=c99 -g -c 
+CFLAGS = -Wall -g -c 
 
 INCLUDES = -I/usr/include/SDL2
 
