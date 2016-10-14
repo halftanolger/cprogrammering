@@ -1,8 +1,8 @@
 == Ski-data, et eksempel
 
-Dette kapittelet skal ta for seg analyse, design og implementasjon av et 
-dataprogram som skal hjelp oss med å avvikle et skirenn. Når vi har jobbet oss 
-gjennom dette eksempelet, skal vi ha et praktisk og enkelt lite dataprogram, som 
+Vi skal se på analyse, design og implementasjon av et 
+program som skal hjelp oss å avvikle et skirenn. Når vi har jobbet oss 
+gjennom dette eksempelet, ender vi opp med et praktisk og enkelt lite dataprogram som 
 faktisk gjør en vettug jobb.
 
 .Læringsmål
@@ -21,7 +21,7 @@ ski-gruppa. Kravspesifikasjonen kan se ut som dette:
  deltakere, registrere start- og slutttid, samt skrive ut ei deltakerliste og
  ei resultatliste.
  
-Om vi nå skal prøve oss på en objektorientert analyse av hva som står ovenfor, må 
+Om vi skal prøve oss på en objektorientert analyse av hva som står ovenfor, må 
 vi stille oss spørsmålet; hva er de viktigste objektene i teksten ovenfor?
 
 Vi snakker jo om et skirenn, så _skirenn_ må jo være et sentralt objekt. Et skirenn 
@@ -100,10 +100,106 @@ vi inn disse egenskapene på _deltaker_-objektet.
                                               |
                                               +-- slutt-tid
 
-Nå tror jeg vi har fått jobbet frem en ganske grei data-modell. Vi har et 
+Nå har vi jobbet frem en ganske grei data-modell. Vi har et 
 skirenn som har ei liste av deltakere, som igjen har et startnummer, 
 et navn, ei starttid og ei sluttid. Ved hjelp av denne datamodellen skal vi klare å 
 registrere en deltaker, ei start- og  slutttid, samt skrive ut deltakerliste og resultatliste.
+
+Men, før vi ser nærmere på den logikken som skal manipulere innholdet i datamodellen, 
+altså de ulike funksjonene, skal vi fullføre definisjonen av datamodellen, slik vi kan 
+realisere den i _C_.  Hittil har vi kun vært borti datatypene _int_ og _char_. Heltall 
+kan lagres i variabler som er av typen _int_, og 
+tekststrenger, altså ord og setninger, kan lagres i tabeller av _char_.
+
+Et startnummer er alltid et heltall større enn null, så _int_ passer perfekt, f.eks:
+
+    int nr = 1;
+
+Et navn er alltid en tekststreng som typisk består av to, tre ord, f.eks:
+
+    char navn[60] = "Ola Nordmann";
+    
+Legg merke til at jeg oppretter en variabel, eller databoks, av typen 
+tabell av char, som kan inneholde 60 char's, selv om jeg bare bruker 12. 
+
+Siden programmet skal kunne takle flere ulike navn, må vi sette av så mye plass 
+som vi tror vi kan komme til å trenge. Det som er viktig å få med seg her, er at 
+vi setter av 60 char til lagring av et navn. (Problemstillingen er litt forenklet,
+siden det i praksis er ikke alltid er slik at en bokstav det samme som en char. 
+Det kommer av at det er ulike måter å representere en bokstav på. Det er flere ulike såkalte tegnsett.)
+
+Så langt har vi funnet ut at vi skal lager startnummeret i en variabel av typen _int_ og 
+at vi skal lagre navnet som en streng, altså en tabell av _char_. Men, hvordan 
+skal vi lagre start-tid og slutt-tid i _C_?
+
+Vi må modellere _tid_. En måte å modellere tid på, er å la tre heltall representere 
+tiden; et heltall for antall timer, et heltall for antall minutter og et heltall for antall sekunder.
+
+    int timer;
+    int minutter;
+    int sekunder;
+    
+Ved hjelp av disse tre heltallene kan vi angi et tidspunkt som er tilstrekkelig for vårt behov.    
+
+[source,c]  
+---- 
+#include <stdio.h>
+
+int main() {
+
+    int timer    = 12;
+    int minutter = 15;
+    int sekunder = 00;
+
+    printf ("Klokken er %.2d:%.2d:%.2d",timer, minutter, sekunder);
+    
+    return 0;
+}
+----
+
+Gir følgende utskrift på skjermen
+
+    Klokken er 12:15:00
+
+Vi trenger å kunne lagre tre tidspunkt; starttid, sluttid og anvendttid, hvor vi må 
+regne oss frem til det siste. Egentlig er vi ved kjernen i programmet vårt her, siden 
+det er nettopp det som utgjør merverdien til programmet vårt; det å beregne anvendt tid og ut 
+fra den, lage ei resultatliste. Så la oss ta dette steg for steg.
+
+
+[source,c]  
+---- 
+#include <stdio.h>
+
+int main() {
+
+    int start_tid_timer    = 12;
+    int start_tid_minutter = 15;
+    int start_tid_sekunder = 00;
+    
+    int slutt_tid_timer    = 12;
+    int slutt_tid_minutter = 30;
+    int slutt_tid_sekunder = 00;
+    
+
+    printf ("Starttid er %.2d:%.2d:%.2d\n",start_tid_timer, start_tid_minutter, start_tid_sekunder);
+    printf ("Slutttid er %.2d:%.2d:%.2d\n",slutt_tid_timer, slutt_tid_minutter, slutt_tid_sekunder);
+    
+    
+    return 0;
+}
+----
+
+
+   
+
+
+
+
+
+
+
+//TODO: work in progress
 
 Sagt på en annen måte; objektet _skirenn_ skal utføre disse funksjonene:
 
