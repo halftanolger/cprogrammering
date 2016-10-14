@@ -1,6 +1,6 @@
 == Analyse
 
-Før vi begynner å programmere, må vi ha en god forståelse av hva vi egentlig skal få til. 
+Før vi begynner å programmere, må vi ha en god forståelse av hva vi ønsker å få til. 
 Hvilket problem skal vi egentlig løse? Vi må med andre ord analysere oppgaven.
 
 .Læringsmål
@@ -10,27 +10,27 @@ Hvilket problem skal vi egentlig løse? Vi må med andre ord analysere oppgaven.
 
 image::bilder/analyse.jpg[300, 200]
 
-Hva betyr det egentlig å analysere? Analyse og syntese er to motpareter. Når du analyserer 
+Hva betyr å analysere? Analyse og syntese er to motpareter. Når du analyserer 
 betrakter du noe som er satt sammen av mange deler. Under analysen kommer du 
-frem til mindre delproblemer, og hvordan disse står i forhold til hverandre. Disse 
-mindre delproblemene kan du så analysere videre igjen. 
-På den måten analyserer du deg frem til en forståelse av hvordan noe er satt sammen og  
+frem til mindre delproblemer, samt hvordan disse står i forhold til hverandre. 
+Delproblemene kan du så analysere videre igjen. 
+På den måten kan analysen hjelpe oss frem til en forståelse av hvordan noe   
 fungerer. 
 
-Motsatsen til _analyse_ heter _syntese_. Her har vi har kunnskap om to ulike deler, 
+Motsatsen til _analyse_ heter _syntese_. Her har vi kunnskap om to ulike deler, 
 som vi setter sammen til kunnskap om èn ny del. 
 
 Når vi utfører en objektorientert analyse er vi interessert i å finne de ulike 
-relevante objektene, og deres egenskaper. Ta for eksempel en objektorienter analyse 
+relevante objektene, og hva de kan gjøre. Ta for eksempel en objektorienter analyse 
 av en bil. Hva er de viktigste delen, og egenskapene til disse delene? Jo, det kan 
-være slik som at en bil har dører. Dørene må kunne åpnes og lukkes. I tillegg har 
+være slikt som at en bil har dører. Dette er objekter. Dørene må kunne åpnes og lukkes. Det er egenskaper eller oppgaver som ei dør må kunne utføre. I tillegg har 
 dørene vindu. De må kunne åpnes og lukkes. Ei dør har en lås. Den må kunne låses 
 opp og igjen. En lås har en nøkkel. Denne har en radiosender som kan kommunisere 
 med låsen. Denne radiosenderen må ha en id eller digital nøkkel, slik at  
-radiokommunikasjonen er sikker. Om vi tar for oss motoren, så skjønner du at vi 
+radiokommunikasjonen er sikker. Om vi tar for oss motoren, så ser vi fort at vi 
 kan skrive side opp og side ned om alle objektene vi finner, og relevante egenskaper 
-til disse ulike objektene. Da skjønner du også at litt av kunsten rundt 
-analyse-arbeidet er å treffe rett med hensyn til graden av detaljer. 
+til disse ulike objektene. Litt av kunsten rundt analyse-arbeidet, er å treffe rett 
+med hensyn til graden av detaljer som vi skal bry oss om, når vi analyserer et problem. 
 
 Eller sagt på en litt annen måte; det å være på rett abstraksjonsnivå i forhold 
 til det problemet man ønsker å løse, eller finne ut av, er veldig viktig. Er man 
@@ -44,19 +44,20 @@ egenskapene til disse, samt hvordan de ulike objektene samhandler med hverandre
 for å løse en oppgave. Denne måten å tenke på fungere rimelig bra for mange 
 problemer som vi ønsker å løse ved hjelp av en datamaskin. Men, du skal vite at 
 dette er ikke den eneste måte å gå frem på, det finnes en rekke andre metoder.  
-Og igjen, husk på at objekt analyse er bare atter et triks for å handtere kompleksitet. 
+Og igjen, husk på at objekt-orientert analyse er bare atter et triks for å handtere kompleksitet. 
 Vi bruker analyse for å bygge kunnskap og forståelse rundt det 
 problemet vi ønsker å løse.
 
-Men, nå ble det mye abstrakt snakk her. For å forstå dette stoffet, må vi konkretisere det 
-med et eller flere eksempler. Det første eksempelet vi skal ta for oss, er et 
+Nå ble det mye abstrakt snakk her. For å forstå dette stoffet litt bedre, skal vi jobbe oss gjennom to konkrete 
+eksempler. Det første eksempelet vi skal ta for oss, er et 
 dataprogram som skal hjelpe oss å avvikle et skirenn. Dette er ei ganske stor 
 og _rund_ progblemstilling, så her trengs det litt analyse for å komme videre. 
 Når vi har analysret litt, skal vi strukturere og programmere. Og til slutt har vi 
 kanskje et verktøy som kan hjelp oss i å avvikle et skirenn.
 
-(Det andre og siste eksempelet vi skal se på, er utviklingen av et Space-Invader-lignende 
-spill, med grafikk og lydeffekter. )
+Det andre og siste eksempelet vi skal se på, er utviklingen av et Space-Invader-lignende 
+spill, med grafikk og lydeffekter. Dette vil være et mer eller mindre komplett 
+programmeringsprosjekt, hvor vi prøver å ta i bruk alle triksene vi har pratet om så langt.
 
 
 

@@ -1,5 +1,119 @@
 == Ski-data, et eksempel
 
 Dette kapittelet skal ta for seg analyse, design og implementasjon av et 
-dataprogram som skal hjelp oss med å avvikle et skirenn.
+dataprogram som skal hjelp oss med å avvikle et skirenn. Når vi har jobbet oss 
+gjennom dette eksempelet, skal vi ha et praktisk og enkelt lite dataprogram, som 
+faktisk gjør en vettug jobb.
 
+.Læringsmål
+----
+ - å analysere ei problemstilling
+ - å designe ei software-løsning (på papiret)
+ - å implenetere et løsninsforslag (ved hjelp av C)
+----
+
+
+Vi tenker oss at vi har fått tilsendt en kravspesifikasjon fra den lokale 
+ski-gruppa. Kravspesifikasjonen kan se ut som dette:
+
+ Lag et dataprogram som beregner anvendt tid pr deltaker på et skirenn med 
+ individuell start. Ved hjelp av programmet skal det være mulig å registrere
+ deltakere, registrere start- og slutttid, samt skrive ut ei deltakerliste og
+ ei resultatliste.
+ 
+Om vi nå skal prøve oss på en objektorientert analyse av hva som står ovenfor, må 
+vi stille oss spørsmålet; hva er de viktigste objektene i teksten ovenfor?
+
+Vi snakker jo om et skirenn, så _skirenn_ må jo være et sentralt objekt. Et skirenn 
+består av _deltakere_, så de hører sikkert med som et objekt i denne sammenhengen. 
+En deltaker har en rekke egenskaper i for bindelse med et skirenn; _start-tid_ og _slutt-tid_. 
+Et skirenn har også ei _deltakerliste_ og ei _resultatliste_. 
+
+Nå har vi avdekt en del sentrale objekter. Om vi prøve å 
+sette disse objektene opp i en stuktur eller modell, som viser hvordan de henger 
+sammen, kommer vi et steg videre.
+
+ skirenn --+
+           |
+           +-- deltakere --+
+           |               |
+           |               +-- start-tid
+           |               |
+           |               +-- slutt-tid
+           |
+           +-- deltakerliste
+           |
+           +-- resultatliste
+           
+       
+Ser vi litt nærmere på den modellen, legger vi merke til at det er 
+en rekke små forbedringer som kan gjøres. Det å finne slike 
+forbedringspunkter i en modell, krever litt erfaring, litt teft og litt kjennskap til 
+problemdomenet. Som nevnt utfører vi analysen for å få en dypere forståelse rundt 
+problemstillinga, derfor er det helt naturlig at vi knar litt på modellen.
+
+Det første jeg legger merke til, er at objektet _deltakere_ kanskje heller 
+skulle hete _deltaker_ og ligge under objektet _deltakerliste_, siden deltaker
+er en egenskap til ei deltakerliste som igjen er en egenskap til et skirenn.
+
+ skirenn --+
+           |           
+           +-- deltakerliste --+
+           |                   |           
+           |                   +-- deltaker --+
+           |                                  |
+           |                                  +-- start-tid
+           |                                  |
+           |                                  +-- slutt-tid
+           |
+           +-- resultatliste
+
+Videre kan vi legge merke til at det egentlig ikke er noen forskjell mellom ei 
+deltakerliste og ei resultatliste. Vi lager resultatlista ut fra noen beregninger 
+utført på deltakerlista. Dermed kan vi droppe denne fra modellen.
+
+ skirenn --+
+           |           
+           +-- deltakerliste --+
+                               |           
+                               +-- deltaker --+
+                                              |
+                                              +-- start-tid
+                                              |
+                                              +-- slutt-tid
+                                        
+En deltaker må kunne identifiseres med noen annet enn ei start-tid 
+og ei slutt-tid. En deltaker har også et startnummer og et navn. Derfor putter 
+vi inn disse egenskapene på _deltaker_-objektet.
+
+ skirenn --+
+           |           
+           +-- deltakerliste --+
+                               |           
+                               +-- deltaker --+
+                                              |
+                                              +-- nr
+                                              |
+                                              +-- navn
+                                              |
+                                              +-- start-tid
+                                              |
+                                              +-- slutt-tid
+
+Nå tror jeg vi har fått jobbet frem en ganske grei data-modell. Vi har et 
+skirenn som har ei liste av deltakere, som igjen har et startnummer, 
+et navn, ei starttid og ei sluttid. Ved hjelp av denne datamodellen skal vi klare å 
+registrere en deltaker, ei start- og  slutttid, samt skrive ut deltakerliste og resultatliste.
+
+Sagt på en annen måte; objektet _skirenn_ skal utføre disse funksjonene:
+
+ - registrer_deltaker
+ - slett_deltaker
+ - registrer_starttid
+ - registrer_sluttid
+ - vis_deltakerliste
+ - vis_resultatliste
+
+
+
+ 
