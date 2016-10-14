@@ -163,7 +163,7 @@ Gir følgende utskrift på skjermen
 
 Vi trenger å kunne lagre tre tidspunkt; starttid, sluttid og anvendttid, hvor vi må 
 regne oss frem til det siste. Egentlig er vi ved kjernen i programmet vårt her, siden 
-det er nettopp det som utgjør merverdien til programmet vårt; det å beregne anvendt tid og ut 
+det er nettopp dette som utgjør merverdien til programmet; det å beregne anvendt tid og ut 
 fra den, lage ei resultatliste. Så la oss ta dette steg for steg.
 
 
@@ -181,11 +181,9 @@ int main() {
     int slutt_tid_minutter = 30;
     int slutt_tid_sekunder = 00;
     
-
     printf ("Starttid er %.2d:%.2d:%.2d\n",start_tid_timer, start_tid_minutter, start_tid_sekunder);
     printf ("Slutttid er %.2d:%.2d:%.2d\n",slutt_tid_timer, slutt_tid_minutter, slutt_tid_sekunder);
-    
-    
+        
     return 0;
 }
 ----
@@ -194,21 +192,6 @@ int main() {
    
 
 
-
-
-
-
-
-//TODO: work in progress
-
-Sagt på en annen måte; objektet _skirenn_ skal utføre disse funksjonene:
-
- - registrer_deltaker
- - slett_deltaker
- - registrer_starttid
- - registrer_sluttid
- - vis_deltakerliste
- - vis_resultatliste
 
 
 
