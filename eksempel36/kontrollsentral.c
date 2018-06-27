@@ -143,7 +143,16 @@ void Kontrollsentral_tikk (Kontrollsentral * kontrollsentral) {
     char buff[128];
     sprintf(buff,"POENG %.4d TOPP %.4d (%.2d)",modell->poeng,modell->toppresultat,modell->ledigeprosjektil);
     Tekst_set_melding (modell->tekst_poeng, buff);
-            
+
+	
+	/* Vent i 10 millisekunder */
+	
+	Uint32 t1 = SDL_GetTicks();
+	Uint32 t2 = 0;
+	while( t2 < (t1+10)) {
+		t2 = SDL_GetTicks();
+	}
+				
 }
 
 void Kontrollsentral_les_data (Kontrollsentral * kontrollsentral) {
